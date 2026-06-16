@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Guides | Bike Bratislava</title>
+    <meta name="description" content="Meet the people behind the ride. Our guides are passionate local cyclists, storytellers, and road leaders.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            luxeDark: '#0F0E0E',
+                            luxeLight: '#F5F4F0',
+                            luxeGold: '#A38A5F',
+                            luxeGoldDark: '#8F774F',
+                            luxeTextDark: '#1C1917',
+                            luxeTextLight: '#EAE8E4'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Cormorant Garamond', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-brand-luxeLight text-brand-luxeTextDark font-sans antialiased selection:bg-brand-luxeGold selection:text-brand-luxeDark">
+
+    <!-- HEADER & NAVIGATION -->
+    <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 py-6 bg-brand-luxeDark/95 backdrop-blur-md shadow-2xl border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
+            <a href="index.html" class="flex flex-col group">
+                <span class="font-serif text-2xl lg:text-3xl tracking-widest text-brand-luxeTextLight transition-colors duration-300">
+                    BIKE BRATISLAVA
+                </span>
+                <span class="text-[8px] tracking-[0.35em] text-stone-400 font-light uppercase">
+                    Central Europe
+                </span>
+            </a>
+
+            <nav class="hidden lg:flex items-center space-x-10">
+                <a href="index.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent">Home</a>
+                <a href="about.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">About Us</a>
+                <a href="discover.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Discover Bratislava</a>
+                <a href="tours.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Tours & Rides</a>
+                <a href="guides.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-brand-luxeGold">Our Guides</a>
+                <a href="journal.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Journal</a>
+                <a href="contact.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Contact</a>
+            </nav>
+
+            <div class="hidden lg:block">
+                <a href="contact.html" class="inline-flex items-center justify-center px-8 py-3 text-[10px] font-medium tracking-[0.3em] uppercase border border-white/20 text-white hover:bg-white hover:text-brand-luxeDark transition-all duration-500 rounded-none">
+                    Plan Your Ride
+                </a>
+            </div>
+
+            <button id="mobile-menu-toggle" class="lg:hidden text-white hover:text-brand-luxeGold transition-colors focus:outline-none" aria-label="Toggle Menu">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU OVERLAY -->
+    <div id="mobile-menu" class="fixed inset-0 bg-brand-luxeDark z-40 flex flex-col justify-between transform translate-x-full transition-transform duration-500 ease-in-out p-8 pt-28">
+        <nav class="flex flex-col space-y-6">
+            <a href="index.html" class="font-serif text-4xl text-stone-400 hover:text-brand-luxeGold transition-colors py-2 border-b border-stone-900">Home</a>
+            <a href="about.html" class="font-serif text-4xl text-stone-400 hover:text-brand-luxeGold transition-colors py-2 border-b border-stone-900">About Us</a>
+            <a href="discover.html" class="font-serif text-4xl text-stone-400 hover:text-brand-luxeGold transition-colors py-2 border-b border-stone-900">Discover Bratislava</a>
+            <a href="tours.html" class="font-serif text-4xl text-stone-400 hover:text-brand-luxeGold transition-colors py-2 border-b border-stone-900">Tours & Rides</a>
+            <a href="guides.html" class="font-serif text-4xl text-white hover:text-brand-luxeGold transition-colors py-2 border-b border-stone-900">Our Guides</a>
+            <a href="journal.html" class="font-serif text-4xl text-stone-400 hover:text-brand-luxeGold transition-colors py-2 border-b border-stone-900">Journal</a>
+            <a href="contact.html" class="font-serif text-4xl text-stone-400 hover:text-brand-luxeGold transition-colors py-2 border-b border-stone-900">Contact</a>
+        </nav>
+        
+        <div class="flex flex-col space-y-4">
+            <a href="contact.html" class="w-full text-center py-4 bg-brand-luxeGold text-white hover:bg-brand-luxeGoldDark font-medium uppercase tracking-[0.2em] text-xs transition-colors duration-300 rounded-none">
+                Plan Your Ride
+            </a>
+        </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-56 pb-32 bg-brand-luxeDark text-white overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1920&q=80" 
+                 alt="Our guides header background" 
+                 class="w-full h-full object-cover object-center opacity-15">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-luxeDark via-brand-luxeDark/65 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+            <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-4 block">The Team</span>
+            <h1 class="font-serif text-5xl md:text-7xl font-light mb-6">Meet The People Behind The Ride</h1>
+            <p class="text-stone-400 text-sm md:text-base font-light max-w-2xl mx-auto leading-relaxed tracking-wider">
+                Great rides are created by great people.
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTION: GUIDES PROFILE CARDS -->
+    <section class="py-32 bg-white">
+        <div class="max-w-6xl mx-auto px-6 lg:px-12">
+            <div class="space-y-32">
+                
+                <!-- Guide 1: Peter -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                    <div class="lg:col-span-5">
+                        <div class="aspect-[3/4] overflow-hidden shadow-2xl border border-stone-200">
+                            <!-- Premium smiling guide outdoor portrait -->
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80" 
+                                 alt="Peter Horvath - Chief Guide" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="lg:col-span-7">
+                        <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-2 block">Co-founder & Chief Ride Leader</span>
+                        <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl font-light text-brand-luxeDark mb-6">Peter "Peto" Horvath</h2>
+                        
+                        <div class="grid grid-cols-2 gap-6 py-6 border-y border-stone-200/60 mb-8 text-xs font-sans tracking-wide">
+                            <div>
+                                <span class="text-[10px] text-stone-400 block font-bold uppercase mb-1">Languages</span>
+                                <span class="font-medium text-brand-luxeDark">English, German, Slovak</span>
+                            </div>
+                            <div>
+                                <span class="text-[10px] text-stone-400 block font-bold uppercase mb-1">Years Riding</span>
+                                <span class="font-medium text-brand-luxeDark">15+ Years</span>
+                            </div>
+                            <div>
+                                <span class="text-[10px] text-stone-400 block font-bold uppercase mb-1">Favourite Route</span>
+                                <span class="font-medium text-brand-luxeDark">Cross Border Challenge</span>
+                            </div>
+                            <div>
+                                <span class="text-[10px] text-stone-400 block font-bold uppercase mb-1">Coffee Stop & Local Place</span>
+                                <span class="font-medium text-brand-luxeDark">Biela Mačka, Kittsee / Morava Confluence</span>
+                            </div>
+                        </div>
+
+                        <blockquote class="font-serif italic text-stone-500 mb-8 border-l border-brand-luxeGold pl-6 text-base md:text-lg font-light leading-relaxed">
+                            "Bratislava is one of the continent's most underrated regions. Cycling gives us the opportunity to bridge cultures, cross countries, and feel local wind in a single afternoon."
+                        </blockquote>
+
+                        <p class="text-stone-600 font-light leading-relaxed text-sm md:text-base tracking-wide font-sans">
+                            Peter has cycled all across Central Europe but loves returning to the Bratislava paths. He created Bike Bratislava to connect international visitors with his favorite local hideouts, backroads, and regional routes.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Guide 2: Katka -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                    <div class="lg:col-span-5 lg:order-2">
+                        <div class="aspect-[3/4] overflow-hidden shadow-2xl border border-stone-200">
+                            <!-- Premium smiling woman rider outdoors -->
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80" 
+                                 alt="Katarina Novakova - Vineyard Guide" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="lg:col-span-7 lg:order-1">
+                        <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-2 block">Vineyard Guide & Cultural Lead</span>
+                        <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl font-light text-brand-luxeDark mb-6">Katarina "Katka" Novakova</h2>
+                        
+                        <div class="grid grid-cols-2 gap-6 py-6 border-y border-stone-200/60 mb-8 text-xs font-sans tracking-wide">
+                            <div>
+                                <span class="text-[10px] text-stone-400 block font-bold uppercase mb-1">Languages</span>
+                                <span class="font-medium text-brand-luxeDark">English, Italian, Slovak</span>
+                            </div>
+                            <div>
+                                <span class="text-[10px] text-stone-400 block font-bold uppercase mb-1">Years Riding</span>
+                                <span class="font-medium text-brand-luxeDark">8 Years</span>
+                            </div>
+                            <div>
+                                <span class="text-[10px] text-stone-400 block font-bold uppercase mb-1">Favourite Route</span>
+                                <span class="font-medium text-brand-luxeDark">Wine & Villages Ride</span>
+                            </div>
+                            <div>
+                                <span class="text-[10px] text-stone-400 block font-bold uppercase mb-1">Coffee Stop & Local Place</span>
+                                <span class="font-medium text-brand-luxeDark">Café Kruh, Svätý Jur / Vineyard hills</span>
+                            </div>
+                        </div>
+
+                        <blockquote class="font-serif italic text-stone-500 mb-8 border-l border-brand-luxeGold pl-6 text-base md:text-lg font-light leading-relaxed">
+                            "Riding a bicycle through row vineyards is the best way to touch our local terroir and learn wine history."
+                        </blockquote>
+
+                        <p class="text-stone-600 font-light leading-relaxed text-sm md:text-base tracking-wide font-sans">
+                            Katka has a background in history and winemaking. She mixes local stories and vineyard secret single tracks to make every ride feel like a journey through time, stopping to sample local products along the way.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Guide 3: Mato -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                    <div class="lg:col-span-5">
+                        <div class="aspect-[3/4] overflow-hidden shadow-2xl border border-stone-200">
+                            <!-- Premium male active cyclist portrait -->
+                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=80" 
+                                 alt="Martin Balaz - Gravel Specialist" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="lg:col-span-7">
+                        <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-2 block">Gravel & Road Specialist</span>
+                        <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl font-light text-brand-luxeDark mb-6">Martin "Maťo" Balaz</h2>
+                        
+                        <div class="grid grid-cols-2 gap-6 py-6 border-y border-stone-200/60 mb-8 text-xs font-sans tracking-wide">
+                            <div>
+                                <span class="text-[10px] text-stone-400 block font-bold uppercase mb-1">Languages</span>
+                                <span class="font-medium text-brand-luxeDark">English, Slovak</span>
+                            </div>
+                            <div>
+                                <span class="text-[10px] text-stone-400 block font-bold uppercase mb-1">Years Riding</span>
+                                <span class="font-medium text-brand-luxeDark">12 Years</span>
+                            </div>
+                            <div>
+                                <span class="text-[10px] text-stone-400 block font-bold uppercase mb-1">Favourite Route</span>
+                                <span class="font-medium text-brand-luxeDark">Little Carpathians Forest Gravel</span>
+                            </div>
+                            <div>
+                                <span class="text-[10px] text-stone-400 block font-bold uppercase mb-1">Coffee Stop & Local Place</span>
+                                <span class="font-medium text-brand-luxeDark">Zochova Chata / Pajštún Castle ruins</span>
+                            </div>
+                        </div>
+
+                        <blockquote class="font-serif italic text-stone-500 mb-8 border-l border-brand-luxeGold pl-6 text-base md:text-lg font-light leading-relaxed">
+                            "If you aren't leaving the pavement, you're missing half of what the Carpathians have to offer."
+                        </blockquote>
+
+                        <p class="text-stone-600 font-light leading-relaxed text-sm md:text-base tracking-wide font-sans">
+                            Martin is a competitive gravel racer. If you want a fast road sportive or to push your gravel limits through forest routes, Maťo knows every single stone, fire road, and winding path in the Little Carpathians.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-luxeDark text-stone-500 py-24 border-t border-stone-900">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 font-sans tracking-wide">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
+                <div class="md:col-span-2">
+                    <span class="font-serif text-2xl tracking-widest text-white">BIKE BRATISLAVA</span>
+                    <p class="text-xs font-light leading-relaxed mt-6 pr-8 text-stone-400">
+                        Discover Bratislava and the heart of Central Europe from the saddle. Guided cycling tours, road rides, gravel adventures and custom cycling experiences designed by local riders.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] text-white mb-6">Explore</h4>
+                    <ul class="space-y-4 text-xs font-light">
+                        <li><a href="index.html" class="hover:text-brand-luxeGold transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-brand-luxeGold transition-colors">About Us</a></li>
+                        <li><a href="discover.html" class="hover:text-brand-luxeGold transition-colors">Discover Bratislava</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] text-white mb-6">Rides</h4>
+                    <ul class="space-y-4 text-xs font-light">
+                        <li><a href="tours.html" class="hover:text-brand-luxeGold transition-colors">Tours & Rides</a></li>
+                        <li><a href="guides.html" class="hover:text-brand-luxeGold transition-colors">Our Guides</a></li>
+                        <li><a href="contact.html" class="hover:text-brand-luxeGold transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-stone-900/60 pt-8 flex flex-col md:flex-row items-center justify-between text-[10px] font-light">
+                <p>&copy; 2026 Bike Bratislava. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        const toggleBtn = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        let isOpen = false;
+        
+        toggleBtn.addEventListener('click', () => {
+            isOpen = !isOpen;
+            if(isOpen) {
+                mobileMenu.classList.remove('translate-x-full');
+                toggleBtn.innerHTML = '<i data-lucide="x" class="w-6 h-6 text-white"></i>';
+            } else {
+                mobileMenu.classList.add('translate-x-full');
+                toggleBtn.innerHTML = '<i data-lucide="menu" class="w-6 h-6 text-white"></i>';
+            }
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journal | Bike Bratislava</title>
+    <meta name="description" content="Stories from the saddle. Routes, travel inspiration, local tips and cycling stories from Bratislava and beyond.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            luxeDark: '#0F0E0E',
+                            luxeLight: '#F5F4F0',
+                            luxeGold: '#A38A5F',
+                            luxeGoldDark: '#8F774F',
+                            luxeTextDark: '#1C1917',
+                            luxeTextLight: '#EAE8E4'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Cormorant Garamond', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-brand-luxeLight text-brand-luxeTextDark font-sans antialiased selection:bg-brand-luxeGold selection:text-brand-luxeDark">
+
+    <!-- HEADER & NAVIGATION -->
+    <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 py-6 bg-brand-luxeDark/95 backdrop-blur-md shadow-2xl border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
+            <a href="index.html" class="flex flex-col group">
+                <span class="font-serif text-2xl lg:text-3xl tracking-widest text-brand-luxeTextLight transition-colors duration-300">
+                    BIKE BRATISLAVA
+                </span>
+                <span class="text-[8px] tracking-[0.35em] text-stone-400 font-light uppercase">
+                    Central Europe
+                </span>
+            </a>
+
+            <nav class="hidden lg:flex items-center space-x-10">
+                <a href="index.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent">Home</a>
+                <a href="about.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">About Us</a>
+                <a href="discover.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Discover Bratislava</a>
+                <a href="tours.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Tours & Rides</a>
+                <a href="guides.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Our Guides</a>
+                <a href="journal.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-brand-luxeGold">Journal</a>
+                <a href="contact.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Contact</a>
+            </nav>
+
+            <div class="hidden lg:block">
+                <a href="contact.html" class="inline-flex items-center justify-center px-8 py-3 text-[10px] font-medium tracking-[0.3em] uppercase border border-white/20 text-white hover:bg-white hover:text-brand-luxeDark transition-all duration-500 rounded-none">
+                    Plan Your Ride
+                </a>
+            </div>
+
+            <button id="mobile-menu-toggle" class="lg:hidden text-white hover:text-brand-luxeGold transition-colors focus:outline-none" aria-label="Toggle Menu">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU OVERLAY -->
+    <div id="mobile-menu" class="fixed inset-0 bg-brand-luxeDark z-40 flex flex-col justify-between transform translate-x-full transition-transform duration-500 ease-in-out p-8 pt-28">
+        <nav class="flex flex-col space-y-6">
+            <a href="index.html" class="font-serif text-4xl text-stone-400 hover:text-brand-luxeGold transition-colors py-2 border-b border-stone-900">Home</a>
+            <a href="about.html" class="font-serif text-4xl text-stone-400 hover:text-brand-luxeGold transition-colors py-2 border-b border-stone-900">About Us</a>
+            <a href="discover.html" class="font-serif text-4xl text-stone-400 hover:text-brand-luxeGold transition-colors py-2 border-b border-stone-900">Discover Bratislava</a>
+            <a href="tours.html" class="font-serif text-4xl text-stone-400 hover:text-brand-luxeGold transition-colors py-2 border-b border-stone-900">Tours & Rides</a>
+            <a href="guides.html" class="font-serif text-4xl text-stone-400 hover:text-brand-luxeGold transition-colors py-2 border-b border-stone-900">Our Guides</a>
+            <a href="journal.html" class="font-serif text-4xl text-white hover:text-brand-luxeGold transition-colors py-2 border-b border-stone-900">Journal</a>
+            <a href="contact.html" class="font-serif text-4xl text-stone-400 hover:text-brand-luxeGold transition-colors py-2 border-b border-stone-900">Contact</a>
+        </nav>
+        
+        <div class="flex flex-col space-y-4">
+            <a href="contact.html" class="w-full text-center py-4 bg-brand-luxeGold text-white hover:bg-brand-luxeGoldDark font-medium uppercase tracking-[0.2em] text-xs transition-colors duration-300 rounded-none">
+                Plan Your Ride
+            </a>
+        </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-56 pb-32 bg-brand-luxeDark text-white overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1541614101331-1a5a3a194e92?auto=format&fit=crop&w=1920&q=80" 
+                 alt="Journal stories background" 
+                 class="w-full h-full object-cover object-center opacity-15">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-luxeDark via-brand-luxeDark/65 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+            <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-4 block">Stories From The Saddle</span>
+            <h1 class="font-serif text-5xl md:text-7xl font-light mb-6">The Journal</h1>
+            <p class="text-stone-400 text-sm md:text-base font-light max-w-2xl mx-auto leading-relaxed tracking-wider">
+                Routes, travel inspiration, local tips and cycling stories from Bratislava and beyond.
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTION: ARTICLES & CATEGORY CHIPS -->
+    <section class="py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            
+            <div class="flex flex-wrap items-center justify-center gap-3 mb-20 border-b border-stone-200/60 pb-8 font-sans">
+                <button class="px-5 py-2 text-[10px] font-bold uppercase tracking-wider bg-brand-luxeDark text-white rounded-none">All Stories</button>
+                <button class="px-5 py-2 text-[10px] font-bold uppercase tracking-wider border border-stone-200 text-stone-600 hover:border-brand-luxeDark hover:text-brand-luxeDark rounded-none transition-all">Cycling Routes</button>
+                <button class="px-5 py-2 text-[10px] font-bold uppercase tracking-wider border border-stone-200 text-stone-600 hover:border-brand-luxeDark hover:text-brand-luxeDark rounded-none transition-all">Bratislava Insider</button>
+                <button class="px-5 py-2 text-[10px] font-bold uppercase tracking-wider border border-stone-200 text-stone-600 hover:border-brand-luxeDark hover:text-brand-luxeDark rounded-none transition-all">Wine & Culture</button>
+                <button class="px-5 py-2 text-[10px] font-bold uppercase tracking-wider border border-stone-200 text-stone-600 hover:border-brand-luxeDark hover:text-brand-luxeDark rounded-none transition-all">Travel Tips</button>
+                <button class="px-5 py-2 text-[10px] font-bold uppercase tracking-wider border border-stone-200 text-stone-600 hover:border-brand-luxeDark hover:text-brand-luxeDark rounded-none transition-all">Bikepacking</button>
+                <button class="px-5 py-2 text-[10px] font-bold uppercase tracking-wider border border-stone-200 text-stone-600 hover:border-brand-luxeDark hover:text-brand-luxeDark rounded-none transition-all">Events</button>
+            </div>
+
+            <!-- Articles Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
+                <!-- Article 1 -->
+                <article class="group flex flex-col justify-between">
+                    <div>
+                        <div class="aspect-video overflow-hidden border border-stone-200 mb-6 rounded-none shadow-md">
+                            <img src="https://images.unsplash.com/photo-1541614101331-1a5a3a194e92?auto=format&fit=crop&w=800&q=80" alt="Iron Curtain cycle path" class="w-full h-full object-cover">
+                        </div>
+                        <span class="text-[9px] font-bold tracking-[0.2em] text-brand-luxeGold uppercase font-sans">Cycling Routes</span>
+                        <h3 class="font-serif text-2xl font-light text-brand-luxeDark mt-3 mb-3 group-hover:text-brand-luxeGold transition-colors">Riding the Iron Curtain Trail</h3>
+                        <p class="text-stone-500 font-light text-xs leading-relaxed mb-6 font-sans tracking-wide">A comprehensive guide to tracing history and crossing border checkpoints along the former Austrian-Slovak border on two wheels.</p>
+                    </div>
+                    <div>
+                        <a href="#" class="inline-flex items-center space-x-2 text-[10px] font-bold uppercase tracking-widest text-brand-luxeDark group-hover:text-brand-luxeGold">
+                            <span>Read Article</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="group flex flex-col justify-between">
+                    <div>
+                        <div class="aspect-video overflow-hidden border border-stone-200 mb-6 rounded-none shadow-md">
+                            <img src="https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=800&q=80" alt="Autumn harvest in vineyards" class="w-full h-full object-cover">
+                        </div>
+                        <span class="text-[9px] font-bold tracking-[0.2em] text-brand-luxeGold uppercase font-sans">Wine & Culture</span>
+                        <h3 class="font-serif text-2xl font-light text-brand-luxeDark mt-3 mb-3 group-hover:text-brand-luxeGold transition-colors">Harvest Season in Svätý Jur</h3>
+                        <p class="text-stone-500 font-light text-xs leading-relaxed mb-6 font-sans tracking-wide">What it's like to ride through grape-filled hills during autumn harvests and taste wines at historic family-run cellars.</p>
+                    </div>
+                    <div>
+                        <a href="#" class="inline-flex items-center space-x-2 text-[10px] font-bold uppercase tracking-widest text-brand-luxeDark group-hover:text-brand-luxeGold">
+                            <span>Read Article</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="group flex flex-col justify-between">
+                    <div>
+                        <div class="aspect-video overflow-hidden border border-stone-200 mb-6 rounded-none shadow-md">
+                            <img src="https://images.unsplash.com/photo-1502136969935-8d8eef54d77b?auto=format&fit=crop&w=800&q=80" alt="Vienna to Bratislava route map" class="w-full h-full object-cover">
+                        </div>
+                        <span class="text-[9px] font-bold tracking-[0.2em] text-brand-luxeGold uppercase font-sans">Travel Tips</span>
+                        <h3 class="font-serif text-2xl font-light text-brand-luxeDark mt-3 mb-3 group-hover:text-brand-luxeGold transition-colors">Vienna to Bratislava by Bike</h3>
+                        <p class="text-stone-500 font-light text-xs leading-relaxed mb-6 font-sans tracking-wide">Everything you need to know about riding paths, wind directions, gears, and best sightseeing stops along EuroVelo 6.</p>
+                    </div>
+                    <div>
+                        <a href="#" class="inline-flex items-center space-x-2 text-[10px] font-bold uppercase tracking-widest text-brand-luxeDark group-hover:text-brand-luxeGold">
+                            <span>Read Article</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Article 4 -->
+                <article class="group flex flex-col justify-between">
+                    <div>
+                        <div class="aspect-video overflow-hidden border border-stone-200 mb-6 rounded-none shadow-md">
+                            <img src="https://images.unsplash.com/photo-1471506480208-91b3a4cc78be?auto=format&fit=crop&w=800&q=80" alt="Bikepacking mountains" class="w-full h-full object-cover">
+                        </div>
+                        <span class="text-[9px] font-bold tracking-[0.2em] text-brand-luxeGold uppercase font-sans">Bikepacking</span>
+                        <h3 class="font-serif text-2xl font-light text-brand-luxeDark mt-3 mb-3 group-hover:text-brand-luxeGold transition-colors">Peaks of Little Carpathians</h3>
+                        <p class="text-stone-500 font-light text-xs leading-relaxed mb-6 font-sans tracking-wide">A weekend bikepacking itinerary across forest paths, ancient castle ruins, and pitching camp under regional stars.</p>
+                    </div>
+                    <div>
+                        <a href="#" class="inline-flex items-center space-x-2 text-[10px] font-bold uppercase tracking-widest text-brand-luxeDark group-hover:text-brand-luxeGold">
+                            <span>Read Article</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-luxeDark text-stone-500 py-24 border-t border-stone-900">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 font-sans tracking-wide">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
+                <div class="md:col-span-2">
+                    <span class="font-serif text-2xl tracking-widest text-white">BIKE BRATISLAVA</span>
+                    <p class="text-xs font-light leading-relaxed mt-6 pr-8 text-stone-400">
+                        Discover Bratislava and the heart of Central Europe from the saddle. Guided cycling tours, road rides, gravel adventures and custom cycling experiences designed by local riders.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] text-white mb-6">Explore</h4>
+                    <ul class="space-y-4 text-xs font-light">
+                        <li><a href="index.html" class="hover:text-brand-luxeGold transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-brand-luxeGold transition-colors">About Us</a></li>
+                        <li><a href="discover.html" class="hover:text-brand-luxeGold transition-colors">Discover Bratislava</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] text-white mb-6">Rides</h4>
+                    <ul class="space-y-4 text-xs font-light">
+                        <li><a href="tours.html" class="hover:text-brand-luxeGold transition-colors">Tours & Rides</a></li>
+                        <li><a href="guides.html" class="hover:text-brand-luxeGold transition-colors">Our Guides</a></li>
+                        <li><a href="contact.html" class="hover:text-brand-luxeGold transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-stone-900/60 pt-8 flex flex-col md:flex-row items-center justify-between text-[10px] font-light">
+                <p>&copy; 2026 Bike Bratislava. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        const toggleBtn = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        let isOpen = false;
+        
+        toggleBtn.addEventListener('click', () => {
+            isOpen = !isOpen;
+            if(isOpen) {
+                mobileMenu.classList.remove('translate-x-full');
+                toggleBtn.innerHTML = '<i data-lucide="x" class="w-6 h-6 text-white"></i>';
+            } else {
+                mobileMenu.classList.add('translate-x-full');
+                toggleBtn.innerHTML = '<i data-lucide="menu" class="w-6 h-6 text-white"></i>';
+            }
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>

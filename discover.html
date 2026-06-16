@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Bratislava | Bike Bratislava</title>
+    <meta name="description" content="Vienna is famous. Bratislava is waiting to be discovered. Explore four countries, Danube route, Little Carpathian vineyards, and nature trails by bike.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            luxeDark: '#0F0E0E',
+                            luxeLight: '#F5F4F0',
+                            luxeGold: '#A38A5F',
+                            luxeGoldDark: '#8F774F',
+                            luxeTextDark: '#1C1917',
+                            luxeTextLight: '#EAE8E4'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Cormorant Garamond', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-brand-luxeLight text-brand-luxeTextDark font-sans antialiased">
+
+    <!-- HEADER & NAVIGATION -->
+    <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 py-6 bg-brand-luxeDark/95 backdrop-blur-md shadow-2xl border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
+            <a href="index.html" class="flex flex-col group">
+                <span class="font-serif text-2xl lg:text-3xl tracking-widest text-brand-luxeTextLight transition-colors duration-300">
+                    BIKE BRATISLAVA
+                </span>
+                <span class="text-[8px] tracking-[0.35em] text-stone-400 font-light uppercase">
+                    Central Europe
+                </span>
+            </a>
+
+            <nav class="hidden lg:flex items-center space-x-10">
+                <a href="index.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent">Home</a>
+                <a href="about.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">About Us</a>
+                <a href="discover.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-brand-luxeGold">Discover Bratislava</a>
+                <a href="tours.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Tours & Rides</a>
+                <a href="guides.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Our Guides</a>
+                <a href="journal.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Journal</a>
+                <a href="contact.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Contact</a>
+            </nav>
+
+            <div class="hidden lg:block">
+                <a href="contact.html" class="inline-flex items-center justify-center px-8 py-3 text-[10px] font-medium tracking-[0.3em] uppercase border border-white/20 text-white hover:bg-white hover:text-brand-luxeDark transition-all duration-500 rounded-none">
+                    Plan Your Ride
+                </a>
+            </div>
+
+            <button id="mobile-menu-toggle" class="lg:hidden text-white hover:text-brand-luxeGold transition-colors focus:outline-none" aria-label="Toggle Menu">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU OVERLAY -->
+    <div id="mobile-menu" class="fixed inset-0 bg-brand-luxeDark z-40 flex flex-col justify-between transform translate-x-full transition-transform duration-500 ease-in-out p-8 pt-28">
+        <nav class="flex flex-col space-y-6">
+            <a href="index.html" class="font-serif text-4xl text-stone-400 hover:text-brand-luxeGold transition-colors py-2 border-b border-stone-900">Home</a>
+            <a href="about.html" class="font-serif text-4xl text-stone-400 hover:text-brand-luxeGold transition-colors py-2 border-b border-stone-900">About Us</a>
+            <a href="discover.html" class="font-serif text-4xl text-white hover:text-brand-luxeGold transition-colors py-2 border-b border-stone-900">Discover Bratislava</a>
+            <a href="tours.html" class="font-serif text-4xl text-stone-400 hover:text-brand-luxeGold transition-colors py-2 border-b border-stone-900">Tours & Rides</a>
+            <a href="guides.html" class="font-serif text-4xl text-stone-400 hover:text-brand-luxeGold transition-colors py-2 border-b border-stone-900">Our Guides</a>
+            <a href="journal.html" class="font-serif text-4xl text-stone-400 hover:text-brand-luxeGold transition-colors py-2 border-b border-stone-900">Journal</a>
+            <a href="contact.html" class="font-serif text-4xl text-stone-400 hover:text-brand-luxeGold transition-colors py-2 border-b border-stone-900">Contact</a>
+        </nav>
+        
+        <div class="flex flex-col space-y-4">
+            <a href="contact.html" class="w-full text-center py-4 bg-brand-luxeGold text-white hover:bg-brand-luxeGoldDark font-medium uppercase tracking-[0.2em] text-xs transition-colors duration-300 rounded-none">
+                Plan Your Ride
+            </a>
+        </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-56 pb-32 bg-brand-luxeDark text-white overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <!-- Bratislava sunset castle viewpoint -->
+            <img src="https://images.unsplash.com/photo-1565992441121-4367c2967103?auto=format&fit=crop&w=1920&q=80" 
+                 alt="Bratislava landscape view" 
+                 class="w-full h-full object-cover object-center opacity-20">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-luxeDark via-brand-luxeDark/65 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+            <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-4 block">Bratislava Cycling</span>
+            <h1 class="font-serif text-4xl md:text-6xl lg:text-7xl font-light leading-tight">Vienna Is Famous. <br><span class="italic text-brand-luxeGold font-serif font-light">Bratislava Is Waiting To Be Discovered.</span></h1>
+        </div>
+    </section>
+
+    <!-- SECTION 1: FOUR COUNTRIES -->
+    <section class="py-32 bg-white">
+        <div class="max-w-6xl mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
+                <div class="lg:col-span-6">
+                    <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-4 block">Cross-Border Adventures</span>
+                    <h2 class="font-serif text-3xl md:text-5xl font-light text-brand-luxeDark mb-8">Four Countries. <br><span class="italic text-brand-luxeGold">One Cycling Destination.</span></h2>
+                    <p class="text-stone-600 font-light leading-relaxed text-sm md:text-base mb-6 tracking-wide">
+                        Few capital cities offer the geographical thrill that Bratislava does. Sitting right at the intersection of Central European borders, our rides allow you to seamlessly cross from Slovakia into Austria and Hungary within a single day. 
+                    </p>
+                    <p class="text-stone-600 font-light leading-relaxed text-sm md:text-base tracking-wide">
+                        With flat borders and cycle-friendly crossings, you can pedal through Austrian historic villages, ride along Hungarian dikes, and return for a sunset dinner along the Slovak Danube.
+                    </p>
+                </div>
+                <div class="lg:col-span-6">
+                    <div class="aspect-video overflow-hidden shadow-2xl border border-stone-200">
+                        <img src="https://images.unsplash.com/photo-1541614101331-1a5a3a194e92?auto=format&fit=crop&w=1000&q=80" 
+                             alt="Cycling on cross-border roads near Austria" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: DANUBE ROUTE -->
+    <section class="py-32 bg-brand-luxeLight border-t border-stone-200/40">
+        <div class="max-w-6xl mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
+                <div class="lg:col-span-6 order-2 lg:order-1">
+                    <div class="aspect-video overflow-hidden shadow-2xl border border-stone-200">
+                        <!-- macro detail of cyclist on path -->
+                        <img src="https://images.unsplash.com/photo-1502136969935-8d8eef54d77b?auto=format&fit=crop&w=1000&q=80" 
+                             alt="Danube river cycling paths slovakia" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="lg:col-span-6 order-1 lg:order-2">
+                    <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-4 block">Danube River paths</span>
+                    <h2 class="font-serif text-3xl md:text-5xl font-light text-brand-luxeDark mb-8">Following Europe's <br><span class="italic text-brand-luxeGold">Great River</span></h2>
+                    <p class="text-stone-600 font-light leading-relaxed text-sm md:text-base mb-6 tracking-wide">
+                        The Danube River is the lifeblood of cycling in Central Europe. The EuroVelo 6 cycle route runs directly through Bratislava, offering flat, fully paved, traffic-free paths that run as far as the eye can see.
+                    </p>
+                    <p class="text-stone-600 font-light leading-relaxed text-sm md:text-base tracking-wide">
+                        It's perfect for leisure riders, active families, or road cyclists looking to build speed without worrying about car traffic. Enjoy beautiful riverside parks and floating restaurants.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: VINEYARDS -->
+    <section class="py-32 bg-white">
+        <div class="max-w-6xl mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
+                <div class="lg:col-span-6">
+                    <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-4 block">Little Carpathians Wine Region</span>
+                    <h2 class="font-serif text-3xl md:text-5xl font-light text-brand-luxeDark mb-8">Vineyards <br><span class="italic text-brand-luxeGold">Beyond The City</span></h2>
+                    <p class="text-stone-600 font-light leading-relaxed text-sm md:text-base mb-6 tracking-wide">
+                        Just minutes outside the urban center lies the Little Carpathian wine region. Gentle rolling hills, sun-drenched vineyards, and old winemaking villages like Svätý Jur and Pezinok define this beautiful route.
+                    </p>
+                    <p class="text-stone-600 font-light leading-relaxed text-sm md:text-base tracking-wide">
+                        Ride along quiet asphalt lanes between rows of grapes, and stop at local family cellars to sample Frankovka Modrá and Veltlínske Zelené, wines with centuries of royal history.
+                    </p>
+                </div>
+                <div class="lg:col-span-6">
+                    <div class="aspect-video overflow-hidden shadow-2xl border border-stone-200">
+                        <img src="https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1000&q=80" 
+                             alt="Grapes and vineyards in Little Carpathians" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: NATURE & GRAVEL -->
+    <section class="py-32 bg-brand-luxeLight border-t border-stone-200/40">
+        <div class="max-w-6xl mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
+                <div class="lg:col-span-6 order-2 lg:order-1">
+                    <div class="aspect-video overflow-hidden shadow-2xl border border-stone-200">
+                        <img src="https://images.unsplash.com/photo-1471506480208-91b3a4cc78be?auto=format&fit=crop&w=1000&q=80" 
+                             alt="Forest gravel trails Little Carpathians" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="lg:col-span-6 order-1 lg:order-2">
+                    <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-4 block">Forest trails & hills</span>
+                    <h2 class="font-serif text-3xl md:text-5xl font-light text-brand-luxeDark mb-8">Escape Into <br><span class="italic text-brand-luxeGold">Nature</span></h2>
+                    <p class="text-stone-600 font-light leading-relaxed text-sm md:text-base mb-6 tracking-wide">
+                        Bratislava is crowned by the forest parks of the Little Carpathians. For gravel and mountain bikers, this means hundreds of kilometers of well-marked forest trails, fire roads, and scenic climbs.
+                    </p>
+                    <p class="text-stone-600 font-light leading-relaxed text-sm md:text-base tracking-wide">
+                        Enjoy the cool shade of oak and beech trees, discover hidden ruins like Pajštún castle, and experience the quiet mountain atmosphere just a short ride from the city center.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: CYCLING SEASON -->
+    <section class="py-32 bg-white">
+        <div class="max-w-6xl mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
+                <div class="lg:col-span-6">
+                    <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-4 block">March–October riding conditions</span>
+                    <h2 class="font-serif text-3xl md:text-5xl font-light text-brand-luxeDark mb-8">A Long <br><span class="italic text-brand-luxeGold">Cycling Season</span></h2>
+                    <p class="text-stone-600 font-light leading-relaxed text-sm md:text-base mb-6 tracking-wide">
+                        The Danube basin features a mild, sunny continental climate that ensures an exceptionally long cycling season. 
+                    </p>
+                    <p class="text-stone-600 font-light leading-relaxed text-sm md:text-base tracking-wide">
+                        From early spring in March through the golden foliage of October, riding conditions are ideal. Spring brings fresh blossoms, summer offers cool river breezes and evening vineyard rides, and autumn delivers grape harvests.
+                    </p>
+                </div>
+                <div class="lg:col-span-6">
+                    <div class="aspect-video overflow-hidden shadow-2xl border border-stone-200">
+                        <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=1000&q=80" 
+                             alt="Cycling in spring autumn weather slovakia" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="py-24 bg-brand-luxeDark text-white text-center">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="font-serif text-4xl font-light text-brand-luxeGold mb-6">Find Your Perfect Route</h2>
+            <p class="text-stone-400 font-light text-sm mb-10 max-w-lg mx-auto tracking-wide">
+                Whether you want a flat riverside spin or a challenging road ride, we have the ideal experience for you.
+            </p>
+            <a href="tours.html" class="inline-flex items-center justify-center px-10 py-5 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white font-medium text-[11px] tracking-[0.25em] uppercase transition-all duration-300 rounded-none shadow-2xl border border-brand-luxeGold">
+                Explore Tours & Rides
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-luxeDark text-stone-500 py-24 border-t border-stone-900">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 font-sans tracking-wide">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
+                <div class="md:col-span-2">
+                    <span class="font-serif text-2xl tracking-widest text-white">BIKE BRATISLAVA</span>
+                    <p class="text-xs font-light leading-relaxed mt-6 pr-8 text-stone-400">
+                        Discover Bratislava and the heart of Central Europe from the saddle. Guided cycling tours, road rides, gravel adventures and custom cycling experiences designed by local riders.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] text-white mb-6">Explore</h4>
+                    <ul class="space-y-4 text-xs font-light">
+                        <li><a href="index.html" class="hover:text-brand-luxeGold transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-brand-luxeGold transition-colors">About Us</a></li>
+                        <li><a href="discover.html" class="hover:text-brand-luxeGold transition-colors">Discover Bratislava</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] text-white mb-6">Rides</h4>
+                    <ul class="space-y-4 text-xs font-light">
+                        <li><a href="tours.html" class="hover:text-brand-luxeGold transition-colors">Tours & Rides</a></li>
+                        <li><a href="guides.html" class="hover:text-brand-luxeGold transition-colors">Our Guides</a></li>
+                        <li><a href="contact.html" class="hover:text-brand-luxeGold transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-stone-900/60 pt-8 flex flex-col md:flex-row items-center justify-between text-[10px] font-light">
+                <p>&copy; 2026 Bike Bratislava. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        const toggleBtn = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        let isOpen = false;
+        
+        toggleBtn.addEventListener('click', () => {
+            isOpen = !isOpen;
+            if(isOpen) {
+                mobileMenu.classList.remove('translate-x-full');
+                toggleBtn.innerHTML = '<i data-lucide="x" class="w-6 h-6 text-white"></i>';
+            } else {
+                mobileMenu.classList.add('translate-x-full');
+                toggleBtn.innerHTML = '<i data-lucide="menu" class="w-6 h-6 text-white"></i>';
+            }
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>

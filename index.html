@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bike Bratislava | Discover Central Europe from the Saddle</title>
+    <meta name="description" content="Discover Bratislava and Central Europe from the saddle. Premium guided cycling tours, road rides, gravel adventures, and custom experiences by local riders.">
+    
+    <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            luxeDark: '#0F0E0E',     /* Velvet charcoal background */
+                            luxeLight: '#F5F4F0',    /* Off-white light sand background */
+                            luxeGold: '#A38A5F',     /* Luxury muted gold accent */
+                            luxeGoldDark: '#8F774F', /* Darker gold for active states */
+                            luxeTextDark: '#1C1917', /* Dark charcoal text */
+                            luxeTextLight: '#EAE8E4' /* Off-white light cream text */
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Cormorant Garamond', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        .fade-in-up {
+            animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animation-delay-200 { animation-delay: 200ms; }
+        .animation-delay-400 { animation-delay: 400ms; }
+    </style>
+</head>
+<body class="bg-brand-luxeLight text-brand-luxeTextDark font-sans antialiased selection:bg-brand-luxeGold selection:text-brand-luxeDark">
+
+    <!-- HEADER & NAVIGATION -->
+    <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 py-6 border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
+            <a href="index.html" class="flex flex-col group">
+                <span class="font-serif text-2xl lg:text-3xl tracking-widest text-brand-luxeTextLight transition-colors duration-300 group-hover:text-brand-luxeGold" id="logo-text">
+                    BIKE BRATISLAVA
+                </span>
+                <span class="text-[8px] tracking-[0.35em] text-stone-400 font-light uppercase transition-colors duration-300" id="logo-subtext">
+                    Central Europe
+                </span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden lg:flex items-center space-x-10">
+                <a href="index.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-brand-luxeGold">Home</a>
+                <a href="about.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">About Us</a>
+                <a href="discover.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Discover Bratislava</a>
+                <a href="tours.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Tours & Rides</a>
+                <a href="guides.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Our Guides</a>
+                <a href="journal.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b-2 border-transparent hover:border-brand-luxeGold/40">Journal</a>
+                <a href="contact.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Contact</a>
+            </nav>
+
+            <!-- CTA Button -->
+            <div class="hidden lg:block">
+                <a href="contact.html" id="nav-cta" class="inline-flex items-center justify-center px-8 py-3 text-[10px] font-medium tracking-[0.3em] uppercase border border-white/20 text-white hover:bg-white hover:text-brand-luxeDark transition-all duration-500 rounded-none">
+                    Plan Your Ride
+                </a>
+            </div>
+
+            <button id="mobile-menu-toggle" class="lg:hidden text-white hover:text-brand-luxeGold transition-colors focus:outline-none" aria-label="Toggle Menu">
+                <i data-lucide="menu" class="w-6 h-6" id="menu-icon"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU OVERLAY -->
+    <div id="mobile-menu" class="fixed inset-0 bg-brand-luxeDark z-40 flex flex-col justify-between transform translate-x-full transition-transform duration-500 ease-in-out p-8 pt-28">
+        <nav class="flex flex-col space-y-6">
+            <a href="index.html" class="font-serif text-4xl text-white hover:text-brand-luxeGold transition-colors py-2 border-b border-stone-900">Home</a>
+            <a href="about.html" class="font-serif text-4xl text-stone-400 hover:text-brand-luxeGold transition-colors py-2 border-b border-stone-900">About Us</a>
+            <a href="discover.html" class="font-serif text-4xl text-stone-400 hover:text-brand-luxeGold transition-colors py-2 border-b border-stone-900">Discover Bratislava</a>
+            <a href="tours.html" class="font-serif text-4xl text-stone-400 hover:text-brand-luxeGold transition-colors py-2 border-b border-stone-900">Tours & Rides</a>
+            <a href="guides.html" class="font-serif text-4xl text-stone-400 hover:text-brand-luxeGold transition-colors py-2 border-b border-stone-900">Our Guides</a>
+            <a href="journal.html" class="font-serif text-4xl text-stone-400 hover:text-brand-luxeGold transition-colors py-2 border-b border-stone-900">Journal</a>
+            <a href="contact.html" class="font-serif text-4xl text-stone-400 hover:text-brand-luxeGold transition-colors py-2 border-b border-stone-900">Contact</a>
+        </nav>
+        
+        <div class="flex flex-col space-y-4">
+            <a href="contact.html" class="w-full text-center py-4 bg-brand-luxeGold text-white hover:bg-brand-luxeGoldDark font-medium uppercase tracking-[0.2em] text-xs transition-colors duration-300 rounded-none">
+                Plan Your Ride
+            </a>
+        </div>
+    </div>
+
+    <!-- SECTION 1: HERO (High-fidelity detailed styling) -->
+    <section class="relative min-h-screen flex items-center justify-center bg-brand-luxeDark overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <!-- Curated atmospheric cycling detail at dawn -->
+            <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=1920&q=80" 
+                 alt="Premium road cycling details dawn" 
+                 class="w-full h-full object-cover object-center opacity-30 scale-100 transition-transform duration-10000" id="hero-img">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-luxeDark via-brand-luxeDark/50 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-6 py-20 text-center text-brand-luxeTextLight flex flex-col items-center">
+            <div class="inline-flex items-center space-x-2 px-4 py-1.5 border border-brand-luxeGold/30 rounded-none text-brand-luxeGold text-[10px] font-medium tracking-[0.3em] uppercase mb-8 opacity-0 fade-in-up">
+                <i data-lucide="compass" class="w-3.5 h-3.5 animate-pulse"></i>
+                <span>Ride Beyond Vienna</span>
+            </div>
+            
+            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-light tracking-tight leading-[1.15] md:leading-[1.1] mb-6 opacity-0 fade-in-up animation-delay-200 text-white">
+                Discover Bratislava. <br>
+                <span class="text-brand-luxeGold font-light italic font-serif">Explore The Heart of Central Europe.</span>
+            </h1>
+            
+            <p class="max-w-2xl text-stone-400 text-sm md:text-base lg:text-lg font-light leading-relaxed mb-12 opacity-0 fade-in-up animation-delay-400 tracking-wide font-sans">
+                Experience one of Europe’s most surprising cycling destinations. Ride through historic streets, riverside landscapes, vineyards and scenic countryside with our local ride leaders who know the region best.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-8 opacity-0 fade-in-up animation-delay-400">
+                <a href="tours.html" class="px-10 py-5 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white font-medium text-[11px] tracking-[0.25em] uppercase transition-all duration-300 rounded-none">
+                    Explore Our Tours
+                </a>
+                <a href="contact.html" class="px-10 py-5 border border-white/20 hover:bg-white hover:text-brand-luxeDark text-white font-medium text-[11px] tracking-[0.25em] uppercase transition-all duration-300 rounded-none">
+                    Plan Your Ride
+                </a>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10 flex flex-col items-center animate-bounce">
+            <span class="text-[8px] uppercase tracking-[0.4em] text-stone-500 mb-2 font-medium">Scroll down</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-stone-500"></i>
+        </div>
+    </section>
+
+    <!-- SECTION 2: WHY BRATISLAVA (Editorial style) -->
+    <section class="py-32 lg:py-40 bg-brand-luxeLight overflow-hidden border-b border-stone-200/40">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
+                
+                <div class="lg:col-span-5 relative">
+                    <div class="relative z-10 aspect-[3/4] overflow-hidden shadow-2xl border border-stone-300/60">
+                        <!-- High quality mood panorama of Bratislava Danube / bridges -->
+                        <img src="https://images.unsplash.com/photo-1565992441121-4367c2967103?auto=format&fit=crop&w=1000&q=80" 
+                             alt="Bratislava Danube cycling route views" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <!-- Minimalist floating quote badge -->
+                    <div class="absolute -bottom-10 -right-10 bg-brand-luxeDark text-brand-luxeTextLight p-8 max-w-xs shadow-2xl hidden md:block border border-brand-luxeGold/20 rounded-none">
+                        <p class="font-serif text-3xl italic text-brand-luxeGold mb-3">Did you know?</p>
+                        <p class="text-xs text-stone-400 leading-relaxed font-light font-sans tracking-wide">Bratislava is the only national capital that borders two sovereign countries: Austria and Hungary.</p>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 flex flex-col justify-center">
+                    <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-4 block">The Destination</span>
+                    <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-brand-luxeDark leading-tight mb-8">
+                        One City. Four Countries. <br><span class="italic text-brand-luxeGold font-serif">Endless Rides.</span>
+                    </h2>
+                    
+                    <div class="space-y-6 text-stone-600 font-light leading-relaxed text-sm md:text-base mb-12 tracking-wide font-sans">
+                        <p>
+                            Bratislava sits at the crossroads of Central Europe, making it one of the most unique cycling destinations on the continent.
+                        </p>
+                        <p>
+                            Within a single ride, you can explore Slovakia, Austria, Hungary and even the Czech Republic. From riverside paths and historic towns to vineyards, forests and quiet country roads, the possibilities are endless.
+                        </p>
+                        <p>
+                            Whether you're looking for a relaxed sightseeing ride or a full day in the saddle, Bratislava offers experiences few destinations can match.
+                        </p>
+                    </div>
+
+                    <!-- 6 Editorial bullet items with thin border layout -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6 border-t border-stone-200 pt-8">
+                        <div class="flex items-start space-x-4">
+                            <span class="font-serif text-2xl text-brand-luxeGold font-light">01</span>
+                            <div>
+                                <h4 class="font-bold text-xs uppercase tracking-wider text-brand-luxeDark mb-1">4 countries within reach</h4>
+                                <p class="text-xs text-stone-500 font-light leading-relaxed">Cross borders seamlessly on two wheels.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <span class="font-serif text-2xl text-brand-luxeGold font-light">02</span>
+                            <div>
+                                <h4 class="font-bold text-xs uppercase tracking-wider text-brand-luxeDark mb-1">Danube cycling routes</h4>
+                                <p class="text-xs text-stone-500 font-light leading-relaxed">Flat, traffic-free paved cycle paths.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <span class="font-serif text-2xl text-brand-luxeGold font-light">03</span>
+                            <div>
+                                <h4 class="font-bold text-xs uppercase tracking-wider text-brand-luxeDark mb-1">Wine regions & gastronomy</h4>
+                                <p class="text-xs text-stone-500 font-light leading-relaxed">Ride through local vineyards and winemaking towns.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <span class="font-serif text-2xl text-brand-luxeGold font-light">04</span>
+                            <div>
+                                <h4 class="font-bold text-xs uppercase tracking-wider text-brand-luxeDark mb-1">March–October season</h4>
+                                <p class="text-xs text-stone-500 font-light leading-relaxed">Mild weather perfect for active exploration.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <span class="font-serif text-2xl text-brand-luxeGold font-light">05</span>
+                            <div>
+                                <h4 class="font-bold text-xs uppercase tracking-wider text-brand-luxeDark mb-1">Historic towns & castles</h4>
+                                <p class="text-xs text-stone-500 font-light leading-relaxed">Discover Devín, Bratislava, and historic ruins.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <span class="font-serif text-2xl text-brand-luxeGold font-light">06</span>
+                            <div>
+                                <h4 class="font-bold text-xs uppercase tracking-wider text-brand-luxeDark mb-1">Road, gravel & leisure</h4>
+                                <p class="text-xs text-stone-500 font-light leading-relaxed">Perfect routes tailored for every bike type.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: FEATURED EXPERIENCES (Luxury cards) -->
+    <section class="py-32 bg-white border-b border-stone-200/40">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="text-center max-w-2xl mx-auto mb-24">
+                <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-4 block">Curated Rides</span>
+                <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-brand-luxeDark">Choose Your Adventure</h2>
+                <div class="h-[1px] w-12 bg-brand-luxeGold mx-auto mt-6"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+                
+                <!-- Card 1: Discover Bratislava -->
+                <div class="group border border-stone-200/60 bg-brand-luxeLight flex flex-col justify-between hover:border-brand-luxeGold transition-colors duration-500 rounded-none">
+                    <div>
+                        <div class="aspect-[4/3] overflow-hidden relative border-b border-stone-200/60">
+                            <!-- Curated Old Town street view -->
+                            <img src="https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7?auto=format&fit=crop&w=800&q=80" 
+                                 alt="Bratislava old town cycling paths" 
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            <div class="absolute top-4 left-4 bg-brand-luxeDark text-white text-[9px] tracking-[0.25em] uppercase font-medium py-1 px-3 border border-brand-luxeGold/25">
+                                Leisure & Culture
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="font-serif text-2xl font-light text-brand-luxeDark mb-4">Discover Bratislava</h3>
+                            <p class="text-stone-500 font-light text-xs leading-relaxed font-sans tracking-wide">
+                                Easy and enjoyable rides designed for visitors who want to explore the city and its surroundings at a relaxed pace.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-8 pb-8 pt-0">
+                        <a href="tours.html" class="inline-flex items-center space-x-2 text-[10px] font-semibold tracking-[0.2em] uppercase text-brand-luxeDark group-hover:text-brand-luxeGold transition-colors duration-300">
+                            <span>Learn More</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2: Ride Further -->
+                <div class="group border border-stone-200/60 bg-brand-luxeLight flex flex-col justify-between hover:border-brand-luxeGold transition-colors duration-500 rounded-none">
+                    <div>
+                        <div class="aspect-[4/3] overflow-hidden relative border-b border-stone-200/60">
+                            <!-- High-fidelity forest gravel road -->
+                            <img src="https://images.unsplash.com/photo-1471506480208-91b3a4cc78be?auto=format&fit=crop&w=800&q=80" 
+                                 alt="Forest mountain paths cycling" 
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            <div class="absolute top-4 left-4 bg-brand-luxeDark text-white text-[9px] tracking-[0.25em] uppercase font-medium py-1 px-3 border border-brand-luxeGold/25">
+                                Road & Gravel
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="font-serif text-2xl font-light text-brand-luxeDark mb-4">Ride Further</h3>
+                            <p class="text-stone-500 font-light text-xs leading-relaxed font-sans tracking-wide">
+                                Road and gravel routes for cyclists looking for longer distances, climbing challenges and unforgettable scenery.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-8 pb-8 pt-0">
+                        <a href="tours.html" class="inline-flex items-center space-x-2 text-[10px] font-semibold tracking-[0.2em] uppercase text-brand-luxeDark group-hover:text-brand-luxeGold transition-colors duration-300">
+                            <span>Learn More</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3: Custom Experiences -->
+                <div class="group border border-stone-200/60 bg-brand-luxeLight flex flex-col justify-between hover:border-brand-luxeGold transition-colors duration-500 rounded-none">
+                    <div>
+                        <div class="aspect-[4/3] overflow-hidden relative border-b border-stone-200/60">
+                            <!-- High-fidelity cyclists coffee stop social -->
+                            <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80" 
+                                 alt="Riders taking coffee breaks" 
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            <div class="absolute top-4 left-4 bg-brand-luxeDark text-white text-[9px] tracking-[0.25em] uppercase font-medium py-1 px-3 border border-brand-luxeGold/25">
+                                Private & Corporate
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="font-serif text-2xl font-light text-brand-luxeDark mb-4">Custom Experiences</h3>
+                            <p class="text-stone-500 font-light text-xs leading-relaxed font-sans tracking-wide">
+                                Private rides and tailor-made cycling adventures created around your interests, schedule and fitness level.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-8 pb-8 pt-0">
+                        <a href="contact.html" class="inline-flex items-center space-x-2 text-[10px] font-semibold tracking-[0.2em] uppercase text-brand-luxeDark group-hover:text-brand-luxeGold transition-colors duration-300">
+                            <span>Enquire Now</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: MEET YOUR GUIDES (Asymmetric fashion layout) -->
+    <section class="py-32 lg:py-40 bg-brand-luxeLight">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
+                
+                <div class="lg:col-span-6 order-2 lg:order-1">
+                    <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-4 block">Local Experts</span>
+                    <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-brand-luxeDark leading-tight mb-8">
+                        Ride With Locals
+                    </h2>
+                    
+                    <div class="space-y-6 text-stone-600 font-light leading-relaxed text-sm md:text-base mb-12 tracking-wide font-sans">
+                        <p>
+                            Our guides are passionate cyclists, storytellers and local experts.
+                        </p>
+                        <p>
+                            They know the best roads, hidden viewpoints, coffee stops and places that rarely appear in guidebooks.
+                        </p>
+                        <p>
+                            Most importantly, they know how to create rides that people remember long after they return home.
+                        </p>
+                    </div>
+
+                    <a href="guides.html" class="inline-flex items-center justify-center px-10 py-4.5 bg-brand-luxeDark hover:bg-brand-luxeDark/90 text-white font-medium text-[11px] tracking-[0.25em] uppercase transition-all duration-300 rounded-none border border-stone-800">
+                        Meet The Team
+                    </a>
+                </div>
+
+                <div class="lg:col-span-6 order-1 lg:order-2">
+                    <div class="relative">
+                        <!-- Immersive riders climbing together outdoor -->
+                        <div class="aspect-[4/3] md:aspect-[16/10] overflow-hidden shadow-2xl border border-stone-300/60">
+                            <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=1200&q=80" 
+                                 alt="Bike Bratislava local guides team" 
+                                 class="w-full h-full object-cover">
+                        </div>
+                        <div class="absolute -top-6 -left-6 w-20 h-20 border-t border-l border-brand-luxeGold/40"></div>
+                        <div class="absolute -bottom-6 -right-6 w-20 h-20 border-b border-r border-brand-luxeGold/40"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: REVIEWS (Luxe Dark theme) -->
+    <section class="py-32 lg:py-40 bg-brand-luxeDark text-white relative overflow-hidden">
+        <div class="max-w-5xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-20">
+                <div class="inline-flex items-center space-x-2 mb-4">
+                    <span class="px-4 py-1.5 border border-brand-luxeGold/30 text-brand-luxeGold text-[9px] tracking-[0.25em] uppercase font-medium rounded-none">TripAdvisor</span>
+                    <span class="text-stone-500 text-xs font-light tracking-widest">Rating 5.0/5.0</span>
+                </div>
+                <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-brand-luxeGold">
+                    Trusted By Riders From Around The World
+                </h2>
+            </div>
+
+            <!-- Review Slider -->
+            <div class="relative min-h-[300px] flex items-center justify-center">
+                <button id="slider-prev" class="absolute left-0 md:-left-16 p-2 text-stone-600 hover:text-brand-luxeGold transition-colors focus:outline-none z-20" aria-label="Previous Review">
+                    <i data-lucide="chevron-left" class="w-8 h-8"></i>
+                </button>
+
+                <div class="w-full max-w-3xl mx-auto overflow-hidden">
+                    <div id="slider-content" class="transition-all duration-500 ease-in-out transform">
+                        <div class="text-center px-4 md:px-12 flex flex-col items-center">
+                            <div class="flex space-x-1.5 text-brand-luxeGold mb-6">
+                                <i data-lucide="star" class="w-5 h-5 fill-brand-luxeGold text-brand-luxeGold"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-brand-luxeGold text-brand-luxeGold"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-brand-luxeGold text-brand-luxeGold"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-brand-luxeGold text-brand-luxeGold"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-brand-luxeGold text-brand-luxeGold"></i>
+                            </div>
+                            
+                            <blockquote class="font-serif text-2xl md:text-3xl italic font-light leading-relaxed mb-8 text-stone-200">
+                                "The border-crossing ride was incredible! Cycling through Slovakia, Austria, and Hungary in one day was unique. Our guide was incredibly knowledgeable and shared so much history."
+                            </blockquote>
+                            
+                            <cite class="not-italic block font-sans">
+                                <span class="font-semibold text-brand-luxeGold tracking-[0.15em] text-xs uppercase block">Markus K.</span>
+                                <span class="text-[10px] text-stone-500 uppercase tracking-[0.2em] font-light">Vienna, Austria</span>
+                            </cite>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="slider-next" class="absolute right-0 md:-right-16 p-2 text-stone-600 hover:text-brand-luxeGold transition-colors focus:outline-none z-20" aria-label="Next Review">
+                    <i data-lucide="chevron-right" class="w-8 h-8"></i>
+                </button>
+            </div>
+
+            <div class="flex justify-center space-x-3 mt-10" id="slider-dots">
+                <button class="w-1.5 h-1.5 rounded-full bg-brand-luxeGold transition-colors duration-300" data-slide="0" aria-label="Slide 1"></button>
+                <button class="w-1.5 h-1.5 rounded-full bg-stone-800 hover:bg-brand-luxeGold transition-colors duration-300" data-slide="1" aria-label="Slide 2"></button>
+                <button class="w-1.5 h-1.5 rounded-full bg-stone-800 hover:bg-brand-luxeGold transition-colors duration-300" data-slide="2" aria-label="Slide 3"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: FINAL CTA -->
+    <section class="py-32 bg-brand-luxeLight text-center border-b border-stone-200/40">
+        <div class="max-w-4xl mx-auto px-6">
+            <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-4 block">Start Planning</span>
+            <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-brand-luxeDark mb-8">Ready To Explore Bratislava?</h2>
+            <p class="text-stone-500 font-light text-sm md:text-base max-w-xl mx-auto leading-relaxed mb-12 tracking-wide font-sans">
+                Tell us when you're visiting Bratislava and we'll help you find the perfect ride.
+            </p>
+            <a href="contact.html" class="inline-flex items-center justify-center px-12 py-5 bg-brand-luxeDark hover:bg-brand-luxeDark/90 text-white font-medium text-[11px] tracking-[0.25em] uppercase transition-all duration-500 rounded-none shadow-2xl border border-stone-800">
+                Go to Inquiry Form
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-luxeDark text-stone-500 py-24 border-t border-stone-900">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 font-sans tracking-wide">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
+                
+                <div class="md:col-span-2">
+                    <a href="index.html" class="flex flex-col mb-6 group">
+                        <span class="font-serif text-2xl tracking-widest text-white transition-colors duration-300">
+                            BIKE BRATISLAVA
+                        </span>
+                        <span class="text-[8px] tracking-[0.35em] text-stone-500 font-light uppercase">
+                            Central Europe
+                        </span>
+                    </a>
+                    <p class="text-xs font-light leading-relaxed mb-8 pr-8 text-stone-400">
+                        Discover Bratislava and the heart of Central Europe from the saddle. Guided cycling tours, road rides, gravel adventures and custom cycling experiences designed by local riders.
+                    </p>
+                    
+                    <div class="flex space-x-4">
+                        <a href="#" class="p-2 border border-stone-900 hover:border-brand-luxeGold hover:text-white rounded-none transition-all" aria-label="Instagram">
+                            <i data-lucide="instagram" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#" class="p-2 border border-stone-900 hover:border-brand-luxeGold hover:text-white rounded-none transition-all" aria-label="Strava">
+                            <i data-lucide="activity" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#" class="p-2 border border-stone-900 hover:border-brand-luxeGold hover:text-white rounded-none transition-all" aria-label="Facebook">
+                            <i data-lucide="facebook" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] text-white mb-6">Explore</h4>
+                    <ul class="space-y-4 text-xs font-light">
+                        <li><a href="index.html" class="hover:text-brand-luxeGold transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-brand-luxeGold transition-colors">About Us</a></li>
+                        <li><a href="discover.html" class="hover:text-brand-luxeGold transition-colors">Discover Bratislava</a></li>
+                        <li><a href="tours.html" class="hover:text-brand-luxeGold transition-colors">Tours & Rides</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] text-white mb-6">Rides</h4>
+                    <ul class="space-y-4 text-xs font-light">
+                        <li><a href="guides.html" class="hover:text-brand-luxeGold transition-colors">Our Guides</a></li>
+                        <li><a href="journal.html" class="hover:text-brand-luxeGold transition-colors">Journal</a></li>
+                        <li><a href="contact.html" class="hover:text-brand-luxeGold transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="border-t border-stone-900/60 pt-8 flex flex-col md:flex-row items-center justify-between text-[10px] font-light">
+                <p>&copy; 2026 Bike Bratislava. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0 uppercase tracking-widest text-stone-600">
+                    <a href="#" class="hover:text-brand-luxeGold transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-brand-luxeGold transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        lucide.createIcons();
+
+        // 1. Header scroll animation
+        const header = document.getElementById('main-header');
+        const logoText = document.getElementById('logo-text');
+        const navCta = document.getElementById('nav-cta');
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.remove('py-6');
+                header.classList.add('py-4', 'bg-brand-luxeDark/95', 'backdrop-blur-md', 'shadow-2xl');
+            } else {
+                header.classList.remove('py-4', 'bg-brand-luxeDark/95', 'backdrop-blur-md', 'shadow-2xl');
+                header.classList.add('py-6');
+            }
+        });
+
+        // 2. Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        let isMobileMenuOpen = false;
+
+        mobileMenuToggle.addEventListener('click', () => {
+            isMobileMenuOpen = !isMobileMenuOpen;
+            if (isMobileMenuOpen) {
+                mobileMenu.classList.remove('translate-x-full');
+                mobileMenuToggle.innerHTML = '<i data-lucide="x" class="w-6 h-6 text-white"></i>';
+                header.classList.add('bg-brand-luxeDark');
+            } else {
+                mobileMenu.classList.add('translate-x-full');
+                mobileMenuToggle.innerHTML = '<i data-lucide="menu" class="w-6 h-6 text-white"></i>';
+                if (window.scrollY <= 50) {
+                    header.classList.remove('bg-brand-luxeDark');
+                }
+            }
+            lucide.createIcons();
+        });
+
+        // 3. TripAdvisor Review Slider
+        const reviews = [
+            {
+                stars: 5,
+                text: "The border-crossing ride was incredible! Cycling through Slovakia, Austria, and Hungary in one day was unique. Our guide was incredibly knowledgeable and shared so much history.",
+                name: "Markus K.",
+                location: "Vienna, Austria"
+            },
+            {
+                stars: 5,
+                text: "Riding through the Little Carpathian vineyards with Wine & Villages Ride was the highlight of our vacation. Great bikes, friendly atmosphere, and awesome wine tasting!",
+                name: "Sarah L.",
+                location: "London, UK"
+            },
+            {
+                stars: 5,
+                text: "If you're a cyclist visiting Vienna or Bratislava, do NOT miss this. Custom experience built specifically for my road cycling level. High-speed, professional, and amazing climbs.",
+                name: "Jean-Pierre M.",
+                location: "Lyon, France"
+            }
+        ];
+
+        let currentReviewIndex = 0;
+        const sliderContent = document.getElementById('slider-content');
+        const prevBtn = document.getElementById('slider-prev');
+        const nextBtn = document.getElementById('slider-next');
+        const dotsContainer = document.getElementById('slider-dots');
+
+        function updateSlider(index) {
+            currentReviewIndex = index;
+            sliderContent.style.opacity = 0;
+            sliderContent.style.transform = 'translateY(10px)';
+            
+            setTimeout(() => {
+                const review = reviews[currentReviewIndex];
+                let starsHTML = '';
+                for (let i = 0; i < review.stars; i++) {
+                    starsHTML += '<i data-lucide="star" class="w-5 h-5 fill-brand-luxeGold text-brand-luxeGold"></i>';
+                }
+
+                sliderContent.innerHTML = `
+                    <div class="text-center px-4 md:px-12 flex flex-col items-center">
+                        <div class="flex space-x-1.5 mb-6 text-brand-luxeGold">
+                            ${starsHTML}
+                        </div>
+                        <blockquote class="font-serif text-2xl md:text-3xl italic font-light leading-relaxed mb-8 text-stone-200">
+                            "${review.text}"
+                        </blockquote>
+                        <cite class="not-italic block font-sans">
+                            <span class="font-semibold text-brand-luxeGold tracking-[0.15em] text-xs uppercase block">${review.name}</span>
+                            <span class="text-[10px] text-stone-500 uppercase tracking-[0.2em] font-light">${review.location}</span>
+                        </cite>
+                    </div>
+                `;
+                lucide.createIcons();
+                sliderContent.style.opacity = 1;
+                sliderContent.style.transform = 'translateY(0)';
+                
+                const dots = dotsContainer.querySelectorAll('button');
+                dots.forEach((dot, dIndex) => {
+                    if (dIndex === currentReviewIndex) {
+                        dot.classList.remove('bg-stone-850');
+                        dot.classList.add('bg-brand-luxeGold');
+                    } else {
+                        dot.classList.remove('bg-brand-luxeGold');
+                        dot.classList.add('bg-stone-850');
+                    }
+                });
+            }, 300);
+        }
+
+        prevBtn.addEventListener('click', () => {
+            let nextIndex = currentReviewIndex - 1;
+            if (nextIndex < 0) nextIndex = reviews.length - 1;
+            updateSlider(nextIndex);
+        });
+
+        nextBtn.addEventListener('click', () => {
+            let nextIndex = currentReviewIndex + 1;
+            if (nextIndex >= reviews.length) nextIndex = 0;
+            updateSlider(nextIndex);
+        });
+
+        const dots = dotsContainer.querySelectorAll('button');
+        dots.forEach(dot => {
+            dot.addEventListener('click', (e) => {
+                const index = parseInt(e.currentTarget.getAttribute('data-slide'));
+                updateSlider(index);
+            });
+        });
+
+        let reviewInterval = setInterval(() => {
+            let nextIndex = currentReviewIndex + 1;
+            if (nextIndex >= reviews.length) nextIndex = 0;
+            updateSlider(nextIndex);
+        }, 6000);
+
+        const stopSliderAutoplay = () => { clearInterval(reviewInterval); };
+        prevBtn.addEventListener('click', stopSliderAutoplay);
+        nextBtn.addEventListener('click', stopSliderAutoplay);
+        dots.forEach(dot => dot.addEventListener('click', stopSliderAutoplay));
+    </script>
+</body>
+</html>

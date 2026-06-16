@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Bike Bratislava</title>
+    <meta name="description" content="Let's plan your ride. Tell us about your travel dates, group size, and cycling experience. We'll help you create the perfect tour.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            luxeDark: '#0F0E0E',
+                            luxeLight: '#F5F4F0',
+                            luxeGold: '#A38A5F',
+                            luxeGoldDark: '#8F774F',
+                            luxeTextDark: '#1C1917',
+                            luxeTextLight: '#EAE8E4'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Cormorant Garamond', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-brand-luxeLight text-brand-luxeTextDark font-sans antialiased selection:bg-brand-luxeGold selection:text-brand-luxeDark">
+
+    <!-- HEADER & NAVIGATION -->
+    <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 py-6 bg-brand-luxeDark/95 backdrop-blur-md shadow-2xl border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
+            <a href="index.html" class="flex flex-col group">
+                <span class="font-serif text-2xl lg:text-3xl tracking-widest text-brand-luxeTextLight transition-colors duration-300">
+                    BIKE BRATISLAVA
+                </span>
+                <span class="text-[8px] tracking-[0.35em] text-stone-400 font-light uppercase">
+                    Central Europe
+                </span>
+            </a>
+
+            <nav class="hidden lg:flex items-center space-x-10">
+                <a href="index.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent">Home</a>
+                <a href="about.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">About Us</a>
+                <a href="discover.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Discover Bratislava</a>
+                <a href="tours.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Tours & Rides</a>
+                <a href="guides.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Our Guides</a>
+                <a href="journal.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Journal</a>
+                <a href="contact.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-brand-luxeGold">Contact</a>
+            </nav>
+
+            <div class="hidden lg:block">
+                <a href="contact.html" class="inline-flex items-center justify-center px-8 py-3 text-[10px] font-medium tracking-[0.3em] uppercase border border-white/20 text-white hover:bg-white hover:text-brand-luxeDark transition-all duration-500 rounded-none">
+                    Plan Your Ride
+                </a>
+            </div>
+
+            <button id="mobile-menu-toggle" class="lg:hidden text-white hover:text-brand-luxeGold transition-colors focus:outline-none" aria-label="Toggle Menu">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU OVERLAY -->
+    <div id="mobile-menu" class="fixed inset-0 bg-brand-luxeDark z-40 flex flex-col justify-between transform translate-x-full transition-transform duration-500 ease-in-out p-8 pt-28">
+        <nav class="flex flex-col space-y-6">
+            <a href="index.html" class="font-serif text-4xl text-stone-400 hover:text-brand-luxeGold transition-colors py-2 border-b border-stone-900">Home</a>
+            <a href="about.html" class="font-serif text-4xl text-stone-400 hover:text-brand-luxeGold transition-colors py-2 border-b border-stone-900">About Us</a>
+            <a href="discover.html" class="font-serif text-4xl text-stone-400 hover:text-brand-luxeGold transition-colors py-2 border-b border-stone-900">Discover Bratislava</a>
+            <a href="tours.html" class="font-serif text-4xl text-stone-400 hover:text-brand-luxeGold transition-colors py-2 border-b border-stone-900">Tours & Rides</a>
+            <a href="guides.html" class="font-serif text-4xl text-stone-400 hover:text-brand-luxeGold transition-colors py-2 border-b border-stone-900">Our Guides</a>
+            <a href="journal.html" class="font-serif text-4xl text-stone-400 hover:text-brand-luxeGold transition-colors py-2 border-b border-stone-900">Journal</a>
+            <a href="contact.html" class="font-serif text-4xl text-white hover:text-brand-luxeGold transition-colors py-2 border-b border-stone-900">Contact</a>
+        </nav>
+        
+        <div class="flex flex-col space-y-4">
+            <a href="contact.html" class="w-full text-center py-4 bg-brand-luxeGold text-white hover:bg-brand-luxeGoldDark font-medium uppercase tracking-[0.2em] text-xs transition-colors duration-300 rounded-none">
+                Plan Your Ride
+            </a>
+        </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-56 pb-32 bg-brand-luxeDark text-white overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1541614101331-1a5a3a194e92?auto=format&fit=crop&w=1920&q=80" 
+                 alt="Contact us background" 
+                 class="w-full h-full object-cover object-center opacity-15">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-luxeDark via-brand-luxeDark/65 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+            <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-4 block">Get In Touch</span>
+            <h1 class="font-serif text-5xl md:text-7xl font-light mb-6">Let's Plan Your Ride</h1>
+            <p class="text-stone-400 text-sm md:text-base font-light max-w-2xl mx-auto leading-relaxed tracking-wider">
+                Tell us about your visit, cycling experience and interests. We'll help you choose the perfect route or create a custom cycling experience.
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTION: CONTACT FORM -->
+    <section class="py-32 bg-white relative">
+        <div class="max-w-4xl mx-auto px-6">
+            
+            <!-- Selected Tour Alert Banner -->
+            <div id="tour-selected-banner" class="hidden mb-12 p-5 bg-brand-luxeLight border border-brand-luxeGold/30 flex items-center justify-between font-sans">
+                <div class="flex items-center space-x-3 text-brand-luxeTextDark text-xs font-semibold uppercase tracking-wider">
+                    <i data-lucide="info" class="w-5 h-5 text-brand-luxeGold"></i>
+                    <span>Enquiring about: <strong id="selected-tour-name" class="text-brand-luxeGold">None</strong></span>
+                </div>
+                <button onclick="clearSelectedTour()" class="text-stone-400 hover:text-brand-luxeDark transition-colors">
+                    <i data-lucide="x" class="w-4 h-4"></i>
+                </button>
+            </div>
+
+            <!-- Form Container -->
+            <div class="bg-brand-luxeLight border border-stone-200 p-8 md:p-16 shadow-2xl relative overflow-hidden rounded-none" id="form-container">
+                <form id="contact-form" class="space-y-10">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                        <!-- Name -->
+                        <div class="flex flex-col border-b border-stone-300 focus-within:border-brand-luxeGold transition-colors pb-2">
+                            <label for="name" class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-400 mb-1">Name</label>
+                            <input type="text" id="name" name="name" required placeholder="John Doe" 
+                                   class="bg-transparent focus:outline-none text-sm font-light text-brand-luxeTextDark tracking-wide">
+                        </div>
+                        <!-- Country -->
+                        <div class="flex flex-col border-b border-stone-300 focus-within:border-brand-luxeGold transition-colors pb-2">
+                            <label for="country" class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-400 mb-1">Country</label>
+                            <input type="text" id="country" name="country" required placeholder="United Kingdom" 
+                                   class="bg-transparent focus:outline-none text-sm font-light text-brand-luxeTextDark tracking-wide">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                        <!-- Email -->
+                        <div class="flex flex-col border-b border-stone-300 focus-within:border-brand-luxeGold transition-colors pb-2">
+                            <label for="email" class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-400 mb-1">Email Address</label>
+                            <input type="email" id="email" name="email" required placeholder="john@example.com" 
+                                   class="bg-transparent focus:outline-none text-sm font-light text-brand-luxeTextDark tracking-wide">
+                        </div>
+                        <!-- Dates -->
+                        <div class="flex flex-col border-b border-stone-300 focus-within:border-brand-luxeGold transition-colors pb-2">
+                            <label for="dates" class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-400 mb-1">Travel Dates</label>
+                            <input type="text" id="dates" name="dates" required placeholder="e.g., Late September 2026" 
+                                   class="bg-transparent focus:outline-none text-sm font-light text-brand-luxeTextDark tracking-wide">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                        <!-- Group Size -->
+                        <div class="flex flex-col border-b border-stone-300 focus-within:border-brand-luxeGold transition-colors pb-2">
+                            <label for="group-size" class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-400 mb-1">Group Size</label>
+                            <select id="group-size" name="group-size" required 
+                                    class="bg-transparent focus:outline-none text-xs font-light text-brand-luxeTextDark tracking-wide py-1 appearance-none cursor-pointer">
+                                <option value="" disabled selected>Select size</option>
+                                <option value="Solo Rider">Solo Rider</option>
+                                <option value="2-4 Riders">2-4 Riders</option>
+                                <option value="5-8 Riders">5-8 Riders</option>
+                                <option value="9+ Corporate/Club">9+ (Corporate/Club)</option>
+                            </select>
+                        </div>
+
+                        <!-- Experience Level -->
+                        <div class="flex flex-col border-b border-stone-300 focus-within:border-brand-luxeGold transition-colors pb-2">
+                            <label for="experience" class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-400 mb-1">Experience Level</label>
+                            <select id="experience" name="experience" required 
+                                    class="bg-transparent focus:outline-none text-xs font-light text-brand-luxeTextDark tracking-wide py-1 appearance-none cursor-pointer">
+                                <option value="" disabled selected>Select level</option>
+                                <option value="Leisure/Casual">Leisure / Casual</option>
+                                <option value="Intermediate">Intermediate Road/Gravel</option>
+                                <option value="Advanced/Strong">Advanced / Strong Cyclist</option>
+                            </select>
+                        </div>
+
+                        <!-- Preferred Ride Type -->
+                        <div class="flex flex-col border-b border-stone-300 focus-within:border-brand-luxeGold transition-colors pb-2">
+                            <label for="ride-type" class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-400 mb-1">Preferred Ride Type</label>
+                            <select id="ride-type" name="ride-type" required 
+                                    class="bg-transparent focus:outline-none text-xs font-light text-brand-luxeTextDark tracking-wide py-1 appearance-none cursor-pointer">
+                                <option value="" disabled selected>Select type</option>
+                                <option value="Guided Tour (Leisure)">Guided Tour (Leisure)</option>
+                                <option value="Guided Road Ride (Sportive)">Guided Road Ride (Sportive)</option>
+                                <option value="Guided Gravel Ride">Guided Gravel Ride</option>
+                                <option value="Custom Experience">Custom Experience</option>
+                                <option value="Bratislava Highlights Ride">Bratislava Highlights Ride</option>
+                                <option value="Danube Discovery Tour">Danube Discovery Tour</option>
+                                <option value="Wine & Villages Ride">Wine & Villages Ride</option>
+                                <option value="Sunset Ride">Sunset Ride</option>
+                                <option value="Cross Border Ride">Cross Border Ride</option>
+                                <option value="Little Carpathians Road Ride">Little Carpathians Road Ride</option>
+                                <option value="Gravel Through The Vineyards">Gravel Through The Vineyards</option>
+                                <option value="Four Countries Challenge">Four Countries Challenge</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Message -->
+                    <div class="flex flex-col border-b border-stone-300 focus-within:border-brand-luxeGold transition-colors pb-2">
+                        <label for="message" class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-400 mb-2">Message</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Tell us about your interests, rental needs, or special requests..."
+                                  class="bg-transparent focus:outline-none text-sm font-light text-brand-luxeTextDark tracking-wide resize-none"></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="w-full py-4.5 bg-brand-luxeDark hover:bg-brand-luxeGold text-white font-medium uppercase tracking-[0.3em] text-xs transition-colors duration-500 rounded-none border border-stone-850 shadow-2xl">
+                        Submit Inquiry
+                    </button>
+                </form>
+                
+                <!-- Success State Overlay -->
+                <div id="success-message" class="absolute inset-0 bg-brand-luxeDark text-white z-20 flex flex-col items-center justify-center p-8 text-center opacity-0 pointer-events-none transition-all duration-500">
+                    <div class="w-16 h-16 bg-brand-luxeGold/20 border border-brand-luxeGold rounded-none flex items-center justify-center text-brand-luxeGold mb-6">
+                        <i data-lucide="check" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-serif text-3xl font-light tracking-tight mb-4">Inquiry Received</h3>
+                    <p class="max-w-md text-stone-400 font-light text-xs md:text-sm leading-relaxed mb-8 tracking-wide font-sans">
+                        Thank you for reaching out to Bike Bratislava. One of our local ride leaders will review your request and get back to you within 24 hours to help plan your adventure.
+                    </p>
+                    <button id="success-reset-btn" class="px-8 py-3.5 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white font-medium text-[10px] tracking-[0.25em] uppercase transition-colors duration-300 rounded-none">
+                        Send Another Message
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-luxeDark text-stone-500 py-24 border-t border-stone-900">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 font-sans tracking-wide">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
+                <div class="md:col-span-2">
+                    <span class="font-serif text-2xl tracking-widest text-white">BIKE BRATISLAVA</span>
+                    <p class="text-xs font-light leading-relaxed mt-6 pr-8 text-stone-400">
+                        Discover Bratislava and the heart of Central Europe from the saddle. Guided cycling tours, road rides, gravel adventures and custom cycling experiences designed by local riders.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] text-white mb-6">Explore</h4>
+                    <ul class="space-y-4 text-xs font-light">
+                        <li><a href="index.html" class="hover:text-brand-luxeGold transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-brand-luxeGold transition-colors">About Us</a></li>
+                        <li><a href="discover.html" class="hover:text-brand-luxeGold transition-colors">Discover Bratislava</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] text-white mb-6">Rides</h4>
+                    <ul class="space-y-4 text-xs font-light">
+                        <li><a href="tours.html" class="hover:text-brand-luxeGold transition-colors">Tours & Rides</a></li>
+                        <li><a href="guides.html" class="hover:text-brand-luxeGold transition-colors">Our Guides</a></li>
+                        <li><a href="contact.html" class="hover:text-brand-luxeGold transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-stone-900/60 pt-8 flex flex-col md:flex-row items-center justify-between text-[10px] font-light">
+                <p>&copy; 2026 Bike Bratislava. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE SCRIPTS -->
+    <script>
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const toggleBtn = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        let isOpen = false;
+        
+        toggleBtn.addEventListener('click', () => {
+            isOpen = !isOpen;
+            if(isOpen) {
+                mobileMenu.classList.remove('translate-x-full');
+                toggleBtn.innerHTML = '<i data-lucide="x" class="w-6 h-6 text-white"></i>';
+            } else {
+                mobileMenu.classList.add('translate-x-full');
+                toggleBtn.innerHTML = '<i data-lucide="menu" class="w-6 h-6 text-white"></i>';
+            }
+            lucide.createIcons();
+        });
+
+        // URL Query parameter handling (?ride=TourName)
+        const rideSelect = document.getElementById('ride-type');
+        const banner = document.getElementById('tour-selected-banner');
+        const selectedTourText = document.getElementById('selected-tour-name');
+
+        function checkQueryParam() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const selectedRide = urlParams.get('ride');
+            
+            if (selectedRide) {
+                let foundMatch = false;
+                for (let option of rideSelect.options) {
+                    if (option.value.toLowerCase() === selectedRide.toLowerCase() || 
+                        option.value.toLowerCase().includes(selectedRide.toLowerCase())) {
+                        option.selected = true;
+                        foundMatch = true;
+                        
+                        selectedTourText.innerText = option.value;
+                        banner.classList.remove('hidden');
+                        break;
+                    }
+                }
+                
+                if (!foundMatch && selectedRide.toLowerCase() === 'custom') {
+                    for (let option of rideSelect.options) {
+                        if (option.value.includes('Custom')) {
+                            option.selected = true;
+                            selectedTourText.innerText = "Custom Experience";
+                            banner.classList.remove('hidden');
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        function clearSelectedTour() {
+            banner.classList.add('hidden');
+            rideSelect.selectedIndex = 0;
+            window.history.pushState({}, document.title, window.location.pathname);
+        }
+
+        window.addEventListener('DOMContentLoaded', checkQueryParam);
+
+        // Contact form submit logic
+        const form = document.getElementById('contact-form');
+        const successMessage = document.getElementById('success-message');
+        const resetBtn = document.getElementById('success-reset-btn');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const submitBtn = form.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="inline-block animate-pulse">Sending Inquiry...</span>';
+
+            setTimeout(() => {
+                successMessage.classList.remove('pointer-events-none');
+                successMessage.classList.remove('opacity-0');
+                successMessage.classList.add('opacity-100');
+                
+                form.reset();
+                submitBtn.disabled = false;
+                submitBtn.innerText = "Submit Inquiry";
+                banner.classList.add('hidden');
+            }, 1200);
+        });
+
+        resetBtn.addEventListener('click', () => {
+            successMessage.classList.add('pointer-events-none');
+            successMessage.classList.remove('opacity-100');
+            successMessage.classList.add('opacity-0');
+        });
+    </script>
+</body>
+</html>
