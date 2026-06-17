@@ -176,19 +176,19 @@
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
             
             <div class="flex flex-wrap items-center justify-center gap-3 mb-20 border-b border-stone-200 pb-8 font-sans scroll-reveal">
-                <button class="px-5 py-2 text-[10px] font-bold uppercase tracking-wider bg-brand-luxeDark text-white rounded-none">All Stories</button>
-                <button class="px-5 py-2 text-[10px] font-bold uppercase tracking-wider border border-stone-200 text-stone-600 hover:border-brand-luxeDark hover:text-brand-luxeDark rounded-none transition-all">Cycling Routes</button>
-                <button class="px-5 py-2 text-[10px] font-bold uppercase tracking-wider border border-stone-200 text-stone-600 hover:border-brand-luxeDark hover:text-brand-luxeDark rounded-none transition-all">Bratislava Insider</button>
-                <button class="px-5 py-2 text-[10px] font-bold uppercase tracking-wider border border-stone-200 text-stone-600 hover:border-brand-luxeDark hover:text-brand-luxeDark rounded-none transition-all">Wine & Culture</button>
-                <button class="px-5 py-2 text-[10px] font-bold uppercase tracking-wider border border-stone-200 text-stone-600 hover:border-brand-luxeDark hover:text-brand-luxeDark rounded-none transition-all">Travel Tips</button>
-                <button class="px-5 py-2 text-[10px] font-bold uppercase tracking-wider border border-stone-200 text-stone-600 hover:border-brand-luxeDark hover:text-brand-luxeDark rounded-none transition-all">Bikepacking</button>
-                <button class="px-5 py-2 text-[10px] font-bold uppercase tracking-wider border border-stone-200 text-stone-600 hover:border-brand-luxeDark hover:text-brand-luxeDark rounded-none transition-all">Events</button>
+                <button class="filter-btn px-5 py-2 text-[10px] font-bold uppercase tracking-wider bg-brand-luxeDark text-white rounded-none border border-transparent transition-all" data-category="all">All Stories</button>
+                <button class="filter-btn px-5 py-2 text-[10px] font-bold uppercase tracking-wider border border-stone-200 text-stone-600 hover:border-brand-luxeDark hover:text-brand-luxeDark rounded-none transition-all" data-category="Cycling Routes">Cycling Routes</button>
+                <button class="filter-btn px-5 py-2 text-[10px] font-bold uppercase tracking-wider border border-stone-200 text-stone-600 hover:border-brand-luxeDark hover:text-brand-luxeDark rounded-none transition-all" data-category="Bratislava Insider">Bratislava Insider</button>
+                <button class="filter-btn px-5 py-2 text-[10px] font-bold uppercase tracking-wider border border-stone-200 text-stone-600 hover:border-brand-luxeDark hover:text-brand-luxeDark rounded-none transition-all" data-category="Wine & Culture">Wine & Culture</button>
+                <button class="filter-btn px-5 py-2 text-[10px] font-bold uppercase tracking-wider border border-stone-200 text-stone-600 hover:border-brand-luxeDark hover:text-brand-luxeDark rounded-none transition-all" data-category="Travel Tips">Travel Tips</button>
+                <button class="filter-btn px-5 py-2 text-[10px] font-bold uppercase tracking-wider border border-stone-200 text-stone-600 hover:border-brand-luxeDark hover:text-brand-luxeDark rounded-none transition-all" data-category="Bikepacking">Bikepacking</button>
+                <button class="filter-btn px-5 py-2 text-[10px] font-bold uppercase tracking-wider border border-stone-200 text-stone-600 hover:border-brand-luxeDark hover:text-brand-luxeDark rounded-none transition-all" data-category="Events">Events</button>
             </div>
 
             <!-- Articles Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
                 <!-- Article 1 -->
-                <article class="group flex flex-col justify-between scroll-reveal">
+                <article class="group flex flex-col justify-between scroll-reveal" data-category="Cycling Routes">
                     <div>
                         <div class="aspect-video overflow-hidden border border-stone-200 mb-6 rounded-none shadow-md">
                             <img src="pictures/Cyclists riding during golden hour sunset, warm silhouettes, back light, cinematic photography.jpg" alt="Iron Curtain cycle path slovakia road" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
@@ -198,15 +198,15 @@
                         <p class="text-stone-500 font-light text-xs leading-relaxed mb-6 font-sans tracking-wide">A comprehensive guide to tracing history and crossing border checkpoints along the former Austrian-Slovak border on two wheels.</p>
                     </div>
                     <div>
-                        <a href="#" class="inline-flex items-center space-x-2 text-[10px] font-bold uppercase tracking-widest text-brand-luxeDark group-hover:text-brand-luxeGold">
+                        <button onclick="openArticleModal('ironcurtain')" class="inline-flex items-center space-x-2 text-[10px] font-bold uppercase tracking-widest text-brand-luxeDark group-hover:text-brand-luxeGold transition-colors focus:outline-none">
                             <span>Read Article</span>
                             <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-                        </a>
+                        </button>
                     </div>
                 </article>
 
                 <!-- Article 2 -->
-                <article class="group flex flex-col justify-between scroll-reveal">
+                <article class="group flex flex-col justify-between scroll-reveal" data-category="Wine & Culture">
                     <div>
                         <div class="aspect-video overflow-hidden border border-stone-200 mb-6 rounded-none shadow-md">
                             <img src="pictures/vineyard_ride.png" alt="Autumn harvest in vineyards slovakia" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
@@ -216,15 +216,15 @@
                         <p class="text-stone-500 font-light text-xs leading-relaxed mb-6 font-sans tracking-wide">What it's like to ride through grape-filled hills during autumn harvests and taste wines at historic family-run cellars.</p>
                     </div>
                     <div>
-                        <a href="#" class="inline-flex items-center space-x-2 text-[10px] font-bold uppercase tracking-widest text-brand-luxeDark group-hover:text-brand-luxeGold">
+                        <button onclick="openArticleModal('svatyjur')" class="inline-flex items-center space-x-2 text-[10px] font-bold uppercase tracking-widest text-brand-luxeDark group-hover:text-brand-luxeGold transition-colors focus:outline-none">
                             <span>Read Article</span>
                             <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-                        </a>
+                        </button>
                     </div>
                 </article>
 
                 <!-- Article 3 -->
-                <article class="group flex flex-col justify-between scroll-reveal">
+                <article class="group flex flex-col justify-between scroll-reveal" data-category="Travel Tips">
                     <div>
                         <div class="aspect-video overflow-hidden border border-stone-200 mb-6 rounded-none shadow-md">
                             <img src="pictures/Corporate cycling group, custom private bike tour, diverse group of people riding together, authentic experience.jpg" alt="Vienna to Bratislava route path" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
@@ -234,15 +234,15 @@
                         <p class="text-stone-500 font-light text-xs leading-relaxed mb-6 font-sans tracking-wide">Everything you need to know about riding paths, wind directions, gears, and best sightseeing stops along EuroVelo 6.</p>
                     </div>
                     <div>
-                        <a href="#" class="inline-flex items-center space-x-2 text-[10px] font-bold uppercase tracking-widest text-brand-luxeDark group-hover:text-brand-luxeGold">
+                        <button onclick="openArticleModal('viennatobratislava')" class="inline-flex items-center space-x-2 text-[10px] font-bold uppercase tracking-widest text-brand-luxeDark group-hover:text-brand-luxeGold transition-colors focus:outline-none">
                             <span>Read Article</span>
                             <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-                        </a>
+                        </button>
                     </div>
                 </article>
 
                 <!-- Article 4 -->
-                <article class="group flex flex-col justify-between scroll-reveal">
+                <article class="group flex flex-col justify-between scroll-reveal" data-category="Bikepacking">
                     <div>
                         <div class="aspect-video overflow-hidden border border-stone-200 mb-6 rounded-none shadow-md">
                             <img src="pictures/Athletic road cyclist climbing a scenic mountain road, gravel bike rider on a dirt trail, endurance.jpg" alt="Bikepacking mountains gravel path" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
@@ -252,12 +252,21 @@
                         <p class="text-stone-500 font-light text-xs leading-relaxed mb-6 font-sans tracking-wide">A weekend bikepacking itinerary across forest paths, ancient castle ruins, and pitching camp under regional stars.</p>
                     </div>
                     <div>
-                        <a href="#" class="inline-flex items-center space-x-2 text-[10px] font-bold uppercase tracking-widest text-brand-luxeDark group-hover:text-brand-luxeGold">
+                        <button onclick="openArticleModal('littlecarpathians')" class="inline-flex items-center space-x-2 text-[10px] font-bold uppercase tracking-widest text-brand-luxeDark group-hover:text-brand-luxeGold transition-colors focus:outline-none">
                             <span>Read Article</span>
                             <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-                        </a>
+                        </button>
                     </div>
                 </article>
+            </div>
+
+            <!-- No Stories Found -->
+            <div id="no-articles-message" class="hidden text-center py-20 font-sans">
+                <div class="inline-flex items-center justify-center w-12 h-12 border border-brand-luxeGold/30 text-brand-luxeGold mb-4 rounded-none">
+                    <i data-lucide="book-open" class="w-5 h-5"></i>
+                </div>
+                <h4 class="font-serif text-xl font-light text-brand-luxeDark mb-2">No Stories Yet</h4>
+                <p class="text-stone-400 font-light text-xs max-w-xs mx-auto leading-relaxed">We are currently writing new stories for this category. Check back soon for routes and insider tips!</p>
             </div>
         </div>
     </section>
@@ -294,6 +303,16 @@
             </div>
         </div>
     </footer>
+
+    <!-- ARTICLE DETAIL MODAL / POPUP -->
+    <div id="article-modal" class="fixed inset-0 bg-stone-950/90 backdrop-blur-md z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-500">
+        <div class="bg-brand-luxeDark max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative border border-brand-luxeGold/25 rounded-none text-white">
+            <button onclick="closeArticleModal()" class="absolute top-4 right-4 text-stone-500 hover:text-white transition-colors z-10" aria-label="Close article">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <div id="article-modal-content"></div>
+        </div>
+    </div>
 
     <!-- JAVASCRIPT -->
     <script>
@@ -374,11 +393,147 @@
                     if (!section) return;
                     const rect = section.getBoundingClientRect();
                     if (rect.top < window.innerHeight && rect.bottom > 0) {
-                        const offset = rect.top * 0.18;
-                        bg.style.transform = `translateY(${offset}px)`;
+                        const scrollProgress = (window.innerHeight - rect.top) / (window.innerHeight + section.offsetHeight);
+                        const percentOffset = (scrollProgress - 0.5) * -15; // range: -7.5% to +7.5% (safely within -20% inset)
+                        bg.style.transform = `translateY(${percentOffset}%)`;
                     }
                 });
             }
+        });
+
+        // 5. Category Filtering Logic
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const articles = document.querySelectorAll('article');
+        const noArticlesMsg = document.getElementById('no-articles-message');
+
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const selectedCategory = btn.getAttribute('data-category');
+
+                // Update active button styles
+                filterButtons.forEach(b => {
+                    b.classList.remove('bg-brand-luxeDark', 'text-white');
+                    b.classList.add('border', 'border-stone-200', 'text-stone-600', 'hover:border-brand-luxeDark', 'hover:text-brand-luxeDark');
+                });
+                btn.classList.add('bg-brand-luxeDark', 'text-white');
+                btn.classList.remove('border', 'border-stone-200', 'text-stone-600', 'hover:border-brand-luxeDark', 'hover:text-brand-luxeDark');
+
+                // Filter articles
+                let visibleCount = 0;
+                articles.forEach(article => {
+                    const articleCategory = article.getAttribute('data-category');
+                    if (selectedCategory === 'all' || articleCategory === selectedCategory) {
+                        article.classList.remove('hidden');
+                        visibleCount++;
+                    } else {
+                        article.classList.add('hidden');
+                    }
+                });
+
+                // Show/hide no articles message
+                if (visibleCount === 0) {
+                    noArticlesMsg.classList.remove('hidden');
+                } else {
+                    noArticlesMsg.classList.add('hidden');
+                }
+            });
+        });
+
+        // 6. Article Details Modal Logic
+        const articleModal = document.getElementById('article-modal');
+        const articleModalContent = document.getElementById('article-modal-content');
+
+        const articleData = {
+            ironcurtain: {
+                title: "Riding the Iron Curtain Trail",
+                category: "Cycling Routes",
+                img: "pictures/Cyclists riding during golden hour sunset, warm silhouettes, back light, cinematic photography.jpg",
+                date: "Published June 12, 2026",
+                content: `
+                    <p class="mb-4">The Iron Curtain Trail (EuroVelo 13) is a cycling route that retraces history. Along the Slovak-Austrian border, it follows the line where barbed wire, minefields, and watchtowers once separated East and West during the Cold War.</p>
+                    <p class="mb-4">Today, this trail is a paved cycling path, offering an incredible ride through lush riversides, historical bunkers, and national parks. Starting from the Devín Castle confluence, you'll ride past original military bunkers (B-S 4 and B-S 8), through pine forests, and across modern border bridges that connect Slovakia to neighboring Austrian villages like Kittsee and Engelhartstetten.</p>
+                    <p class="mb-4">It is a flat, fast route suitable for all fitness levels. Along the way, you can stop to read informative historical markers and enjoy the quiet landscape where wild deer now graze where guard dogs once patrolled.</p>
+                    <blockquote class="border-l-2 border-brand-luxeGold pl-4 my-6 italic text-stone-300">
+                        "To ride along the border is to feel the weight of history under your tyres, and celebrate the open border checkpoints of today."
+                    </blockquote>
+                    <p class="mb-4"><strong>Key details:</strong> The path is entirely asphalted, wide, and fully separated from vehicle traffic. It connects directly with the Danube cycle path, making it perfect for custom loop rides.</p>
+                `
+            },
+            svatyjur: {
+                title: "Harvest Season in Svätý Jur",
+                category: "Wine & Culture",
+                img: "pictures/vineyard_ride.png",
+                date: "Published May 28, 2026",
+                content: `
+                    <p class="mb-4">Svätý Jur is a historic wine-producing town located just a short ride north of Bratislava's city limits. Nestled under the Little Carpathian foothills, it is famous for its steep terraced vineyards and historic architecture.</p>
+                    <p class="mb-4">Harvest season (typically late summer through autumn) is the most magical time to visit Svätý Jur. The air is sweet with grapes, and local wineries open their old vaulted cellars to visitors. The vineyard roads are gravel fire roads and packed dirt tracks, providing an exceptional gravel cycling loop with views stretching across the plains towards the Danube.</p>
+                    <p class="mb-4">Our Wine & Villages ride climbs through these ancient terraced estates. The route offers challenging climbs but rewards you with downhill runs through oak forest paths and stops at family cellars to sample local Grüner Veltliner, Blaufränkisch, and the regional young wine, Burčiak.</p>
+                    <p class="mb-4"><strong>Tip:</strong> Dress in layers as the temperature in the vaulted cellars is cool, and the hills can get breezy. A gravel or mountain bike is essential for this route.</p>
+                `
+            },
+            viennatobratislava: {
+                title: "Vienna to Bratislava by Bike",
+                category: "Travel Tips",
+                img: "pictures/Corporate cycling group, custom private bike tour, diverse group of people riding together, authentic experience.jpg",
+                date: "Published April 15, 2026",
+                content: `
+                    <p class="mb-4">Riding from Vienna to Bratislava is one of the classic European cycling routes. Part of EuroVelo 6, this flat, mostly traffic-free path runs along the north or south side of the Danube river, passing through the Danubiana wetlands and national parks.</p>
+                    <p class="mb-4">The route spans roughly 65-75 km depending on the starting point and bank chosen. Most riders choose the northern route through the Donau-Auen National Park, which is well-paved, scenic, and shaded. Alternatively, the southern route passes historic Roman ruins in Carnuntum and Kittsee Castle.</p>
+                    <p class="mb-4"><strong>Wind and Gear:</strong> The prevailing wind in the Danube valley blows from West to East, meaning riders traveling from Vienna to Bratislava usually enjoy a pleasant tailwind. For this reason, we recommend taking the train from Bratislava to Vienna and riding back!</p>
+                    <p class="mb-4">Make sure to stop at the Danubiana Meulensteen Art Museum, positioned right on the edge of the river peninsula near Bratislava, for a dose of world-class modern sculpture.</p>
+                `
+            },
+            littlecarpathians: {
+                title: "Peaks of Little Carpathians",
+                category: "Bikepacking",
+                img: "pictures/Athletic road cyclist climbing a scenic mountain road, gravel bike rider on a dirt trail, endurance.jpg",
+                date: "Published March 10, 2026",
+                content: `
+                    <p class="mb-4">The Little Carpathians (Malé Karpaty) form the southwestern tail of the main Carpathian mountain chain. This heavily forested ridge rises directly from Bratislava and stretches northeast, offering a playground for gravel and mountain bikers.</p>
+                    <p class="mb-4">A weekend bikepacking loop across the Little Carpathians takes you deep into the woods, far from car traffic. The trail follows gravel fire tracks, traversing peaks like Devínska Kobyla and Kamzík, passing medieval castles like Pajštún and Červený Kameň.</p>
+                    <p class="mb-4">You can set up camp at official shelters or enjoy local guesthouses in the wine villages along the route. It is a challenging ride with significant climbing, but the dense beech canopy, quiet forest trails, and cool mountain air make it a favorite for local riders looking to escape into nature.</p>
+                    <p class="mb-4"><strong>Gear note:</strong> Pack wide gravel tyres (at least 40mm) or ride a hardtail mountain bike, as some descents are loose and rocky. Bring a water filter and plenty of snacks.</p>
+                `
+            }
+        };
+
+        function openArticleModal(key) {
+            const data = articleData[key];
+            if (!data) return;
+
+            articleModalContent.innerHTML = `
+                <div class="relative w-full h-64 bg-stone-900 border-b border-brand-luxeGold/20">
+                    <img src="${data.img}" alt="${data.title}" class="w-full h-full object-cover opacity-50">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-luxeDark via-transparent to-black/35"></div>
+                    <div class="absolute bottom-6 left-6 text-white pr-6">
+                        <span class="text-[9px] uppercase font-bold tracking-[0.25em] text-brand-luxeGold border border-brand-luxeGold/30 px-3 py-1 bg-brand-luxeDark/50 rounded-none">${data.category}</span>
+                        <h3 class="font-serif text-2xl md:text-3xl font-light mt-3 leading-tight text-white">${data.title}</h3>
+                        <p class="text-[9px] uppercase tracking-wider text-stone-400 mt-2">${data.date}</p>
+                    </div>
+                </div>
+
+                <div class="p-8 space-y-6 text-stone-300 font-light text-sm leading-relaxed font-sans tracking-wide">
+                    ${data.content}
+                    
+                    <div class="pt-6 flex justify-between items-center border-t border-stone-800">
+                        <span class="text-xs text-stone-500">Interested in this region?</span>
+                        <a href="contact.html?ride=${encodeURIComponent(data.title)}" class="px-8 py-3.5 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[9px] font-semibold uppercase tracking-[0.2em] transition-colors duration-300 rounded-none border border-brand-luxeGold shadow-2xl">
+                            Plan A Ride
+                        </a>
+                    </div>
+                </div>
+            `;
+
+            articleModal.classList.remove('opacity-0', 'pointer-events-none');
+            lucide.createIcons();
+        }
+
+        function closeArticleModal() {
+            articleModal.classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        articleModal.addEventListener('click', (e) => {
+            if (e.target === articleModal) closeArticleModal();
         });
     </script>
 </body>

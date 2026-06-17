@@ -253,11 +253,11 @@
                             </div>
                         </div>
 
-                        <blockquote class="font-serif italic text-stone-500 mb-8 border-l border-brand-luxeGold pl-6 text-base md:text-lg font-light leading-relaxed">
+                        <blockquote class="font-serif italic text-stone-800 mb-8 border-l border-brand-luxeGold pl-6 text-base md:text-lg font-light leading-relaxed">
                             "Riding a bicycle through row vineyards is the best way to touch our local terroir and learn wine history."
                         </blockquote>
 
-                        <p class="text-stone-600 font-light leading-relaxed text-sm md:text-base tracking-wide font-sans mb-8">
+                        <p class="text-stone-850 font-light leading-relaxed text-sm md:text-base tracking-wide font-sans mb-8">
                             Katka has a background in history and winemaking. She mixes local stories and vineyard secret single tracks to make every ride feel like a journey through time, stopping to sample local products along the way.
                         </p>
                         <a href="contact.html?guide=Katka" class="inline-flex items-center space-x-2 text-[10px] font-bold uppercase tracking-widest text-brand-luxeDark hover:text-brand-luxeGold transition-colors">
@@ -428,8 +428,9 @@
                     if (!section) return;
                     const rect = section.getBoundingClientRect();
                     if (rect.top < window.innerHeight && rect.bottom > 0) {
-                        const offset = rect.top * 0.18;
-                        bg.style.transform = `translateY(${offset}px)`;
+                        const scrollProgress = (window.innerHeight - rect.top) / (window.innerHeight + section.offsetHeight);
+                        const percentOffset = (scrollProgress - 0.5) * -15; // range: -7.5% to +7.5% (safely within -20% inset)
+                        bg.style.transform = `translateY(${percentOffset}%)`;
                     }
                 });
             }

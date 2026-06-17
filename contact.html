@@ -221,62 +221,87 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
                         <!-- Group Size -->
-                        <div class="flex flex-col border-b border-stone-300 focus-within:border-brand-luxeGold transition-colors pb-2 relative">
-                            <label for="group-size" class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-400 mb-1">Group Size</label>
+                        <div class="flex flex-col border-b border-stone-300 focus-within:border-brand-luxeGold transition-colors pb-2 relative custom-select-container">
+                            <label class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-400 mb-1">Group Size</label>
                             <div class="relative w-full">
-                                <select id="group-size" name="group-size" required 
-                                        class="w-full bg-transparent focus:outline-none text-xs font-light text-brand-luxeTextDark tracking-wide py-1 pr-8 appearance-none cursor-pointer">
-                                    <option value="" disabled selected class="bg-[#F5F4F0] text-brand-luxeTextDark">Select size</option>
-                                    <option value="Solo Rider" class="bg-[#F5F4F0] text-brand-luxeTextDark">Solo Rider</option>
-                                    <option value="2-4 Riders" class="bg-[#F5F4F0] text-brand-luxeTextDark">2-4 Riders</option>
-                                    <option value="5-8 Riders" class="bg-[#F5F4F0] text-brand-luxeTextDark">5-8 Riders</option>
-                                    <option value="9+ Corporate/Club" class="bg-[#F5F4F0] text-brand-luxeTextDark">9+ (Corporate/Club)</option>
+                                <select id="group-size" name="group-size" required style="display: none !important;">
+                                    <option value="" disabled selected>Select size</option>
+                                    <option value="Solo Rider">Solo Rider</option>
+                                    <option value="2-4 Riders">2-4 Riders</option>
+                                    <option value="5-8 Riders">5-8 Riders</option>
+                                    <option value="9+ Corporate/Club">9+ (Corporate/Club)</option>
                                 </select>
-                                <div class="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none text-brand-luxeGold">
-                                    <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                                <button type="button" class="custom-select-trigger w-full text-left bg-transparent focus:outline-none text-xs font-light text-brand-luxeTextDark tracking-wide py-2.5 cursor-pointer flex justify-between items-center">
+                                    <span class="selected-text text-stone-400">Select size</span>
+                                    <i data-lucide="chevron-down" class="w-4 h-4 text-brand-luxeGold transition-transform duration-300"></i>
+                                </button>
+                                <div class="custom-select-options absolute left-0 right-0 mt-1.5 bg-white border border-brand-luxeGold/20 shadow-2xl opacity-0 pointer-events-none transition-all duration-300 z-30 flex flex-col py-1.5 rounded-none">
+                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300" data-value="Solo Rider">Solo Rider</div>
+                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300" data-value="2-4 Riders">2-4 Riders</div>
+                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300" data-value="5-8 Riders">5-8 Riders</div>
+                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300" data-value="9+ Corporate/Club">9+ (Corporate/Club)</div>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Experience Level -->
-                        <div class="flex flex-col border-b border-stone-300 focus-within:border-brand-luxeGold transition-colors pb-2 relative">
-                            <label for="experience" class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-400 mb-1">Experience Level</label>
+                        <div class="flex flex-col border-b border-stone-300 focus-within:border-brand-luxeGold transition-colors pb-2 relative custom-select-container">
+                            <label class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-400 mb-1">Experience Level</label>
                             <div class="relative w-full">
-                                <select id="experience" name="experience" required 
-                                        class="w-full bg-transparent focus:outline-none text-xs font-light text-brand-luxeTextDark tracking-wide py-1 pr-8 appearance-none cursor-pointer">
-                                    <option value="" disabled selected class="bg-[#F5F4F0] text-brand-luxeTextDark">Select level</option>
-                                    <option value="Leisure/Casual" class="bg-[#F5F4F0] text-brand-luxeTextDark">Leisure / Casual</option>
-                                    <option value="Intermediate" class="bg-[#F5F4F0] text-brand-luxeTextDark">Intermediate Road/Gravel</option>
-                                    <option value="Advanced/Strong" class="bg-[#F5F4F0] text-brand-luxeTextDark">Advanced / Strong Cyclist</option>
+                                <select id="experience" name="experience" required style="display: none !important;">
+                                    <option value="" disabled selected>Select level</option>
+                                    <option value="Leisure/Casual">Leisure / Casual</option>
+                                    <option value="Intermediate">Intermediate Road/Gravel</option>
+                                    <option value="Advanced/Strong">Advanced / Strong Cyclist</option>
                                 </select>
-                                <div class="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none text-brand-luxeGold">
-                                    <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                                <button type="button" class="custom-select-trigger w-full text-left bg-transparent focus:outline-none text-xs font-light text-brand-luxeTextDark tracking-wide py-2.5 cursor-pointer flex justify-between items-center">
+                                    <span class="selected-text text-stone-400">Select level</span>
+                                    <i data-lucide="chevron-down" class="w-4 h-4 text-brand-luxeGold transition-transform duration-300"></i>
+                                </button>
+                                <div class="custom-select-options absolute left-0 right-0 mt-1.5 bg-white border border-brand-luxeGold/20 shadow-2xl opacity-0 pointer-events-none transition-all duration-300 z-30 flex flex-col py-1.5 rounded-none">
+                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300" data-value="Leisure/Casual">Leisure / Casual</div>
+                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300" data-value="Intermediate">Intermediate Road/Gravel</div>
+                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300" data-value="Advanced/Strong">Advanced / Strong Cyclist</div>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Preferred Ride Type -->
-                        <div class="flex flex-col border-b border-stone-300 focus-within:border-brand-luxeGold transition-colors pb-2 relative">
-                            <label for="ride-type" class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-400 mb-1">Preferred Ride Type</label>
+                        <div class="flex flex-col border-b border-stone-300 focus-within:border-brand-luxeGold transition-colors pb-2 relative custom-select-container">
+                            <label class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-400 mb-1">Preferred Ride Type</label>
                             <div class="relative w-full">
-                                <select id="ride-type" name="ride-type" required 
-                                        class="w-full bg-transparent focus:outline-none text-xs font-light text-brand-luxeTextDark tracking-wide py-1 pr-8 appearance-none cursor-pointer">
-                                    <option value="" disabled selected class="bg-[#F5F4F0] text-brand-luxeTextDark">Select type</option>
-                                    <option value="Guided Tour (Leisure)" class="bg-[#F5F4F0] text-brand-luxeTextDark">Guided Tour (Leisure)</option>
-                                    <option value="Guided Road Ride (Sportive)" class="bg-[#F5F4F0] text-brand-luxeTextDark">Guided Road Ride (Sportive)</option>
-                                    <option value="Guided Gravel Ride" class="bg-[#F5F4F0] text-brand-luxeTextDark">Guided Gravel Ride</option>
-                                    <option value="Custom Experience" class="bg-[#F5F4F0] text-brand-luxeTextDark">Custom Experience</option>
-                                    <option value="Bratislava Highlights Ride" class="bg-[#F5F4F0] text-brand-luxeTextDark">Bratislava Highlights Ride</option>
-                                    <option value="Danube Discovery Tour" class="bg-[#F5F4F0] text-brand-luxeTextDark">Danube Discovery Tour</option>
-                                    <option value="Wine & Villages Ride" class="bg-[#F5F4F0] text-brand-luxeTextDark">Wine & Villages Ride</option>
-                                    <option value="Sunset Ride" class="bg-[#F5F4F0] text-brand-luxeTextDark">Sunset Ride</option>
-                                    <option value="Cross Border Ride" class="bg-[#F5F4F0] text-brand-luxeTextDark">Cross Border Ride</option>
-                                    <option value="Little Carpathians Road Ride" class="bg-[#F5F4F0] text-brand-luxeTextDark">Little Carpathians Road Ride</option>
-                                    <option value="Gravel Through The Vineyards" class="bg-[#F5F4F0] text-brand-luxeTextDark">Gravel Through The Vineyards</option>
-                                    <option value="Four Countries Challenge" class="bg-[#F5F4F0] text-brand-luxeTextDark">Four Countries Challenge</option>
+                                <select id="ride-type" name="ride-type" required style="display: none !important;">
+                                    <option value="" disabled selected>Select type</option>
+                                    <option value="Guided Tour (Leisure)">Guided Tour (Leisure)</option>
+                                    <option value="Guided Road Ride (Sportive)">Guided Road Ride (Sportive)</option>
+                                    <option value="Guided Gravel Ride">Guided Gravel Ride</option>
+                                    <option value="Custom Experience">Custom Experience</option>
+                                    <option value="Bratislava Highlights Ride">Bratislava Highlights Ride</option>
+                                    <option value="Danube Discovery Tour">Danube Discovery Tour</option>
+                                    <option value="Wine & Villages Ride">Wine & Villages Ride</option>
+                                    <option value="Sunset Ride">Sunset Ride</option>
+                                    <option value="Cross Border Ride">Cross Border Ride</option>
+                                    <option value="Little Carpathians Road Ride">Little Carpathians Road Ride</option>
+                                    <option value="Gravel Through The Vineyards">Gravel Through The Vineyards</option>
+                                    <option value="Four Countries Challenge">Four Countries Challenge</option>
                                 </select>
-                                <div class="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none text-brand-luxeGold">
-                                    <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                                <button type="button" class="custom-select-trigger w-full text-left bg-transparent focus:outline-none text-xs font-light text-brand-luxeTextDark tracking-wide py-2.5 cursor-pointer flex justify-between items-center">
+                                    <span class="selected-text text-stone-400">Select type</span>
+                                    <i data-lucide="chevron-down" class="w-4 h-4 text-brand-luxeGold transition-transform duration-300"></i>
+                                </button>
+                                <div class="custom-select-options absolute left-0 right-0 mt-1.5 bg-white border border-brand-luxeGold/20 shadow-2xl opacity-0 pointer-events-none transition-all duration-300 z-30 flex flex-col py-1.5 rounded-none max-h-60 overflow-y-auto">
+                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300" data-value="Guided Tour (Leisure)">Guided Tour (Leisure)</div>
+                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300" data-value="Guided Road Ride (Sportive)">Guided Road Ride (Sportive)</div>
+                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300" data-value="Guided Gravel Ride">Guided Gravel Ride</div>
+                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300" data-value="Custom Experience">Custom Experience</div>
+                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300" data-value="Bratislava Highlights Ride">Bratislava Highlights Ride</div>
+                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300" data-value="Danube Discovery Tour">Danube Discovery Tour</div>
+                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300" data-value="Wine & Villages Ride">Wine & Villages Ride</div>
+                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300" data-value="Sunset Ride">Sunset Ride</div>
+                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300" data-value="Cross Border Ride">Cross Border Ride</div>
+                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300" data-value="Little Carpathians Road Ride">Little Carpathians Road Ride</div>
+                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300" data-value="Gravel Through The Vineyards">Gravel Through The Vineyards</div>
+                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300" data-value="Four Countries Challenge">Four Countries Challenge</div>
                                 </div>
                             </div>
                         </div>
@@ -419,6 +444,88 @@
         const banner = document.getElementById('tour-selected-banner');
         const selectedTourText = document.getElementById('selected-tour-name');
 
+        // Custom select dropdowns logic
+        document.querySelectorAll('.custom-select-container').forEach(container => {
+            const trigger = container.querySelector('.custom-select-trigger');
+            const optionsList = container.querySelector('.custom-select-options');
+            const selectEl = container.querySelector('select');
+            const selectedText = container.querySelector('.selected-text');
+            const arrow = trigger.querySelector('i');
+            
+            trigger.addEventListener('click', (e) => {
+                e.stopPropagation();
+                // Close other custom dropdowns first
+                document.querySelectorAll('.custom-select-options').forEach(list => {
+                    if (list !== optionsList) {
+                        list.classList.add('opacity-0', 'pointer-events-none');
+                        list.previousElementSibling.querySelector('i').classList.remove('rotate-180');
+                    }
+                });
+                // Toggle this dropdown
+                const isClosed = optionsList.classList.contains('opacity-0');
+                if (isClosed) {
+                    optionsList.classList.remove('opacity-0', 'pointer-events-none');
+                    arrow.classList.add('rotate-180');
+                } else {
+                    optionsList.classList.add('opacity-0', 'pointer-events-none');
+                    arrow.classList.remove('rotate-180');
+                }
+            });
+            
+             container.querySelectorAll('.custom-option').forEach(option => {
+                option.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const val = option.getAttribute('data-value');
+                    
+                    // Set select value
+                    selectEl.value = val;
+                    // Trigger change event
+                    selectEl.dispatchEvent(new Event('change'));
+                    
+                    // Update text
+                    selectedText.textContent = option.textContent;
+                    selectedText.classList.remove('text-stone-400');
+                    selectedText.classList.add('text-brand-luxeTextDark');
+                    
+                    optionsList.classList.add('opacity-0', 'pointer-events-none');
+                    arrow.classList.remove('rotate-180');
+                });
+            });
+
+            // Listen to native select change to sync custom UI
+            selectEl.addEventListener('change', () => {
+                const val = selectEl.value;
+                container.querySelectorAll('.custom-option').forEach(o => {
+                    if (o.getAttribute('data-value') === val) {
+                        o.classList.remove('text-stone-600');
+                        o.classList.add('bg-brand-luxeGold/10', 'text-brand-luxeGold', 'pl-7', 'border-l-2', 'border-brand-luxeGold');
+                    } else {
+                        o.classList.remove('bg-brand-luxeGold/10', 'text-brand-luxeGold', 'pl-7', 'border-l-2', 'border-brand-luxeGold');
+                        o.classList.add('text-stone-600');
+                    }
+                });
+
+                if (selectEl.value) {
+                    selectedText.textContent = selectEl.options[selectEl.selectedIndex].text;
+                    selectedText.classList.remove('text-stone-400');
+                    selectedText.classList.add('text-brand-luxeTextDark');
+                } else {
+                    selectedText.textContent = selectEl.options[0] ? selectEl.options[0].text : 'Select';
+                    selectedText.classList.add('text-stone-400');
+                }
+            });
+        });
+        
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', () => {
+            document.querySelectorAll('.custom-select-options').forEach(list => {
+                list.classList.add('opacity-0', 'pointer-events-none');
+            });
+            document.querySelectorAll('.custom-select-trigger i').forEach(arrow => {
+                arrow.classList.remove('rotate-180');
+            });
+        });
+
         function checkQueryParam() {
             const urlParams = new URLSearchParams(window.location.search);
             const selectedRide = urlParams.get('ride');
@@ -434,6 +541,7 @@
                         
                         selectedTourText.innerText = option.value;
                         banner.classList.remove('hidden');
+                        rideSelect.dispatchEvent(new Event('change'));
                         break;
                     }
                 }
@@ -444,6 +552,7 @@
                             option.selected = true;
                             selectedTourText.innerText = "Custom Experience";
                             banner.classList.remove('hidden');
+                            rideSelect.dispatchEvent(new Event('change'));
                             break;
                         }
                     }
@@ -461,6 +570,7 @@
         function clearSelectedTour() {
             banner.classList.add('hidden');
             rideSelect.selectedIndex = 0;
+            rideSelect.dispatchEvent(new Event('change'));
             window.history.pushState({}, document.title, window.location.pathname);
         }
 
@@ -516,8 +626,9 @@
                     if (!section) return;
                     const rect = section.getBoundingClientRect();
                     if (rect.top < window.innerHeight && rect.bottom > 0) {
-                        const offset = rect.top * 0.18;
-                        bg.style.transform = `translateY(${offset}px)`;
+                        const scrollProgress = (window.innerHeight - rect.top) / (window.innerHeight + section.offsetHeight);
+                        const percentOffset = (scrollProgress - 0.5) * -15; // range: -7.5% to +7.5% (safely within -20% inset)
+                        bg.style.transform = `translateY(${percentOffset}%)`;
                     }
                 });
             }

@@ -216,57 +216,57 @@
                 <div class="h-[1px] w-12 bg-brand-luxeGold mx-auto mt-6"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Value Card 1 -->
-                <div class="border-t border-stone-300 pt-8 scroll-reveal">
+                <div class="bg-white/65 backdrop-blur-[2px] p-8 border border-white hover:bg-white/85 hover:border-brand-luxeGold/30 transition-all duration-500 shadow-sm scroll-reveal">
                     <span class="font-serif text-2xl text-brand-luxeGold font-light block mb-4">01</span>
                     <h3 class="font-semibold text-xs uppercase tracking-wider text-brand-luxeDark mb-3">Local Knowledge</h3>
-                    <p class="text-stone-500 text-xs font-light leading-relaxed font-sans tracking-wide">
+                    <p class="text-stone-900 text-xs font-normal leading-relaxed font-sans tracking-wide">
                         We know the quietest lanes, best coffee stops, and views that aren't on standard maps.
                     </p>
                 </div>
 
                 <!-- Value Card 2 -->
-                <div class="border-t border-stone-300 pt-8 scroll-reveal">
+                <div class="bg-white/65 backdrop-blur-[2px] p-8 border border-white hover:bg-white/85 hover:border-brand-luxeGold/30 transition-all duration-500 shadow-sm scroll-reveal">
                     <span class="font-serif text-2xl text-brand-luxeGold font-light block mb-4">02</span>
                     <h3 class="font-semibold text-xs uppercase tracking-wider text-brand-luxeDark mb-3">Experienced Guides</h3>
-                    <p class="text-stone-500 text-xs font-light leading-relaxed font-sans tracking-wide">
+                    <p class="text-stone-900 text-xs font-normal leading-relaxed font-sans tracking-wide">
                         Our ride leaders are certified, highly experienced, and passionate storytellers.
                     </p>
                 </div>
 
                 <!-- Value Card 3 -->
-                <div class="border-t border-stone-300 pt-8 scroll-reveal">
+                <div class="bg-white/65 backdrop-blur-[2px] p-8 border border-white hover:bg-white/85 hover:border-brand-luxeGold/30 transition-all duration-500 shadow-sm scroll-reveal">
                     <span class="font-serif text-2xl text-brand-luxeGold font-light block mb-4">03</span>
                     <h3 class="font-semibold text-xs uppercase tracking-wider text-brand-luxeDark mb-3">Small Groups</h3>
-                    <p class="text-stone-500 text-xs font-light leading-relaxed font-sans tracking-wide">
+                    <p class="text-stone-900 text-xs font-normal leading-relaxed font-sans tracking-wide">
                         We keep our tour sizes small to guarantee personal attention, flexibility, and safety.
                     </p>
                 </div>
 
                 <!-- Value Card 4 -->
-                <div class="border-t border-stone-300 pt-8 scroll-reveal">
+                <div class="bg-white/65 backdrop-blur-[2px] p-8 border border-white hover:bg-white/85 hover:border-brand-luxeGold/30 transition-all duration-500 shadow-sm scroll-reveal">
                     <span class="font-serif text-2xl text-brand-luxeGold font-light block mb-4">04</span>
                     <h3 class="font-semibold text-xs uppercase tracking-wider text-brand-luxeDark mb-3">Safety First</h3>
-                    <p class="text-stone-500 text-xs font-light leading-relaxed font-sans tracking-wide">
+                    <p class="text-stone-900 text-xs font-normal leading-relaxed font-sans tracking-wide">
                         Top quality bikes, helmets, support vehicles, and careful route scouting on every single ride.
                     </p>
                 </div>
 
                 <!-- Value Card 5 -->
-                <div class="border-t border-stone-300 pt-8 scroll-reveal">
+                <div class="bg-white/65 backdrop-blur-[2px] p-8 border border-white hover:bg-white/85 hover:border-brand-luxeGold/30 transition-all duration-500 shadow-sm scroll-reveal">
                     <span class="font-serif text-2xl text-brand-luxeGold font-light block mb-4">05</span>
                     <h3 class="font-semibold text-xs uppercase tracking-wider text-brand-luxeDark mb-3">Authentic Experiences</h3>
-                    <p class="text-stone-500 text-xs font-light leading-relaxed font-sans tracking-wide">
+                    <p class="text-stone-900 text-xs font-normal leading-relaxed font-sans tracking-wide">
                         Taste real local wines, visit rural communities, and interact with the culture, not tourist traps.
                     </p>
                 </div>
 
                 <!-- Value Card 6 -->
-                <div class="border-t border-stone-300 pt-8 scroll-reveal">
+                <div class="bg-white/65 backdrop-blur-[2px] p-8 border border-white hover:bg-white/85 hover:border-brand-luxeGold/30 transition-all duration-500 shadow-sm scroll-reveal">
                     <span class="font-serif text-2xl text-brand-luxeGold font-light block mb-4">06</span>
                     <h3 class="font-semibold text-xs uppercase tracking-wider text-brand-luxeDark mb-3">Tailor-Made Options</h3>
-                    <p class="text-stone-500 text-xs font-light leading-relaxed font-sans tracking-wide">
+                    <p class="text-stone-900 text-xs font-normal leading-relaxed font-sans tracking-wide">
                         Custom distances, difficulty adjustments, corporate events, and specialized itineraries built for you.
                     </p>
                 </div>
@@ -406,8 +406,9 @@
                     if (!section) return;
                     const rect = section.getBoundingClientRect();
                     if (rect.top < window.innerHeight && rect.bottom > 0) {
-                        const offset = rect.top * 0.18;
-                        bg.style.transform = `translateY(${offset}px)`;
+                        const scrollProgress = (window.innerHeight - rect.top) / (window.innerHeight + section.offsetHeight);
+                        const percentOffset = (scrollProgress - 0.5) * -15; // range: -7.5% to +7.5% (safely within -20% inset)
+                        bg.style.transform = `translateY(${percentOffset}%)`;
                     }
                 });
             }

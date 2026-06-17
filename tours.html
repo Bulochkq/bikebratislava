@@ -253,7 +253,7 @@
             <div class="mb-20 scroll-reveal">
                 <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-2 block">Category 02</span>
                 <h2 class="font-serif text-3xl md:text-5xl font-light text-brand-luxeDark">Guided Rides</h2>
-                <p class="text-stone-500 font-light text-xs md:text-sm mt-3 max-w-xl leading-relaxed tracking-wide font-sans">Road and gravel challenges designed for active cyclists seeking elevation, distances, and speed.</p>
+                <p class="text-stone-800 font-light text-xs md:text-sm mt-3 max-w-xl leading-relaxed tracking-wide font-sans">Road and gravel challenges designed for active cyclists seeking elevation, distances, and speed.</p>
                 <div class="h-[1px] w-12 bg-brand-luxeGold mt-6"></div>
             </div>
 
@@ -641,8 +641,9 @@
                     if (!section) return;
                     const rect = section.getBoundingClientRect();
                     if (rect.top < window.innerHeight && rect.bottom > 0) {
-                        const offset = rect.top * 0.18;
-                        bg.style.transform = `translateY(${offset}px)`;
+                        const scrollProgress = (window.innerHeight - rect.top) / (window.innerHeight + section.offsetHeight);
+                        const percentOffset = (scrollProgress - 0.5) * -15; // range: -7.5% to +7.5% (safely within -20% inset)
+                        bg.style.transform = `translateY(${percentOffset}%)`;
                     }
                 });
             }

@@ -726,9 +726,9 @@
                 if (!section) return;
                 const rect = section.getBoundingClientRect();
                 if (rect.top < window.innerHeight && rect.bottom > 0) {
-                    // Shift the inner div (which has extra -20% top/bottom padding built in)
-                    const offset = rect.top * 0.18;
-                    bg.style.transform = `translateY(${offset}px)`;
+                    const scrollProgress = (window.innerHeight - rect.top) / (window.innerHeight + section.offsetHeight);
+                    const percentOffset = (scrollProgress - 0.5) * -15; // range: -7.5% to +7.5% (safely within -20% inset)
+                    bg.style.transform = `translateY(${percentOffset}%)`;
                 }
             });
         }
