@@ -6,25 +6,27 @@
     <title>Contact Us | Bike Bratislava</title>
     <meta name="description" content="Let's plan your ride. Tell us about your travel dates, group size, and cycling experience. We'll help you create the perfect tour.">
     
-    <!-- Google Fonts -->
+    <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
                         brand: {
-                            luxeDark: '#0F0E0E',
-                            luxeLight: '#F5F4F0',
-                            luxeGold: '#A38A5F',
-                            luxeGoldDark: '#8F774F',
-                            luxeTextDark: '#1C1917',
-                            luxeTextLight: '#EAE8E4'
+                            luxeDark: '#0F0E0E',     /* Velvet charcoal background */
+                            luxeLight: '#F5F4F0',    /* Off-white light sand background */
+                            luxeGold: '#A38A5F',     /* Luxury muted gold accent */
+                            luxeGoldDark: '#8F774F', /* Darker gold for active states */
+                            luxeTextDark: '#1C1917', /* Dark charcoal text */
+                            luxeTextLight: '#EAE8E4' /* Off-white light cream text */
                         }
                     },
                     fontFamily: {
@@ -35,24 +37,57 @@
             }
         }
     </script>
+    
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        .fade-in-up {
+            animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animation-delay-200 { animation-delay: 200ms; }
+        .animation-delay-400 { animation-delay: 400ms; }
+        
+        /* Smooth transitions for smart hidden header */
+        #main-header {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.4s ease, padding 0.4s ease;
+        }
+        
+        /* Texture overlay styling */
+        .concrete-bg {
+            background-image: url('pictures/Light grey concrete texture, smooth microcement background, clean minimalist studio wall, soft lighting, industrial elegant texture.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
 </head>
 <body class="bg-brand-luxeLight text-brand-luxeTextDark font-sans antialiased selection:bg-brand-luxeGold selection:text-brand-luxeDark">
 
-    <!-- HEADER & NAVIGATION -->
-    <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 py-6 bg-brand-luxeDark/95 backdrop-blur-md shadow-2xl border-b border-white/5">
+    <!-- HEADER & NAVIGATION (With smart hide/reveal scroll behaviors) -->
+    <header id="main-header" class="fixed top-0 left-0 w-full z-50 py-6 border-b border-white/5">
         <div class="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
             <a href="index.html" class="flex flex-col group">
-                <span class="font-serif text-2xl lg:text-3xl tracking-widest text-brand-luxeTextLight transition-colors duration-300">
+                <span class="font-serif text-2xl lg:text-3xl tracking-widest text-brand-luxeTextLight transition-colors duration-300 group-hover:text-brand-luxeGold" id="logo-text">
                     BIKE BRATISLAVA
                 </span>
-                <span class="text-[8px] tracking-[0.35em] text-stone-400 font-light uppercase">
+                <span class="text-[8px] tracking-[0.35em] text-stone-400 font-light uppercase transition-colors duration-300" id="logo-subtext">
                     Central Europe
                 </span>
             </a>
 
+            <!-- Desktop Navigation -->
             <nav class="hidden lg:flex items-center space-x-10">
-                <a href="index.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent">Home</a>
+                <a href="index.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Home</a>
                 <a href="about.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">About Us</a>
                 <a href="discover.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Discover Bratislava</a>
                 <a href="tours.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Tours & Rides</a>
@@ -61,14 +96,15 @@
                 <a href="contact.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-brand-luxeGold">Contact</a>
             </nav>
 
+            <!-- CTA Button -->
             <div class="hidden lg:block">
-                <a href="contact.html" class="inline-flex items-center justify-center px-8 py-3 text-[10px] font-medium tracking-[0.3em] uppercase border border-white/20 text-white hover:bg-white hover:text-brand-luxeDark transition-all duration-500 rounded-none">
+                <a href="contact.html" id="nav-cta" class="inline-flex items-center justify-center px-8 py-3 text-[10px] font-medium tracking-[0.3em] uppercase border border-white/20 text-white hover:bg-white hover:text-brand-luxeDark transition-all duration-500 rounded-none">
                     Plan Your Ride
                 </a>
             </div>
 
             <button id="mobile-menu-toggle" class="lg:hidden text-white hover:text-brand-luxeGold transition-colors focus:outline-none" aria-label="Toggle Menu">
-                <i data-lucide="menu" class="w-6 h-6"></i>
+                <i data-lucide="menu" class="w-6 h-6" id="menu-icon"></i>
             </button>
         </div>
     </header>
@@ -93,34 +129,34 @@
     </div>
 
     <!-- HERO SECTION -->
-    <section class="relative pt-56 pb-32 bg-brand-luxeDark text-white overflow-hidden">
+    <section class="relative min-h-[75vh] flex items-center justify-center bg-brand-luxeDark text-white overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1541614101331-1a5a3a194e92?auto=format&fit=crop&w=1920&q=80" 
-                 alt="Contact us background" 
-                 class="w-full h-full object-cover object-center opacity-15">
+            <img src="pictures/Cyclists stopping near an old European castle, tourist couple with bikes looking at historic landmark.jpg" 
+                 alt="Contact us background slovakia devin castle cyclists" 
+                 class="w-full h-full object-cover object-center opacity-20">
             <div class="absolute inset-0 bg-gradient-to-t from-brand-luxeDark via-brand-luxeDark/65 to-transparent"></div>
         </div>
 
-        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
-            <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-4 block">Get In Touch</span>
-            <h1 class="font-serif text-5xl md:text-7xl font-light mb-6">Let's Plan Your Ride</h1>
-            <p class="text-stone-400 text-sm md:text-base font-light max-w-2xl mx-auto leading-relaxed tracking-wider">
+        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center flex flex-col items-center">
+            <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-4 block opacity-0 fade-in-up">Get In Touch</span>
+            <h1 class="font-serif text-5xl md:text-7xl font-light mb-6 opacity-0 fade-in-up animation-delay-200">Let's Plan Your Ride</h1>
+            <p class="text-stone-400 text-sm md:text-base font-light max-w-2xl mx-auto leading-relaxed tracking-wider opacity-0 fade-in-up animation-delay-400">
                 Tell us about your visit, cycling experience and interests. We'll help you choose the perfect route or create a custom cycling experience.
             </p>
         </div>
     </section>
 
-    <!-- SECTION: CONTACT FORM -->
-    <section class="py-32 bg-white relative">
-        <div class="max-w-4xl mx-auto px-6">
+    <!-- SECTION: CONTACT FORM (Concrete bg) -->
+    <section class="py-32 concrete-bg relative border-b border-stone-200/40">
+        <div class="max-w-4xl mx-auto px-6 scroll-reveal">
             
             <!-- Selected Tour Alert Banner -->
-            <div id="tour-selected-banner" class="hidden mb-12 p-5 bg-brand-luxeLight border border-brand-luxeGold/30 flex items-center justify-between font-sans">
+            <div id="tour-selected-banner" class="hidden mb-12 p-5 bg-white border border-brand-luxeGold/30 flex items-center justify-between font-sans">
                 <div class="flex items-center space-x-3 text-brand-luxeTextDark text-xs font-semibold uppercase tracking-wider">
                     <i data-lucide="info" class="w-5 h-5 text-brand-luxeGold"></i>
                     <span>Enquiring about: <strong id="selected-tour-name" class="text-brand-luxeGold">None</strong></span>
                 </div>
-                <button onclick="clearSelectedTour()" class="text-stone-400 hover:text-brand-luxeDark transition-colors">
+                <button onclick="clearSelectedTour()" class="text-stone-400 hover:text-brand-luxeDark transition-colors focus:outline-none">
                     <i data-lucide="x" class="w-4 h-4"></i>
                 </button>
             </div>
@@ -274,7 +310,49 @@
     <script>
         lucide.createIcons();
 
-        // Mobile menu toggle
+        // 1. Smart scroll header (hides on scroll down, reveals on scroll up)
+        let lastScrollY = window.scrollY;
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > lastScrollY && window.scrollY > 120) {
+                // scrolling down
+                header.classList.add('-translate-y-full');
+            } else {
+                // scrolling up
+                header.classList.remove('-translate-y-full');
+                if (window.scrollY > 50) {
+                    header.classList.add('bg-brand-luxeDark/95', 'backdrop-blur-md', 'shadow-2xl', 'py-4');
+                    header.classList.remove('py-6');
+                } else {
+                    header.classList.remove('bg-brand-luxeDark/95', 'backdrop-blur-md', 'shadow-2xl', 'py-4');
+                    header.classList.add('py-6');
+                }
+            }
+            lastScrollY = window.scrollY;
+        });
+
+        // 2. IntersectionObserver for reveal on scroll animations
+        const revealOptions = {
+            root: null,
+            threshold: 0.05,
+            rootMargin: "0px"
+        };
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                    entry.target.classList.remove('opacity-0');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, revealOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            el.classList.add('opacity-0');
+            revealObserver.observe(el);
+        });
+
+        // 3. Mobile menu toggle
         const toggleBtn = document.getElementById('mobile-menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
         let isOpen = false;

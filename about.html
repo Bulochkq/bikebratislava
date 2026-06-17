@@ -6,25 +6,27 @@
     <title>About Us | Bike Bratislava</title>
     <meta name="description" content="Born from a passion for cycling. Learn about Bike Bratislava, our story, experienced guides, and why you should ride with us.">
     
-    <!-- Google Fonts -->
+    <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
                         brand: {
-                            luxeDark: '#0F0E0E',
-                            luxeLight: '#F5F4F0',
-                            luxeGold: '#A38A5F',
-                            luxeGoldDark: '#8F774F',
-                            luxeTextDark: '#1C1917',
-                            luxeTextLight: '#EAE8E4'
+                            luxeDark: '#0F0E0E',     /* Velvet charcoal background */
+                            luxeLight: '#F5F4F0',    /* Off-white light sand background */
+                            luxeGold: '#A38A5F',     /* Luxury muted gold accent */
+                            luxeGoldDark: '#8F774F', /* Darker gold for active states */
+                            luxeTextDark: '#1C1917', /* Dark charcoal text */
+                            luxeTextLight: '#EAE8E4' /* Off-white light cream text */
                         }
                     },
                     fontFamily: {
@@ -35,24 +37,57 @@
             }
         }
     </script>
+    
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        .fade-in-up {
+            animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animation-delay-200 { animation-delay: 200ms; }
+        .animation-delay-400 { animation-delay: 400ms; }
+        
+        /* Smooth transitions for smart hidden header */
+        #main-header {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.4s ease, padding 0.4s ease;
+        }
+        
+        /* Texture overlay styling */
+        .concrete-bg {
+            background-image: url('pictures/Light grey concrete texture, smooth microcement background, clean minimalist studio wall, soft lighting, industrial elegant texture.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
 </head>
-<body class="bg-brand-luxeLight text-brand-luxeTextDark font-sans antialiased">
+<body class="bg-brand-luxeLight text-brand-luxeTextDark font-sans antialiased selection:bg-brand-luxeGold selection:text-brand-luxeDark">
 
-    <!-- HEADER & NAVIGATION -->
-    <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 py-6 bg-brand-luxeDark/95 backdrop-blur-md shadow-2xl border-b border-white/5">
+    <!-- HEADER & NAVIGATION (With smart hide/reveal scroll behaviors) -->
+    <header id="main-header" class="fixed top-0 left-0 w-full z-50 py-6 border-b border-white/5">
         <div class="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
             <a href="index.html" class="flex flex-col group">
-                <span class="font-serif text-2xl lg:text-3xl tracking-widest text-brand-luxeTextLight transition-colors duration-300">
+                <span class="font-serif text-2xl lg:text-3xl tracking-widest text-brand-luxeTextLight transition-colors duration-300 group-hover:text-brand-luxeGold" id="logo-text">
                     BIKE BRATISLAVA
                 </span>
-                <span class="text-[8px] tracking-[0.35em] text-stone-400 font-light uppercase">
+                <span class="text-[8px] tracking-[0.35em] text-stone-400 font-light uppercase transition-colors duration-300" id="logo-subtext">
                     Central Europe
                 </span>
             </a>
 
+            <!-- Desktop Navigation -->
             <nav class="hidden lg:flex items-center space-x-10">
-                <a href="index.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent">Home</a>
+                <a href="index.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Home</a>
                 <a href="about.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-brand-luxeGold">About Us</a>
                 <a href="discover.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Discover Bratislava</a>
                 <a href="tours.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Tours & Rides</a>
@@ -61,14 +96,15 @@
                 <a href="contact.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Contact</a>
             </nav>
 
+            <!-- CTA Button -->
             <div class="hidden lg:block">
-                <a href="contact.html" class="inline-flex items-center justify-center px-8 py-3 text-[10px] font-medium tracking-[0.3em] uppercase border border-white/20 text-white hover:bg-white hover:text-brand-luxeDark transition-all duration-500 rounded-none">
+                <a href="contact.html" id="nav-cta" class="inline-flex items-center justify-center px-8 py-3 text-[10px] font-medium tracking-[0.3em] uppercase border border-white/20 text-white hover:bg-white hover:text-brand-luxeDark transition-all duration-500 rounded-none">
                     Plan Your Ride
                 </a>
             </div>
 
             <button id="mobile-menu-toggle" class="lg:hidden text-white hover:text-brand-luxeGold transition-colors focus:outline-none" aria-label="Toggle Menu">
-                <i data-lucide="menu" class="w-6 h-6"></i>
+                <i data-lucide="menu" class="w-6 h-6" id="menu-icon"></i>
             </button>
         </div>
     </header>
@@ -93,35 +129,35 @@
     </div>
 
     <!-- HERO SECTION -->
-    <section class="relative pt-56 pb-32 bg-brand-luxeDark text-white overflow-hidden">
+    <section class="relative min-h-[75vh] flex items-center justify-center bg-brand-luxeDark overflow-hidden">
         <div class="absolute inset-0 z-0">
             <!-- Curated group cyclists lifestyle background -->
-            <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1920&q=80" 
-                 alt="Bike Bratislava cycling lifestyle" 
-                 class="w-full h-full object-cover object-center opacity-15">
+            <img src="pictures/Cyclists having a coffee break at a local outdoor cafe, road bikes parked nearby, lifestyle photography, authentic.jpg" 
+                 alt="Bike Bratislava cycling lifestyle coffee break" 
+                 class="w-full h-full object-cover object-center opacity-20">
             <div class="absolute inset-0 bg-gradient-to-t from-brand-luxeDark via-brand-luxeDark/60 to-transparent"></div>
         </div>
 
-        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
-            <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-4 block">Our Philosophy</span>
-            <h1 class="font-serif text-5xl md:text-7xl font-light mb-6">We Ride What We Recommend</h1>
-            <p class="text-stone-400 text-sm md:text-base font-light max-w-2xl mx-auto leading-relaxed tracking-wider">
-                Every route we offer is a route we ride ourselves.
+        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center text-brand-luxeTextLight flex flex-col items-center">
+            <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-6 block opacity-0 fade-in-up">Our Philosophy</span>
+            <h1 class="font-serif text-5xl md:text-7xl font-light mb-6 opacity-0 fade-in-up animation-delay-200 text-white leading-tight">We Ride What <br><span class="italic text-brand-luxeGold font-serif">We Recommend.</span></h1>
+            <p class="text-stone-400 text-sm md:text-base font-light max-w-xl mx-auto leading-relaxed tracking-wider opacity-0 fade-in-up animation-delay-400">
+                Every route we offer is a route we ride ourselves. Discover the passion that drives us.
             </p>
         </div>
     </section>
 
     <!-- SECTION: OUR STORY -->
-    <section class="py-32 bg-white">
+    <section class="py-32 lg:py-40 bg-white overflow-hidden border-b border-stone-200/40">
         <div class="max-w-6xl mx-auto px-6 lg:px-12">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
                 
-                <div class="lg:col-span-6">
+                <div class="lg:col-span-6 scroll-reveal">
                     <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-4 block">Our Story</span>
                     <h2 class="font-serif text-4xl md:text-5xl font-light text-brand-luxeDark leading-tight mb-8">
                         Born From A Passion <br><span class="italic text-brand-luxeGold">For Cycling</span>
                     </h2>
-                    <div class="space-y-6 text-stone-600 font-light leading-relaxed text-sm md:text-base tracking-wide font-sans">
+                    <div class="space-y-6 text-stone-600 font-light leading-relaxed text-sm md:text-base tracking-wide font-sans mb-8">
                         <p>
                             Bike Bratislava was created by local cyclists who wanted to share their favourite roads, trails and hidden places with visitors from around the world.
                         </p>
@@ -134,12 +170,12 @@
                     </div>
                 </div>
 
-                <div class="lg:col-span-6">
+                <div class="lg:col-span-6 scroll-reveal">
                     <div class="relative aspect-video lg:aspect-[4/3] overflow-hidden shadow-2xl border border-stone-200">
-                        <!-- macro cycling gear detail photo -->
-                        <img src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=1000&q=80" 
-                             alt="Luxury bike mechanism gears close up" 
-                             class="w-full h-full object-cover">
+                        <!-- local climber/road rider -->
+                        <img src="pictures/Athletic road cyclist climbing a scenic mountain road, gravel bike rider on a dirt trail, endurance.jpg" 
+                             alt="Athletic road cyclist climbing scenic carpathians route" 
+                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
                     </div>
                 </div>
 
@@ -147,18 +183,18 @@
         </div>
     </section>
 
-    <!-- SECTION: WHY RIDE WITH US -->
-    <section class="py-32 bg-brand-luxeLight border-t border-stone-200/40">
+    <!-- SECTION: WHY RIDE WITH US (Concrete textured layout) -->
+    <section class="py-32 lg:py-40 concrete-bg overflow-hidden border-b border-stone-200/40">
         <div class="max-w-6xl mx-auto px-6 lg:px-12">
-            <div class="text-center max-w-2xl mx-auto mb-24">
+            <div class="text-center max-w-2xl mx-auto mb-24 scroll-reveal">
                 <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-4 block">Our Values</span>
                 <h2 class="font-serif text-4xl md:text-5xl font-light text-brand-luxeDark">Why Ride With Us</h2>
                 <div class="h-[1px] w-12 bg-brand-luxeGold mx-auto mt-6"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
                 <!-- Value Card 1 -->
-                <div class="border-t border-stone-300/60 pt-8">
+                <div class="border-t border-stone-300 pt-8 scroll-reveal">
                     <span class="font-serif text-2xl text-brand-luxeGold font-light block mb-4">01</span>
                     <h3 class="font-semibold text-xs uppercase tracking-wider text-brand-luxeDark mb-3">Local Knowledge</h3>
                     <p class="text-stone-500 text-xs font-light leading-relaxed font-sans tracking-wide">
@@ -167,7 +203,7 @@
                 </div>
 
                 <!-- Value Card 2 -->
-                <div class="border-t border-stone-300/60 pt-8">
+                <div class="border-t border-stone-300 pt-8 scroll-reveal">
                     <span class="font-serif text-2xl text-brand-luxeGold font-light block mb-4">02</span>
                     <h3 class="font-semibold text-xs uppercase tracking-wider text-brand-luxeDark mb-3">Experienced Guides</h3>
                     <p class="text-stone-500 text-xs font-light leading-relaxed font-sans tracking-wide">
@@ -176,7 +212,7 @@
                 </div>
 
                 <!-- Value Card 3 -->
-                <div class="border-t border-stone-300/60 pt-8">
+                <div class="border-t border-stone-300 pt-8 scroll-reveal">
                     <span class="font-serif text-2xl text-brand-luxeGold font-light block mb-4">03</span>
                     <h3 class="font-semibold text-xs uppercase tracking-wider text-brand-luxeDark mb-3">Small Groups</h3>
                     <p class="text-stone-500 text-xs font-light leading-relaxed font-sans tracking-wide">
@@ -185,7 +221,7 @@
                 </div>
 
                 <!-- Value Card 4 -->
-                <div class="border-t border-stone-300/60 pt-8">
+                <div class="border-t border-stone-300 pt-8 scroll-reveal">
                     <span class="font-serif text-2xl text-brand-luxeGold font-light block mb-4">04</span>
                     <h3 class="font-semibold text-xs uppercase tracking-wider text-brand-luxeDark mb-3">Safety First</h3>
                     <p class="text-stone-500 text-xs font-light leading-relaxed font-sans tracking-wide">
@@ -194,7 +230,7 @@
                 </div>
 
                 <!-- Value Card 5 -->
-                <div class="border-t border-stone-300/60 pt-8">
+                <div class="border-t border-stone-300 pt-8 scroll-reveal">
                     <span class="font-serif text-2xl text-brand-luxeGold font-light block mb-4">05</span>
                     <h3 class="font-semibold text-xs uppercase tracking-wider text-brand-luxeDark mb-3">Authentic Experiences</h3>
                     <p class="text-stone-500 text-xs font-light leading-relaxed font-sans tracking-wide">
@@ -203,7 +239,7 @@
                 </div>
 
                 <!-- Value Card 6 -->
-                <div class="border-t border-stone-300/60 pt-8">
+                <div class="border-t border-stone-300 pt-8 scroll-reveal">
                     <span class="font-serif text-2xl text-brand-luxeGold font-light block mb-4">06</span>
                     <h3 class="font-semibold text-xs uppercase tracking-wider text-brand-luxeDark mb-3">Tailor-Made Options</h3>
                     <p class="text-stone-500 text-xs font-light leading-relaxed font-sans tracking-wide">
@@ -214,14 +250,17 @@
         </div>
     </section>
 
-    <!-- SECTION: FINAL CTA -->
-    <section class="py-24 bg-white text-center">
-        <div class="max-w-3xl mx-auto px-6">
-            <h2 class="font-serif text-4xl font-light text-brand-luxeDark mb-6">Ready to see Bratislava from the saddle?</h2>
-            <p class="text-stone-500 font-light text-sm max-w-lg mx-auto mb-10 tracking-wide">
+    <!-- SECTION: FINAL CTA (Asphalt background) -->
+    <section class="py-32 bg-brand-luxeDark text-white text-center relative overflow-hidden">
+        <!-- Asphalt dark background texture -->
+        <div class="absolute inset-0 opacity-10 pointer-events-none bg-cover bg-center" style="background-image: url('pictures/Fine texture of dark grey asphalt surface, top view, clean, consistent pattern, minimalist dark background, high resolutio.jpg');"></div>
+
+        <div class="max-w-3xl mx-auto px-6 relative z-10 scroll-reveal">
+            <h2 class="font-serif text-4xl md:text-5xl font-light text-brand-luxeGold mb-6">Ready to see Bratislava from the saddle?</h2>
+            <p class="text-stone-400 font-light text-sm max-w-lg mx-auto mb-10 tracking-wide font-sans leading-relaxed">
                 Explore the unique border-crossings, paved riversides, and hidden castles with us.
             </p>
-            <a href="discover.html" class="inline-flex items-center justify-center px-12 py-5 bg-brand-luxeDark hover:bg-brand-luxeDark/90 text-white font-medium text-[11px] tracking-[0.25em] uppercase transition-all duration-300 rounded-none border border-stone-850 shadow-2xl">
+            <a href="discover.html" class="inline-flex items-center justify-center px-12 py-5 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white font-medium text-[11px] tracking-[0.25em] uppercase transition-all duration-300 rounded-none border border-brand-luxeGold shadow-2xl">
                 Discover Bratislava
             </a>
         </div>
@@ -260,20 +299,69 @@
         </div>
     </footer>
 
+    <!-- JAVASCRIPT -->
     <script>
         lucide.createIcons();
-        const toggleBtn = document.getElementById('mobile-menu-toggle');
+
+        // 1. Smart scroll header (hides on scroll down, reveals on scroll up)
+        let lastScrollY = window.scrollY;
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > lastScrollY && window.scrollY > 120) {
+                // scrolling down
+                header.classList.add('-translate-y-full');
+            } else {
+                // scrolling up
+                header.classList.remove('-translate-y-full');
+                if (window.scrollY > 50) {
+                    header.classList.add('bg-brand-luxeDark/95', 'backdrop-blur-md', 'shadow-2xl', 'py-4');
+                    header.classList.remove('py-6');
+                } else {
+                    header.classList.remove('bg-brand-luxeDark/95', 'backdrop-blur-md', 'shadow-2xl', 'py-4');
+                    header.classList.add('py-6');
+                }
+            }
+            lastScrollY = window.scrollY;
+        });
+
+        // 2. IntersectionObserver for reveal on scroll animations
+        const revealOptions = {
+            root: null,
+            threshold: 0.05,
+            rootMargin: "0px"
+        };
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                    entry.target.classList.remove('opacity-0');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, revealOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            el.classList.add('opacity-0');
+            revealObserver.observe(el);
+        });
+
+        // 3. Mobile Menu Toggle
         const mobileMenu = document.getElementById('mobile-menu');
-        let isOpen = false;
-        
-        toggleBtn.addEventListener('click', () => {
-            isOpen = !isOpen;
-            if(isOpen) {
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        let isMobileMenuOpen = false;
+
+        mobileMenuToggle.addEventListener('click', () => {
+            isMobileMenuOpen = !isMobileMenuOpen;
+            if (isMobileMenuOpen) {
                 mobileMenu.classList.remove('translate-x-full');
-                toggleBtn.innerHTML = '<i data-lucide="x" class="w-6 h-6 text-white"></i>';
+                mobileMenuToggle.innerHTML = '<i data-lucide="x" class="w-6 h-6 text-white"></i>';
+                header.classList.add('bg-brand-luxeDark');
             } else {
                 mobileMenu.classList.add('translate-x-full');
-                toggleBtn.innerHTML = '<i data-lucide="menu" class="w-6 h-6 text-white"></i>';
+                mobileMenuToggle.innerHTML = '<i data-lucide="menu" class="w-6 h-6 text-white"></i>';
+                if (window.scrollY <= 50) {
+                    header.classList.remove('bg-brand-luxeDark');
+                }
             }
             lucide.createIcons();
         });

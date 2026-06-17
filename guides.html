@@ -6,25 +6,27 @@
     <title>Our Guides | Bike Bratislava</title>
     <meta name="description" content="Meet the people behind the ride. Our guides are passionate local cyclists, storytellers, and road leaders.">
     
-    <!-- Google Fonts -->
+    <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
                         brand: {
-                            luxeDark: '#0F0E0E',
-                            luxeLight: '#F5F4F0',
-                            luxeGold: '#A38A5F',
-                            luxeGoldDark: '#8F774F',
-                            luxeTextDark: '#1C1917',
-                            luxeTextLight: '#EAE8E4'
+                            luxeDark: '#0F0E0E',     /* Velvet charcoal background */
+                            luxeLight: '#F5F4F0',    /* Off-white light sand background */
+                            luxeGold: '#A38A5F',     /* Luxury muted gold accent */
+                            luxeGoldDark: '#8F774F', /* Darker gold for active states */
+                            luxeTextDark: '#1C1917', /* Dark charcoal text */
+                            luxeTextLight: '#EAE8E4' /* Off-white light cream text */
                         }
                     },
                     fontFamily: {
@@ -35,24 +37,57 @@
             }
         }
     </script>
+    
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        .fade-in-up {
+            animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animation-delay-200 { animation-delay: 200ms; }
+        .animation-delay-400 { animation-delay: 400ms; }
+        
+        /* Smooth transitions for smart hidden header */
+        #main-header {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.4s ease, padding 0.4s ease;
+        }
+        
+        /* Texture overlay styling */
+        .concrete-bg {
+            background-image: url('pictures/Light grey concrete texture, smooth microcement background, clean minimalist studio wall, soft lighting, industrial elegant texture.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
 </head>
 <body class="bg-brand-luxeLight text-brand-luxeTextDark font-sans antialiased selection:bg-brand-luxeGold selection:text-brand-luxeDark">
 
-    <!-- HEADER & NAVIGATION -->
-    <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 py-6 bg-brand-luxeDark/95 backdrop-blur-md shadow-2xl border-b border-white/5">
+    <!-- HEADER & NAVIGATION (With smart hide/reveal scroll behaviors) -->
+    <header id="main-header" class="fixed top-0 left-0 w-full z-50 py-6 border-b border-white/5">
         <div class="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
             <a href="index.html" class="flex flex-col group">
-                <span class="font-serif text-2xl lg:text-3xl tracking-widest text-brand-luxeTextLight transition-colors duration-300">
+                <span class="font-serif text-2xl lg:text-3xl tracking-widest text-brand-luxeTextLight transition-colors duration-300 group-hover:text-brand-luxeGold" id="logo-text">
                     BIKE BRATISLAVA
                 </span>
-                <span class="text-[8px] tracking-[0.35em] text-stone-400 font-light uppercase">
+                <span class="text-[8px] tracking-[0.35em] text-stone-400 font-light uppercase transition-colors duration-300" id="logo-subtext">
                     Central Europe
                 </span>
             </a>
 
+            <!-- Desktop Navigation -->
             <nav class="hidden lg:flex items-center space-x-10">
-                <a href="index.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent">Home</a>
+                <a href="index.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Home</a>
                 <a href="about.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">About Us</a>
                 <a href="discover.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Discover Bratislava</a>
                 <a href="tours.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Tours & Rides</a>
@@ -61,14 +96,15 @@
                 <a href="contact.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Contact</a>
             </nav>
 
+            <!-- CTA Button -->
             <div class="hidden lg:block">
-                <a href="contact.html" class="inline-flex items-center justify-center px-8 py-3 text-[10px] font-medium tracking-[0.3em] uppercase border border-white/20 text-white hover:bg-white hover:text-brand-luxeDark transition-all duration-500 rounded-none">
+                <a href="contact.html" id="nav-cta" class="inline-flex items-center justify-center px-8 py-3 text-[10px] font-medium tracking-[0.3em] uppercase border border-white/20 text-white hover:bg-white hover:text-brand-luxeDark transition-all duration-500 rounded-none">
                     Plan Your Ride
                 </a>
             </div>
 
             <button id="mobile-menu-toggle" class="lg:hidden text-white hover:text-brand-luxeGold transition-colors focus:outline-none" aria-label="Toggle Menu">
-                <i data-lucide="menu" class="w-6 h-6"></i>
+                <i data-lucide="menu" class="w-6 h-6" id="menu-icon"></i>
             </button>
         </div>
     </header>
@@ -93,35 +129,35 @@
     </div>
 
     <!-- HERO SECTION -->
-    <section class="relative pt-56 pb-32 bg-brand-luxeDark text-white overflow-hidden">
+    <section class="relative min-h-[75vh] flex items-center justify-center bg-brand-luxeDark text-white overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1920&q=80" 
-                 alt="Our guides header background" 
-                 class="w-full h-full object-cover object-center opacity-15">
+            <img src="pictures/Corporate cycling group, custom private bike tour, diverse group of people riding together, authentic experience.jpg" 
+                 alt="Our guides header background group ride slovakia" 
+                 class="w-full h-full object-cover object-center opacity-20">
             <div class="absolute inset-0 bg-gradient-to-t from-brand-luxeDark via-brand-luxeDark/65 to-transparent"></div>
         </div>
 
-        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
-            <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-4 block">The Team</span>
-            <h1 class="font-serif text-5xl md:text-7xl font-light mb-6">Meet The People Behind The Ride</h1>
-            <p class="text-stone-400 text-sm md:text-base font-light max-w-2xl mx-auto leading-relaxed tracking-wider">
+        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center flex flex-col items-center">
+            <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-6 block opacity-0 fade-in-up">The Team</span>
+            <h1 class="font-serif text-5xl md:text-7xl font-light mb-6 opacity-0 fade-in-up animation-delay-200">Meet The People Behind The Ride</h1>
+            <p class="text-stone-400 text-sm md:text-base font-light max-w-2xl mx-auto leading-relaxed tracking-wider opacity-0 fade-in-up animation-delay-400">
                 Great rides are created by great people.
             </p>
         </div>
     </section>
 
     <!-- SECTION: GUIDES PROFILE CARDS -->
-    <section class="py-32 bg-white">
-        <div class="max-w-6xl mx-auto px-6 lg:px-12">
+    <section class="bg-white">
+        <div class="max-w-7xl mx-auto py-32 px-6 lg:px-12">
             <div class="space-y-32">
                 
                 <!-- Guide 1: Peter -->
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center scroll-reveal">
                     <div class="lg:col-span-5">
                         <div class="aspect-[3/4] overflow-hidden shadow-2xl border border-stone-200">
                             <!-- Premium smiling guide outdoor portrait -->
-                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80" 
-                                 alt="Peter Horvath - Chief Guide" class="w-full h-full object-cover">
+                            <img src="pictures/Smiling professional bike guide portrait, friendly local cyclist looking at camera, outdoor sports clothing.jpg" 
+                                 alt="Peter Horvath - Chief Guide" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
                         </div>
                     </div>
                     <div class="lg:col-span-7">
@@ -157,13 +193,13 @@
                     </div>
                 </div>
 
-                <!-- Guide 2: Katka -->
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                <!-- Guide 2: Katka (Concrete bg) -->
+                <div class="p-8 md:p-16 concrete-bg border border-stone-200/60 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center scroll-reveal">
                     <div class="lg:col-span-5 lg:order-2">
                         <div class="aspect-[3/4] overflow-hidden shadow-2xl border border-stone-200">
                             <!-- Premium smiling woman rider outdoors -->
-                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80" 
-                                 alt="Katarina Novakova - Vineyard Guide" class="w-full h-full object-cover">
+                            <img src="pictures/Leisure cyclist exploring old European town streets, relaxed pace, historic architecture background, lifestyle.jpg" 
+                                 alt="Katarina Novakova - Vineyard Guide" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
                         </div>
                     </div>
                     <div class="lg:col-span-7 lg:order-1">
@@ -200,12 +236,12 @@
                 </div>
 
                 <!-- Guide 3: Mato -->
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center scroll-reveal">
                     <div class="lg:col-span-5">
                         <div class="aspect-[3/4] overflow-hidden shadow-2xl border border-stone-200">
                             <!-- Premium male active cyclist portrait -->
-                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=80" 
-                                 alt="Martin Balaz - Gravel Specialist" class="w-full h-full object-cover">
+                            <img src="pictures/Athletic road cyclist climbing a scenic mountain road, gravel bike rider on a dirt trail, endurance.jpg" 
+                                 alt="Martin Balaz - Gravel Specialist" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
                         </div>
                     </div>
                     <div class="lg:col-span-7">
@@ -278,8 +314,53 @@
         </div>
     </footer>
 
+    <!-- JAVASCRIPT -->
     <script>
         lucide.createIcons();
+
+        // 1. Smart scroll header (hides on scroll down, reveals on scroll up)
+        let lastScrollY = window.scrollY;
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > lastScrollY && window.scrollY > 120) {
+                // scrolling down
+                header.classList.add('-translate-y-full');
+            } else {
+                // scrolling up
+                header.classList.remove('-translate-y-full');
+                if (window.scrollY > 50) {
+                    header.classList.add('bg-brand-luxeDark/95', 'backdrop-blur-md', 'shadow-2xl', 'py-4');
+                    header.classList.remove('py-6');
+                } else {
+                    header.classList.remove('bg-brand-luxeDark/95', 'backdrop-blur-md', 'shadow-2xl', 'py-4');
+                    header.classList.add('py-6');
+                }
+            }
+            lastScrollY = window.scrollY;
+        });
+
+        // 2. IntersectionObserver for reveal on scroll animations
+        const revealOptions = {
+            root: null,
+            threshold: 0.05,
+            rootMargin: "0px"
+        };
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                    entry.target.classList.remove('opacity-0');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, revealOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            el.classList.add('opacity-0');
+            revealObserver.observe(el);
+        });
+
+        // 3. Mobile menu toggle
         const toggleBtn = document.getElementById('mobile-menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
         let isOpen = false;

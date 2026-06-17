@@ -6,25 +6,27 @@
     <title>Tours & Rides | Bike Bratislava</title>
     <meta name="description" content="Find your perfect ride. Explore Bratislava Highlights, Cross Border rides, gravel vineyard tours, and custom cycling experiences.">
     
-    <!-- Google Fonts -->
+    <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
                         brand: {
-                            luxeDark: '#0F0E0E',
-                            luxeLight: '#F5F4F0',
-                            luxeGold: '#A38A5F',
-                            luxeGoldDark: '#8F774F',
-                            luxeTextDark: '#1C1917',
-                            luxeTextLight: '#EAE8E4'
+                            luxeDark: '#0F0E0E',     /* Velvet charcoal background */
+                            luxeLight: '#F5F4F0',    /* Off-white light sand background */
+                            luxeGold: '#A38A5F',     /* Luxury muted gold accent */
+                            luxeGoldDark: '#8F774F', /* Darker gold for active states */
+                            luxeTextDark: '#1C1917', /* Dark charcoal text */
+                            luxeTextLight: '#EAE8E4' /* Off-white light cream text */
                         }
                     },
                     fontFamily: {
@@ -35,24 +37,57 @@
             }
         }
     </script>
+    
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        .fade-in-up {
+            animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animation-delay-200 { animation-delay: 200ms; }
+        .animation-delay-400 { animation-delay: 400ms; }
+        
+        /* Smooth transitions for smart hidden header */
+        #main-header {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.4s ease, padding 0.4s ease;
+        }
+        
+        /* Texture overlay styling */
+        .concrete-bg {
+            background-image: url('pictures/Light grey concrete texture, smooth microcement background, clean minimalist studio wall, soft lighting, industrial elegant texture.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
 </head>
 <body class="bg-brand-luxeLight text-brand-luxeTextDark font-sans antialiased selection:bg-brand-luxeGold selection:text-brand-luxeDark">
 
-    <!-- HEADER & NAVIGATION -->
-    <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 py-6 bg-brand-luxeDark/95 backdrop-blur-md shadow-2xl border-b border-white/5">
+    <!-- HEADER & NAVIGATION (With smart hide/reveal scroll behaviors) -->
+    <header id="main-header" class="fixed top-0 left-0 w-full z-50 py-6 border-b border-white/5">
         <div class="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
             <a href="index.html" class="flex flex-col group">
-                <span class="font-serif text-2xl lg:text-3xl tracking-widest text-brand-luxeTextLight transition-colors duration-300">
+                <span class="font-serif text-2xl lg:text-3xl tracking-widest text-brand-luxeTextLight transition-colors duration-300 group-hover:text-brand-luxeGold" id="logo-text">
                     BIKE BRATISLAVA
                 </span>
-                <span class="text-[8px] tracking-[0.35em] text-stone-400 font-light uppercase">
+                <span class="text-[8px] tracking-[0.35em] text-stone-400 font-light uppercase transition-colors duration-300" id="logo-subtext">
                     Central Europe
                 </span>
             </a>
 
+            <!-- Desktop Navigation -->
             <nav class="hidden lg:flex items-center space-x-10">
-                <a href="index.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent">Home</a>
+                <a href="index.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Home</a>
                 <a href="about.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">About Us</a>
                 <a href="discover.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Discover Bratislava</a>
                 <a href="tours.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-brand-luxeGold">Tours & Rides</a>
@@ -61,14 +96,15 @@
                 <a href="contact.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Contact</a>
             </nav>
 
+            <!-- CTA Button -->
             <div class="hidden lg:block">
-                <a href="contact.html" class="inline-flex items-center justify-center px-8 py-3 text-[10px] font-medium tracking-[0.3em] uppercase border border-white/20 text-white hover:bg-white hover:text-brand-luxeDark transition-all duration-500 rounded-none">
+                <a href="contact.html" id="nav-cta" class="inline-flex items-center justify-center px-8 py-3 text-[10px] font-medium tracking-[0.3em] uppercase border border-white/20 text-white hover:bg-white hover:text-brand-luxeDark transition-all duration-500 rounded-none">
                     Plan Your Ride
                 </a>
             </div>
 
             <button id="mobile-menu-toggle" class="lg:hidden text-white hover:text-brand-luxeGold transition-colors focus:outline-none" aria-label="Toggle Menu">
-                <i data-lucide="menu" class="w-6 h-6"></i>
+                <i data-lucide="menu" class="w-6 h-6" id="menu-icon"></i>
             </button>
         </div>
     </header>
@@ -93,40 +129,40 @@
     </div>
 
     <!-- HERO SECTION -->
-    <section class="relative pt-56 pb-32 bg-brand-luxeDark text-white overflow-hidden">
+    <section class="relative min-h-[75vh] flex items-center justify-center bg-brand-luxeDark text-white overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=1920&q=80" 
+            <img src="pictures/Cyclists riding during golden hour sunset, warm silhouettes, back light, cinematic photography.jpg" 
                  alt="Tours and rides hero background" 
-                 class="w-full h-full object-cover object-center opacity-15">
+                 class="w-full h-full object-cover object-center opacity-20">
             <div class="absolute inset-0 bg-gradient-to-t from-brand-luxeDark via-brand-luxeDark/65 to-transparent"></div>
         </div>
 
-        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
-            <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-4 block">Our Catalog</span>
-            <h1 class="font-serif text-5xl md:text-7xl font-light mb-6">Find Your Perfect Ride</h1>
+        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center flex flex-col items-center">
+            <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-6 block opacity-0 fade-in-up">Our Catalog</span>
+            <h1 class="font-serif text-5xl md:text-7xl font-light mb-6 opacity-0 fade-in-up animation-delay-200">Find Your Perfect Ride</h1>
         </div>
     </section>
 
     <!-- SECTION: GUIDED TOURS -->
-    <section class="py-32 bg-white">
+    <section class="py-32 bg-white border-b border-stone-200/40">
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
-            <div class="mb-20">
+            <div class="mb-20 scroll-reveal">
                 <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-2 block">Category 01</span>
                 <h2 class="font-serif text-3xl md:text-5xl font-light text-brand-luxeDark">Guided Tours</h2>
-                <p class="text-stone-500 font-light text-xs md:text-sm mt-3 max-w-xl leading-relaxed tracking-wide">Leisure and sightseeing rides tailored for cultural exploration, history, and sights at a relaxed pace.</p>
+                <p class="text-stone-500 font-light text-xs md:text-sm mt-3 max-w-xl leading-relaxed tracking-wide font-sans">Leisure and sightseeing rides tailored for cultural exploration, history, and sights at a relaxed pace.</p>
                 <div class="h-[1px] w-12 bg-brand-luxeGold mt-6"></div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Tour 1 -->
-                <div class="group border border-stone-200 bg-brand-luxeLight hover:border-brand-luxeGold transition-all duration-300 flex flex-col justify-between rounded-none">
+                <div class="group border border-stone-200 bg-brand-luxeLight hover:border-brand-luxeGold transition-all duration-300 flex flex-col justify-between rounded-none scroll-reveal">
                     <div>
                         <div class="aspect-[4/3] overflow-hidden border-b border-stone-200">
-                            <img src="https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7?auto=format&fit=crop&w=600&q=80" alt="Bratislava old town cycling" class="w-full h-full object-cover">
+                            <img src="pictures/Leisure cyclist exploring old European town streets, relaxed pace, historic architecture background, lifestyle.jpg" alt="Bratislava old town cycling" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
                         <div class="p-6">
                             <h3 class="font-serif text-xl font-light text-brand-luxeDark mb-2">Bratislava Highlights Ride</h3>
-                            <p class="text-stone-500 text-[11px] font-light leading-relaxed mb-4">Discover the charm of the historic center, parks, and riverside viewpoints at an easy pace.</p>
+                            <p class="text-stone-500 text-[11px] font-light leading-relaxed mb-4 font-sans tracking-wide">Discover the charm of the historic center, parks, and riverside viewpoints at an easy pace.</p>
                         </div>
                     </div>
                     <div class="p-6 pt-0">
@@ -135,14 +171,14 @@
                 </div>
 
                 <!-- Tour 2 -->
-                <div class="group border border-stone-200 bg-brand-luxeLight hover:border-brand-luxeGold transition-all duration-300 flex flex-col justify-between rounded-none">
+                <div class="group border border-stone-200 bg-brand-luxeLight hover:border-brand-luxeGold transition-all duration-300 flex flex-col justify-between rounded-none scroll-reveal">
                     <div>
                         <div class="aspect-[4/3] overflow-hidden border-b border-stone-200">
-                            <img src="https://images.unsplash.com/photo-1502136969935-8d8eef54d77b?auto=format&fit=crop&w=600&q=80" alt="Danube river path cycling" class="w-full h-full object-cover">
+                            <img src="pictures/Corporate cycling group, custom private bike tour, diverse group of people riding together, authentic experience.jpg" alt="Danube river path cycling" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
                         <div class="p-6">
                             <h3 class="font-serif text-xl font-light text-brand-luxeDark mb-2">Danube Discovery Tour</h3>
-                            <p class="text-stone-500 text-[11px] font-light leading-relaxed mb-4">Ride along flat paved paths, exploring wetlands, modern art landmarks, and nature parks.</p>
+                            <p class="text-stone-500 text-[11px] font-light leading-relaxed mb-4 font-sans tracking-wide">Ride along flat paved paths, exploring wetlands, modern art landmarks, and nature parks.</p>
                         </div>
                     </div>
                     <div class="p-6 pt-0">
@@ -151,14 +187,14 @@
                 </div>
 
                 <!-- Tour 3 -->
-                <div class="group border border-stone-200 bg-brand-luxeLight hover:border-brand-luxeGold transition-all duration-300 flex flex-col justify-between rounded-none">
+                <div class="group border border-stone-200 bg-brand-luxeLight hover:border-brand-luxeGold transition-all duration-300 flex flex-col justify-between rounded-none scroll-reveal">
                     <div>
                         <div class="aspect-[4/3] overflow-hidden border-b border-stone-200">
-                            <img src="https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=600&q=80" alt="Vineyards cycling tour" class="w-full h-full object-cover">
+                            <img src="pictures/Abstract blurred green background, out of focus vineyard leaves, beautiful summer morning bokeh, soft natural light, clean gradient texture.jpg" alt="Vineyards cycling tour" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
                         <div class="p-6">
                             <h3 class="font-serif text-xl font-light text-brand-luxeDark mb-2">Wine & Villages Ride</h3>
-                            <p class="text-stone-500 text-[11px] font-light leading-relaxed mb-4">Bike to historic winemaking towns, ride paths in the grape fields, and sample local wines.</p>
+                            <p class="text-stone-500 text-[11px] font-light leading-relaxed mb-4 font-sans tracking-wide">Bike to historic winemaking towns, ride paths in the grape fields, and sample local wines.</p>
                         </div>
                     </div>
                     <div class="p-6 pt-0">
@@ -167,14 +203,14 @@
                 </div>
 
                 <!-- Tour 4 -->
-                <div class="group border border-stone-200 bg-brand-luxeLight hover:border-brand-luxeGold transition-all duration-300 flex flex-col justify-between rounded-none">
+                <div class="group border border-stone-200 bg-brand-luxeLight hover:border-brand-luxeGold transition-all duration-300 flex flex-col justify-between rounded-none scroll-reveal">
                     <div>
                         <div class="aspect-[4/3] overflow-hidden border-b border-stone-200">
-                            <img src="https://images.unsplash.com/photo-1516738901171-8eb4fc13bd20?auto=format&fit=crop&w=600&q=80" alt="Sunset Devin Castle" class="w-full h-full object-cover">
+                            <img src="pictures/Cyclists stopping near an old European castle, tourist couple with bikes looking at historic landmark.jpg" alt="Sunset Devin Castle" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
                         <div class="p-6">
                             <h3 class="font-serif text-xl font-light text-brand-luxeDark mb-2">Sunset Ride</h3>
-                            <p class="text-stone-500 text-[11px] font-light leading-relaxed mb-4">Bike down the river to Devin Castle, watching the sunset at the confluence of two great rivers.</p>
+                            <p class="text-stone-500 text-[11px] font-light leading-relaxed mb-4 font-sans tracking-wide">Bike down the river to Devin Castle, watching the sunset at the confluence of two great rivers.</p>
                         </div>
                     </div>
                     <div class="p-6 pt-0">
@@ -185,26 +221,26 @@
         </div>
     </section>
 
-    <!-- SECTION: GUIDED RIDES -->
-    <section class="py-32 bg-brand-luxeLight border-t border-stone-200/40">
+    <!-- SECTION: GUIDED RIDES (Concrete background) -->
+    <section class="py-32 concrete-bg border-b border-stone-200/40">
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
-            <div class="mb-20">
+            <div class="mb-20 scroll-reveal">
                 <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-2 block">Category 02</span>
                 <h2 class="font-serif text-3xl md:text-5xl font-light text-brand-luxeDark">Guided Rides</h2>
-                <p class="text-stone-500 font-light text-xs md:text-sm mt-3 max-w-xl leading-relaxed tracking-wide">Road and gravel challenges designed for active cyclists seeking elevation, distances, and speed.</p>
+                <p class="text-stone-500 font-light text-xs md:text-sm mt-3 max-w-xl leading-relaxed tracking-wide font-sans">Road and gravel challenges designed for active cyclists seeking elevation, distances, and speed.</p>
                 <div class="h-[1px] w-12 bg-brand-luxeGold mt-6"></div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Ride 1 -->
-                <div class="group border border-stone-200 bg-white hover:border-brand-luxeGold transition-all duration-300 flex flex-col justify-between rounded-none">
+                <div class="group border border-stone-200 bg-white hover:border-brand-luxeGold transition-all duration-300 flex flex-col justify-between rounded-none scroll-reveal">
                     <div>
                         <div class="aspect-[4/3] overflow-hidden border-b border-stone-200">
-                            <img src="https://images.unsplash.com/photo-1541614101331-1a5a3a194e92?auto=format&fit=crop&w=600&q=80" alt="Cross border road cycling" class="w-full h-full object-cover">
+                            <img src="pictures/Cyclists riding during golden hour sunset, warm silhouettes, back light, cinematic photography.jpg" alt="Cross border road cycling" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
                         <div class="p-6">
                             <h3 class="font-serif text-xl font-light text-brand-luxeDark mb-2">Cross Border Ride</h3>
-                            <p class="text-stone-500 text-[11px] font-light leading-relaxed mb-4">Seamless road transition between Slovakia, Austria, and Hungary. Flat, fast, scenic.</p>
+                            <p class="text-stone-500 text-[11px] font-light leading-relaxed mb-4 font-sans tracking-wide">Seamless road transition between Slovakia, Austria, and Hungary. Flat, fast, scenic.</p>
                         </div>
                     </div>
                     <div class="p-6 pt-0">
@@ -213,14 +249,14 @@
                 </div>
 
                 <!-- Ride 2 -->
-                <div class="group border border-stone-200 bg-white hover:border-brand-luxeGold transition-all duration-300 flex flex-col justify-between rounded-none">
+                <div class="group border border-stone-200 bg-white hover:border-brand-luxeGold transition-all duration-300 flex flex-col justify-between rounded-none scroll-reveal">
                     <div>
                         <div class="aspect-[4/3] overflow-hidden border-b border-stone-200">
-                            <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=600&q=80" alt="Mountain road road climb" class="w-full h-full object-cover">
+                            <img src="pictures/Athletic road cyclist climbing a scenic mountain road, gravel bike rider on a dirt trail, endurance.jpg" alt="Mountain road road climb" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
                         <div class="p-6">
                             <h3 class="font-serif text-xl font-light text-brand-luxeDark mb-2">Little Carpathians Road Ride</h3>
-                            <p class="text-stone-500 text-[11px] font-light leading-relaxed mb-4">Tackle quiet asphalt forest ascents and descend scenic hills with local road riders.</p>
+                            <p class="text-stone-500 text-[11px] font-light leading-relaxed mb-4 font-sans tracking-wide">Tackle quiet asphalt forest ascents and descend scenic hills with local road riders.</p>
                         </div>
                     </div>
                     <div class="p-6 pt-0">
@@ -229,14 +265,14 @@
                 </div>
 
                 <!-- Ride 3 -->
-                <div class="group border border-stone-200 bg-white hover:border-brand-luxeGold transition-all duration-300 flex flex-col justify-between rounded-none">
+                <div class="group border border-stone-200 bg-white hover:border-brand-luxeGold transition-all duration-300 flex flex-col justify-between rounded-none scroll-reveal">
                     <div>
                         <div class="aspect-[4/3] overflow-hidden border-b border-stone-200">
-                            <img src="https://images.unsplash.com/photo-1471506480208-91b3a4cc78be?auto=format&fit=crop&w=600&q=80" alt="Gravel road in vineyards" class="w-full h-full object-cover">
+                            <img src="pictures/Athletic road cyclist climbing a scenic mountain road, gravel bike rider on a dirt trail, endurance.jpg" alt="Gravel road in vineyards" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
                         <div class="p-6">
                             <h3 class="font-serif text-xl font-light text-brand-luxeDark mb-2">Gravel Through The Vineyards</h3>
-                            <p class="text-stone-500 text-[11px] font-light leading-relaxed mb-4">Combine gravel fire trails and steep paths traversing vineyard hills. True gravel adventure.</p>
+                            <p class="text-stone-500 text-[11px] font-light leading-relaxed mb-4 font-sans tracking-wide">Combine gravel fire trails and steep paths traversing vineyard hills. True gravel adventure.</p>
                         </div>
                     </div>
                     <div class="p-6 pt-0">
@@ -245,14 +281,14 @@
                 </div>
 
                 <!-- Ride 4 -->
-                <div class="group border border-stone-200 bg-white hover:border-brand-luxeGold transition-all duration-300 flex flex-col justify-between rounded-none">
+                <div class="group border border-stone-200 bg-white hover:border-brand-luxeGold transition-all duration-300 flex flex-col justify-between rounded-none scroll-reveal">
                     <div>
                         <div class="aspect-[4/3] overflow-hidden border-b border-stone-200">
-                            <img src="https://images.unsplash.com/photo-1502136969935-8d8eef54d77b?auto=format&fit=crop&w=600&q=80" alt="Long distance cycling challenge" class="w-full h-full object-cover">
+                            <img src="pictures/Bikepacking adventure, touring bicycle equipped with bags parked on a scenic remote country road.jpg" alt="Long distance cycling challenge" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
                         <div class="p-6">
                             <h3 class="font-serif text-xl font-light text-brand-luxeDark mb-2">Four Countries Challenge</h3>
-                            <p class="text-stone-500 text-[11px] font-light leading-relaxed mb-4">For strong endurance riders. Experience 4 countries in one day. Long, flat, historical.</p>
+                            <p class="text-stone-500 text-[11px] font-light leading-relaxed mb-4 font-sans tracking-wide">For strong endurance riders. Experience 4 countries in one day. Long, flat, historical.</p>
                         </div>
                     </div>
                     <div class="p-6 pt-0">
@@ -265,7 +301,7 @@
 
     <!-- SECTION: CUSTOM EXPERIENCES -->
     <section class="py-32 bg-white border-t border-stone-200/40">
-        <div class="max-w-5xl mx-auto px-6 text-center">
+        <div class="max-w-5xl mx-auto px-6 text-center scroll-reveal">
             <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-3 block">Category 03</span>
             <h2 class="font-serif text-4xl md:text-6xl font-light text-brand-luxeDark mb-6">Built Around Your Ride</h2>
             <p class="text-stone-500 font-light text-sm max-w-2xl mx-auto leading-relaxed mb-10 tracking-wide font-sans">
@@ -324,7 +360,49 @@
     <script>
         lucide.createIcons();
 
-        // Mobile menu toggle
+        // 1. Smart scroll header (hides on scroll down, reveals on scroll up)
+        let lastScrollY = window.scrollY;
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > lastScrollY && window.scrollY > 120) {
+                // scrolling down
+                header.classList.add('-translate-y-full');
+            } else {
+                // scrolling up
+                header.classList.remove('-translate-y-full');
+                if (window.scrollY > 50) {
+                    header.classList.add('bg-brand-luxeDark/95', 'backdrop-blur-md', 'shadow-2xl', 'py-4');
+                    header.classList.remove('py-6');
+                } else {
+                    header.classList.remove('bg-brand-luxeDark/95', 'backdrop-blur-md', 'shadow-2xl', 'py-4');
+                    header.classList.add('py-6');
+                }
+            }
+            lastScrollY = window.scrollY;
+        });
+
+        // 2. IntersectionObserver for reveal on scroll animations
+        const revealOptions = {
+            root: null,
+            threshold: 0.05,
+            rootMargin: "0px"
+        };
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                    entry.target.classList.remove('opacity-0');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, revealOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            el.classList.add('opacity-0');
+            revealObserver.observe(el);
+        });
+
+        // 3. Mobile menu toggle
         const toggleBtn = document.getElementById('mobile-menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
         let isOpen = false;
@@ -352,7 +430,7 @@
                 bike: "City / Hybrid Bike",
                 keypoints: ["Bratislava Castle park", "Old Town historic squares", "Danube river park view", "Confluence spots & coffee"],
                 recom: "Perfect for active travelers, families, or couples looking for a historic introduction to Slovakia's capital without breaking a sweat.",
-                img: "https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7?auto=format&fit=crop&w=800&q=80"
+                img: "pictures/Leisure cyclist exploring old European town streets, relaxed pace, historic architecture background, lifestyle.jpg"
             },
             danube: {
                 title: "Danube Discovery Tour",
@@ -364,7 +442,7 @@
                 bike: "Hybrid / Gravel Bike",
                 keypoints: ["Danubiana Meulensteen Art Museum", "Water sports dike cycles", "Bird-watching reservoirs", "Riverside buffet breaks"],
                 recom: "For anyone seeking flat, paved paths completely free of car traffic. Great for capturing beautiful open river panoramas.",
-                img: "https://images.unsplash.com/photo-1502136969935-8d8eef54d77b?auto=format&fit=crop&w=800&q=80"
+                img: "pictures/Corporate cycling group, custom private bike tour, diverse group of people riding together, authentic experience.jpg"
             },
             wine: {
                 title: "Wine & Villages Ride",
@@ -376,7 +454,7 @@
                 bike: "Gravel / Road / Hybrid",
                 keypoints: ["Historic Svätý Jur town", "Picturesque vineyard trails", "Local family wine cellar stops", "Traditional Slovak gastronomy"],
                 recom: "Perfect for food and wine lovers looking for a balanced active day combining culture and tasting.",
-                img: "https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=800&q=80"
+                img: "pictures/Abstract blurred green background, out of focus vineyard leaves, beautiful summer morning bokeh, soft natural light, clean gradient texture.jpg"
             },
             sunset: {
                 title: "Sunset Ride",
@@ -388,7 +466,7 @@
                 bike: "City / Hybrid Bike",
                 keypoints: ["Morava & Danube confluence", "Devín Castle cliff viewpoints", "Scenic dusk river ride", "Cozy cycling trail side stops"],
                 recom: "Highly recommended for couples and photography enthusiasts. Capturing the castle at twilight is unforgettable.",
-                img: "https://images.unsplash.com/photo-1516738901171-8eb4fc13bd20?auto=format&fit=crop&w=800&q=80"
+                img: "pictures/Cyclists stopping near an old European castle, tourist couple with bikes looking at historic landmark.jpg"
             },
             crossborder: {
                 title: "Cross Border Ride",
@@ -400,7 +478,7 @@
                 bike: "Road / Gravel Bike",
                 keypoints: ["Austrian Kittsee castle paths", "Former Iron Curtain cycle path", "Hungarian border landscape trails", "Danube bridge crossings"],
                 recom: "Excellent ride for intermediate road or gravel cyclists looking to cross multiple borders on smooth paths in a single day.",
-                img: "https://images.unsplash.com/photo-1541614101331-1a5a3a194e92?auto=format&fit=crop&w=800&q=80"
+                img: "pictures/Cyclists riding during golden hour sunset, warm silhouettes, back light, cinematic photography.jpg"
             },
             carpathians: {
                 title: "Little Carpathians Road Ride",
@@ -412,7 +490,7 @@
                 bike: "Road Bike",
                 keypoints: ["Pezinská Baba mountain climb", "Quiet forest paved ascents", "High-speed sweeping descents", "Traditional coffee & pastry stops"],
                 recom: "Designed for road cyclists seeking climbing challenges, physical work, and stunning mountain panoramas.",
-                img: "https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=800&q=80"
+                img: "pictures/Athletic road cyclist climbing a scenic mountain road, gravel bike rider on a dirt trail, endurance.jpg"
             },
             gravel: {
                 title: "Gravel Through The Vineyards",
@@ -424,7 +502,7 @@
                 bike: "Gravel / XC Mountain Bike",
                 keypoints: ["Vineyard hillside gravel paths", "Forest fire roads", "Devínska Kobyla panorama", "Fun single tracks"],
                 recom: "For gravel riders looking to escape traffic and climb dirt tracks with sweeping views over the Danube valley.",
-                img: "https://images.unsplash.com/photo-1471506480208-91b3a4cc78be?auto=format&fit=crop&w=800&q=80"
+                img: "pictures/Athletic road cyclist climbing a scenic mountain road, gravel bike rider on a dirt trail, endurance.jpg"
             },
             fourcountries: {
                 title: "Four Countries Challenge",
@@ -436,7 +514,7 @@
                 bike: "Road Bike",
                 keypoints: ["4 national boundaries in a day", "Border monuments and history", "Endurance pacing along rivers", "Celebration drinks in Bratislava"],
                 recom: "For long-distance cyclists who want bragging rights and an incredible, high-mileage adventure.",
-                img: "https://images.unsplash.com/photo-1502136969935-8d8eef54d77b?auto=format&fit=crop&w=800&q=80"
+                img: "pictures/Bikepacking adventure, touring bicycle equipped with bags parked on a scenic remote country road.jpg"
             }
         };
 
@@ -450,7 +528,7 @@
             let keypointsHTML = '';
             data.keypoints.forEach(kp => {
                 keypointsHTML += `
-                    <li class="flex items-center space-x-3 text-stone-300 text-xs">
+                    <li class="flex items-center space-x-3 text-stone-300 text-xs font-sans">
                         <i data-lucide="check" class="w-4 h-4 text-brand-luxeGold"></i>
                         <span>${kp}</span>
                     </li>
