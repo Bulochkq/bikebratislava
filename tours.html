@@ -85,8 +85,8 @@
                 </span>
             </a>
 
-            <!-- Desktop Navigation -->
-            <nav class="hidden lg:flex items-center space-x-10">
+            <!-- Desktop Navigation (Adjusted spacing to prevent overlap) -->
+            <nav class="hidden lg:flex items-center space-x-4 xl:space-x-8">
                 <a href="index.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Home</a>
                 <a href="about.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">About Us</a>
                 <a href="discover.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Discover Bratislava</a>
@@ -131,9 +131,10 @@
     <!-- HERO SECTION -->
     <section class="relative min-h-[75vh] flex items-center justify-center bg-brand-luxeDark text-white overflow-hidden">
         <div class="absolute inset-0 z-0">
+            <!-- Scale-110 for parallax -->
             <img src="pictures/Cyclists riding during golden hour sunset, warm silhouettes, back light, cinematic photography.jpg" 
                  alt="Tours and rides hero background" 
-                 class="w-full h-full object-cover object-center opacity-20">
+                 class="w-full h-full object-cover object-center opacity-20 scale-110" id="hero-img" style="will-change: transform;">
             <div class="absolute inset-0 bg-gradient-to-t from-brand-luxeDark via-brand-luxeDark/65 to-transparent"></div>
         </div>
 
@@ -158,7 +159,7 @@
                 <div class="group border border-stone-200 bg-brand-luxeLight hover:border-brand-luxeGold transition-all duration-300 flex flex-col justify-between rounded-none scroll-reveal">
                     <div>
                         <div class="aspect-[4/3] overflow-hidden border-b border-stone-200">
-                            <img src="pictures/Leisure cyclist exploring old European town streets, relaxed pace, historic architecture background, lifestyle.jpg" alt="Bratislava old town cycling" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="pictures/Leisure cyclist exploring old European town streets, relaxed pace, historic architecture background, lifestyle.jpg" alt="Bratislava old town cycling" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-out">
                         </div>
                         <div class="p-6">
                             <h3 class="font-serif text-xl font-light text-brand-luxeDark mb-2">Bratislava Highlights Ride</h3>
@@ -174,7 +175,7 @@
                 <div class="group border border-stone-200 bg-brand-luxeLight hover:border-brand-luxeGold transition-all duration-300 flex flex-col justify-between rounded-none scroll-reveal">
                     <div>
                         <div class="aspect-[4/3] overflow-hidden border-b border-stone-200">
-                            <img src="pictures/Corporate cycling group, custom private bike tour, diverse group of people riding together, authentic experience.jpg" alt="Danube river path cycling" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="pictures/Corporate cycling group, custom private bike tour, diverse group of people riding together, authentic experience.jpg" alt="Danube river path cycling" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-out">
                         </div>
                         <div class="p-6">
                             <h3 class="font-serif text-xl font-light text-brand-luxeDark mb-2">Danube Discovery Tour</h3>
@@ -190,7 +191,7 @@
                 <div class="group border border-stone-200 bg-brand-luxeLight hover:border-brand-luxeGold transition-all duration-300 flex flex-col justify-between rounded-none scroll-reveal">
                     <div>
                         <div class="aspect-[4/3] overflow-hidden border-b border-stone-200">
-                            <img src="pictures/Abstract blurred green background, out of focus vineyard leaves, beautiful summer morning bokeh, soft natural light, clean gradient texture.jpg" alt="Vineyards cycling tour" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="pictures/Abstract blurred green background, out of focus vineyard leaves, beautiful summer morning bokeh, soft natural light, clean gradient texture.jpg" alt="Vineyards cycling tour" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-out">
                         </div>
                         <div class="p-6">
                             <h3 class="font-serif text-xl font-light text-brand-luxeDark mb-2">Wine & Villages Ride</h3>
@@ -206,7 +207,7 @@
                 <div class="group border border-stone-200 bg-brand-luxeLight hover:border-brand-luxeGold transition-all duration-300 flex flex-col justify-between rounded-none scroll-reveal">
                     <div>
                         <div class="aspect-[4/3] overflow-hidden border-b border-stone-200">
-                            <img src="pictures/Cyclists stopping near an old European castle, tourist couple with bikes looking at historic landmark.jpg" alt="Sunset Devin Castle" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="pictures/Cyclists stopping near an old European castle, tourist couple with bikes looking at historic landmark.jpg" alt="Sunset Devin Castle" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-out">
                         </div>
                         <div class="p-6">
                             <h3 class="font-serif text-xl font-light text-brand-luxeDark mb-2">Sunset Ride</h3>
@@ -236,7 +237,7 @@
                 <div class="group border border-stone-200 bg-white hover:border-brand-luxeGold transition-all duration-300 flex flex-col justify-between rounded-none scroll-reveal">
                     <div>
                         <div class="aspect-[4/3] overflow-hidden border-b border-stone-200">
-                            <img src="pictures/Cyclists riding during golden hour sunset, warm silhouettes, back light, cinematic photography.jpg" alt="Cross border road cycling" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="pictures/Cyclists riding during golden hour sunset, warm silhouettes, back light, cinematic photography.jpg" alt="Cross border road cycling" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-out">
                         </div>
                         <div class="p-6">
                             <h3 class="font-serif text-xl font-light text-brand-luxeDark mb-2">Cross Border Ride</h3>
@@ -252,7 +253,7 @@
                 <div class="group border border-stone-200 bg-white hover:border-brand-luxeGold transition-all duration-300 flex flex-col justify-between rounded-none scroll-reveal">
                     <div>
                         <div class="aspect-[4/3] overflow-hidden border-b border-stone-200">
-                            <img src="pictures/Athletic road cyclist climbing a scenic mountain road, gravel bike rider on a dirt trail, endurance.jpg" alt="Mountain road road climb" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="pictures/Athletic road cyclist climbing a scenic mountain road, gravel bike rider on a dirt trail, endurance.jpg" alt="Mountain road road climb" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-out">
                         </div>
                         <div class="p-6">
                             <h3 class="font-serif text-xl font-light text-brand-luxeDark mb-2">Little Carpathians Road Ride</h3>
@@ -268,7 +269,7 @@
                 <div class="group border border-stone-200 bg-white hover:border-brand-luxeGold transition-all duration-300 flex flex-col justify-between rounded-none scroll-reveal">
                     <div>
                         <div class="aspect-[4/3] overflow-hidden border-b border-stone-200">
-                            <img src="pictures/Athletic road cyclist climbing a scenic mountain road, gravel bike rider on a dirt trail, endurance.jpg" alt="Gravel road in vineyards" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="pictures/Athletic road cyclist climbing a scenic mountain road, gravel bike rider on a dirt trail, endurance.jpg" alt="Gravel road in vineyards" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-out">
                         </div>
                         <div class="p-6">
                             <h3 class="font-serif text-xl font-light text-brand-luxeDark mb-2">Gravel Through The Vineyards</h3>
@@ -284,7 +285,7 @@
                 <div class="group border border-stone-200 bg-white hover:border-brand-luxeGold transition-all duration-300 flex flex-col justify-between rounded-none scroll-reveal">
                     <div>
                         <div class="aspect-[4/3] overflow-hidden border-b border-stone-200">
-                            <img src="pictures/Bikepacking adventure, touring bicycle equipped with bags parked on a scenic remote country road.jpg" alt="Long distance cycling challenge" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="pictures/Bikepacking adventure, touring bicycle equipped with bags parked on a scenic remote country road.jpg" alt="Long distance cycling challenge" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-out">
                         </div>
                         <div class="p-6">
                             <h3 class="font-serif text-xl font-light text-brand-luxeDark mb-2">Four Countries Challenge</h3>
@@ -597,6 +598,15 @@
 
         modal.addEventListener('click', (e) => {
             if (e.target === modal) closeModal();
+        });
+
+        // Parallax scroll effect for hero background image
+        window.addEventListener('scroll', () => {
+            const scroll = window.scrollY;
+            const heroBg = document.getElementById('hero-img');
+            if (heroBg && window.innerWidth > 768) {
+                heroBg.style.transform = `translateY(${scroll * 0.3}px) scale(1.1)`;
+            }
         });
     </script>
 </body>

@@ -85,8 +85,8 @@
                 </span>
             </a>
 
-            <!-- Desktop Navigation -->
-            <nav class="hidden lg:flex items-center space-x-10">
+            <!-- Desktop Navigation (Adjusted spacing to prevent overlap) -->
+            <nav class="hidden lg:flex items-center space-x-4 xl:space-x-8">
                 <a href="index.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Home</a>
                 <a href="about.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">About Us</a>
                 <a href="discover.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Discover Bratislava</a>
@@ -131,9 +131,10 @@
     <!-- HERO SECTION -->
     <section class="relative min-h-[75vh] flex items-center justify-center bg-brand-luxeDark text-white overflow-hidden">
         <div class="absolute inset-0 z-0">
+            <!-- Scale-110 for parallax -->
             <img src="pictures/Corporate cycling group, custom private bike tour, diverse group of people riding together, authentic experience.jpg" 
                  alt="Our guides header background group ride slovakia" 
-                 class="w-full h-full object-cover object-center opacity-20">
+                 class="w-full h-full object-cover object-center opacity-20 scale-110" id="hero-img" style="will-change: transform;">
             <div class="absolute inset-0 bg-gradient-to-t from-brand-luxeDark via-brand-luxeDark/65 to-transparent"></div>
         </div>
 
@@ -157,7 +158,7 @@
                         <div class="aspect-[3/4] overflow-hidden shadow-2xl border border-stone-200">
                             <!-- Premium smiling guide outdoor portrait -->
                             <img src="pictures/Smiling professional bike guide portrait, friendly local cyclist looking at camera, outdoor sports clothing.jpg" 
-                                 alt="Peter Horvath - Chief Guide" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+                                 alt="Peter Horvath - Chief Guide" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-out">
                         </div>
                     </div>
                     <div class="lg:col-span-7">
@@ -187,9 +188,13 @@
                             "Bratislava is one of the continent's most underrated regions. Cycling gives us the opportunity to bridge cultures, cross countries, and feel local wind in a single afternoon."
                         </blockquote>
 
-                        <p class="text-stone-600 font-light leading-relaxed text-sm md:text-base tracking-wide font-sans">
+                        <p class="text-stone-600 font-light leading-relaxed text-sm md:text-base tracking-wide font-sans mb-8">
                             Peter has cycled all across Central Europe but loves returning to the Bratislava paths. He created Bike Bratislava to connect international visitors with his favorite local hideouts, backroads, and regional routes.
                         </p>
+                        <a href="contact.html?guide=Peter" class="inline-flex items-center space-x-2 text-[10px] font-bold uppercase tracking-widest text-brand-luxeDark hover:text-brand-luxeGold transition-colors">
+                            <span>Request Peter as Guide</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </a>
                     </div>
                 </div>
 
@@ -197,9 +202,8 @@
                 <div class="p-8 md:p-16 concrete-bg border border-stone-200/60 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center scroll-reveal">
                     <div class="lg:col-span-5 lg:order-2">
                         <div class="aspect-[3/4] overflow-hidden shadow-2xl border border-stone-200">
-                            <!-- Premium smiling woman rider outdoors -->
                             <img src="pictures/Leisure cyclist exploring old European town streets, relaxed pace, historic architecture background, lifestyle.jpg" 
-                                 alt="Katarina Novakova - Vineyard Guide" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+                                 alt="Katarina Novakova - Vineyard Guide" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-out">
                         </div>
                     </div>
                     <div class="lg:col-span-7 lg:order-1">
@@ -229,9 +233,13 @@
                             "Riding a bicycle through row vineyards is the best way to touch our local terroir and learn wine history."
                         </blockquote>
 
-                        <p class="text-stone-600 font-light leading-relaxed text-sm md:text-base tracking-wide font-sans">
+                        <p class="text-stone-600 font-light leading-relaxed text-sm md:text-base tracking-wide font-sans mb-8">
                             Katka has a background in history and winemaking. She mixes local stories and vineyard secret single tracks to make every ride feel like a journey through time, stopping to sample local products along the way.
                         </p>
+                        <a href="contact.html?guide=Katka" class="inline-flex items-center space-x-2 text-[10px] font-bold uppercase tracking-widest text-brand-luxeDark hover:text-brand-luxeGold transition-colors">
+                            <span>Request Katka as Guide</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </a>
                     </div>
                 </div>
 
@@ -241,7 +249,7 @@
                         <div class="aspect-[3/4] overflow-hidden shadow-2xl border border-stone-200">
                             <!-- Premium male active cyclist portrait -->
                             <img src="pictures/Athletic road cyclist climbing a scenic mountain road, gravel bike rider on a dirt trail, endurance.jpg" 
-                                 alt="Martin Balaz - Gravel Specialist" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+                                 alt="Martin Balaz - Gravel Specialist" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-out">
                         </div>
                     </div>
                     <div class="lg:col-span-7">
@@ -271,9 +279,13 @@
                             "If you aren't leaving the pavement, you're missing half of what the Carpathians have to offer."
                         </blockquote>
 
-                        <p class="text-stone-600 font-light leading-relaxed text-sm md:text-base tracking-wide font-sans">
+                        <p class="text-stone-600 font-light leading-relaxed text-sm md:text-base tracking-wide font-sans mb-8">
                             Martin is a competitive gravel racer. If you want a fast road sportive or to push your gravel limits through forest routes, Maťo knows every single stone, fire road, and winding path in the Little Carpathians.
                         </p>
+                        <a href="contact.html?guide=Martin" class="inline-flex items-center space-x-2 text-[10px] font-bold uppercase tracking-widest text-brand-luxeDark hover:text-brand-luxeGold transition-colors">
+                            <span>Request Martin as Guide</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </a>
                     </div>
                 </div>
 
@@ -375,6 +387,15 @@
                 toggleBtn.innerHTML = '<i data-lucide="menu" class="w-6 h-6 text-white"></i>';
             }
             lucide.createIcons();
+        });
+
+        // 4. Parallax scroll effect for hero background image
+        window.addEventListener('scroll', () => {
+            const scroll = window.scrollY;
+            const heroBg = document.getElementById('hero-img');
+            if (heroBg && window.innerWidth > 768) {
+                heroBg.style.transform = `translateY(${scroll * 0.3}px) scale(1.1)`;
+            }
         });
     </script>
 </body>

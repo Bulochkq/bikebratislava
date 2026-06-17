@@ -85,8 +85,8 @@
                 </span>
             </a>
 
-            <!-- Desktop Navigation -->
-            <nav class="hidden lg:flex items-center space-x-10">
+            <!-- Desktop Navigation (Adjusted spacing to prevent overlap) -->
+            <nav class="hidden lg:flex items-center space-x-4 xl:space-x-8">
                 <a href="index.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Home</a>
                 <a href="about.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">About Us</a>
                 <a href="discover.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-brand-luxeGold">Discover Bratislava</a>
@@ -131,10 +131,10 @@
     <!-- HERO SECTION -->
     <section class="relative min-h-[75vh] flex items-center justify-center bg-brand-luxeDark text-white overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <!-- Bratislava sunset castle viewpoint -->
+            <!-- Bratislava sunset castle viewpoint with scale-110 for parallax -->
             <img src="pictures/Leisure cyclist exploring old European town streets, relaxed pace, historic architecture background, lifestyle.jpg" 
                  alt="Bratislava landscape view leisure cycling" 
-                 class="w-full h-full object-cover object-center opacity-20">
+                 class="w-full h-full object-cover object-center opacity-20 scale-110" id="hero-img" style="will-change: transform;">
             <div class="absolute inset-0 bg-gradient-to-t from-brand-luxeDark via-brand-luxeDark/65 to-transparent"></div>
         </div>
 
@@ -154,14 +154,18 @@
                     <p class="text-stone-600 font-light leading-relaxed text-sm md:text-base mb-6 tracking-wide font-sans">
                         Few capital cities offer the geographical thrill that Bratislava does. Sitting right at the intersection of Central European borders, our rides allow you to seamlessly cross from Slovakia into Austria and Hungary within a single day. 
                     </p>
-                    <p class="text-stone-600 font-light leading-relaxed text-sm md:text-base tracking-wide font-sans">
+                    <p class="text-stone-600 font-light leading-relaxed text-sm md:text-base tracking-wide font-sans mb-8">
                         With flat borders and cycle-friendly crossings, you can pedal through Austrian historic villages, ride along Hungarian dikes, and return for a sunset dinner along the Slovak Danube.
                     </p>
+                    <a href="contact.html?ride=Four%20Countries%20Challenge" class="inline-flex items-center space-x-2 text-[10px] font-bold uppercase tracking-widest text-brand-luxeDark hover:text-brand-luxeGold transition-colors">
+                        <span>Book Cross-Border Ride</span>
+                        <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                    </a>
                 </div>
                 <div class="lg:col-span-6 scroll-reveal">
                     <div class="aspect-video overflow-hidden shadow-2xl border border-stone-200">
                         <img src="pictures/Corporate cycling group, custom private bike tour, diverse group of people riding together, authentic experience.jpg" 
-                             alt="Cycling on cross-border roads near Austria slovakia group ride" class="w-full h-full object-cover">
+                             alt="Cycling on cross-border roads near Austria slovakia group ride" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-out">
                     </div>
                 </div>
             </div>
@@ -174,8 +178,8 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
                 <div class="lg:col-span-6 order-2 lg:order-1 scroll-reveal">
                     <div class="aspect-video overflow-hidden shadow-2xl border border-stone-200 bg-black relative group">
-                        <!-- Autoplaying, loop, muted html5 video with native controls -->
-                        <video autoplay muted loop playsinline class="w-full h-full object-cover" controls>
+                        <!-- Autoplaying, loop, muted html5 video with native controls and preload -->
+                        <video autoplay muted loop playsinline preload="auto" class="w-full h-full object-cover" controls>
                             <source src="pictures/Cyclists riding on a paved path next to a wide European river, sunny day, scenic waterfront trail.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
@@ -187,9 +191,13 @@
                     <p class="text-stone-600 font-light leading-relaxed text-sm md:text-base mb-6 tracking-wide font-sans">
                         The Danube River is the lifeblood of cycling in Central Europe. The EuroVelo 6 cycle route runs directly through Bratislava, offering flat, fully paved, traffic-free paths that run as far as the eye can see.
                     </p>
-                    <p class="text-stone-600 font-light leading-relaxed text-sm md:text-base tracking-wide font-sans">
+                    <p class="text-stone-600 font-light leading-relaxed text-sm md:text-base tracking-wide font-sans mb-8">
                         It's perfect for leisure riders, active families, or road cyclists looking to build speed without worrying about car traffic. Enjoy beautiful riverside parks and floating restaurants.
                     </p>
+                    <a href="contact.html?ride=Danube%20Discovery%20Tour" class="inline-flex items-center space-x-2 text-[10px] font-bold uppercase tracking-widest text-brand-luxeDark hover:text-brand-luxeGold transition-colors">
+                        <span>Book Danube Tour</span>
+                        <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                    </a>
                 </div>
             </div>
         </div>
@@ -205,14 +213,18 @@
                     <p class="text-stone-600 font-light leading-relaxed text-sm md:text-base mb-6 tracking-wide font-sans">
                         Just minutes outside the urban center lies the Little Carpathian wine region. Gentle rolling hills, sun-drenched vineyards, and old winemaking villages like Svätý Jur and Pezinok define this beautiful route.
                     </p>
-                    <p class="text-stone-600 font-light leading-relaxed text-sm md:text-base tracking-wide font-sans">
+                    <p class="text-stone-600 font-light leading-relaxed text-sm md:text-base tracking-wide font-sans mb-8">
                         Ride along quiet asphalt lanes between rows of grapes, and stop at local family cellars to sample Frankovka Modrá and Veltlínske Zelené, wines with centuries of royal history.
                     </p>
+                    <a href="contact.html?ride=Wine%20%26%20Villages%20Ride" class="inline-flex items-center space-x-2 text-[10px] font-bold uppercase tracking-widest text-brand-luxeDark hover:text-brand-luxeGold transition-colors">
+                        <span>Book Wine Ride</span>
+                        <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                    </a>
                 </div>
                 <div class="lg:col-span-6 scroll-reveal">
                     <div class="aspect-video overflow-hidden shadow-2xl border border-stone-200 bg-black relative">
-                        <!-- Autoplaying, loop, muted html5 video with native controls -->
-                        <video autoplay muted loop playsinline class="w-full h-full object-cover" controls>
+                        <!-- Autoplaying, loop, muted html5 video with native controls and preload -->
+                        <video autoplay muted loop playsinline preload="auto" class="w-full h-full object-cover" controls>
                             <source src="pictures/Gravel bike rider cycling through lush green vineyards, countryside hills landscape, summer.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
@@ -228,8 +240,8 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
                 <div class="lg:col-span-6 order-2 lg:order-1 scroll-reveal">
                     <div class="aspect-video overflow-hidden shadow-2xl border border-stone-200 bg-black relative">
-                        <!-- Autoplaying, loop, muted html5 video with native controls -->
-                        <video autoplay muted loop playsinline class="w-full h-full object-cover" controls>
+                        <!-- Autoplaying, loop, muted html5 video with native controls and preload -->
+                        <video autoplay muted loop playsinline preload="auto" class="w-full h-full object-cover" controls>
                             <source src="pictures/Cyclist riding on a gravel forest trail, sun rays shining through trees, nature escape, off-road.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
@@ -241,9 +253,13 @@
                     <p class="text-stone-600 font-light leading-relaxed text-sm md:text-base mb-6 tracking-wide font-sans">
                         Bratislava is crowned by the forest parks of the Little Carpathians. For gravel and mountain bikers, this means hundreds of kilometers of well-marked forest trails, fire roads, and scenic climbs.
                     </p>
-                    <p class="text-stone-600 font-light leading-relaxed text-sm md:text-base tracking-wide font-sans">
+                    <p class="text-stone-600 font-light leading-relaxed text-sm md:text-base tracking-wide font-sans mb-8">
                         Enjoy the cool shade of oak and beech trees, discover hidden ruins like Pajštún castle, and experience the quiet mountain atmosphere just a short ride from the city center.
                     </p>
+                    <a href="contact.html?ride=Gravel%20Through%20The%20Vineyards" class="inline-flex items-center space-x-2 text-[10px] font-bold uppercase tracking-widest text-brand-luxeDark hover:text-brand-luxeGold transition-colors">
+                        <span>Book Gravel Ride</span>
+                        <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                    </a>
                 </div>
             </div>
         </div>
@@ -263,10 +279,12 @@
                         From early spring in March through the golden foliage of October, riding conditions are ideal. Spring brings fresh blossoms, summer offers cool river breezes and evening vineyard rides, and autumn delivers grape harvests.
                     </p>
                 </div>
+                <!-- Fixed aspect ratio to 4:3 and object-position to center-bottom to keep bicycles fully visible -->
                 <div class="lg:col-span-6 scroll-reveal">
-                    <div class="aspect-video overflow-hidden shadow-2xl border border-stone-200">
+                    <div class="aspect-[4/3] overflow-hidden shadow-2xl border border-stone-200">
                         <img src="pictures/Bikepacking adventure, touring bicycle equipped with bags parked on a scenic remote country road.jpg" 
-                             alt="Cycling in spring autumn weather slovakia bikepacking" class="w-full h-full object-cover">
+                             alt="Cycling in spring autumn weather slovakia bikepacking" 
+                             class="w-full h-full object-cover object-[center_bottom] hover:scale-105 transition-transform duration-700 ease-out">
                     </div>
                 </div>
             </div>
@@ -368,25 +386,30 @@
             revealObserver.observe(el);
         });
 
-        // 3. Mobile Menu Toggle
+        // 3. Mobile menu toggle
+        const toggleBtn = document.getElementById('mobile-menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
-        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-        let isMobileMenuOpen = false;
-
-        mobileMenuToggle.addEventListener('click', () => {
-            isMobileMenuOpen = !isMobileMenuOpen;
-            if (isMobileMenuOpen) {
+        let isOpen = false;
+        
+        toggleBtn.addEventListener('click', () => {
+            isOpen = !isOpen;
+            if(isOpen) {
                 mobileMenu.classList.remove('translate-x-full');
-                mobileMenuToggle.innerHTML = '<i data-lucide="x" class="w-6 h-6 text-white"></i>';
-                header.classList.add('bg-brand-luxeDark');
+                toggleBtn.innerHTML = '<i data-lucide="x" class="w-6 h-6 text-white"></i>';
             } else {
                 mobileMenu.classList.add('translate-x-full');
-                mobileMenuToggle.innerHTML = '<i data-lucide="menu" class="w-6 h-6 text-white"></i>';
-                if (window.scrollY <= 50) {
-                    header.classList.remove('bg-brand-luxeDark');
-                }
+                toggleBtn.innerHTML = '<i data-lucide="menu" class="w-6 h-6 text-white"></i>';
             }
             lucide.createIcons();
+        });
+
+        // 4. Parallax scroll effect for hero background image
+        window.addEventListener('scroll', () => {
+            const scroll = window.scrollY;
+            const heroBg = document.getElementById('hero-img');
+            if (heroBg && window.innerWidth > 768) {
+                heroBg.style.transform = `translateY(${scroll * 0.3}px) scale(1.1)`;
+            }
         });
     </script>
 </body>

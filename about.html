@@ -85,8 +85,8 @@
                 </span>
             </a>
 
-            <!-- Desktop Navigation -->
-            <nav class="hidden lg:flex items-center space-x-10">
+            <!-- Desktop Navigation (Adjusted spacing to prevent overlap) -->
+            <nav class="hidden lg:flex items-center space-x-4 xl:space-x-8">
                 <a href="index.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Home</a>
                 <a href="about.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-brand-luxeGold">About Us</a>
                 <a href="discover.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Discover Bratislava</a>
@@ -131,10 +131,10 @@
     <!-- HERO SECTION -->
     <section class="relative min-h-[75vh] flex items-center justify-center bg-brand-luxeDark overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <!-- Curated group cyclists lifestyle background -->
+            <!-- Curated group cyclists lifestyle background with scale-110 for parallax -->
             <img src="pictures/Cyclists having a coffee break at a local outdoor cafe, road bikes parked nearby, lifestyle photography, authentic.jpg" 
                  alt="Bike Bratislava cycling lifestyle coffee break" 
-                 class="w-full h-full object-cover object-center opacity-20">
+                 class="w-full h-full object-cover object-center opacity-20 scale-110" id="hero-img" style="will-change: transform;">
             <div class="absolute inset-0 bg-gradient-to-t from-brand-luxeDark via-brand-luxeDark/60 to-transparent"></div>
         </div>
 
@@ -175,7 +175,7 @@
                         <!-- local climber/road rider -->
                         <img src="pictures/Athletic road cyclist climbing a scenic mountain road, gravel bike rider on a dirt trail, endurance.jpg" 
                              alt="Athletic road cyclist climbing scenic carpathians route" 
-                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-out">
                     </div>
                 </div>
 
@@ -364,6 +364,15 @@
                 }
             }
             lucide.createIcons();
+        });
+
+        // 4. Parallax scroll effect for hero background image
+        window.addEventListener('scroll', () => {
+            const scroll = window.scrollY;
+            const heroBg = document.getElementById('hero-img');
+            if (heroBg && window.innerWidth > 768) {
+                heroBg.style.transform = `translateY(${scroll * 0.3}px) scale(1.1)`;
+            }
         });
     </script>
 </body>

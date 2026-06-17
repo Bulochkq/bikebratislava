@@ -85,8 +85,8 @@
                 </span>
             </a>
 
-            <!-- Desktop Navigation -->
-            <nav class="hidden lg:flex items-center space-x-10">
+            <!-- Desktop Navigation (Adjusted spacing to prevent overlap) -->
+            <nav class="hidden lg:flex items-center space-x-4 xl:space-x-8">
                 <a href="index.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-brand-luxeGold">Home</a>
                 <a href="about.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">About Us</a>
                 <a href="discover.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Discover Bratislava</a>
@@ -131,8 +131,8 @@
     <!-- SECTION 1: HERO (With local intro.mp4 video background) -->
     <section class="relative min-h-screen flex items-center justify-center bg-brand-luxeDark overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <!-- Autoplaying, muted local MP4 video -->
-            <video autoplay muted loop playsinline class="w-full h-full object-cover object-center opacity-25" id="hero-video">
+            <!-- Autoplaying, muted local MP4 video with transform class for parallax -->
+            <video autoplay muted loop playsinline class="w-full h-full object-cover object-center opacity-25 scale-110" id="hero-video" style="will-change: transform;">
                 <source src="pictures/intro.mp4" type="video/mp4">
             </video>
             <div class="absolute inset-0 bg-gradient-to-t from-brand-luxeDark via-brand-luxeDark/40 to-transparent"></div>
@@ -179,11 +179,13 @@
                         <!-- Local cyclists stopping at historic Devin/Bratislava castle -->
                         <img src="pictures/Cyclists stopping near an old European castle, tourist couple with bikes looking at historic landmark.jpg" 
                              alt="Cyclists looking at historic castle landmark in Bratislava" 
-                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-out">
                     </div>
-                    <div class="absolute -bottom-10 -right-10 bg-brand-luxeDark text-brand-luxeTextLight p-8 max-w-xs shadow-2xl hidden md:block border border-brand-luxeGold/20 rounded-none">
-                        <p class="font-serif text-3xl italic text-brand-luxeGold mb-3">Did you know?</p>
-                        <p class="text-xs text-stone-400 leading-relaxed font-light font-sans tracking-wide">Bratislava is the only national capital that borders two sovereign countries: Austria and Hungary.</p>
+                    <!-- Redesigned floating callout card (sleeker, gold line, semi-transparent blur) -->
+                    <div class="absolute -bottom-6 -right-6 bg-brand-luxeDark/95 backdrop-blur-md p-6 max-w-xs shadow-2xl hidden md:block border border-brand-luxeGold/30 rounded-none z-20">
+                        <div class="w-8 h-[1px] bg-brand-luxeGold mb-3"></div>
+                        <h4 class="font-serif text-lg italic text-brand-luxeGold mb-2">Did you know?</h4>
+                        <p class="text-[11px] text-stone-400 leading-relaxed font-light font-sans tracking-wide">Bratislava is the only national capital that borders two sovereign countries: Austria and Hungary.</p>
                     </div>
                 </div>
 
@@ -274,7 +276,7 @@
                             <!-- Local town cycling exploration -->
                             <img src="pictures/Leisure cyclist exploring old European town streets, relaxed pace, historic architecture background, lifestyle.jpg" 
                                  alt="Bratislava old town leisure cycling path" 
-                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
                             <div class="absolute top-4 left-4 bg-brand-luxeDark text-white text-[9px] tracking-[0.25em] uppercase font-medium py-1 px-3 border border-brand-luxeGold/25">
                                 Leisure & Culture
                             </div>
@@ -301,7 +303,7 @@
                             <!-- Local climbing cyclist -->
                             <img src="pictures/Athletic road cyclist climbing a scenic mountain road, gravel bike rider on a dirt trail, endurance.jpg" 
                                  alt="Road cyclist climbing carpathian routes" 
-                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
                             <div class="absolute top-4 left-4 bg-brand-luxeDark text-white text-[9px] tracking-[0.25em] uppercase font-medium py-1 px-3 border border-brand-luxeGold/25">
                                 Road & Gravel
                             </div>
@@ -328,7 +330,7 @@
                             <!-- Local group corporate tour -->
                             <img src="pictures/Corporate cycling group, custom private bike tour, diverse group of people riding together, authentic experience.jpg" 
                                  alt="Corporate group cycling experiences slovakia" 
-                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
                             <div class="absolute top-4 left-4 bg-brand-luxeDark text-white text-[9px] tracking-[0.25em] uppercase font-medium py-1 px-3 border border-brand-luxeGold/25">
                                 Private & Corporate
                             </div>
@@ -382,11 +384,11 @@
 
                 <div class="lg:col-span-6 order-1 lg:order-2 scroll-reveal">
                     <div class="relative">
-                        <!-- Cyclists coffee stop portrait -->
+                        <!-- Cyclists coffee stop portrait with hover transition -->
                         <div class="aspect-[4/3] md:aspect-[16/10] overflow-hidden shadow-2xl border border-stone-300/60">
                             <img src="pictures/Cyclists having a coffee break at a local outdoor cafe, road bikes parked nearby, lifestyle photography, authentic.jpg" 
                                  alt="Cyclists enjoying coffee stop in Bratislava region" 
-                                 class="w-full h-full object-cover">
+                                 class="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-out">
                         </div>
                         <div class="absolute -top-6 -left-6 w-20 h-20 border-t border-l border-brand-luxeGold/40"></div>
                         <div class="absolute -bottom-6 -right-6 w-20 h-20 border-b border-r border-brand-luxeGold/40"></div>
@@ -449,8 +451,8 @@
 
             <div class="flex justify-center space-x-3 mt-10" id="slider-dots">
                 <button class="w-1.5 h-1.5 rounded-full bg-brand-luxeGold transition-colors duration-300" data-slide="0" aria-label="Slide 1"></button>
-                <button class="w-1.5 h-1.5 rounded-full bg-stone-855 hover:bg-brand-luxeGold transition-colors duration-300" data-slide="1" aria-label="Slide 2"></button>
-                <button class="w-1.5 h-1.5 rounded-full bg-stone-855 hover:bg-brand-luxeGold transition-colors duration-300" data-slide="2" aria-label="Slide 3"></button>
+                <button class="w-1.5 h-1.5 rounded-full bg-stone-800 hover:bg-brand-luxeGold transition-colors duration-300" data-slide="1" aria-label="Slide 2"></button>
+                <button class="w-1.5 h-1.5 rounded-full bg-stone-800 hover:bg-brand-luxeGold transition-colors duration-300" data-slide="2" aria-label="Slide 3"></button>
             </div>
         </div>
     </section>
@@ -643,11 +645,11 @@
                 const dots = dotsContainer.querySelectorAll('button');
                 dots.forEach((dot, dIndex) => {
                     if (dIndex === currentReviewIndex) {
-                        dot.classList.remove('bg-stone-855');
+                        dot.classList.remove('bg-stone-800');
                         dot.classList.add('bg-brand-luxeGold');
                     } else {
                         dot.classList.remove('bg-brand-luxeGold');
-                        dot.classList.add('bg-stone-855');
+                        dot.classList.add('bg-stone-800');
                     }
                 });
             }, 300);
@@ -683,6 +685,15 @@
         prevBtn.addEventListener('click', stopSliderAutoplay);
         nextBtn.addEventListener('click', stopSliderAutoplay);
         dots.forEach(dot => dot.addEventListener('click', stopSliderAutoplay));
+
+        // 5. Parallax scroll effect for hero background video
+        window.addEventListener('scroll', () => {
+            const scroll = window.scrollY;
+            const heroBg = document.getElementById('hero-video');
+            if (heroBg && window.innerWidth > 768) {
+                heroBg.style.transform = `translateY(${scroll * 0.3}px) scale(1.1)`;
+            }
+        });
     </script>
 </body>
 </html>

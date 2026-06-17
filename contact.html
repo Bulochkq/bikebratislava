@@ -85,8 +85,8 @@
                 </span>
             </a>
 
-            <!-- Desktop Navigation -->
-            <nav class="hidden lg:flex items-center space-x-10">
+            <!-- Desktop Navigation (Adjusted spacing to prevent overlap) -->
+            <nav class="hidden lg:flex items-center space-x-4 xl:space-x-8">
                 <a href="index.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Home</a>
                 <a href="about.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">About Us</a>
                 <a href="discover.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Discover Bratislava</a>
@@ -131,9 +131,10 @@
     <!-- HERO SECTION -->
     <section class="relative min-h-[75vh] flex items-center justify-center bg-brand-luxeDark text-white overflow-hidden">
         <div class="absolute inset-0 z-0">
+            <!-- Scale-110 for parallax -->
             <img src="pictures/Cyclists stopping near an old European castle, tourist couple with bikes looking at historic landmark.jpg" 
                  alt="Contact us background slovakia devin castle cyclists" 
-                 class="w-full h-full object-cover object-center opacity-20">
+                 class="w-full h-full object-cover object-center opacity-20 scale-110" id="hero-img" style="will-change: transform;">
             <div class="absolute inset-0 bg-gradient-to-t from-brand-luxeDark via-brand-luxeDark/65 to-transparent"></div>
         </div>
 
@@ -196,49 +197,64 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
                         <!-- Group Size -->
-                        <div class="flex flex-col border-b border-stone-300 focus-within:border-brand-luxeGold transition-colors pb-2">
+                        <div class="flex flex-col border-b border-stone-300 focus-within:border-brand-luxeGold transition-colors pb-2 relative">
                             <label for="group-size" class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-400 mb-1">Group Size</label>
-                            <select id="group-size" name="group-size" required 
-                                    class="bg-transparent focus:outline-none text-xs font-light text-brand-luxeTextDark tracking-wide py-1 appearance-none cursor-pointer">
-                                <option value="" disabled selected>Select size</option>
-                                <option value="Solo Rider">Solo Rider</option>
-                                <option value="2-4 Riders">2-4 Riders</option>
-                                <option value="5-8 Riders">5-8 Riders</option>
-                                <option value="9+ Corporate/Club">9+ (Corporate/Club)</option>
-                            </select>
+                            <div class="relative w-full">
+                                <select id="group-size" name="group-size" required 
+                                        class="w-full bg-transparent focus:outline-none text-xs font-light text-brand-luxeTextDark tracking-wide py-1 pr-8 appearance-none cursor-pointer">
+                                    <option value="" disabled selected class="bg-[#F5F4F0] text-brand-luxeTextDark">Select size</option>
+                                    <option value="Solo Rider" class="bg-[#F5F4F0] text-brand-luxeTextDark">Solo Rider</option>
+                                    <option value="2-4 Riders" class="bg-[#F5F4F0] text-brand-luxeTextDark">2-4 Riders</option>
+                                    <option value="5-8 Riders" class="bg-[#F5F4F0] text-brand-luxeTextDark">5-8 Riders</option>
+                                    <option value="9+ Corporate/Club" class="bg-[#F5F4F0] text-brand-luxeTextDark">9+ (Corporate/Club)</option>
+                                </select>
+                                <div class="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none text-brand-luxeGold">
+                                    <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                                </div>
+                            </div>
                         </div>
 
                         <!-- Experience Level -->
-                        <div class="flex flex-col border-b border-stone-300 focus-within:border-brand-luxeGold transition-colors pb-2">
+                        <div class="flex flex-col border-b border-stone-300 focus-within:border-brand-luxeGold transition-colors pb-2 relative">
                             <label for="experience" class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-400 mb-1">Experience Level</label>
-                            <select id="experience" name="experience" required 
-                                    class="bg-transparent focus:outline-none text-xs font-light text-brand-luxeTextDark tracking-wide py-1 appearance-none cursor-pointer">
-                                <option value="" disabled selected>Select level</option>
-                                <option value="Leisure/Casual">Leisure / Casual</option>
-                                <option value="Intermediate">Intermediate Road/Gravel</option>
-                                <option value="Advanced/Strong">Advanced / Strong Cyclist</option>
-                            </select>
+                            <div class="relative w-full">
+                                <select id="experience" name="experience" required 
+                                        class="w-full bg-transparent focus:outline-none text-xs font-light text-brand-luxeTextDark tracking-wide py-1 pr-8 appearance-none cursor-pointer">
+                                    <option value="" disabled selected class="bg-[#F5F4F0] text-brand-luxeTextDark">Select level</option>
+                                    <option value="Leisure/Casual" class="bg-[#F5F4F0] text-brand-luxeTextDark">Leisure / Casual</option>
+                                    <option value="Intermediate" class="bg-[#F5F4F0] text-brand-luxeTextDark">Intermediate Road/Gravel</option>
+                                    <option value="Advanced/Strong" class="bg-[#F5F4F0] text-brand-luxeTextDark">Advanced / Strong Cyclist</option>
+                                </select>
+                                <div class="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none text-brand-luxeGold">
+                                    <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                                </div>
+                            </div>
                         </div>
 
                         <!-- Preferred Ride Type -->
-                        <div class="flex flex-col border-b border-stone-300 focus-within:border-brand-luxeGold transition-colors pb-2">
+                        <div class="flex flex-col border-b border-stone-300 focus-within:border-brand-luxeGold transition-colors pb-2 relative">
                             <label for="ride-type" class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-400 mb-1">Preferred Ride Type</label>
-                            <select id="ride-type" name="ride-type" required 
-                                    class="bg-transparent focus:outline-none text-xs font-light text-brand-luxeTextDark tracking-wide py-1 appearance-none cursor-pointer">
-                                <option value="" disabled selected>Select type</option>
-                                <option value="Guided Tour (Leisure)">Guided Tour (Leisure)</option>
-                                <option value="Guided Road Ride (Sportive)">Guided Road Ride (Sportive)</option>
-                                <option value="Guided Gravel Ride">Guided Gravel Ride</option>
-                                <option value="Custom Experience">Custom Experience</option>
-                                <option value="Bratislava Highlights Ride">Bratislava Highlights Ride</option>
-                                <option value="Danube Discovery Tour">Danube Discovery Tour</option>
-                                <option value="Wine & Villages Ride">Wine & Villages Ride</option>
-                                <option value="Sunset Ride">Sunset Ride</option>
-                                <option value="Cross Border Ride">Cross Border Ride</option>
-                                <option value="Little Carpathians Road Ride">Little Carpathians Road Ride</option>
-                                <option value="Gravel Through The Vineyards">Gravel Through The Vineyards</option>
-                                <option value="Four Countries Challenge">Four Countries Challenge</option>
-                            </select>
+                            <div class="relative w-full">
+                                <select id="ride-type" name="ride-type" required 
+                                        class="w-full bg-transparent focus:outline-none text-xs font-light text-brand-luxeTextDark tracking-wide py-1 pr-8 appearance-none cursor-pointer">
+                                    <option value="" disabled selected class="bg-[#F5F4F0] text-brand-luxeTextDark">Select type</option>
+                                    <option value="Guided Tour (Leisure)" class="bg-[#F5F4F0] text-brand-luxeTextDark">Guided Tour (Leisure)</option>
+                                    <option value="Guided Road Ride (Sportive)" class="bg-[#F5F4F0] text-brand-luxeTextDark">Guided Road Ride (Sportive)</option>
+                                    <option value="Guided Gravel Ride" class="bg-[#F5F4F0] text-brand-luxeTextDark">Guided Gravel Ride</option>
+                                    <option value="Custom Experience" class="bg-[#F5F4F0] text-brand-luxeTextDark">Custom Experience</option>
+                                    <option value="Bratislava Highlights Ride" class="bg-[#F5F4F0] text-brand-luxeTextDark">Bratislava Highlights Ride</option>
+                                    <option value="Danube Discovery Tour" class="bg-[#F5F4F0] text-brand-luxeTextDark">Danube Discovery Tour</option>
+                                    <option value="Wine & Villages Ride" class="bg-[#F5F4F0] text-brand-luxeTextDark">Wine & Villages Ride</option>
+                                    <option value="Sunset Ride" class="bg-[#F5F4F0] text-brand-luxeTextDark">Sunset Ride</option>
+                                    <option value="Cross Border Ride" class="bg-[#F5F4F0] text-brand-luxeTextDark">Cross Border Ride</option>
+                                    <option value="Little Carpathians Road Ride" class="bg-[#F5F4F0] text-brand-luxeTextDark">Little Carpathians Road Ride</option>
+                                    <option value="Gravel Through The Vineyards" class="bg-[#F5F4F0] text-brand-luxeTextDark">Gravel Through The Vineyards</option>
+                                    <option value="Four Countries Challenge" class="bg-[#F5F4F0] text-brand-luxeTextDark">Four Countries Challenge</option>
+                                </select>
+                                <div class="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none text-brand-luxeGold">
+                                    <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -250,8 +266,13 @@
                     </div>
 
                     <!-- Submit Button -->
-                    <button type="submit" class="w-full py-4.5 bg-brand-luxeDark hover:bg-brand-luxeGold text-white font-medium uppercase tracking-[0.3em] text-xs transition-colors duration-500 rounded-none border border-stone-850 shadow-2xl">
-                        Submit Inquiry
+                    <button type="submit" class="group relative w-full overflow-hidden border border-brand-luxeDark/20 bg-brand-luxeDark py-5 px-8 text-center text-xs font-medium uppercase tracking-[0.3em] transition-all duration-500 rounded-none shadow-2xl">
+                        <!-- Absolute gold background overlay that slides up -->
+                        <span class="absolute inset-0 w-full h-full bg-brand-luxeGold transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-0"></span>
+                        <!-- Relative text content to stay above overlay -->
+                        <span class="relative z-10 text-white group-hover:text-brand-luxeDark transition-colors duration-500 flex items-center justify-center space-x-2" id="submit-btn-text">
+                            <span>Submit Inquiry</span>
+                        </span>
                     </button>
                 </form>
                 
@@ -369,7 +390,7 @@
             lucide.createIcons();
         });
 
-        // URL Query parameter handling (?ride=TourName)
+        // URL Query parameter handling (?ride=TourName & ?guide=GuideName)
         const rideSelect = document.getElementById('ride-type');
         const banner = document.getElementById('tour-selected-banner');
         const selectedTourText = document.getElementById('selected-tour-name');
@@ -377,6 +398,7 @@
         function checkQueryParam() {
             const urlParams = new URLSearchParams(window.location.search);
             const selectedRide = urlParams.get('ride');
+            const selectedGuide = urlParams.get('guide');
             
             if (selectedRide) {
                 let foundMatch = false;
@@ -403,6 +425,13 @@
                     }
                 }
             }
+
+            if (selectedGuide) {
+                const messageArea = document.getElementById('message');
+                if (messageArea) {
+                    messageArea.value = `I would like to request ${selectedGuide} as our local guide.`;
+                }
+            }
         }
 
         function clearSelectedTour() {
@@ -421,8 +450,11 @@
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             const submitBtn = form.querySelector('button[type="submit"]');
+            const submitBtnText = document.getElementById('submit-btn-text');
             submitBtn.disabled = true;
-            submitBtn.innerHTML = '<span class="inline-block animate-pulse">Sending Inquiry...</span>';
+            if (submitBtnText) {
+                submitBtnText.innerHTML = '<span class="inline-block animate-pulse">Sending Inquiry...</span>';
+            }
 
             setTimeout(() => {
                 successMessage.classList.remove('pointer-events-none');
@@ -431,7 +463,9 @@
                 
                 form.reset();
                 submitBtn.disabled = false;
-                submitBtn.innerText = "Submit Inquiry";
+                if (submitBtnText) {
+                    submitBtnText.innerHTML = '<span>Submit Inquiry</span>';
+                }
                 banner.classList.add('hidden');
             }, 1200);
         });
@@ -440,6 +474,15 @@
             successMessage.classList.add('pointer-events-none');
             successMessage.classList.remove('opacity-100');
             successMessage.classList.add('opacity-0');
+        });
+
+        // Parallax scroll effect for hero background image
+        window.addEventListener('scroll', () => {
+            const scroll = window.scrollY;
+            const heroBg = document.getElementById('hero-img');
+            if (heroBg && window.innerWidth > 768) {
+                heroBg.style.transform = `translateY(${scroll * 0.3}px) scale(1.1)`;
+            }
         });
     </script>
 </body>
