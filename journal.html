@@ -75,9 +75,9 @@
 
     <!-- HEADER & NAVIGATION (With smart hide/reveal scroll behaviors) -->
     <header id="main-header" class="fixed top-0 left-0 w-full z-50 py-6 border-b border-white/5">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
-            <a href="index.html" class="flex flex-col group">
-                <span class="font-serif text-2xl lg:text-3xl tracking-widest text-brand-luxeTextLight transition-colors duration-300 group-hover:text-brand-luxeGold" id="logo-text">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 xl:px-12 flex items-center justify-between">
+            <a href="index.html" class="flex flex-col group flex-shrink-0">
+                <span class="font-serif text-xl lg:text-xl xl:text-3xl tracking-widest text-brand-luxeTextLight transition-colors duration-300 group-hover:text-brand-luxeGold" id="logo-text">
                     BIKE BRATISLAVA
                 </span>
                 <span class="text-[8px] tracking-[0.35em] text-stone-400 font-light uppercase transition-colors duration-300" id="logo-subtext">
@@ -85,20 +85,20 @@
                 </span>
             </a>
 
-            <!-- Desktop Navigation (Adjusted spacing to prevent overlap) -->
-            <nav class="hidden lg:flex items-center space-x-4 xl:space-x-8">
-                <a href="index.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Home</a>
-                <a href="about.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">About Us</a>
-                <a href="discover.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Discover Bratislava</a>
-                <a href="tours.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Tours & Rides</a>
-                <a href="guides.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Our Guides</a>
-                <a href="journal.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-brand-luxeGold">Journal</a>
-                <a href="contact.html" class="text-[11px] font-medium tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Contact</a>
+            <!-- Desktop Navigation (Optimized font sizes & tracking for 1024px to prevent overlaps) -->
+            <nav class="hidden lg:flex items-center space-x-2 xl:space-x-6 flex-shrink">
+                <a href="index.html" class="text-[10px] xl:text-[11px] font-medium tracking-[0.15em] xl:tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Home</a>
+                <a href="about.html" class="text-[10px] xl:text-[11px] font-medium tracking-[0.15em] xl:tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">About Us</a>
+                <a href="discover.html" class="text-[10px] xl:text-[11px] font-medium tracking-[0.15em] xl:tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Discover Bratislava</a>
+                <a href="tours.html" class="text-[10px] xl:text-[11px] font-medium tracking-[0.15em] xl:tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Tours & Rides</a>
+                <a href="guides.html" class="text-[10px] xl:text-[11px] font-medium tracking-[0.15em] xl:tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Our Guides</a>
+                <a href="journal.html" class="text-[10px] xl:text-[11px] font-medium tracking-[0.15em] xl:tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-brand-luxeGold">Journal</a>
+                <a href="contact.html" class="text-[10px] xl:text-[11px] font-medium tracking-[0.15em] xl:tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Contact</a>
             </nav>
 
-            <!-- CTA Button -->
-            <div class="hidden lg:block">
-                <a href="contact.html" id="nav-cta" class="inline-flex items-center justify-center px-8 py-3 text-[10px] font-medium tracking-[0.3em] uppercase border border-white/20 text-white hover:bg-white hover:text-brand-luxeDark transition-all duration-500 rounded-none">
+            <!-- CTA Button (Adjusted padding to prevent navigation collision) -->
+            <div class="hidden lg:block flex-shrink-0">
+                <a href="contact.html" id="nav-cta" class="inline-flex items-center justify-center px-4 xl:px-8 py-3 text-[9px] xl:text-[10px] font-medium tracking-[0.2em] xl:tracking-[0.3em] uppercase border border-white/20 text-white hover:bg-white hover:text-brand-luxeDark transition-all duration-500 rounded-none">
                     Plan Your Ride
                 </a>
             </div>
@@ -334,12 +334,31 @@
             lucide.createIcons();
         });
 
-        // 4. Parallax scroll effect for hero background image
+        // 4. Parallax scroll effect for backgrounds
         window.addEventListener('scroll', () => {
             const scroll = window.scrollY;
-            const heroBg = document.getElementById('hero-img');
-            if (heroBg && window.innerWidth > 768) {
-                heroBg.style.transform = `translateY(${scroll * 0.3}px) scale(1.1)`;
+            if (window.innerWidth > 768) {
+                // Hero image
+                const heroBg = document.getElementById('hero-img');
+                if (heroBg) {
+                    heroBg.style.transform = `translateY(${scroll * 0.3}px) scale(1.1)`;
+                }
+
+                // Concrete backgrounds parallax
+                document.querySelectorAll('.concrete-bg').forEach(bg => {
+                    const rect = bg.getBoundingClientRect();
+                    if (rect.top < window.innerHeight && rect.bottom > 0) {
+                        bg.style.backgroundPositionY = `${rect.top * 0.15}px`;
+                    }
+                });
+
+                // Asphalt backgrounds parallax
+                document.querySelectorAll('.asphalt-bg').forEach(bg => {
+                    const rect = bg.getBoundingClientRect();
+                    if (rect.top < window.innerHeight && rect.bottom > 0) {
+                        bg.style.transform = `translateY(${rect.top * 0.15}px)`;
+                    }
+                });
             }
         });
     </script>
