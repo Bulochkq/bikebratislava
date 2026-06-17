@@ -63,8 +63,32 @@
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.4s ease, padding 0.4s ease;
         }
         
-        /* Texture overlay styling */
-        .concrete-bg {
+        /* Parallax texture backgrounds вЂ” uses inner wrapper with translateY */
+        .parallax-section {
+            position: relative;
+            overflow: hidden;
+        }
+        .parallax-bg {
+            position: absolute;
+            inset: -20% 0;
+            background-size: cover;
+            background-position: center;
+            will-change: transform;
+            z-index: 0;
+        }
+        .parallax-section > *:not(.parallax-bg) {
+            position: relative;
+            z-index: 1;
+        }
+        .parallax-bg.concrete {
+            background-image: url('pictures/Light grey concrete texture, smooth microcement background, clean minimalist studio wall, soft lighting, industrial elegant texture.jpg');
+        }
+        .parallax-bg.asphalt {
+            background-image: url('pictures/Fine texture of dark grey asphalt surface, top view, clean, consistent pattern, minimalist dark background, high resolutio.jpg');
+            opacity: 0.10;
+        }
+        /* Legacy: concrete-bg as section bg for guides card row */
+        .concrete-bg-inline {
             background-image: url('pictures/Light grey concrete texture, smooth microcement background, clean minimalist studio wall, soft lighting, industrial elegant texture.jpg');
             background-size: cover;
             background-position: center;
@@ -74,26 +98,26 @@
 <body class="bg-brand-luxeLight text-brand-luxeTextDark font-sans antialiased selection:bg-brand-luxeGold selection:text-brand-luxeDark">
 
     <!-- HEADER & NAVIGATION (With smart hide/reveal scroll behaviors) -->
-    <header id="main-header" class="fixed top-0 left-0 w-full z-50 py-6 border-b border-white/5">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8 xl:px-12 flex items-center justify-between">
-            <a href="index.html" class="flex flex-col group flex-shrink-0">
-                <span class="font-serif text-xl lg:text-xl xl:text-3xl tracking-widest text-brand-luxeTextLight transition-colors duration-300 group-hover:text-brand-luxeGold" id="logo-text">
+    <header id="main-header" class="fixed top-0 left-0 w-full z-50 py-4 border-b border-white/5">
+        <div class="max-w-screen-2xl mx-auto px-4 lg:px-6 xl:px-10 flex items-center gap-4 xl:gap-8">
+            <a href="index.html" class="flex flex-col group flex-shrink-0 mr-2">
+                <span class="font-serif text-lg lg:text-lg xl:text-2xl tracking-widest text-brand-luxeTextLight transition-colors duration-300 group-hover:text-brand-luxeGold" id="logo-text">
                     BIKE BRATISLAVA
                 </span>
-                <span class="text-[8px] tracking-[0.35em] text-stone-400 font-light uppercase transition-colors duration-300" id="logo-subtext">
+                <span class="text-[7px] tracking-[0.3em] text-stone-400 font-light uppercase transition-colors duration-300" id="logo-subtext">
                     Central Europe
                 </span>
             </a>
 
             <!-- Desktop Navigation (Optimized font sizes & tracking for 1024px to prevent overlaps) -->
-            <nav class="hidden lg:flex items-center space-x-2 xl:space-x-6 flex-shrink">
-                <a href="index.html" class="text-[10px] xl:text-[11px] font-medium tracking-[0.15em] xl:tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Home</a>
-                <a href="about.html" class="text-[10px] xl:text-[11px] font-medium tracking-[0.15em] xl:tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">About Us</a>
-                <a href="discover.html" class="text-[10px] xl:text-[11px] font-medium tracking-[0.15em] xl:tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Discover Bratislava</a>
-                <a href="tours.html" class="text-[10px] xl:text-[11px] font-medium tracking-[0.15em] xl:tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-brand-luxeGold">Tours & Rides</a>
-                <a href="guides.html" class="text-[10px] xl:text-[11px] font-medium tracking-[0.15em] xl:tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Our Guides</a>
-                <a href="journal.html" class="text-[10px] xl:text-[11px] font-medium tracking-[0.15em] xl:tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Journal</a>
-                <a href="contact.html" class="text-[10px] xl:text-[11px] font-medium tracking-[0.15em] xl:tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-luxeGold/40">Contact</a>
+            <nav class="hidden lg:flex items-center gap-1 xl:gap-5 flex-1 justify-center">
+                <a href="index.html" class="text-[9px] xl:text-[10px] font-medium tracking-[0.1em] xl:tracking-[0.2em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 whitespace-nowrap py-1 border-b border-transparent hover:border-brand-luxeGold/40">Home</a>
+                <a href="about.html" class="text-[9px] xl:text-[10px] font-medium tracking-[0.1em] xl:tracking-[0.2em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 whitespace-nowrap py-1 border-b border-transparent hover:border-brand-luxeGold/40">About Us</a>
+                <a href="discover.html" class="text-[9px] xl:text-[10px] font-medium tracking-[0.1em] xl:tracking-[0.2em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 whitespace-nowrap py-1 border-b border-transparent hover:border-brand-luxeGold/40">Discover Bratislava</a>
+                <a href="tours.html" class="text-[9px] xl:text-[10px] font-medium tracking-[0.1em] xl:tracking-[0.2em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 whitespace-nowrap py-1 border-b border-brand-luxeGold">Tours & Rides</a>
+                <a href="guides.html" class="text-[9px] xl:text-[10px] font-medium tracking-[0.1em] xl:tracking-[0.2em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 whitespace-nowrap py-1 border-b border-transparent hover:border-brand-luxeGold/40">Our Guides</a>
+                <a href="journal.html" class="text-[9px] xl:text-[10px] font-medium tracking-[0.1em] xl:tracking-[0.2em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 whitespace-nowrap py-1 border-b border-transparent hover:border-brand-luxeGold/40">Journal</a>
+                <a href="contact.html" class="text-[9px] xl:text-[10px] font-medium tracking-[0.1em] xl:tracking-[0.2em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 whitespace-nowrap py-1 border-b border-transparent hover:border-brand-luxeGold/40">Contact</a>
             </nav>
 
             <!-- CTA Button (Adjusted padding to prevent navigation collision) -->
@@ -223,7 +247,8 @@
     </section>
 
     <!-- SECTION: GUIDED RIDES (Concrete background) -->
-    <section class="py-32 concrete-bg border-b border-stone-200/40">
+    <section class="py-32 parallax-section border-b border-stone-200/40">
+        <div class="parallax-bg concrete"></div>
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
             <div class="mb-20 scroll-reveal">
                 <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-2 block">Category 02</span>
@@ -269,7 +294,7 @@
                 <div class="group border border-stone-200 bg-white hover:border-brand-luxeGold transition-all duration-300 flex flex-col justify-between rounded-none scroll-reveal">
                     <div>
                         <div class="aspect-[4/3] overflow-hidden border-b border-stone-200">
-                            <img src="pictures/Athletic road cyclist climbing a scenic mountain road, gravel bike rider on a dirt trail, endurance.jpg" alt="Gravel road in vineyards" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-out">
+                            <img src="pictures/Abstract blurred green background, out of focus vineyard leaves, beautiful summer morning bokeh, soft natural light, clean gradient texture.jpg" alt="Gravel trail through lush green vineyards" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-out">
                         </div>
                         <div class="p-6">
                             <h3 class="font-serif text-xl font-light text-brand-luxeDark mb-2">Gravel Through The Vineyards</h3>
@@ -503,7 +528,7 @@
                 bike: "Gravel / XC Mountain Bike",
                 keypoints: ["Vineyard hillside gravel paths", "Forest fire roads", "Devínska Kobyla panorama", "Fun single tracks"],
                 recom: "For gravel riders looking to escape traffic and climb dirt tracks with sweeping views over the Danube valley.",
-                img: "pictures/Athletic road cyclist climbing a scenic mountain road, gravel bike rider on a dirt trail, endurance.jpg"
+                img: "pictures/Abstract blurred green background, out of focus vineyard leaves, beautiful summer morning bokeh, soft natural light, clean gradient texture.jpg"
             },
             fourcountries: {
                 title: "Four Countries Challenge",
@@ -610,19 +635,14 @@
                     heroBg.style.transform = `translateY(${scroll * 0.3}px) scale(1.1)`;
                 }
 
-                // Concrete backgrounds parallax
-                document.querySelectorAll('.concrete-bg').forEach(bg => {
-                    const rect = bg.getBoundingClientRect();
+                // Inner parallax background wrappers (overflow-hidden on parent clips edges)
+                document.querySelectorAll('.parallax-bg').forEach(bg => {
+                    const section = bg.closest('.parallax-section');
+                    if (!section) return;
+                    const rect = section.getBoundingClientRect();
                     if (rect.top < window.innerHeight && rect.bottom > 0) {
-                        bg.style.backgroundPositionY = `${rect.top * 0.15}px`;
-                    }
-                });
-
-                // Asphalt backgrounds parallax
-                document.querySelectorAll('.asphalt-bg').forEach(bg => {
-                    const rect = bg.getBoundingClientRect();
-                    if (rect.top < window.innerHeight && rect.bottom > 0) {
-                        bg.style.transform = `translateY(${rect.top * 0.15}px)`;
+                        const offset = rect.top * 0.18;
+                        bg.style.transform = `translateY(${offset}px)`;
                     }
                 });
             }
