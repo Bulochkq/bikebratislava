@@ -1,15 +1,31 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth overflow-x-hidden">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | Bike Bratislava</title>
     <meta name="description" content="Let's plan your ride. Tell us about your travel dates, group size, and cycling experience. We'll help you create the perfect tour.">
+
+    <link rel="canonical" href="https://bikebratislava.com/contact.html">
     
-    <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bikebratislava.com/contact.html">
+    <meta property="og:title" content="Contact Us | Bike Bratislava">
+    <meta property="og:description" content="Let's plan your ride. Tell us about your travel dates, group size, and cycling experience. We'll help you create the perfect tour.">
+    <meta property="og:image" content="https://bikebratislava.com/pictures/sunset_devin.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://bikebratislava.com/contact.html">
+    <meta property="twitter:title" content="Contact Us | Bike Bratislava">
+    <meta property="twitter:description" content="Let's plan your ride. Tell us about your travel dates, group size, and cycling experience. We'll help you create the perfect tour.">
+    <meta property="twitter:image" content="https://bikebratislava.com/pictures/sunset_devin.png">
+    
+                    <!-- Google Fonts: Outfit & Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -21,17 +37,17 @@
                 extend: {
                     colors: {
                         brand: {
-                            luxeDark: '#0F0E0E',     /* Velvet charcoal background */
-                            luxeLight: '#F5F4F0',    /* Off-white light sand background */
-                            luxeGold: '#A38A5F',     /* Luxury muted gold accent */
-                            luxeGoldDark: '#8F774F', /* Darker gold for active states */
-                            luxeTextDark: '#1C1917', /* Dark charcoal text */
-                            luxeTextLight: '#EAE8E4' /* Off-white light cream text */
+                            luxeDark: '#0F0E0E',     /* Matte carbon black background */
+                            luxeLight: '#FFFFFF',    /* Sporty clean slate light background */
+                            luxeGold: '#D71920',     /* Kinetic Sporty Orange accent */
+                            luxeGoldDark: '#B8141A', /* Deeper active orange */
+                            luxeTextDark: '#1A1A1A', /* Active charcoal text */
+                            luxeTextLight: '#FFFFFF' /* Crisp light text */
                         }
                     },
                     fontFamily: {
                         sans: ['Plus Jakarta Sans', 'sans-serif'],
-                        serif: ['Cormorant Garamond', 'serif']
+                        serif: ['Outfit', 'sans-serif']
                     }
                 }
             }
@@ -61,6 +77,40 @@
         /* Smooth transitions for smart hidden header */
         #main-header {
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.4s ease, padding 0.4s ease;
+        }
+
+        /* Mobile menu overlay */
+        #mobile-menu {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.45s ease;
+        }
+        #mobile-menu.is-open {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        #mobile-menu .menu-nav-item {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16,1,0.3,1), color 0.2s ease;
+        }
+        #mobile-menu.is-open .menu-nav-item:nth-child(1) { opacity:1; transform:translateY(0); transition-delay:0.08s; }
+        #mobile-menu.is-open .menu-nav-item:nth-child(2) { opacity:1; transform:translateY(0); transition-delay:0.14s; }
+        #mobile-menu.is-open .menu-nav-item:nth-child(3) { opacity:1; transform:translateY(0); transition-delay:0.20s; }
+        #mobile-menu.is-open .menu-nav-item:nth-child(4) { opacity:1; transform:translateY(0); transition-delay:0.26s; }
+        #mobile-menu.is-open .menu-nav-item:nth-child(5) { opacity:1; transform:translateY(0); transition-delay:0.32s; }
+        #mobile-menu.is-open .menu-nav-item:nth-child(6) { opacity:1; transform:translateY(0); transition-delay:0.38s; }
+        #mobile-menu.is-open .menu-nav-item:nth-child(7) { opacity:1; transform:translateY(0); transition-delay:0.44s; }
+        #mobile-menu .menu-footer {
+            opacity: 0;
+            transform: translateY(14px);
+            transition: opacity 0.4s ease 0.5s, transform 0.4s ease 0.5s;
+        }
+        #mobile-menu.is-open .menu-footer {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         /* Parallax texture backgrounds вЂ” uses inner wrapper with translateY */
@@ -95,13 +145,13 @@
         }
     </style>
 </head>
-<body class="bg-brand-luxeLight text-brand-luxeTextDark font-sans antialiased selection:bg-brand-luxeGold selection:text-brand-luxeDark">
+<body class="bg-brand-luxeLight text-brand-luxeTextDark font-sans antialiased selection:bg-brand-luxeGold selection:text-brand-luxeDark overflow-x-hidden">
 
     <!-- HEADER & NAVIGATION (With smart hide/reveal scroll behaviors) -->
     <header id="main-header" class="fixed top-0 left-0 w-full z-50 py-4 border-b border-white/5">
-        <div class="max-w-screen-2xl mx-auto px-4 lg:px-6 xl:px-10 flex items-center gap-4 xl:gap-8">
-            <a href="index.html" class="flex flex-col group flex-shrink-0 mr-2">
-                <span class="font-serif text-lg lg:text-lg xl:text-2xl tracking-widest text-brand-luxeTextLight transition-colors duration-300 group-hover:text-brand-luxeGold" id="logo-text">
+        <div class="max-w-screen-2xl mx-auto px-4 lg:px-6 xl:px-6 2xl:px-10 flex items-center gap-4 xl:gap-4 2xl:gap-8">
+            <a href="index.html" class="flex flex-col group flex-shrink-0 mr-2" id="header-logo">
+                <span class="font-serif text-lg lg:text-lg xl:text-xl 2xl:text-2xl tracking-widest text-brand-luxeTextLight transition-colors duration-300 group-hover:text-brand-luxeGold" id="logo-text">
                     BIKE BRATISLAVA
                 </span>
                 <span class="text-[7px] tracking-[0.3em] text-stone-400 font-light uppercase transition-colors duration-300" id="logo-subtext">
@@ -109,46 +159,73 @@
                 </span>
             </a>
 
-            <!-- Desktop Navigation (Optimized font sizes & tracking for 1024px to prevent overlaps) -->
-            <nav class="hidden lg:flex items-center gap-1 xl:gap-5 flex-1 justify-center">
-                <a href="index.html" class="text-[9px] xl:text-[10px] font-medium tracking-[0.1em] xl:tracking-[0.2em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 whitespace-nowrap py-1 border-b border-transparent hover:border-brand-luxeGold/40">Home</a>
-                <a href="about.html" class="text-[9px] xl:text-[10px] font-medium tracking-[0.1em] xl:tracking-[0.2em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 whitespace-nowrap py-1 border-b border-transparent hover:border-brand-luxeGold/40">About Us</a>
-                <a href="discover.html" class="text-[9px] xl:text-[10px] font-medium tracking-[0.1em] xl:tracking-[0.2em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 whitespace-nowrap py-1 border-b border-transparent hover:border-brand-luxeGold/40">Discover Bratislava</a>
-                <a href="tours.html" class="text-[9px] xl:text-[10px] font-medium tracking-[0.1em] xl:tracking-[0.2em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 whitespace-nowrap py-1 border-b border-transparent hover:border-brand-luxeGold/40">Tours & Rides</a>
-                <a href="guides.html" class="text-[9px] xl:text-[10px] font-medium tracking-[0.1em] xl:tracking-[0.2em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 whitespace-nowrap py-1 border-b border-transparent hover:border-brand-luxeGold/40">Our Guides</a>
-                <a href="journal.html" class="text-[9px] xl:text-[10px] font-medium tracking-[0.1em] xl:tracking-[0.2em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 whitespace-nowrap py-1 border-b border-transparent hover:border-brand-luxeGold/40">Journal</a>
-                <a href="contact.html" class="text-[9px] xl:text-[10px] font-medium tracking-[0.1em] xl:tracking-[0.2em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 whitespace-nowrap py-1 border-b border-brand-luxeGold">Contact</a>
+            <!-- Desktop Navigation — compact at 1280px, full at 1440px+ -->
+            <nav class="hidden xl:flex items-center gap-2 xl:gap-3 2xl:gap-6 flex-1 justify-center">
+                <a href="index.html" class="text-[10px] 2xl:text-xs font-medium tracking-[0.1em] 2xl:tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 whitespace-nowrap py-1 border-b border-transparent hover:border-brand-luxeGold/40">Home</a>
+                <a href="about.html" class="text-[10px] 2xl:text-xs font-medium tracking-[0.1em] 2xl:tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 whitespace-nowrap py-1 border-b border-transparent hover:border-brand-luxeGold/40">About Us</a>
+                <a href="discover.html" class="text-[10px] 2xl:text-xs font-medium tracking-[0.1em] 2xl:tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 whitespace-nowrap py-1 border-b border-transparent hover:border-brand-luxeGold/40">Discover Bratislava</a>
+                <a href="tours.html" class="text-[10px] 2xl:text-xs font-medium tracking-[0.1em] 2xl:tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 whitespace-nowrap py-1 border-b border-transparent hover:border-brand-luxeGold/40">Tours & Rides</a>
+                <a href="guides.html" class="text-[10px] 2xl:text-xs font-medium tracking-[0.1em] 2xl:tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 whitespace-nowrap py-1 border-b border-transparent hover:border-brand-luxeGold/40">Our Guides</a>
+                <a href="journal.html" class="text-[10px] 2xl:text-xs font-medium tracking-[0.1em] 2xl:tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 whitespace-nowrap py-1 border-b border-transparent hover:border-brand-luxeGold/40">Journal</a>
+                <a href="contact.html" class="text-[10px] 2xl:text-xs font-medium tracking-[0.1em] 2xl:tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 whitespace-nowrap py-1 border-b border-brand-luxeGold">Contact</a>
             </nav>
 
-            <!-- CTA Button (Adjusted padding to prevent navigation collision) -->
-            <div class="hidden lg:block flex-shrink-0">
-                <a href="contact.html" id="nav-cta" class="inline-flex items-center justify-center px-4 xl:px-8 py-3 text-[9px] xl:text-[10px] font-medium tracking-[0.2em] xl:tracking-[0.3em] uppercase border border-white/20 text-white hover:bg-white hover:text-brand-luxeDark transition-all duration-500 rounded-none">
+            <!-- CTA Button -->
+            <div class="hidden xl:block flex-shrink-0">
+                <a href="contact.html" id="nav-cta" class="inline-flex items-center justify-center px-4 xl:px-6 2xl:px-8 py-2.5 2xl:py-3 text-[10px] 2xl:text-xs font-medium tracking-[0.15em] 2xl:tracking-[0.3em] uppercase border border-white/20 text-white hover:bg-white hover:text-brand-luxeDark transition-all duration-500 rounded-none">
                     Plan Your Ride
                 </a>
             </div>
-
-            <button id="mobile-menu-toggle" class="lg:hidden text-white hover:text-brand-luxeGold transition-colors focus:outline-none" aria-label="Toggle Menu">
-                <i data-lucide="menu" class="w-6 h-6" id="menu-icon"></i>
+            <button id="mobile-menu-toggle" class="xl:hidden text-white hover:text-brand-luxeGold transition-colors focus:outline-none ml-auto" aria-label="Toggle Menu">
+                <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
         </div>
     </header>
 
-    <!-- MOBILE MENU OVERLAY -->
-    <div id="mobile-menu" class="fixed inset-0 bg-brand-luxeDark z-40 flex flex-col justify-between transform translate-x-full transition-transform duration-500 ease-in-out p-8 pt-28">
-        <nav class="flex flex-col space-y-6">
-            <a href="index.html" class="font-serif text-4xl text-stone-400 hover:text-brand-luxeGold transition-colors py-2 border-b border-stone-900">Home</a>
-            <a href="about.html" class="font-serif text-4xl text-stone-400 hover:text-brand-luxeGold transition-colors py-2 border-b border-stone-900">About Us</a>
-            <a href="discover.html" class="font-serif text-4xl text-stone-400 hover:text-brand-luxeGold transition-colors py-2 border-b border-stone-900">Discover Bratislava</a>
-            <a href="tours.html" class="font-serif text-4xl text-stone-400 hover:text-brand-luxeGold transition-colors py-2 border-b border-stone-900">Tours & Rides</a>
-            <a href="guides.html" class="font-serif text-4xl text-stone-400 hover:text-brand-luxeGold transition-colors py-2 border-b border-stone-900">Our Guides</a>
-            <a href="journal.html" class="font-serif text-4xl text-stone-400 hover:text-brand-luxeGold transition-colors py-2 border-b border-stone-900">Journal</a>
-            <a href="contact.html" class="font-serif text-4xl text-white hover:text-brand-luxeGold transition-colors py-2 border-b border-stone-900">Contact</a>
-        </nav>
-        
-        <div class="flex flex-col space-y-4">
-            <a href="contact.html" class="w-full text-center py-4 bg-brand-luxeGold text-white hover:bg-brand-luxeGoldDark font-medium uppercase tracking-[0.2em] text-xs transition-colors duration-300 rounded-none">
-                Plan Your Ride
+    <!-- MOBILE MENU OVERLAY (full-screen, centered, premium) -->
+    <div id="mobile-menu" class="fixed inset-0 z-[60] flex flex-col" style="background: #0F0E0E;">
+        <div class="flex items-center justify-between px-6 py-5 border-b border-white/5 flex-shrink-0">
+            <a href="index.html" class="flex flex-col">
+                <span class="font-serif text-lg tracking-widest text-white">BIKE BRATISLAVA</span>
+                <span class="text-[7px] tracking-[0.3em] text-stone-500 font-light uppercase">Central Europe</span>
             </a>
+            <button id="mobile-menu-close" class="text-white hover:text-brand-luxeGold transition-colors focus:outline-none" aria-label="Close Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+        </div>
+        <nav class="flex-1 flex flex-col items-center justify-center gap-1 py-8">
+            <a href="index.html" class="menu-nav-item group flex items-center gap-5 py-3 px-4 w-full max-w-xs">
+                <span class="text-[10px] tracking-[0.2em] text-brand-luxeGold font-medium w-6 text-right flex-shrink-0">01</span>
+                <span class="font-serif text-3xl text-stone-400 group-hover:text-brand-luxeGold transition-colors duration-200">Home</span>
+            </a>
+            <a href="about.html" class="menu-nav-item group flex items-center gap-5 py-3 px-4 w-full max-w-xs">
+                <span class="text-[10px] tracking-[0.2em] text-brand-luxeGold font-medium w-6 text-right flex-shrink-0">02</span>
+                <span class="font-serif text-3xl text-stone-400 group-hover:text-brand-luxeGold transition-colors duration-200">About Us</span>
+            </a>
+            <a href="discover.html" class="menu-nav-item group flex items-center gap-5 py-3 px-4 w-full max-w-xs">
+                <span class="text-[10px] tracking-[0.2em] text-brand-luxeGold font-medium w-6 text-right flex-shrink-0">03</span>
+                <span class="font-serif text-3xl text-stone-400 group-hover:text-brand-luxeGold transition-colors duration-200">Discover</span>
+            </a>
+            <a href="tours.html" class="menu-nav-item group flex items-center gap-5 py-3 px-4 w-full max-w-xs">
+                <span class="text-[10px] tracking-[0.2em] text-brand-luxeGold font-medium w-6 text-right flex-shrink-0">04</span>
+                <span class="font-serif text-3xl text-stone-400 group-hover:text-brand-luxeGold transition-colors duration-200">Tours &amp; Rides</span>
+            </a>
+            <a href="guides.html" class="menu-nav-item group flex items-center gap-5 py-3 px-4 w-full max-w-xs">
+                <span class="text-[10px] tracking-[0.2em] text-brand-luxeGold font-medium w-6 text-right flex-shrink-0">05</span>
+                <span class="font-serif text-3xl text-stone-400 group-hover:text-brand-luxeGold transition-colors duration-200">Our Guides</span>
+            </a>
+            <a href="journal.html" class="menu-nav-item group flex items-center gap-5 py-3 px-4 w-full max-w-xs">
+                <span class="text-[10px] tracking-[0.2em] text-brand-luxeGold font-medium w-6 text-right flex-shrink-0">06</span>
+                <span class="font-serif text-3xl text-stone-400 group-hover:text-brand-luxeGold transition-colors duration-200">Journal</span>
+            </a>
+            <a href="contact.html" class="menu-nav-item group flex items-center gap-5 py-3 px-4 w-full max-w-xs">
+                <span class="text-[10px] tracking-[0.2em] text-brand-luxeGold font-medium w-6 text-right flex-shrink-0">07</span>
+                <span class="font-serif text-3xl text-stone-400 group-hover:text-brand-luxeGold transition-colors duration-200">Contact</span>
+            </a>
+        </nav>
+        <div class="menu-footer px-6 py-6 border-t border-white/5 flex-shrink-0 flex items-center justify-between">
+            <span class="text-[10px] tracking-[0.2em] uppercase text-stone-500 font-light">Bratislava, Slovakia</span>
+            <a href="contact.html" class="inline-flex items-center gap-2 px-6 py-3 border border-brand-luxeGold/50 text-brand-luxeGold hover:bg-brand-luxeGold hover:text-white transition-all duration-300 text-[10px] tracking-[0.2em] uppercase font-medium">Plan Your Ride</a>
         </div>
     </div>
 
@@ -158,8 +235,8 @@
             <!-- Scale-110 for parallax -->
             <img src="pictures/sunset_devin.png" 
                  alt="Contact us background slovakia devin castle cyclists" 
-                 class="w-full h-full object-cover object-center opacity-20 scale-110" id="hero-img" style="will-change: transform;">
-            <div class="absolute inset-0 bg-gradient-to-t from-brand-luxeDark via-brand-luxeDark/65 to-transparent"></div>
+                 class="w-full h-full object-cover object-center opacity-45 scale-110" id="hero-img" style="will-change: transform;">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-luxeDark via-brand-luxeDark/35 to-transparent"></div>
         </div>
 
         <div class="relative z-10 max-w-4xl mx-auto px-6 text-center flex flex-col items-center">
@@ -224,7 +301,7 @@
                         <div class="flex flex-col border-b border-stone-300 focus-within:border-brand-luxeGold transition-colors pb-2 relative custom-select-container">
                             <label class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-400 mb-1">Group Size</label>
                             <div class="relative w-full">
-                                <select id="group-size" name="group-size" required style="display: none !important;">
+                                <select id="group-size" name="group-size" style="display: none !important;">
                                     <option value="" disabled selected>Select size</option>
                                     <option value="Solo Rider">Solo Rider</option>
                                     <option value="2-4 Riders">2-4 Riders</option>
@@ -248,7 +325,7 @@
                         <div class="flex flex-col border-b border-stone-300 focus-within:border-brand-luxeGold transition-colors pb-2 relative custom-select-container">
                             <label class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-400 mb-1">Experience Level</label>
                             <div class="relative w-full">
-                                <select id="experience" name="experience" required style="display: none !important;">
+                                <select id="experience" name="experience" style="display: none !important;">
                                     <option value="" disabled selected>Select level</option>
                                     <option value="Leisure/Casual">Leisure / Casual</option>
                                     <option value="Intermediate">Intermediate Road/Gravel</option>
@@ -270,7 +347,7 @@
                         <div class="flex flex-col border-b border-stone-300 focus-within:border-brand-luxeGold transition-colors pb-2 relative custom-select-container">
                             <label class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-400 mb-1">Preferred Ride Type</label>
                             <div class="relative w-full">
-                                <select id="ride-type" name="ride-type" required style="display: none !important;">
+                                <select id="ride-type" name="ride-type" style="display: none !important;">
                                     <option value="" disabled selected>Select type</option>
                                     <option value="Guided Tour (Leisure)">Guided Tour (Leisure)</option>
                                     <option value="Guided Road Ride (Sportive)">Guided Road Ride (Sportive)</option>
@@ -422,22 +499,27 @@
             revealObserver.observe(el);
         });
 
-        // 3. Mobile menu toggle
-        const toggleBtn = document.getElementById('mobile-menu-toggle');
+        // 3. Mobile Menu Toggle
         const mobileMenu = document.getElementById('mobile-menu');
-        let isOpen = false;
-        
-        toggleBtn.addEventListener('click', () => {
-            isOpen = !isOpen;
-            if(isOpen) {
-                mobileMenu.classList.remove('translate-x-full');
-                toggleBtn.innerHTML = '<i data-lucide="x" class="w-6 h-6 text-white"></i>';
-            } else {
-                mobileMenu.classList.add('translate-x-full');
-                toggleBtn.innerHTML = '<i data-lucide="menu" class="w-6 h-6 text-white"></i>';
-            }
-            lucide.createIcons();
-        });
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        let isMobileMenuOpen = false;
+
+        function openMobileMenu() {
+            isMobileMenuOpen = true;
+            mobileMenu.classList.add('is-open');
+            document.documentElement.style.overflow = 'hidden';
+            document.body.style.overflow = 'hidden';
+        }
+        function closeMobileMenu() {
+            isMobileMenuOpen = false;
+            mobileMenu.classList.remove('is-open');
+            document.documentElement.style.overflow = '';
+            document.body.style.overflow = '';
+        }
+
+        mobileMenuToggle.addEventListener('click', openMobileMenu);
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
 
         // URL Query parameter handling (?ride=TourName & ?guide=GuideName)
         const rideSelect = document.getElementById('ride-type');
@@ -445,12 +527,16 @@
         const selectedTourText = document.getElementById('selected-tour-name');
 
         // Custom select dropdowns logic
+        // Helper: get the arrow icon element (works both before and after Lucide replaces <i> with <svg>)
+        function getArrowEl(trigger) {
+            return trigger.querySelector('svg') || trigger.querySelector('i');
+        }
+
         document.querySelectorAll('.custom-select-container').forEach(container => {
             const trigger = container.querySelector('.custom-select-trigger');
             const optionsList = container.querySelector('.custom-select-options');
             const selectEl = container.querySelector('select');
             const selectedText = container.querySelector('.selected-text');
-            const arrow = trigger.querySelector('i');
             
             trigger.addEventListener('click', (e) => {
                 e.stopPropagation();
@@ -458,21 +544,26 @@
                 document.querySelectorAll('.custom-select-options').forEach(list => {
                     if (list !== optionsList) {
                         list.classList.add('opacity-0', 'pointer-events-none');
-                        list.previousElementSibling.querySelector('i').classList.remove('rotate-180');
+                        const otherTrigger = list.parentElement.querySelector('.custom-select-trigger');
+                        if (otherTrigger) {
+                            const otherArrow = getArrowEl(otherTrigger);
+                            if (otherArrow) otherArrow.classList.remove('rotate-180');
+                        }
                     }
                 });
                 // Toggle this dropdown
+                const arrow = getArrowEl(trigger);
                 const isClosed = optionsList.classList.contains('opacity-0');
                 if (isClosed) {
                     optionsList.classList.remove('opacity-0', 'pointer-events-none');
-                    arrow.classList.add('rotate-180');
+                    if (arrow) arrow.classList.add('rotate-180');
                 } else {
                     optionsList.classList.add('opacity-0', 'pointer-events-none');
-                    arrow.classList.remove('rotate-180');
+                    if (arrow) arrow.classList.remove('rotate-180');
                 }
             });
             
-             container.querySelectorAll('.custom-option').forEach(option => {
+            container.querySelectorAll('.custom-option').forEach(option => {
                 option.addEventListener('click', (e) => {
                     e.stopPropagation();
                     const val = option.getAttribute('data-value');
@@ -482,13 +573,18 @@
                     // Trigger change event
                     selectEl.dispatchEvent(new Event('change'));
                     
+                    // Clear error styling on option select
+                    container.classList.remove('border-red-500');
+                    container.classList.add('border-stone-300');
+                    
                     // Update text
                     selectedText.textContent = option.textContent;
                     selectedText.classList.remove('text-stone-400');
                     selectedText.classList.add('text-brand-luxeTextDark');
                     
+                    const arrow = getArrowEl(trigger);
                     optionsList.classList.add('opacity-0', 'pointer-events-none');
-                    arrow.classList.remove('rotate-180');
+                    if (arrow) arrow.classList.remove('rotate-180');
                 });
             });
 
@@ -521,8 +617,12 @@
             document.querySelectorAll('.custom-select-options').forEach(list => {
                 list.classList.add('opacity-0', 'pointer-events-none');
             });
-            document.querySelectorAll('.custom-select-trigger i').forEach(arrow => {
-                arrow.classList.remove('rotate-180');
+            document.querySelectorAll('.custom-select-container').forEach(container => {
+                const trigger = container.querySelector('.custom-select-trigger');
+                if (trigger) {
+                    const arrow = getArrowEl(trigger);
+                    if (arrow) arrow.classList.remove('rotate-180');
+                }
             });
         });
 
@@ -583,6 +683,52 @@
 
         form.addEventListener('submit', (e) => {
             e.preventDefault();
+
+            // Custom dropdown validation
+            const groupSize = document.getElementById('group-size').value;
+            const experience = document.getElementById('experience').value;
+            const rideType = document.getElementById('ride-type').value;
+            
+            let hasError = false;
+            
+            const groupSizeContainer = document.getElementById('group-size').closest('.custom-select-container');
+            if (!groupSize) {
+                groupSizeContainer.classList.add('border-red-500');
+                groupSizeContainer.classList.remove('border-stone-300');
+                hasError = true;
+            } else {
+                groupSizeContainer.classList.remove('border-red-500');
+                groupSizeContainer.classList.add('border-stone-300');
+            }
+            
+            const experienceContainer = document.getElementById('experience').closest('.custom-select-container');
+            if (!experience) {
+                experienceContainer.classList.add('border-red-500');
+                experienceContainer.classList.remove('border-stone-300');
+                hasError = true;
+            } else {
+                experienceContainer.classList.remove('border-red-500');
+                experienceContainer.classList.add('border-stone-300');
+            }
+            
+            const rideTypeContainer = document.getElementById('ride-type').closest('.custom-select-container');
+            if (!rideType) {
+                rideTypeContainer.classList.add('border-red-500');
+                rideTypeContainer.classList.remove('border-stone-300');
+                hasError = true;
+            } else {
+                rideTypeContainer.classList.remove('border-red-500');
+                rideTypeContainer.classList.add('border-stone-300');
+            }
+            
+            if (hasError) {
+                const firstError = document.querySelector('.border-red-500');
+                if (firstError) {
+                    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+                return;
+            }
+
             const submitBtn = form.querySelector('button[type="submit"]');
             const submitBtnText = document.getElementById('submit-btn-text');
             submitBtn.disabled = true;
@@ -590,18 +736,60 @@
                 submitBtnText.innerHTML = '<span class="inline-block animate-pulse">Sending Inquiry...</span>';
             }
 
-            setTimeout(() => {
-                successMessage.classList.remove('pointer-events-none');
-                successMessage.classList.remove('opacity-0');
-                successMessage.classList.add('opacity-100');
-                
-                form.reset();
+            // Send AJAX request to send.php
+            const formData = new FormData(form);
+            formData.append('ajax', '1');
+
+            fetch('send.php', {
+                method: 'POST',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.text();
+                }
+                throw new Error('Network response error');
+            })
+            .then(result => {
+                if (result.trim() === 'success') {
+                    // Show success screen overlay
+                    successMessage.classList.remove('pointer-events-none');
+                    successMessage.classList.remove('opacity-0');
+                    successMessage.classList.add('opacity-100');
+                    
+                    form.reset();
+                    // Reset visual styling for custom trigger text placeholders
+                    document.querySelectorAll('.custom-select-container').forEach(container => {
+                        const selectedText = container.querySelector('.selected-text');
+                        const selectEl = container.querySelector('select');
+                        if (selectEl.id === 'group-size') {
+                            selectedText.textContent = 'Select size';
+                        } else if (selectEl.id === 'experience') {
+                            selectedText.textContent = 'Select level';
+                        } else if (selectEl.id === 'ride-type') {
+                            selectedText.textContent = 'Select type';
+                        }
+                        selectedText.classList.add('text-stone-400');
+                        selectedText.classList.remove('text-brand-luxeTextDark');
+                    });
+                    banner.classList.add('hidden');
+                } else {
+                    alert('Chyba pri odosielaní. Prosím, kontaktujte nás priamo na info@bikebratislava.com');
+                }
+            })
+            .catch(error => {
+                alert('Chyba pri pripojení k serveru. Prosím, kontaktujte nás priamo na info@bikebratislava.com');
+            })
+            .finally(() => {
+                // Re-enable submit button
                 submitBtn.disabled = false;
                 if (submitBtnText) {
                     submitBtnText.innerHTML = '<span>Submit Inquiry</span>';
                 }
-                banner.classList.add('hidden');
-            }, 1200);
+            });
         });
 
         resetBtn.addEventListener('click', () => {
