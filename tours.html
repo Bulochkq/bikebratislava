@@ -22,10 +22,10 @@
     <meta property="twitter:description" content="Find your perfect ride. Explore Bratislava Highlights, Cross Border rides, gravel vineyard tours, and custom cycling experiences.">
     <meta property="twitter:image" content="https://bikebratislava.com/pictures/sunset_devin.png">
     
-                    <!-- Google Fonts: Outfit & Plus Jakarta Sans -->
+                    <!-- Google Fonts: Outfit & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800;900&family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -37,16 +37,16 @@
                 extend: {
                     colors: {
                         brand: {
-                            luxeDark: '#0F0E0E',     /* Matte carbon black background */
-                            luxeLight: '#FFFFFF',    /* Sporty clean slate light background */
-                            luxeGold: '#D71920',     /* Kinetic Sporty Orange accent */
-                            luxeGoldDark: '#B8141A', /* Deeper active orange */
-                            luxeTextDark: '#1A1A1A', /* Active charcoal text */
-                            luxeTextLight: '#FFFFFF' /* Crisp light text */
+                            luxeDark: '#0A0A0A',     /* Matte carbon black background */
+                            luxeLight: '#F8F9FA',    /* Clean slate light background */
+                            luxeGold: '#E31C25',     /* Active athletic red accent */
+                            luxeGoldDark: '#B91C1C', /* Deeper active red */
+                            luxeTextDark: '#111111', /* Dark charcoal text */
+                            luxeTextLight: '#F8F9FA' /* Crisp light text */
                         }
                     },
                     fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif'],
                         serif: ['Outfit', 'sans-serif']
                     }
                 }
@@ -129,7 +129,7 @@
             transform: translateY(0);
         }
         
-        /* Parallax texture backgrounds вЂ” uses inner wrapper with translateY */
+        /* Parallax texture backgrounds — uses inner wrapper with translateY */
         .parallax-section {
             position: relative;
             overflow: hidden;
@@ -146,33 +146,51 @@
             position: relative;
             z-index: 1;
         }
-        .parallax-bg.concrete {
-            background-image: url('pictures/Light grey concrete texture, smooth microcement background, clean minimalist studio wall, soft lighting, industrial elegant texture.jpg');
+                        .parallax-bg.concrete {
+            background-color: #fdfbfb;
+            background-image: 
+                radial-gradient(at 40% 20%, hsla(28,100%,74%,0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 0%, hsla(189,100%,56%,0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 50%, hsla(355,100%,93%,0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 50%, hsla(340,100%,76%,0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, hsla(22,100%,77%,0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 100%, hsla(242,100%,70%,0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 0%, hsla(343,100%,76%,0.15) 0px, transparent 50%);
         }
         .parallax-bg.asphalt {
-            background-image: url('pictures/Fine texture of dark grey asphalt surface, top view, clean, consistent pattern, minimalist dark background, high resolutio.jpg');
-            opacity: 0.10;
+            background-color: #0A0A0A;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cpath d='M0 0h4v4H0zm4 4h4v4H4z' fill='%23ffffff' fill-opacity='0.015'/%3E%3Cpath d='M0 4h4v4H0zm4-4h4v4H4z' fill='%23ffffff' fill-opacity='0.005'/%3E%3C/svg%3E");
+            background-size: 8px 8px;
         }
         /* Legacy: concrete-bg as section bg for guides card row */
-        .concrete-bg-inline {
-            background-image: url('pictures/Light grey concrete texture, smooth microcement background, clean minimalist studio wall, soft lighting, industrial elegant texture.jpg');
-            background-size: cover;
-            background-position: center;
+                        .concrete-bg-inline {
+            background-color: #fdfbfb;
+            background-image: 
+                radial-gradient(at 40% 20%, hsla(28,100%,74%,0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 0%, hsla(189,100%,56%,0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 50%, hsla(355,100%,93%,0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 50%, hsla(340,100%,76%,0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, hsla(22,100%,77%,0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 100%, hsla(242,100%,70%,0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 0%, hsla(343,100%,76%,0.15) 0px, transparent 50%);
         }
     </style>
 </head>
-<body class="bg-brand-luxeLight text-brand-luxeTextDark font-sans antialiased selection:bg-brand-luxeGold selection:text-brand-luxeDark overflow-x-hidden">
+<body class="bg-gradient-to-br from-stone-50 via-rose-50/40 to-stone-100 text-brand-luxeTextDark font-sans antialiased selection:bg-brand-luxeGold selection:text-brand-luxeDark overflow-x-hidden">
 
     <!-- HEADER & NAVIGATION (With smart hide/reveal scroll behaviors) -->
     <header id="main-header" class="fixed top-0 left-0 w-full z-50 py-4 border-b border-white/5">
         <div class="max-w-screen-2xl mx-auto px-4 lg:px-6 xl:px-6 2xl:px-10 flex items-center gap-4 xl:gap-4 2xl:gap-8">
-            <a href="index.html" class="flex flex-col group flex-shrink-0 mr-2" id="header-logo">
-                <span class="font-serif text-lg lg:text-lg xl:text-xl 2xl:text-2xl tracking-widest text-brand-luxeTextLight transition-colors duration-300 group-hover:text-brand-luxeGold" id="logo-text">
-                    BIKE BRATISLAVA
-                </span>
-                <span class="text-[7px] tracking-[0.3em] text-stone-400 font-light uppercase transition-colors duration-300" id="logo-subtext">
-                    Central Europe
-                </span>
+            <a href="index.html" class="flex items-center gap-3 group flex-shrink-0 mr-2" id="header-logo">
+                <img src="pictures/Gemini_Generated_Image_e54b50e54b50e54b (1).png" alt="Bike Bratislava Logo" class="h-10 w-10 object-contain">
+                <div class="flex flex-col">
+                    <span class="font-serif text-lg lg:text-lg xl:text-xl 2xl:text-2xl tracking-widest text-brand-luxeTextLight transition-colors duration-300 group-hover:text-brand-luxeGold" id="logo-text">
+                        BIKE BRATISLAVA
+                    </span>
+                    <span class="text-[7px] tracking-[0.3em] text-stone-400 font-light uppercase transition-colors duration-300" id="logo-subtext">
+                        Central Europe
+                    </span>
+                </div>
             </a>
 
             <!-- Desktop Navigation — compact at 1280px, full at 1440px+ -->
@@ -257,161 +275,187 @@
 
         <div class="relative z-10 max-w-4xl mx-auto px-6 text-center flex flex-col items-center">
             <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-6 block opacity-0 fade-in-up">Our Catalog</span>
-            <h1 class="font-serif text-5xl md:text-7xl font-light mb-6 opacity-0 fade-in-up animation-delay-200">Find Your Perfect Ride</h1>
+            <h1 class="font-serif text-6xl md:text-8xl font-bold uppercase tracking-tight mb-6 opacity-0 fade-in-up animation-delay-200">Find Your Perfect Ride</h1>
         </div>
     </section>
 
     <!-- SECTION: GUIDED TOURS -->
-    <section class="py-32 bg-white border-b border-stone-200/40">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12">
-            <div class="mb-20 scroll-reveal">
+    <section class="py-32 relative overflow-hidden border-b border-stone-200/40 bg-gradient-to-br from-rose-50 via-sky-50 to-emerald-50 parallax-section">
+        <div class="parallax-bg concrete"></div>
+        <div class="max-w-[1600px] mx-auto px-6 lg:px-16 relative z-10">
+            <div class="mb-24 scroll-reveal">
                 <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-2 block">Category 01</span>
-                <h2 class="font-serif text-3xl md:text-5xl font-light text-brand-luxeDark">Guided Tours</h2>
-                <p class="text-stone-500 font-light text-xs md:text-sm mt-3 max-w-xl leading-relaxed tracking-wide font-sans">Leisure and sightseeing rides tailored for cultural exploration, history, and sights at a relaxed pace.</p>
-                <div class="h-[1px] w-12 bg-brand-luxeGold mt-6"></div>
+                <h2 class="font-serif text-4xl md:text-6xl font-bold uppercase text-brand-luxeDark">Guided Tours</h2>
+                <p class="text-stone-500 font-light text-sm md:text-base mt-4 max-w-xl leading-relaxed tracking-wide font-sans">Leisure and sightseeing rides tailored for cultural exploration, history, and sights at a relaxed pace.</p>
+                <div class="h-[1px] w-12 bg-brand-luxeGold mt-8"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-24">
                 <!-- Tour 1 -->
-                <div class="group border border-stone-200 bg-brand-luxeLight hover:border-brand-luxeGold transition-all duration-300 flex flex-col justify-between rounded-none scroll-reveal">
+                <div class="group bg-transparent flex flex-col justify-between transition-colors duration-500 rounded-none scroll-reveal">
                     <div>
-                        <div class="aspect-[4/3] overflow-hidden border-b border-stone-200">
-                            <img src="pictures/bratislava_highlights.png" alt="Bratislava old town cycling" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-out">
+                        <div class="aspect-[4/5] overflow-hidden">
+                            <img src="pictures/Cyclists having a coffee break at a local outdoor cafe, road bikes parked nearby, lifestyle photography, authentic.jpg" alt="Bratislava old town cycling" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
                         </div>
-                        <div class="p-6">
-                            <h3 class="font-serif text-xl font-light text-brand-luxeDark mb-2">Bratislava Highlights Ride</h3>
-                            <p class="text-stone-500 text-[11px] font-light leading-relaxed mb-4 font-sans tracking-wide">Discover the charm of the historic center, parks, and riverside viewpoints at an easy pace.</p>
+                        <div class="py-6 px-0">
+                            <h3 class="font-serif text-xl font-light text-brand-luxeDark mb-3">Bratislava Highlights Ride</h3>
+                            <p class="text-stone-500 text-xs font-light leading-relaxed mb-4 font-sans tracking-wide">Discover the charm of the historic center, parks, and riverside viewpoints at an easy pace.</p>
                         </div>
                     </div>
-                    <div class="p-6 pt-0">
-                        <button onclick="openModal('highlights')" class="w-full py-3 bg-brand-luxeDark hover:bg-brand-luxeGold text-white text-[10px] font-semibold uppercase tracking-widest transition-colors duration-300 rounded-none border border-stone-800">View Details</button>
+                    <div class="pb-6 pt-0 px-0">
+                        <button onclick="openModal('highlights')" class="inline-flex items-center space-x-2 text-[10px] font-bold tracking-[0.2em] uppercase text-brand-luxeDark group-hover:text-brand-luxeGold transition-colors duration-300">
+                            <span>View Details</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"></i>
+                        </button>
                     </div>
                 </div>
 
                 <!-- Tour 2 -->
-                <div class="group border border-stone-200 bg-brand-luxeLight hover:border-brand-luxeGold transition-all duration-300 flex flex-col justify-between rounded-none scroll-reveal">
+                <div class="group bg-transparent flex flex-col justify-between transition-colors duration-500 rounded-none scroll-reveal">
                     <div>
-                        <div class="aspect-[4/3] overflow-hidden border-b border-stone-200">
-                            <img src="pictures/Corporate cycling group, custom private bike tour, diverse group of people riding together, authentic experience.jpg" alt="Danube river path cycling" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-out">
+                        <div class="aspect-[4/5] overflow-hidden">
+                            <img src="pictures/Corporate cycling group, custom private bike tour, diverse group of people riding together, authentic experience.jpg" alt="Danube river path cycling" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
                         </div>
-                        <div class="p-6">
-                            <h3 class="font-serif text-xl font-light text-brand-luxeDark mb-2">Danube Discovery Tour</h3>
-                            <p class="text-stone-500 text-[11px] font-light leading-relaxed mb-4 font-sans tracking-wide">Ride along flat paved paths, exploring wetlands, modern art landmarks, and nature parks.</p>
+                        <div class="py-6 px-0">
+                            <h3 class="font-serif text-xl font-light text-brand-luxeDark mb-3">Danube Discovery Tour</h3>
+                            <p class="text-stone-500 text-xs font-light leading-relaxed mb-4 font-sans tracking-wide">Ride along flat paved paths, exploring wetlands, modern art landmarks, and nature parks.</p>
                         </div>
                     </div>
-                    <div class="p-6 pt-0">
-                        <button onclick="openModal('danube')" class="w-full py-3 bg-brand-luxeDark hover:bg-brand-luxeGold text-white text-[10px] font-semibold uppercase tracking-widest transition-colors duration-300 rounded-none border border-stone-800">View Details</button>
+                    <div class="pb-6 pt-0 px-0">
+                        <button onclick="openModal('danube')" class="inline-flex items-center space-x-2 text-[10px] font-bold tracking-[0.2em] uppercase text-brand-luxeDark group-hover:text-brand-luxeGold transition-colors duration-300">
+                            <span>View Details</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"></i>
+                        </button>
                     </div>
                 </div>
 
                 <!-- Tour 3 -->
-                <div class="group border border-stone-200 bg-brand-luxeLight hover:border-brand-luxeGold transition-all duration-300 flex flex-col justify-between rounded-none scroll-reveal">
+                <div class="group bg-transparent flex flex-col justify-between transition-colors duration-500 rounded-none scroll-reveal">
                     <div>
-                        <div class="aspect-[4/3] overflow-hidden border-b border-stone-200">
-                            <img src="pictures/vineyard_ride.png" alt="Vineyards cycling tour" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-out">
+                        <div class="aspect-[4/5] overflow-hidden">
+                            <img src="pictures/Corporate cycling group, custom private bike tour, diverse group of people riding together, authentic experience.jpg" alt="Vineyards cycling tour" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
                         </div>
-                        <div class="p-6">
-                            <h3 class="font-serif text-xl font-light text-brand-luxeDark mb-2">Wine & Villages Ride</h3>
-                            <p class="text-stone-500 text-[11px] font-light leading-relaxed mb-4 font-sans tracking-wide">Bike to historic winemaking towns, ride paths in the grape fields, and sample local wines.</p>
+                        <div class="py-6 px-0">
+                            <h3 class="font-serif text-xl font-light text-brand-luxeDark mb-3">Wine & Villages Ride</h3>
+                            <p class="text-stone-500 text-xs font-light leading-relaxed mb-4 font-sans tracking-wide">Bike to historic winemaking towns, ride paths in the grape fields, and sample local wines.</p>
                         </div>
                     </div>
-                    <div class="p-6 pt-0">
-                        <button onclick="openModal('wine')" class="w-full py-3 bg-brand-luxeDark hover:bg-brand-luxeGold text-white text-[10px] font-semibold uppercase tracking-widest transition-colors duration-300 rounded-none border border-stone-800">View Details</button>
+                    <div class="pb-6 pt-0 px-0">
+                        <button onclick="openModal('wine')" class="inline-flex items-center space-x-2 text-[10px] font-bold tracking-[0.2em] uppercase text-brand-luxeDark group-hover:text-brand-luxeGold transition-colors duration-300">
+                            <span>View Details</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"></i>
+                        </button>
                     </div>
                 </div>
 
                 <!-- Tour 4 -->
-                <div class="group border border-stone-200 bg-brand-luxeLight hover:border-brand-luxeGold transition-all duration-300 flex flex-col justify-between rounded-none scroll-reveal">
+                <div class="group bg-transparent flex flex-col justify-between transition-colors duration-500 rounded-none scroll-reveal">
                     <div>
-                        <div class="aspect-[4/3] overflow-hidden border-b border-stone-200">
-                            <img src="pictures/sunset_devin.png" alt="Sunset Devin Castle" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-out">
+                        <div class="aspect-[4/5] overflow-hidden">
+                            <img src="pictures/sunset_devin.png" alt="Sunset Devin Castle" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
                         </div>
-                        <div class="p-6">
-                            <h3 class="font-serif text-xl font-light text-brand-luxeDark mb-2">Sunset Ride</h3>
-                            <p class="text-stone-500 text-[11px] font-light leading-relaxed mb-4 font-sans tracking-wide">Bike down the river to Devin Castle, watching the sunset at the confluence of two great rivers.</p>
+                        <div class="py-6 px-0">
+                            <h3 class="font-serif text-xl font-light text-brand-luxeDark mb-3">Sunset Ride</h3>
+                            <p class="text-stone-500 text-xs font-light leading-relaxed mb-4 font-sans tracking-wide">Bike down the river to Devin Castle, watching the sunset at the confluence of two great rivers.</p>
                         </div>
                     </div>
-                    <div class="p-6 pt-0">
-                        <button onclick="openModal('sunset')" class="w-full py-3 bg-brand-luxeDark hover:bg-brand-luxeGold text-white text-[10px] font-semibold uppercase tracking-widest transition-colors duration-300 rounded-none border border-stone-800">View Details</button>
+                    <div class="pb-6 pt-0 px-0">
+                        <button onclick="openModal('sunset')" class="inline-flex items-center space-x-2 text-[10px] font-bold tracking-[0.2em] uppercase text-brand-luxeDark group-hover:text-brand-luxeGold transition-colors duration-300">
+                            <span>View Details</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"></i>
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION: GUIDED RIDES (Concrete background) -->
-    <section class="py-32 parallax-section border-b border-stone-200/40">
-        <div class="parallax-bg concrete"></div>
-        <div class="max-w-7xl mx-auto px-6 lg:px-12">
-            <div class="mb-20 scroll-reveal">
+    <!-- SECTION: EXPERT ROAD & GRAVEL RIDES -->
+    <section class="py-32 relative overflow-hidden bg-brand-luxeDark text-white parallax-section">
+        <!-- Parallax asphalt bg -->
+        <div class="parallax-bg asphalt opacity-50"></div>
+        <div class="max-w-[1600px] mx-auto px-6 lg:px-16 relative z-10">
+            <div class="mb-24 scroll-reveal">
                 <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-2 block">Category 02</span>
-                <h2 class="font-serif text-3xl md:text-5xl font-light text-brand-luxeDark">Guided Rides</h2>
-                <p class="text-stone-800 font-light text-xs md:text-sm mt-3 max-w-xl leading-relaxed tracking-wide font-sans">Road and gravel challenges designed for active cyclists seeking elevation, distances, and speed.</p>
-                <div class="h-[1px] w-12 bg-brand-luxeGold mt-6"></div>
+                <h2 class="font-serif text-4xl md:text-6xl font-bold uppercase text-white">Road & Gravel Rides</h2>
+                <p class="text-stone-400 font-light text-sm md:text-base mt-4 max-w-xl leading-relaxed tracking-wide font-sans">High-endurance rides, scenic climbs, and mixed terrain for passionate cyclists looking for distance and elevation.</p>
+                <div class="h-[1px] w-12 bg-brand-luxeGold mt-8"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-24">
                 <!-- Ride 1 -->
-                <div class="group border border-stone-200 bg-white hover:border-brand-luxeGold transition-all duration-300 flex flex-col justify-between rounded-none scroll-reveal">
+                <div class="group bg-transparent flex flex-col justify-between transition-colors duration-500 rounded-none scroll-reveal">
                     <div>
-                        <div class="aspect-[4/3] overflow-hidden border-b border-stone-200">
-                            <img src="pictures/Cyclists riding during golden hour sunset, warm silhouettes, back light, cinematic photography.jpg" alt="Cross border road cycling" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-out">
+                        <div class="aspect-[4/5] overflow-hidden">
+                            <img src="pictures/Cyclists riding during golden hour sunset, warm silhouettes, back light, cinematic photography.jpg" alt="Cross border road cycling" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
                         </div>
-                        <div class="p-6">
-                            <h3 class="font-serif text-xl font-light text-brand-luxeDark mb-2">Cross Border Ride</h3>
-                            <p class="text-stone-500 text-[11px] font-light leading-relaxed mb-4 font-sans tracking-wide">Seamless road transition between Slovakia, Austria, and Hungary. Flat, fast, scenic.</p>
+                        <div class="py-6 px-0">
+                            <h3 class="font-serif text-xl font-light text-brand-luxeDark mb-3">Cross Border Ride</h3>
+                            <p class="text-stone-500 text-xs font-light leading-relaxed mb-4 font-sans tracking-wide">Seamless road transition between Slovakia, Austria, and Hungary. Flat, fast, scenic.</p>
                         </div>
                     </div>
-                    <div class="p-6 pt-0">
-                        <button onclick="openModal('crossborder')" class="w-full py-3 bg-brand-luxeDark hover:bg-brand-luxeGold text-white text-[10px] font-semibold uppercase tracking-widest transition-colors duration-300 rounded-none border border-stone-850">View Details</button>
+                    <div class="pb-6 pt-0 px-0">
+                        <button onclick="openModal('crossborder')" class="inline-flex items-center space-x-2 text-[10px] font-bold tracking-[0.2em] uppercase text-brand-luxeDark group-hover:text-brand-luxeGold transition-colors duration-300">
+                            <span>View Details</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"></i>
+                        </button>
                     </div>
                 </div>
 
                 <!-- Ride 2 -->
-                <div class="group border border-stone-200 bg-white hover:border-brand-luxeGold transition-all duration-300 flex flex-col justify-between rounded-none scroll-reveal">
+                <div class="group bg-transparent flex flex-col justify-between transition-colors duration-500 rounded-none scroll-reveal">
                     <div>
-                        <div class="aspect-[4/3] overflow-hidden border-b border-stone-200">
-                            <img src="pictures/Athletic road cyclist climbing a scenic mountain road, gravel bike rider on a dirt trail, endurance.jpg" alt="Mountain road road climb" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-out">
+                        <div class="aspect-[4/5] overflow-hidden">
+                            <img src="pictures/Athletic road cyclist climbing a scenic mountain road, gravel bike rider on a dirt trail, endurance.jpg" alt="Mountain road road climb" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
                         </div>
-                        <div class="p-6">
-                            <h3 class="font-serif text-xl font-light text-brand-luxeDark mb-2">Little Carpathians Road Ride</h3>
-                            <p class="text-stone-500 text-[11px] font-light leading-relaxed mb-4 font-sans tracking-wide">Tackle quiet asphalt forest ascents and descend scenic hills with local road riders.</p>
+                        <div class="py-6 px-0">
+                            <h3 class="font-serif text-xl font-light text-brand-luxeDark mb-3">Little Carpathians Road Ride</h3>
+                            <p class="text-stone-500 text-xs font-light leading-relaxed mb-4 font-sans tracking-wide">Tackle quiet asphalt forest ascents and descend scenic hills with local road riders.</p>
                         </div>
                     </div>
-                    <div class="p-6 pt-0">
-                        <button onclick="openModal('carpathians')" class="w-full py-3 bg-brand-luxeDark hover:bg-brand-luxeGold text-white text-[10px] font-semibold uppercase tracking-widest transition-colors duration-300 rounded-none border border-stone-850">View Details</button>
+                    <div class="pb-6 pt-0 px-0">
+                        <button onclick="openModal('carpathians')" class="inline-flex items-center space-x-2 text-[10px] font-bold tracking-[0.2em] uppercase text-brand-luxeDark group-hover:text-brand-luxeGold transition-colors duration-300">
+                            <span>View Details</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"></i>
+                        </button>
                     </div>
                 </div>
 
                 <!-- Ride 3 -->
-                <div class="group border border-stone-200 bg-white hover:border-brand-luxeGold transition-all duration-300 flex flex-col justify-between rounded-none scroll-reveal">
+                <div class="group bg-transparent flex flex-col justify-between transition-colors duration-500 rounded-none scroll-reveal">
                     <div>
-                        <div class="aspect-[4/3] overflow-hidden border-b border-stone-200">
-                            <img src="pictures/vineyard_ride.png" alt="Gravel trail through lush green vineyards" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-out">
+                        <div class="aspect-[4/5] overflow-hidden">
+                            <img src="pictures/Corporate cycling group, custom private bike tour, diverse group of people riding together, authentic experience.jpg" alt="Gravel trail through lush green vineyards" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
                         </div>
-                        <div class="p-6">
-                            <h3 class="font-serif text-xl font-light text-brand-luxeDark mb-2">Gravel Through The Vineyards</h3>
-                            <p class="text-stone-500 text-[11px] font-light leading-relaxed mb-4 font-sans tracking-wide">Combine gravel fire trails and steep paths traversing vineyard hills. True gravel adventure.</p>
+                        <div class="py-6 px-0">
+                            <h3 class="font-serif text-xl font-light text-brand-luxeDark mb-3">Gravel Through The Vineyards</h3>
+                            <p class="text-stone-500 text-xs font-light leading-relaxed mb-4 font-sans tracking-wide">Combine gravel fire trails and steep paths traversing vineyard hills. True gravel adventure.</p>
                         </div>
                     </div>
-                    <div class="p-6 pt-0">
-                        <button onclick="openModal('gravel')" class="w-full py-3 bg-brand-luxeDark hover:bg-brand-luxeGold text-white text-[10px] font-semibold uppercase tracking-widest transition-colors duration-300 rounded-none border border-stone-850">View Details</button>
+                    <div class="pb-6 pt-0 px-0">
+                        <button onclick="openModal('gravel')" class="inline-flex items-center space-x-2 text-[10px] font-bold tracking-[0.2em] uppercase text-brand-luxeDark group-hover:text-brand-luxeGold transition-colors duration-300">
+                            <span>View Details</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"></i>
+                        </button>
                     </div>
                 </div>
 
                 <!-- Ride 4 -->
-                <div class="group border border-stone-200 bg-white hover:border-brand-luxeGold transition-all duration-300 flex flex-col justify-between rounded-none scroll-reveal">
+                <div class="group bg-transparent flex flex-col justify-between transition-colors duration-500 rounded-none scroll-reveal">
                     <div>
-                        <div class="aspect-[4/3] overflow-hidden border-b border-stone-200">
-                            <img src="pictures/four_countries.png" alt="Long distance cycling challenge" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-out">
+                        <div class="aspect-[4/5] overflow-hidden">
+                            <img src="pictures/professional cyclists ride through the city.jpg" alt="Long distance cycling challenge" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
                         </div>
-                        <div class="p-6">
-                            <h3 class="font-serif text-xl font-light text-brand-luxeDark mb-2">Four Countries Challenge</h3>
-                            <p class="text-stone-500 text-[11px] font-light leading-relaxed mb-4 font-sans tracking-wide">For strong endurance riders. Experience 4 countries in one day. Long, flat, historical.</p>
+                        <div class="py-6 px-0">
+                            <h3 class="font-serif text-xl font-light text-brand-luxeDark mb-3">Four Countries Challenge</h3>
+                            <p class="text-stone-500 text-xs font-light leading-relaxed mb-4 font-sans tracking-wide">For strong endurance riders. Experience 4 countries in one day. Long, flat, historical.</p>
                         </div>
                     </div>
-                    <div class="p-6 pt-0">
-                        <button onclick="openModal('fourcountries')" class="w-full py-3 bg-brand-luxeDark hover:bg-brand-luxeGold text-white text-[10px] font-semibold uppercase tracking-widest transition-colors duration-300 rounded-none border border-stone-850">View Details</button>
+                    <div class="pb-6 pt-0 px-0">
+                        <button onclick="openModal('fourcountries')" class="inline-flex items-center space-x-2 text-[10px] font-bold tracking-[0.2em] uppercase text-brand-luxeDark group-hover:text-brand-luxeGold transition-colors duration-300">
+                            <span>View Details</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -419,8 +463,9 @@
     </section>
 
     <!-- SECTION: CUSTOM EXPERIENCES -->
-    <section class="py-32 bg-white border-t border-stone-200/40">
-        <div class="max-w-5xl mx-auto px-6 text-center scroll-reveal">
+    <section class="py-32 relative overflow-hidden border-t border-stone-200/40 bg-gradient-to-tr from-amber-50 via-orange-50 to-rose-50 parallax-section">
+        <div class="parallax-bg concrete"></div>
+        <div class="max-w-5xl mx-auto px-6 text-center relative z-10 scroll-reveal">
             <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-3 block">Category 03</span>
             <h2 class="font-serif text-4xl md:text-6xl font-light text-brand-luxeDark mb-6">Built Around Your Ride</h2>
             <p class="text-stone-500 font-light text-sm max-w-2xl mx-auto leading-relaxed mb-10 tracking-wide font-sans">
@@ -478,101 +523,8 @@
     <!-- MODAL DATA & SCRIPT -->
     <!-- Lenis Smooth Scroll -->
     <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+    <script src="app.js"></script>
     <script>
-        // Initialize Lenis smooth scroll
-        const lenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            infinite: false,
-            smoothWheel: true
-        });
-
-        function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
-
-        requestAnimationFrame(raf);
-
-        // Keep Lenis updated when clicking internal links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    lenis.scrollTo(target);
-                }
-            });
-        });
-
-        lucide.createIcons();
-
-        // 1. Smart scroll header (hides on scroll down, reveals on scroll up)
-        let lastScrollY = window.scrollY;
-        const header = document.getElementById('main-header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > lastScrollY && window.scrollY > 120) {
-                // scrolling down
-                header.classList.add('-translate-y-full');
-            } else {
-                // scrolling up
-                header.classList.remove('-translate-y-full');
-                if (window.scrollY > 50) {
-                    header.classList.add('bg-brand-luxeDark/95', 'backdrop-blur-md', 'shadow-2xl', 'py-4');
-                    header.classList.remove('py-6');
-                } else {
-                    header.classList.remove('bg-brand-luxeDark/95', 'backdrop-blur-md', 'shadow-2xl', 'py-4');
-                    header.classList.add('py-6');
-                }
-            }
-            lastScrollY = window.scrollY;
-        });
-
-        // 2. IntersectionObserver for reveal on scroll animations
-        const revealOptions = {
-            root: null,
-            threshold: 0.05,
-            rootMargin: "0px"
-        };
-        const revealObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in-up');
-                    entry.target.classList.remove('opacity-0');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, revealOptions);
-
-        document.querySelectorAll('.scroll-reveal').forEach(el => {
-            el.classList.add('opacity-0');
-            revealObserver.observe(el);
-        });
-
-        // 3. Mobile Menu Toggle
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-        const mobileMenuClose = document.getElementById('mobile-menu-close');
-        let isMobileMenuOpen = false;
-
-        function openMobileMenu() {
-            isMobileMenuOpen = true;
-            mobileMenu.classList.add('is-open');
-            document.documentElement.style.overflow = 'hidden';
-            document.body.style.overflow = 'hidden';
-            if (typeof lenis !== 'undefined') lenis.stop();
-        }
-        function closeMobileMenu() {
-            isMobileMenuOpen = false;
-            mobileMenu.classList.remove('is-open');
-            document.documentElement.style.overflow = '';
-            document.body.style.overflow = '';
-            if (typeof lenis !== 'undefined') lenis.start();
-        }
-
-        mobileMenuToggle.addEventListener('click', openMobileMenu);
-        mobileMenuClose.addEventListener('click', closeMobileMenu);
-
         const tourData = {
             highlights: {
                 title: "Bratislava Highlights Ride",
@@ -584,7 +536,7 @@
                 bike: "City / Hybrid Bike",
                 keypoints: ["Bratislava Castle park", "Old Town historic squares", "Danube river park view", "Confluence spots & coffee"],
                 recom: "Perfect for active travelers, families, or couples looking for a historic introduction to Slovakia's capital without breaking a sweat.",
-                img: "pictures/bratislava_highlights.png"
+                img: "pictures/Cyclists having a coffee break at a local outdoor cafe, road bikes parked nearby, lifestyle photography, authentic.jpg"
             },
             danube: {
                 title: "Danube Discovery Tour",
@@ -608,7 +560,7 @@
                 bike: "Gravel / Road / Hybrid",
                 keypoints: ["Historic Svätý Jur town", "Picturesque vineyard trails", "Local family wine cellar stops", "Traditional Slovak gastronomy"],
                 recom: "Perfect for food and wine lovers looking for a balanced active day combining culture and tasting.",
-                img: "pictures/vineyard_ride.png"
+                img: "pictures/Corporate cycling group, custom private bike tour, diverse group of people riding together, authentic experience.jpg"
             },
             sunset: {
                 title: "Sunset Ride",
@@ -656,7 +608,7 @@
                 bike: "Gravel / XC Mountain Bike",
                 keypoints: ["Vineyard hillside gravel paths", "Forest fire roads", "Devínska Kobyla panorama", "Fun single tracks"],
                 recom: "For gravel riders looking to escape traffic and climb dirt tracks with sweeping views over the Danube valley.",
-                img: "pictures/vineyard_ride.png"
+                img: "pictures/Corporate cycling group, custom private bike tour, diverse group of people riding together, authentic experience.jpg"
             },
             fourcountries: {
                 title: "Four Countries Challenge",
@@ -668,7 +620,7 @@
                 bike: "Road Bike",
                 keypoints: ["4 national boundaries in a day", "Border monuments and history", "Endurance pacing along rivers", "Celebration drinks in Bratislava"],
                 recom: "For long-distance cyclists who want bragging rights and an incredible, high-mileage adventure.",
-                img: "pictures/four_countries.png"
+                img: "pictures/professional cyclists ride through the city.jpg"
             }
         };
 
@@ -751,30 +703,6 @@
 
         modal.addEventListener('click', (e) => {
             if (e.target === modal) closeModal();
-        });
-
-        // Parallax scroll effect for backgrounds
-        window.addEventListener('scroll', () => {
-            const scroll = window.scrollY;
-            if (window.innerWidth > 768) {
-                // Hero image
-                const heroBg = document.getElementById('hero-img');
-                if (heroBg) {
-                    heroBg.style.transform = `translateY(${scroll * 0.3}px) scale(1.1)`;
-                }
-
-                // Inner parallax background wrappers (overflow-hidden on parent clips edges)
-                document.querySelectorAll('.parallax-bg').forEach(bg => {
-                    const section = bg.closest('.parallax-section');
-                    if (!section) return;
-                    const rect = section.getBoundingClientRect();
-                    if (rect.top < window.innerHeight && rect.bottom > 0) {
-                        const scrollProgress = (window.innerHeight - rect.top) / (window.innerHeight + section.offsetHeight);
-                        const percentOffset = (scrollProgress - 0.5) * -15; // range: -7.5% to +7.5% (safely within -20% inset)
-                        bg.style.transform = `translateY(${percentOffset}%)`;
-                    }
-                });
-            }
         });
     </script>
 </body>

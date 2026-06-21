@@ -13,19 +13,19 @@
     <meta property="og:url" content="https://bikebratislava.com/journal.html">
     <meta property="og:title" content="Journal | Bike Bratislava">
     <meta property="og:description" content="Stories from the saddle. Routes, travel inspiration, local tips and cycling stories from Bratislava and beyond.">
-    <meta property="og:image" content="https://bikebratislava.com/pictures/four_countries.png">
+    <meta property="og:image" content="https://bikebratislava.com/pictures/professional cyclists ride through the city.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://bikebratislava.com/journal.html">
     <meta property="twitter:title" content="Journal | Bike Bratislava">
     <meta property="twitter:description" content="Stories from the saddle. Routes, travel inspiration, local tips and cycling stories from Bratislava and beyond.">
-    <meta property="twitter:image" content="https://bikebratislava.com/pictures/four_countries.png">
+    <meta property="twitter:image" content="https://bikebratislava.com/pictures/professional cyclists ride through the city.jpg">
     
-                    <!-- Google Fonts: Outfit & Plus Jakarta Sans -->
+                    <!-- Google Fonts: Outfit & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800;900&family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -37,16 +37,16 @@
                 extend: {
                     colors: {
                         brand: {
-                            luxeDark: '#0F0E0E',     /* Matte carbon black background */
-                            luxeLight: '#FFFFFF',    /* Sporty clean slate light background */
-                            luxeGold: '#D71920',     /* Kinetic Sporty Orange accent */
-                            luxeGoldDark: '#B8141A', /* Deeper active orange */
-                            luxeTextDark: '#1A1A1A', /* Active charcoal text */
-                            luxeTextLight: '#FFFFFF' /* Crisp light text */
+                            luxeDark: '#0A0A0A',     /* Matte carbon black background */
+                            luxeLight: '#F8F9FA',    /* Clean slate light background */
+                            luxeGold: '#E31C25',     /* Active athletic red accent */
+                            luxeGoldDark: '#B91C1C', /* Deeper active red */
+                            luxeTextDark: '#111111', /* Dark charcoal text */
+                            luxeTextLight: '#F8F9FA' /* Crisp light text */
                         }
                     },
                     fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif'],
                         serif: ['Outfit', 'sans-serif']
                     }
                 }
@@ -129,7 +129,7 @@
             transform: translateY(0);
         }
         
-        /* Parallax texture backgrounds вЂ” uses inner wrapper with translateY */
+        /* Parallax texture backgrounds — uses inner wrapper with translateY */
         .parallax-section {
             position: relative;
             overflow: hidden;
@@ -146,33 +146,51 @@
             position: relative;
             z-index: 1;
         }
-        .parallax-bg.concrete {
-            background-image: url('pictures/Light grey concrete texture, smooth microcement background, clean minimalist studio wall, soft lighting, industrial elegant texture.jpg');
+                        .parallax-bg.concrete {
+            background-color: #fdfbfb;
+            background-image: 
+                radial-gradient(at 40% 20%, hsla(28,100%,74%,0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 0%, hsla(189,100%,56%,0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 50%, hsla(355,100%,93%,0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 50%, hsla(340,100%,76%,0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, hsla(22,100%,77%,0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 100%, hsla(242,100%,70%,0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 0%, hsla(343,100%,76%,0.15) 0px, transparent 50%);
         }
         .parallax-bg.asphalt {
-            background-image: url('pictures/Fine texture of dark grey asphalt surface, top view, clean, consistent pattern, minimalist dark background, high resolutio.jpg');
-            opacity: 0.10;
+            background-color: #0A0A0A;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cpath d='M0 0h4v4H0zm4 4h4v4H4z' fill='%23ffffff' fill-opacity='0.015'/%3E%3Cpath d='M0 4h4v4H0zm4-4h4v4H4z' fill='%23ffffff' fill-opacity='0.005'/%3E%3C/svg%3E");
+            background-size: 8px 8px;
         }
         /* Legacy: concrete-bg as section bg for guides card row */
-        .concrete-bg-inline {
-            background-image: url('pictures/Light grey concrete texture, smooth microcement background, clean minimalist studio wall, soft lighting, industrial elegant texture.jpg');
-            background-size: cover;
-            background-position: center;
+                        .concrete-bg-inline {
+            background-color: #fdfbfb;
+            background-image: 
+                radial-gradient(at 40% 20%, hsla(28,100%,74%,0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 0%, hsla(189,100%,56%,0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 50%, hsla(355,100%,93%,0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 50%, hsla(340,100%,76%,0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, hsla(22,100%,77%,0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 100%, hsla(242,100%,70%,0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 0%, hsla(343,100%,76%,0.15) 0px, transparent 50%);
         }
     </style>
 </head>
-<body class="bg-brand-luxeLight text-brand-luxeTextDark font-sans antialiased selection:bg-brand-luxeGold selection:text-brand-luxeDark overflow-x-hidden">
+<body class="bg-gradient-to-br from-stone-50 via-rose-50/40 to-stone-100 text-brand-luxeTextDark font-sans antialiased selection:bg-brand-luxeGold selection:text-brand-luxeDark overflow-x-hidden">
 
     <!-- HEADER & NAVIGATION (With smart hide/reveal scroll behaviors) -->
     <header id="main-header" class="fixed top-0 left-0 w-full z-50 py-4 border-b border-white/5">
         <div class="max-w-screen-2xl mx-auto px-4 lg:px-6 xl:px-6 2xl:px-10 flex items-center gap-4 xl:gap-4 2xl:gap-8">
-            <a href="index.html" class="flex flex-col group flex-shrink-0 mr-2" id="header-logo">
-                <span class="font-serif text-lg lg:text-lg xl:text-xl 2xl:text-2xl tracking-widest text-brand-luxeTextLight transition-colors duration-300 group-hover:text-brand-luxeGold" id="logo-text">
-                    BIKE BRATISLAVA
-                </span>
-                <span class="text-[7px] tracking-[0.3em] text-stone-400 font-light uppercase transition-colors duration-300" id="logo-subtext">
-                    Central Europe
-                </span>
+            <a href="index.html" class="flex items-center gap-3 group flex-shrink-0 mr-2" id="header-logo">
+                <img src="pictures/Gemini_Generated_Image_e54b50e54b50e54b (1).png" alt="Bike Bratislava Logo" class="h-10 w-10 object-contain">
+                <div class="flex flex-col">
+                    <span class="font-serif text-lg lg:text-lg xl:text-xl 2xl:text-2xl tracking-widest text-brand-luxeTextLight transition-colors duration-300 group-hover:text-brand-luxeGold" id="logo-text">
+                        BIKE BRATISLAVA
+                    </span>
+                    <span class="text-[7px] tracking-[0.3em] text-stone-400 font-light uppercase transition-colors duration-300" id="logo-subtext">
+                        Central Europe
+                    </span>
+                </div>
             </a>
 
             <!-- Desktop Navigation — compact at 1280px, full at 1440px+ -->
@@ -249,7 +267,7 @@
     <section class="relative min-h-[75vh] flex items-center justify-center bg-brand-luxeDark text-white overflow-hidden">
         <div class="absolute inset-0 z-0">
             <!-- Scale-110 for parallax -->
-            <img src="pictures/four_countries.png" 
+            <img src="pictures/professional cyclists ride through the city.jpg" 
                  alt="Bikepacking adventure cycling road" 
                  class="w-full h-full object-cover object-center opacity-45 scale-110" id="hero-img" style="will-change: transform;">
             <div class="absolute inset-0 bg-gradient-to-t from-brand-luxeDark via-brand-luxeDark/35 to-transparent"></div>
@@ -265,17 +283,18 @@
     </section>
 
     <!-- SECTION: ARTICLES & CATEGORY CHIPS -->
-    <section class="py-32 bg-white border-b border-stone-200/40">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+    <section class="py-32 relative overflow-hidden border-b border-stone-200/40 bg-gradient-to-tl from-slate-50 via-purple-50 to-pink-50 parallax-section">
+        <div class="parallax-bg concrete"></div>
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
             
-            <div class="flex flex-wrap items-center justify-center gap-3 mb-20 border-b border-stone-200 pb-8 font-sans scroll-reveal">
-                <button class="filter-btn px-5 py-2 text-[10px] font-bold uppercase tracking-wider bg-brand-luxeDark text-white rounded-none border border-transparent transition-all" data-category="all">All Stories</button>
-                <button class="filter-btn px-5 py-2 text-[10px] font-bold uppercase tracking-wider border border-stone-200 text-stone-600 hover:border-brand-luxeDark hover:text-brand-luxeDark rounded-none transition-all" data-category="Cycling Routes">Cycling Routes</button>
-                <button class="filter-btn px-5 py-2 text-[10px] font-bold uppercase tracking-wider border border-stone-200 text-stone-600 hover:border-brand-luxeDark hover:text-brand-luxeDark rounded-none transition-all" data-category="Bratislava Insider">Bratislava Insider</button>
-                <button class="filter-btn px-5 py-2 text-[10px] font-bold uppercase tracking-wider border border-stone-200 text-stone-600 hover:border-brand-luxeDark hover:text-brand-luxeDark rounded-none transition-all" data-category="Wine & Culture">Wine & Culture</button>
-                <button class="filter-btn px-5 py-2 text-[10px] font-bold uppercase tracking-wider border border-stone-200 text-stone-600 hover:border-brand-luxeDark hover:text-brand-luxeDark rounded-none transition-all" data-category="Travel Tips">Travel Tips</button>
-                <button class="filter-btn px-5 py-2 text-[10px] font-bold uppercase tracking-wider border border-stone-200 text-stone-600 hover:border-brand-luxeDark hover:text-brand-luxeDark rounded-none transition-all" data-category="Bikepacking">Bikepacking</button>
-                <button class="filter-btn px-5 py-2 text-[10px] font-bold uppercase tracking-wider border border-stone-200 text-stone-600 hover:border-brand-luxeDark hover:text-brand-luxeDark rounded-none transition-all" data-category="Events">Events</button>
+            <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 mb-20 border-b border-stone-200 pb-8 font-sans scroll-reveal">
+                <button class="filter-btn text-[10px] font-bold uppercase tracking-wider text-brand-luxeDark border-b-2 border-brand-luxeGold pb-2 transition-all" data-category="all">All Stories</button>
+                <button class="filter-btn text-[10px] font-bold uppercase tracking-wider text-stone-400 hover:text-brand-luxeDark border-b-2 border-transparent pb-2 transition-all" data-category="Cycling Routes">Cycling Routes</button>
+                <button class="filter-btn text-[10px] font-bold uppercase tracking-wider text-stone-400 hover:text-brand-luxeDark border-b-2 border-transparent pb-2 transition-all" data-category="Bratislava Insider">Bratislava Insider</button>
+                <button class="filter-btn text-[10px] font-bold uppercase tracking-wider text-stone-400 hover:text-brand-luxeDark border-b-2 border-transparent pb-2 transition-all" data-category="Wine & Culture">Wine & Culture</button>
+                <button class="filter-btn text-[10px] font-bold uppercase tracking-wider text-stone-400 hover:text-brand-luxeDark border-b-2 border-transparent pb-2 transition-all" data-category="Travel Tips">Travel Tips</button>
+                <button class="filter-btn text-[10px] font-bold uppercase tracking-wider text-stone-400 hover:text-brand-luxeDark border-b-2 border-transparent pb-2 transition-all" data-category="Bikepacking">Bikepacking</button>
+                <button class="filter-btn text-[10px] font-bold uppercase tracking-wider text-stone-400 hover:text-brand-luxeDark border-b-2 border-transparent pb-2 transition-all" data-category="Events">Events</button>
             </div>
 
             <!-- Articles Grid -->
@@ -283,7 +302,7 @@
                 <!-- Article 1 -->
                 <article class="group flex flex-col justify-between scroll-reveal" data-category="Cycling Routes">
                     <div>
-                        <div class="aspect-video overflow-hidden border border-stone-200 mb-6 rounded-none shadow-md">
+                        <div class="aspect-video overflow-hidden mb-6">
                             <img src="pictures/Cyclists riding during golden hour sunset, warm silhouettes, back light, cinematic photography.jpg" alt="Iron Curtain cycle path slovakia road" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
                         </div>
                         <span class="text-[9px] font-bold tracking-[0.2em] text-brand-luxeGold uppercase font-sans">Cycling Routes</span>
@@ -293,7 +312,7 @@
                     <div>
                         <button onclick="openArticleModal('ironcurtain')" class="inline-flex items-center space-x-2 text-[10px] font-bold uppercase tracking-widest text-brand-luxeDark group-hover:text-brand-luxeGold transition-colors focus:outline-none">
                             <span>Read Article</span>
-                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"></i>
                         </button>
                     </div>
                 </article>
@@ -301,8 +320,8 @@
                 <!-- Article 2 -->
                 <article class="group flex flex-col justify-between scroll-reveal" data-category="Wine & Culture">
                     <div>
-                        <div class="aspect-video overflow-hidden border border-stone-200 mb-6 rounded-none shadow-md">
-                            <img src="pictures/vineyard_ride.png" alt="Autumn harvest in vineyards slovakia" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                        <div class="aspect-video overflow-hidden mb-6">
+                            <img src="pictures/Corporate cycling group, custom private bike tour, diverse group of people riding together, authentic experience.jpg" alt="Autumn harvest in vineyards slovakia" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
                         </div>
                         <span class="text-[9px] font-bold tracking-[0.2em] text-brand-luxeGold uppercase font-sans">Wine & Culture</span>
                         <h3 class="font-serif text-2xl font-light text-brand-luxeDark mt-3 mb-3 group-hover:text-brand-luxeGold transition-colors">Harvest Season in Svätý Jur</h3>
@@ -311,7 +330,7 @@
                     <div>
                         <button onclick="openArticleModal('svatyjur')" class="inline-flex items-center space-x-2 text-[10px] font-bold uppercase tracking-widest text-brand-luxeDark group-hover:text-brand-luxeGold transition-colors focus:outline-none">
                             <span>Read Article</span>
-                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"></i>
                         </button>
                     </div>
                 </article>
@@ -319,7 +338,7 @@
                 <!-- Article 3 -->
                 <article class="group flex flex-col justify-between scroll-reveal" data-category="Travel Tips">
                     <div>
-                        <div class="aspect-video overflow-hidden border border-stone-200 mb-6 rounded-none shadow-md">
+                        <div class="aspect-video overflow-hidden mb-6">
                             <img src="pictures/Corporate cycling group, custom private bike tour, diverse group of people riding together, authentic experience.jpg" alt="Vienna to Bratislava route path" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
                         </div>
                         <span class="text-[9px] font-bold tracking-[0.2em] text-brand-luxeGold uppercase font-sans">Travel Tips</span>
@@ -329,7 +348,7 @@
                     <div>
                         <button onclick="openArticleModal('viennatobratislava')" class="inline-flex items-center space-x-2 text-[10px] font-bold uppercase tracking-widest text-brand-luxeDark group-hover:text-brand-luxeGold transition-colors focus:outline-none">
                             <span>Read Article</span>
-                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"></i>
                         </button>
                     </div>
                 </article>
@@ -337,7 +356,7 @@
                 <!-- Article 4 -->
                 <article class="group flex flex-col justify-between scroll-reveal" data-category="Bikepacking">
                     <div>
-                        <div class="aspect-video overflow-hidden border border-stone-200 mb-6 rounded-none shadow-md">
+                        <div class="aspect-video overflow-hidden mb-6">
                             <img src="pictures/Athletic road cyclist climbing a scenic mountain road, gravel bike rider on a dirt trail, endurance.jpg" alt="Bikepacking mountains gravel path" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
                         </div>
                         <span class="text-[9px] font-bold tracking-[0.2em] text-brand-luxeGold uppercase font-sans">Bikepacking</span>
@@ -347,7 +366,7 @@
                     <div>
                         <button onclick="openArticleModal('littlecarpathians')" class="inline-flex items-center space-x-2 text-[10px] font-bold uppercase tracking-widest text-brand-luxeDark group-hover:text-brand-luxeGold transition-colors focus:outline-none">
                             <span>Read Article</span>
-                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"></i>
                         </button>
                     </div>
                 </article>
@@ -410,124 +429,8 @@
     <!-- JAVASCRIPT -->
     <!-- Lenis Smooth Scroll -->
     <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+    <script src="app.js"></script>
     <script>
-        // Initialize Lenis smooth scroll
-        const lenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            infinite: false,
-            smoothWheel: true
-        });
-
-        function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
-
-        requestAnimationFrame(raf);
-
-        // Keep Lenis updated when clicking internal links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    lenis.scrollTo(target);
-                }
-            });
-        });
-
-        lucide.createIcons();
-
-        // 1. Smart scroll header (hides on scroll down, reveals on scroll up)
-        let lastScrollY = window.scrollY;
-        const header = document.getElementById('main-header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > lastScrollY && window.scrollY > 120) {
-                // scrolling down
-                header.classList.add('-translate-y-full');
-            } else {
-                // scrolling up
-                header.classList.remove('-translate-y-full');
-                if (window.scrollY > 50) {
-                    header.classList.add('bg-brand-luxeDark/95', 'backdrop-blur-md', 'shadow-2xl', 'py-4');
-                    header.classList.remove('py-6');
-                } else {
-                    header.classList.remove('bg-brand-luxeDark/95', 'backdrop-blur-md', 'shadow-2xl', 'py-4');
-                    header.classList.add('py-6');
-                }
-            }
-            lastScrollY = window.scrollY;
-        });
-
-        // 2. IntersectionObserver for reveal on scroll animations
-        const revealOptions = {
-            root: null,
-            threshold: 0.05,
-            rootMargin: "0px"
-        };
-        const revealObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in-up');
-                    entry.target.classList.remove('opacity-0');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, revealOptions);
-
-        document.querySelectorAll('.scroll-reveal').forEach(el => {
-            el.classList.add('opacity-0');
-            revealObserver.observe(el);
-        });
-
-        // 3. Mobile Menu Toggle
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-        const mobileMenuClose = document.getElementById('mobile-menu-close');
-        let isMobileMenuOpen = false;
-
-        function openMobileMenu() {
-            isMobileMenuOpen = true;
-            mobileMenu.classList.add('is-open');
-            document.documentElement.style.overflow = 'hidden';
-            document.body.style.overflow = 'hidden';
-            if (typeof lenis !== 'undefined') lenis.stop();
-        }
-        function closeMobileMenu() {
-            isMobileMenuOpen = false;
-            mobileMenu.classList.remove('is-open');
-            document.documentElement.style.overflow = '';
-            document.body.style.overflow = '';
-            if (typeof lenis !== 'undefined') lenis.start();
-        }
-
-        mobileMenuToggle.addEventListener('click', openMobileMenu);
-        mobileMenuClose.addEventListener('click', closeMobileMenu);
-
-        // 4. Parallax scroll effect for backgrounds
-        window.addEventListener('scroll', () => {
-            const scroll = window.scrollY;
-            if (window.innerWidth > 768) {
-                // Hero image
-                const heroBg = document.getElementById('hero-img');
-                if (heroBg) {
-                    heroBg.style.transform = `translateY(${scroll * 0.3}px) scale(1.1)`;
-                }
-
-                // Inner parallax background wrappers (overflow-hidden on parent clips edges)
-                document.querySelectorAll('.parallax-bg').forEach(bg => {
-                    const section = bg.closest('.parallax-section');
-                    if (!section) return;
-                    const rect = section.getBoundingClientRect();
-                    if (rect.top < window.innerHeight && rect.bottom > 0) {
-                        const scrollProgress = (window.innerHeight - rect.top) / (window.innerHeight + section.offsetHeight);
-                        const percentOffset = (scrollProgress - 0.5) * -15; // range: -7.5% to +7.5% (safely within -20% inset)
-                        bg.style.transform = `translateY(${percentOffset}%)`;
-                    }
-                });
-            }
-        });
 
         // 5. Category Filtering Logic
         const filterButtons = document.querySelectorAll('.filter-btn');
@@ -540,11 +443,11 @@
 
                 // Update active button styles
                 filterButtons.forEach(b => {
-                    b.classList.remove('bg-brand-luxeDark', 'text-white');
-                    b.classList.add('border', 'border-stone-200', 'text-stone-600', 'hover:border-brand-luxeDark', 'hover:text-brand-luxeDark');
+                    b.classList.remove('text-brand-luxeDark', 'border-brand-luxeGold');
+                    b.classList.add('text-stone-400', 'border-transparent');
                 });
-                btn.classList.add('bg-brand-luxeDark', 'text-white');
-                btn.classList.remove('border', 'border-stone-200', 'text-stone-600', 'hover:border-brand-luxeDark', 'hover:text-brand-luxeDark');
+                btn.classList.add('text-brand-luxeDark', 'border-brand-luxeGold');
+                btn.classList.remove('text-stone-400', 'border-transparent');
 
                 // Filter articles
                 let visibleCount = 0;
@@ -590,7 +493,7 @@
             svatyjur: {
                 title: "Harvest Season in Svätý Jur",
                 category: "Wine & Culture",
-                img: "pictures/vineyard_ride.png",
+                img: "pictures/Corporate cycling group, custom private bike tour, diverse group of people riding together, authentic experience.jpg",
                 date: "Published May 28, 2026",
                 content: `
                     <p class="mb-4">Svätý Jur is a historic wine-producing town located just a short ride north of Bratislava's city limits. Nestled under the Little Carpathian foothills, it is famous for its steep terraced vineyards and historic architecture.</p>

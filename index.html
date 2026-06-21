@@ -13,19 +13,19 @@
     <meta property="og:url" content="https://bikebratislava.com/">
     <meta property="og:title" content="Bike Bratislava | Discover Central Europe from the Saddle">
     <meta property="og:description" content="Discover Bratislava and Central Europe from the saddle. Premium guided cycling tours, road rides, gravel adventures, and custom experiences by local riders.">
-    <meta property="og:image" content="https://bikebratislava.com/pictures/bratislava_highlights.png">
+    <meta property="og:image" content="https://bikebratislava.com/pictures/Cyclists having a coffee break at a local outdoor cafe, road bikes parked nearby, lifestyle photography, authentic.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://bikebratislava.com/">
     <meta property="twitter:title" content="Bike Bratislava | Discover Central Europe from the Saddle">
     <meta property="twitter:description" content="Discover Bratislava and Central Europe from the saddle. Premium guided cycling tours, road rides, gravel adventures, and custom experiences by local riders.">
-    <meta property="twitter:image" content="https://bikebratislava.com/pictures/bratislava_highlights.png">
+    <meta property="twitter:image" content="https://bikebratislava.com/pictures/Cyclists having a coffee break at a local outdoor cafe, road bikes parked nearby, lifestyle photography, authentic.jpg">
     
-                    <!-- Google Fonts: Outfit & Plus Jakarta Sans -->
+                    <!-- Google Fonts: Outfit & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800;900&family=Outfit:wght@200;300;400;500;600;700;800;900&family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -37,16 +37,16 @@
                 extend: {
                     colors: {
                         brand: {
-                            luxeDark: '#0F0E0E',     /* Matte carbon black background */
-                            luxeLight: '#FFFFFF',    /* Sporty clean slate light background */
-                            luxeGold: '#D71920',     /* Kinetic Sporty Orange accent */
-                            luxeGoldDark: '#B8141A', /* Deeper active orange */
-                            luxeTextDark: '#1A1A1A', /* Active charcoal text */
-                            luxeTextLight: '#FFFFFF' /* Crisp light text */
+                            luxeDark: '#0A0A0A',     /* Matte carbon black background */
+                            luxeLight: '#F8F9FA',    /* Clean slate light background */
+                            luxeGold: '#E31C25',     /* Active athletic red accent */
+                            luxeGoldDark: '#B91C1C', /* Deeper active red */
+                            luxeTextDark: '#111111', /* Dark charcoal text */
+                            luxeTextLight: '#F8F9FA' /* Crisp light text */
                         }
                     },
                     fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif'],
                         serif: ['Outfit', 'sans-serif']
                     }
                 }
@@ -149,27 +149,40 @@
             position: relative;
             z-index: 1;
         }
-        .parallax-bg.concrete {
-            background-image: url('pictures/Light grey concrete texture, smooth microcement background, clean minimalist studio wall, soft lighting, industrial elegant texture.jpg');
+                        .parallax-bg.concrete {
+            background-color: #fdfbfb;
+            background-image: 
+                radial-gradient(at 40% 20%, hsla(28,100%,74%,0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 0%, hsla(189,100%,56%,0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 50%, hsla(355,100%,93%,0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 50%, hsla(340,100%,76%,0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, hsla(22,100%,77%,0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 100%, hsla(242,100%,70%,0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 0%, hsla(343,100%,76%,0.15) 0px, transparent 50%);
         }
         .parallax-bg.asphalt {
-            background-image: url('pictures/Fine texture of dark grey asphalt surface, top view, clean, consistent pattern, minimalist dark background, high resolutio.jpg');
-            opacity: 0.10;
+            background-color: #0A0A0A;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('pictures/Fine texture of dark grey asphalt surface, top view, clean, consistent pattern, minimalist dark background, high resolutio.jpg');
+            background-size: cover;
+            background-position: center;
         }
     </style>
 </head>
-<body class="bg-brand-luxeLight text-brand-luxeTextDark font-sans antialiased selection:bg-brand-luxeGold selection:text-brand-luxeDark overflow-x-hidden">
+<body class="bg-gradient-to-br from-stone-50 via-rose-50/40 to-stone-100 text-brand-luxeTextDark font-sans antialiased selection:bg-brand-luxeGold selection:text-brand-luxeDark overflow-x-hidden">
 
     <!-- HEADER & NAVIGATION (With smart hide/reveal scroll behaviors) -->
     <header id="main-header" class="fixed top-0 left-0 w-full z-50 py-4 border-b border-white/5">
         <div class="max-w-screen-2xl mx-auto px-4 lg:px-6 xl:px-6 2xl:px-10 flex items-center gap-4 xl:gap-4 2xl:gap-8">
-            <a href="index.html" class="flex flex-col group flex-shrink-0 mr-2" id="header-logo">
-                <span class="font-serif text-lg lg:text-lg xl:text-xl 2xl:text-2xl tracking-widest text-brand-luxeTextLight transition-colors duration-300 group-hover:text-brand-luxeGold" id="logo-text">
-                    BIKE BRATISLAVA
-                </span>
-                <span class="text-[7px] tracking-[0.3em] text-stone-400 font-light uppercase transition-colors duration-300" id="logo-subtext">
-                    Central Europe
-                </span>
+            <a href="index.html" class="flex items-center gap-3 group flex-shrink-0 mr-2" id="header-logo">
+                <img src="pictures/Gemini_Generated_Image_e54b50e54b50e54b (1).png" alt="Bike Bratislava Logo" class="h-10 w-10 object-contain">
+                <div class="flex flex-col">
+                    <span class="font-serif text-lg lg:text-lg xl:text-xl 2xl:text-2xl tracking-widest text-brand-luxeTextLight transition-colors duration-300 group-hover:text-brand-luxeGold" id="logo-text">
+                        BIKE BRATISLAVA
+                    </span>
+                    <span class="text-[7px] tracking-[0.3em] text-stone-400 font-light uppercase transition-colors duration-300" id="logo-subtext">
+                        Central Europe
+                    </span>
+                </div>
             </a>
 
             <!-- Desktop Navigation — compact at 1280px, full at 1440px+ -->
@@ -254,23 +267,20 @@
         <div class="absolute inset-0 z-0">
             <!-- Autoplaying, muted local MP4 video with transform class for parallax -->
             <!-- poster shows if video can't be loaded (e.g. GitHub Pages file size limit) -->
-            <video autoplay muted loop playsinline
+            <video autoplay muted playsinline
                    poster="pictures/Cyclists riding during golden hour sunset, warm silhouettes, back light, cinematic photography.jpg"
                    class="w-full h-full object-cover object-center opacity-45 scale-110" id="hero-video" style="will-change: transform;">
-                <source src="pictures/intro.mp4" type="video/mp4">
+                <source src="pictures/Group of road cyclists city waterfront morning drone shot.mp4" type="video/mp4">
             </video>
             <div class="absolute inset-0 bg-gradient-to-t from-brand-luxeDark via-brand-luxeDark/20 to-transparent"></div>
         </div>
 
         <div class="relative z-10 max-w-5xl mx-auto px-6 py-12 md:py-20 lg:py-24 text-center text-brand-luxeTextLight flex flex-col items-center">
-                        <div class="inline-flex items-center space-x-2 px-4 py-1.5 border border-brand-luxeGold/30 rounded-none text-brand-luxeGold text-[10px] font-medium tracking-[0.3em] uppercase mb-6 md:mb-8 opacity-0 fade-in-up">
-                <i data-lucide="award" class="w-3.5 h-3.5 text-brand-luxeGold"></i>
-                <span class="text-white">Partner of <strong class="text-brand-luxeGold font-bold">Visit Bratislava</strong></span>
-            </div>
+
             
-            <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light tracking-tight leading-[1.15] md:leading-[1.1] mb-4 md:mb-6 opacity-0 fade-in-up animation-delay-200 text-white">
-                Discover Bratislava. <br>
-                <span class="text-brand-luxeGold font-light italic font-serif">Explore The Heart of Central Europe.</span>
+            <h1 class="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.1] md:leading-[1.05] mb-4 md:mb-6 opacity-0 fade-in-up animation-delay-200 text-white uppercase">
+                Discover Bratislava<br>
+                <span class="font-sans font-black tracking-widest text-brand-luxeGold text-2xl md:text-4xl lg:text-5xl block mt-4">Explore The Heart of Central Europe</span>
             </h1>
             
             <p class="max-w-2xl text-stone-400 text-xs sm:text-sm md:text-base xl:text-lg font-light leading-relaxed mb-8 md:mb-12 opacity-0 fade-in-up animation-delay-400 tracking-wide font-sans">
@@ -306,18 +316,18 @@
                              alt="Cyclists looking at historic castle landmark in Bratislava" 
                              class="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-out">
                     </div>
-                    <!-- Redesigned floating callout card (sleeker, gold line, semi-transparent blur) -->
-                    <div class="absolute -bottom-6 -right-6 bg-brand-luxeDark/95 backdrop-blur-md p-6 max-w-xs shadow-2xl hidden md:block border border-brand-luxeGold/30 rounded-none z-20">
-                        <div class="w-8 h-[1px] bg-brand-luxeGold mb-3"></div>
-                        <h4 class="font-serif text-lg italic text-brand-luxeGold mb-2">Did you know?</h4>
-                        <p class="text-[11px] text-stone-400 leading-relaxed font-light font-sans tracking-wide">Bratislava is the only national capital that borders two sovereign countries: Austria and Hungary.</p>
+                    <!-- Redesigned floating callout card -->
+                    <div class="absolute -bottom-6 -right-6 bg-[#A39E93] p-6 max-w-xs shadow-2xl hidden md:block rounded-none z-20">
+                        <div class="w-8 h-[2px] bg-brand-luxeGold mb-3"></div>
+                        <h4 class="font-sans font-bold uppercase tracking-widest text-sm text-brand-luxeDark mb-3">DID YOU KNOW?</h4>
+                        <p class="text-[11px] text-brand-luxeDark leading-relaxed font-semibold font-sans tracking-wide">Bratislava is the only national capital that borders two sovereign countries: Austria and Hungary.</p>
                     </div>
                 </div>
 
                 <div class="lg:col-span-7 flex flex-col justify-center scroll-reveal">
                     <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-4 block">The Destination</span>
                     <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-brand-luxeDark leading-tight mb-8">
-                        One City. Four Countries. <br><span class="italic text-brand-luxeGold font-serif">Endless Rides.</span>
+                        One City. Four Countries<br><span class="font-sans font-bold uppercase tracking-widest text-brand-luxeGold text-xl md:text-3xl block mt-3">Endless Rides</span>
                     </h2>
                     
                     <div class="space-y-6 text-stone-600 font-light leading-relaxed text-sm md:text-base mb-12 tracking-wide font-sans">
@@ -384,7 +394,7 @@
     </section>
 
     <!-- SECTION 3: FEATURED EXPERIENCES (Luxury cards) -->
-    <section class="py-32 bg-white border-b border-stone-200/40">
+    <section class="py-32 bg-gradient-to-br from-stone-50 via-rose-50 to-stone-100 border-b border-stone-200/40">
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
             <div class="text-center max-w-2xl mx-auto mb-24 scroll-reveal">
                 <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-4 block">Curated Rides</span>
@@ -395,25 +405,25 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
                 
                 <!-- Card 1: Discover Bratislava -->
-                <div class="group border border-stone-200/60 bg-brand-luxeLight flex flex-col justify-between hover:border-brand-luxeGold transition-colors duration-500 rounded-none scroll-reveal">
+                <div class="group bg-transparent flex flex-col justify-between transition-colors duration-500 rounded-none scroll-reveal">
                     <div>
-                        <div class="aspect-[4/3] overflow-hidden relative border-b border-stone-200/60">
+                        <div class="aspect-[4/5] overflow-hidden relative">
                             <!-- Local town cycling exploration -->
-                            <img src="pictures/bratislava_highlights.png" 
-                                 alt="Bratislava old town leisure cycling path" 
+                            <img src="pictures/professional cyclists ride through the city.jpg" 
+                                 alt="Professional cyclists ride through the city" 
                                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
                             <div class="absolute top-4 left-4 bg-brand-luxeDark text-white text-[9px] tracking-[0.25em] uppercase font-medium py-1 px-3 border border-brand-luxeGold/25">
                                 Leisure & Culture
                             </div>
                         </div>
-                        <div class="p-8">
+                        <div class="py-6 px-0">
                             <h3 class="font-serif text-2xl font-light text-brand-luxeDark mb-4">Discover Bratislava</h3>
                             <p class="text-stone-500 font-light text-xs leading-relaxed font-sans tracking-wide">
                                 Easy and enjoyable rides designed for visitors who want to explore the city and its surroundings at a relaxed pace.
                             </p>
                         </div>
                     </div>
-                    <div class="px-8 pb-8 pt-0">
+                    <div class="pb-6 pt-0 px-0">
                         <a href="tours.html" class="inline-flex items-center space-x-2 text-[10px] font-semibold tracking-[0.2em] uppercase text-brand-luxeDark group-hover:text-brand-luxeGold transition-colors duration-300">
                             <span>Learn More</span>
                             <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"></i>
@@ -422,9 +432,9 @@
                 </div>
 
                 <!-- Card 2: Ride Further -->
-                <div class="group border border-stone-200/60 bg-brand-luxeLight flex flex-col justify-between hover:border-brand-luxeGold transition-colors duration-500 rounded-none scroll-reveal">
+                <div class="group bg-transparent flex flex-col justify-between transition-colors duration-500 rounded-none scroll-reveal">
                     <div>
-                        <div class="aspect-[4/3] overflow-hidden relative border-b border-stone-200/60">
+                        <div class="aspect-[4/5] overflow-hidden relative">
                             <!-- Local climbing cyclist -->
                             <img src="pictures/Athletic road cyclist climbing a scenic mountain road, gravel bike rider on a dirt trail, endurance.jpg" 
                                  alt="Road cyclist climbing carpathian routes" 
@@ -433,14 +443,14 @@
                                 Road & Gravel
                             </div>
                         </div>
-                        <div class="p-8">
+                        <div class="py-6 px-0">
                             <h3 class="font-serif text-2xl font-light text-brand-luxeDark mb-4">Ride Further</h3>
                             <p class="text-stone-500 font-light text-xs leading-relaxed font-sans tracking-wide">
                                 Road and gravel routes for cyclists looking for longer distances, climbing challenges and unforgettable scenery.
                             </p>
                         </div>
                     </div>
-                    <div class="px-8 pb-8 pt-0">
+                    <div class="pb-6 pt-0 px-0">
                         <a href="tours.html" class="inline-flex items-center space-x-2 text-[10px] font-semibold tracking-[0.2em] uppercase text-brand-luxeDark group-hover:text-brand-luxeGold transition-colors duration-300">
                             <span>Learn More</span>
                             <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"></i>
@@ -449,9 +459,9 @@
                 </div>
 
                 <!-- Card 3: Custom Experiences -->
-                <div class="group border border-stone-200/60 bg-brand-luxeLight flex flex-col justify-between hover:border-brand-luxeGold transition-colors duration-500 rounded-none scroll-reveal">
+                <div class="group bg-transparent flex flex-col justify-between transition-colors duration-500 rounded-none scroll-reveal">
                     <div>
-                        <div class="aspect-[4/3] overflow-hidden relative border-b border-stone-200/60">
+                        <div class="aspect-[4/5] overflow-hidden relative">
                             <!-- Local group corporate tour -->
                             <img src="pictures/Corporate cycling group, custom private bike tour, diverse group of people riding together, authentic experience.jpg" 
                                  alt="Corporate group cycling experiences slovakia" 
@@ -460,14 +470,14 @@
                                 Private & Corporate
                             </div>
                         </div>
-                        <div class="p-8">
+                        <div class="py-6 px-0">
                             <h3 class="font-serif text-2xl font-light text-brand-luxeDark mb-4">Custom Experiences</h3>
                             <p class="text-stone-500 font-light text-xs leading-relaxed font-sans tracking-wide">
                                 Private rides and tailor-made cycling adventures created around your interests, schedule and fitness level.
                             </p>
                         </div>
                     </div>
-                    <div class="px-8 pb-8 pt-0">
+                    <div class="pb-6 pt-0 px-0">
                         <a href="contact.html" class="inline-flex items-center space-x-2 text-[10px] font-semibold tracking-[0.2em] uppercase text-brand-luxeDark group-hover:text-brand-luxeGold transition-colors duration-300">
                             <span>Enquire Now</span>
                             <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"></i>
@@ -480,7 +490,7 @@
     </section>
 
     <!-- SECTION 4: MEET YOUR GUIDES (Asymmetric layout) -->
-    <section class="py-32 lg:py-40 bg-brand-luxeLight">
+    <section class="py-32 lg:py-40 bg-gradient-to-bl from-blue-50 via-indigo-50 to-purple-50">
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
                 
@@ -510,7 +520,7 @@
                 <div class="lg:col-span-6 order-1 lg:order-2 scroll-reveal">
                     <div class="relative">
                         <!-- Cyclists coffee stop portrait with hover transition -->
-                        <div class="aspect-[4/3] md:aspect-[16/10] overflow-hidden shadow-2xl border border-stone-300/60">
+                        <div class="aspect-[4/5] md:aspect-[4/3] overflow-hidden shadow-2xl border border-stone-300/60">
                             <img src="pictures/Cyclists having a coffee break at a local outdoor cafe, road bikes parked nearby, lifestyle photography, authentic.jpg" 
                                  alt="Cyclists enjoying coffee stop in Bratislava region" 
                                  class="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-out">
@@ -532,8 +542,7 @@
         <div class="max-w-5xl mx-auto px-6 relative z-10 scroll-reveal">
             <div class="text-center mb-20">
                 <div class="inline-flex items-center space-x-2 mb-4">
-                    <span class="px-4 py-1.5 border border-brand-luxeGold/30 text-brand-luxeGold text-[9px] tracking-[0.25em] uppercase font-medium rounded-none">TripAdvisor</span>
-                    <span class="text-stone-500 text-xs font-light tracking-widest">Rating 5.0/5.0</span>
+                    <span class="px-4 py-1.5 border border-brand-luxeGold/30 text-brand-luxeGold text-[9px] tracking-[0.25em] uppercase font-medium rounded-none">Rider Experiences</span>
                 </div>
                 <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-brand-luxeGold">
                     Trusted By Riders From Around The World
@@ -583,7 +592,7 @@
     </section>
 
     <!-- SECTION 6: FINAL CTA -->
-    <section class="py-32 bg-brand-luxeLight text-center border-b border-stone-200/40">
+    <section class="py-32 bg-gradient-to-tl from-slate-50 via-purple-50 to-pink-50 text-center border-b border-stone-200/40">
         <div class="max-w-4xl mx-auto px-6 scroll-reveal">
             <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-4 block">Start Planning</span>
             <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-brand-luxeDark mb-8">Ready To Explore Bratislava?</h2>
@@ -599,7 +608,7 @@
     <!-- FOOTER -->
     <footer class="bg-brand-luxeDark text-stone-500 py-24 border-t border-stone-900">
         <div class="max-w-7xl mx-auto px-6 lg:px-12 font-sans tracking-wide">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-16 mb-20">
                 
                 <div class="md:col-span-2">
                     <a href="index.html" class="flex flex-col mb-6 group">
@@ -634,6 +643,15 @@
                     </ul>
                 </div>
 
+                <div>
+                    <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] text-white mb-6">Contact</h4>
+                    <ul class="space-y-4 text-xs font-light">
+                        <li class="text-stone-400">Mgr. Silvia Karais</li>
+                        <li><a href="mailto:silvia@velocity.sk" class="hover:text-brand-luxeGold transition-colors">silvia@velocity.sk</a></li>
+                        <li><a href="tel:+421903214013" class="hover:text-brand-luxeGold transition-colors">+421 903 214 013</a></li>
+                    </ul>
+                </div>
+
             </div>
 
             <div class="border-t border-stone-900/60 pt-8 flex flex-col md:flex-row items-center justify-between text-[10px] font-light">
@@ -645,100 +663,8 @@
     <!-- JAVASCRIPT -->
     <!-- Lenis Smooth Scroll -->
     <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+    <script src="app.js"></script>
     <script>
-        // Initialize Lenis smooth scroll
-        const lenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            infinite: false,
-            smoothWheel: true
-        });
-
-        function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
-
-        requestAnimationFrame(raf);
-
-        // Keep Lenis updated when clicking internal links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    lenis.scrollTo(target);
-                }
-            });
-        });
-
-        lucide.createIcons();
-
-        // 1. Smart scroll header (hides on scroll down, reveals on scroll up)
-        let lastScrollY = window.scrollY;
-        const header = document.getElementById('main-header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > lastScrollY && window.scrollY > 120) {
-                // scrolling down
-                header.classList.add('-translate-y-full');
-            } else {
-                // scrolling up
-                header.classList.remove('-translate-y-full');
-                if (window.scrollY > 50) {
-                    header.classList.add('bg-brand-luxeDark/95', 'backdrop-blur-md', 'shadow-2xl', 'py-4');
-                    header.classList.remove('py-6');
-                } else {
-                    header.classList.remove('bg-brand-luxeDark/95', 'backdrop-blur-md', 'shadow-2xl', 'py-4');
-                    header.classList.add('py-6');
-                }
-            }
-            lastScrollY = window.scrollY;
-        });
-
-        // 2. IntersectionObserver for reveal on scroll animations
-        const revealOptions = {
-            root: null,
-            threshold: 0.05,
-            rootMargin: "0px"
-        };
-        const revealObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in-up');
-                    entry.target.classList.remove('opacity-0');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, revealOptions);
-
-        document.querySelectorAll('.scroll-reveal').forEach(el => {
-            el.classList.add('opacity-0');
-            revealObserver.observe(el);
-        });
-
-        // 3. Mobile Menu Toggle
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-        const mobileMenuClose = document.getElementById('mobile-menu-close');
-        let isMobileMenuOpen = false;
-
-        function openMobileMenu() {
-            isMobileMenuOpen = true;
-            mobileMenu.classList.add('is-open');
-            document.documentElement.style.overflow = 'hidden';
-            document.body.style.overflow = 'hidden';
-            if (typeof lenis !== 'undefined') lenis.stop();
-        }
-        function closeMobileMenu() {
-            isMobileMenuOpen = false;
-            mobileMenu.classList.remove('is-open');
-            document.documentElement.style.overflow = '';
-            document.body.style.overflow = '';
-            if (typeof lenis !== 'undefined') lenis.start();
-        }
-
-        mobileMenuToggle.addEventListener('click', openMobileMenu);
-        mobileMenuClose.addEventListener('click', closeMobileMenu);
 
         // 4. TripAdvisor Review Slider
         const reviews = [
@@ -869,6 +795,23 @@
 
         window.addEventListener('scroll', updateParallax, { passive: true });
         updateParallax();
+
+        // Hero Video Playlist Logic
+        const heroVideo = document.getElementById('hero-video');
+        if (heroVideo) {
+            const playlist = [
+                "pictures/Group of road cyclists city waterfront morning drone shot.mp4",
+                "pictures/Road cyclists riding city river sunrise wide shot.mp4",
+                "pictures/Athletic cyclists road bikes city river golden hour wide angle.mp4"
+            ];
+            let currentVideoIndex = 0;
+            
+            heroVideo.addEventListener('ended', () => {
+                currentVideoIndex = (currentVideoIndex + 1) % playlist.length;
+                heroVideo.src = playlist[currentVideoIndex];
+                heroVideo.play();
+            });
+        }
     </script>
 </body>
 </html>

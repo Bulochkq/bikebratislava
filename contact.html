@@ -22,10 +22,10 @@
     <meta property="twitter:description" content="Let's plan your ride. Tell us about your travel dates, group size, and cycling experience. We'll help you create the perfect tour.">
     <meta property="twitter:image" content="https://bikebratislava.com/pictures/sunset_devin.png">
     
-                    <!-- Google Fonts: Outfit & Plus Jakarta Sans -->
+                    <!-- Google Fonts: Outfit & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800;900&family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -37,16 +37,16 @@
                 extend: {
                     colors: {
                         brand: {
-                            luxeDark: '#0F0E0E',     /* Matte carbon black background */
-                            luxeLight: '#FFFFFF',    /* Sporty clean slate light background */
-                            luxeGold: '#D71920',     /* Kinetic Sporty Orange accent */
-                            luxeGoldDark: '#B8141A', /* Deeper active orange */
-                            luxeTextDark: '#1A1A1A', /* Active charcoal text */
-                            luxeTextLight: '#FFFFFF' /* Crisp light text */
+                            luxeDark: '#0A0A0A',     /* Matte carbon black background */
+                            luxeLight: '#F8F9FA',    /* Clean slate light background */
+                            luxeGold: '#E31C25',     /* Active athletic red accent */
+                            luxeGoldDark: '#B91C1C', /* Deeper active red */
+                            luxeTextDark: '#111111', /* Dark charcoal text */
+                            luxeTextLight: '#F8F9FA' /* Crisp light text */
                         }
                     },
                     fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif'],
                         serif: ['Outfit', 'sans-serif']
                     }
                 }
@@ -129,7 +129,7 @@
             transform: translateY(0);
         }
         
-        /* Parallax texture backgrounds вЂ” uses inner wrapper with translateY */
+        /* Parallax texture backgrounds — uses inner wrapper with translateY */
         .parallax-section {
             position: relative;
             overflow: hidden;
@@ -146,33 +146,51 @@
             position: relative;
             z-index: 1;
         }
-        .parallax-bg.concrete {
-            background-image: url('pictures/Light grey concrete texture, smooth microcement background, clean minimalist studio wall, soft lighting, industrial elegant texture.jpg');
+                        .parallax-bg.concrete {
+            background-color: #fdfbfb;
+            background-image: 
+                radial-gradient(at 40% 20%, hsla(28,100%,74%,0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 0%, hsla(189,100%,56%,0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 50%, hsla(355,100%,93%,0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 50%, hsla(340,100%,76%,0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, hsla(22,100%,77%,0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 100%, hsla(242,100%,70%,0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 0%, hsla(343,100%,76%,0.15) 0px, transparent 50%);
         }
         .parallax-bg.asphalt {
-            background-image: url('pictures/Fine texture of dark grey asphalt surface, top view, clean, consistent pattern, minimalist dark background, high resolutio.jpg');
-            opacity: 0.10;
+            background-color: #0A0A0A;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cpath d='M0 0h4v4H0zm4 4h4v4H4z' fill='%23ffffff' fill-opacity='0.015'/%3E%3Cpath d='M0 4h4v4H0zm4-4h4v4H4z' fill='%23ffffff' fill-opacity='0.005'/%3E%3C/svg%3E");
+            background-size: 8px 8px;
         }
         /* Legacy: concrete-bg as section bg for guides card row */
-        .concrete-bg-inline {
-            background-image: url('pictures/Light grey concrete texture, smooth microcement background, clean minimalist studio wall, soft lighting, industrial elegant texture.jpg');
-            background-size: cover;
-            background-position: center;
+                        .concrete-bg-inline {
+            background-color: #fdfbfb;
+            background-image: 
+                radial-gradient(at 40% 20%, hsla(28,100%,74%,0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 0%, hsla(189,100%,56%,0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 50%, hsla(355,100%,93%,0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 50%, hsla(340,100%,76%,0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, hsla(22,100%,77%,0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 100%, hsla(242,100%,70%,0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 0%, hsla(343,100%,76%,0.15) 0px, transparent 50%);
         }
     </style>
 </head>
-<body class="bg-brand-luxeLight text-brand-luxeTextDark font-sans antialiased selection:bg-brand-luxeGold selection:text-brand-luxeDark overflow-x-hidden">
+<body class="bg-gradient-to-br from-stone-50 via-rose-50/40 to-stone-100 text-brand-luxeTextDark font-sans antialiased selection:bg-brand-luxeGold selection:text-brand-luxeDark overflow-x-hidden">
 
     <!-- HEADER & NAVIGATION (With smart hide/reveal scroll behaviors) -->
     <header id="main-header" class="fixed top-0 left-0 w-full z-50 py-4 border-b border-white/5">
         <div class="max-w-screen-2xl mx-auto px-4 lg:px-6 xl:px-6 2xl:px-10 flex items-center gap-4 xl:gap-4 2xl:gap-8">
-            <a href="index.html" class="flex flex-col group flex-shrink-0 mr-2" id="header-logo">
-                <span class="font-serif text-lg lg:text-lg xl:text-xl 2xl:text-2xl tracking-widest text-brand-luxeTextLight transition-colors duration-300 group-hover:text-brand-luxeGold" id="logo-text">
-                    BIKE BRATISLAVA
-                </span>
-                <span class="text-[7px] tracking-[0.3em] text-stone-400 font-light uppercase transition-colors duration-300" id="logo-subtext">
-                    Central Europe
-                </span>
+            <a href="index.html" class="flex items-center gap-3 group flex-shrink-0 mr-2" id="header-logo">
+                <img src="pictures/Gemini_Generated_Image_e54b50e54b50e54b (1).png" alt="Bike Bratislava Logo" class="h-10 w-10 object-contain">
+                <div class="flex flex-col">
+                    <span class="font-serif text-lg lg:text-lg xl:text-xl 2xl:text-2xl tracking-widest text-brand-luxeTextLight transition-colors duration-300 group-hover:text-brand-luxeGold" id="logo-text">
+                        BIKE BRATISLAVA
+                    </span>
+                    <span class="text-[7px] tracking-[0.3em] text-stone-400 font-light uppercase transition-colors duration-300" id="logo-subtext">
+                        Central Europe
+                    </span>
+                </div>
             </a>
 
             <!-- Desktop Navigation — compact at 1280px, full at 1440px+ -->
@@ -279,8 +297,33 @@
                 </button>
             </div>
 
+            <!-- Direct Contact Info -->
+            <div class="mb-16 flex flex-col md:flex-row items-start md:items-center justify-between p-8 md:p-10 bg-white border border-brand-luxeGold/20 shadow-xl relative overflow-hidden">
+                <div class="absolute right-0 top-0 w-48 h-48 bg-brand-luxeGold/5 rounded-full -mr-16 -mt-16 blur-3xl"></div>
+                
+                <div class="mb-6 md:mb-0 relative z-10">
+                    <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-luxeGold block mb-2">Direct Contact</span>
+                    <h3 class="font-serif text-3xl font-light text-brand-luxeDark">Mgr. Silvia Karais</h3>
+                </div>
+                
+                <div class="flex flex-col space-y-4 relative z-10">
+                    <a href="mailto:silvia@velocity.sk" class="flex items-center space-x-4 text-stone-600 hover:text-brand-luxeGold transition-colors group">
+                        <div class="w-10 h-10 rounded-none bg-gradient-to-br from-stone-50 via-rose-50/40 to-stone-100 flex items-center justify-center border border-stone-200 group-hover:border-brand-luxeGold/30 transition-colors">
+                            <i data-lucide="mail" class="w-4 h-4"></i>
+                        </div>
+                        <span class="text-sm font-light tracking-wide font-sans">silvia@velocity.sk</span>
+                    </a>
+                    <a href="tel:+421903214013" class="flex items-center space-x-4 text-stone-600 hover:text-brand-luxeGold transition-colors group">
+                        <div class="w-10 h-10 rounded-none bg-gradient-to-br from-stone-50 via-rose-50/40 to-stone-100 flex items-center justify-center border border-stone-200 group-hover:border-brand-luxeGold/30 transition-colors">
+                            <i data-lucide="phone" class="w-4 h-4"></i>
+                        </div>
+                        <span class="text-sm font-light tracking-wide font-sans">+421 903 214 013</span>
+                    </a>
+                </div>
+            </div>
+
             <!-- Form Container -->
-            <div class="bg-brand-luxeLight border border-stone-200 p-8 md:p-16 shadow-2xl relative overflow-hidden rounded-none" id="form-container">
+            <div class="bg-transparent p-0 relative overflow-hidden rounded-none" id="form-container">
                 <form id="contact-form" class="space-y-10">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                         <!-- Name -->
@@ -472,100 +515,8 @@
     <!-- INTERACTIVE SCRIPTS -->
     <!-- Lenis Smooth Scroll -->
     <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+    <script src="app.js"></script>
     <script>
-        // Initialize Lenis smooth scroll
-        const lenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            infinite: false,
-            smoothWheel: true
-        });
-
-        function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
-
-        requestAnimationFrame(raf);
-
-        // Keep Lenis updated when clicking internal links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    lenis.scrollTo(target);
-                }
-            });
-        });
-
-        lucide.createIcons();
-
-        // 1. Smart scroll header (hides on scroll down, reveals on scroll up)
-        let lastScrollY = window.scrollY;
-        const header = document.getElementById('main-header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > lastScrollY && window.scrollY > 120) {
-                // scrolling down
-                header.classList.add('-translate-y-full');
-            } else {
-                // scrolling up
-                header.classList.remove('-translate-y-full');
-                if (window.scrollY > 50) {
-                    header.classList.add('bg-brand-luxeDark/95', 'backdrop-blur-md', 'shadow-2xl', 'py-4');
-                    header.classList.remove('py-6');
-                } else {
-                    header.classList.remove('bg-brand-luxeDark/95', 'backdrop-blur-md', 'shadow-2xl', 'py-4');
-                    header.classList.add('py-6');
-                }
-            }
-            lastScrollY = window.scrollY;
-        });
-
-        // 2. IntersectionObserver for reveal on scroll animations
-        const revealOptions = {
-            root: null,
-            threshold: 0.05,
-            rootMargin: "0px"
-        };
-        const revealObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in-up');
-                    entry.target.classList.remove('opacity-0');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, revealOptions);
-
-        document.querySelectorAll('.scroll-reveal').forEach(el => {
-            el.classList.add('opacity-0');
-            revealObserver.observe(el);
-        });
-
-        // 3. Mobile Menu Toggle
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-        const mobileMenuClose = document.getElementById('mobile-menu-close');
-        let isMobileMenuOpen = false;
-
-        function openMobileMenu() {
-            isMobileMenuOpen = true;
-            mobileMenu.classList.add('is-open');
-            document.documentElement.style.overflow = 'hidden';
-            document.body.style.overflow = 'hidden';
-            if (typeof lenis !== 'undefined') lenis.stop();
-        }
-        function closeMobileMenu() {
-            isMobileMenuOpen = false;
-            mobileMenu.classList.remove('is-open');
-            document.documentElement.style.overflow = '';
-            document.body.style.overflow = '';
-            if (typeof lenis !== 'undefined') lenis.start();
-        }
-
-        mobileMenuToggle.addEventListener('click', openMobileMenu);
-        mobileMenuClose.addEventListener('click', closeMobileMenu);
 
         // URL Query parameter handling (?ride=TourName & ?guide=GuideName)
         const rideSelect = document.getElementById('ride-type');
