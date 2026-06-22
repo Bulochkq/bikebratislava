@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="scroll-smooth overflow-x-hidden">
 <head>
     <meta charset="UTF-8">
@@ -157,10 +157,17 @@
                 radial-gradient(at 80% 100%, hsla(242,100%,70%,0.15) 0px, transparent 50%),
                 radial-gradient(at 0% 0%, hsla(343,100%,76%,0.15) 0px, transparent 50%);
         }
-        .parallax-bg.asphalt {
+                .parallax-bg.asphalt {
             background-color: #0A0A0A;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cpath d='M0 0h4v4H0zm4 4h4v4H4z' fill='%23ffffff' fill-opacity='0.015'/%3E%3Cpath d='M0 4h4v4H0zm4-4h4v4H4z' fill='%23ffffff' fill-opacity='0.005'/%3E%3C/svg%3E");
-            background-size: 8px 8px;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('pictures/Fine texture of dark grey asphalt surface, top view, clean, consistent pattern, minimalist dark background, high resolutio.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .parallax-bg.dark-minimal {
+            background-color: #0A0A0A;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('pictures/High-quality_minimalist_background,_full-screen_coverage._202606222338.jpeg');
+            background-size: cover;
+            background-position: center;
         }
         /* Legacy: concrete-bg as section bg for guides card row */
                         .concrete-bg-inline {
@@ -194,7 +201,7 @@
             </a>
 
             <!-- Desktop Navigation — compact at 1280px, full at 1440px+ -->
-            <nav class="hidden xl:flex items-center gap-2 xl:gap-3 2xl:gap-6 flex-1 justify-center">
+            <nav class="hidden xl:flex items-center gap-1.5 xl:gap-2 2xl:gap-6 flex-1 justify-center">
                 <a href="index.html" class="text-[10px] 2xl:text-xs font-medium tracking-[0.1em] 2xl:tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 whitespace-nowrap py-1 border-b border-transparent hover:border-brand-luxeGold/40">Home</a>
                 <a href="about.html" class="text-[10px] 2xl:text-xs font-medium tracking-[0.1em] 2xl:tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 whitespace-nowrap py-1 border-b border-transparent hover:border-brand-luxeGold/40">About Us</a>
                 <a href="discover.html" class="text-[10px] 2xl:text-xs font-medium tracking-[0.1em] 2xl:tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 whitespace-nowrap py-1 border-b border-transparent hover:border-brand-luxeGold/40">Discover Bratislava</a>
@@ -204,8 +211,12 @@
                 <a href="contact.html" class="text-[10px] 2xl:text-xs font-medium tracking-[0.1em] 2xl:tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 whitespace-nowrap py-1 border-b border-transparent hover:border-brand-luxeGold/40">Contact</a>
             </nav>
 
-            <!-- CTA Button -->
-            <div class="hidden xl:block flex-shrink-0">
+            <!-- CTA Button + Velocity co-branding -->
+            <div class="hidden xl:flex items-center gap-4 flex-shrink-0">
+                <a href="https://www.velocity.sk/" target="_blank" class="flex items-center gap-2 opacity-70 hover:opacity-100 transition-opacity group" title="Velocity website">
+                    <div class="h-5 w-[1px] bg-white/20"></div>
+                    <img src="pictures/logo_Velocity_white.png" alt="Velocity" class="h-4 object-contain">
+                </a>
                 <a href="contact.html" id="nav-cta" class="inline-flex items-center justify-center px-4 xl:px-6 2xl:px-8 py-2.5 2xl:py-3 text-[10px] 2xl:text-xs font-medium tracking-[0.15em] 2xl:tracking-[0.3em] uppercase border border-white/20 text-white hover:bg-white hover:text-brand-luxeDark transition-all duration-500 rounded-none">
                     Plan Your Ride
                 </a>
@@ -426,35 +437,72 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
+            <!-- FOOTER -->
     <footer class="bg-brand-luxeDark text-stone-500 py-24 border-t border-stone-900">
         <div class="max-w-7xl mx-auto px-6 lg:px-12 font-sans tracking-wide">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-16 mb-20">
+                
                 <div class="md:col-span-2">
-                    <span class="font-serif text-2xl tracking-widest text-white">BIKE BRATISLAVA</span>
+                    <a href="index.html" class="flex flex-col mb-6 group">
+                        <span class="font-serif text-2xl tracking-widest text-white transition-colors duration-300">
+                            BIKE BRATISLAVA
+                        </span>
+                        <span class="text-[8px] tracking-[0.35em] text-stone-500 font-light uppercase">
+                            Central Europe
+                        </span>
+                    </a>
                     <p class="text-xs font-light leading-relaxed mt-6 pr-8 text-stone-400">
                         Discover Bratislava and the heart of Central Europe from the saddle. Guided cycling tours, road rides, gravel adventures and custom cycling experiences designed by local riders.
                     </p>
                 </div>
+
                 <div>
                     <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] text-white mb-6">Explore</h4>
                     <ul class="space-y-4 text-xs font-light">
                         <li><a href="index.html" class="hover:text-brand-luxeGold transition-colors">Home</a></li>
                         <li><a href="about.html" class="hover:text-brand-luxeGold transition-colors">About Us</a></li>
                         <li><a href="discover.html" class="hover:text-brand-luxeGold transition-colors">Discover Bratislava</a></li>
+                        <li><a href="tours.html" class="hover:text-brand-luxeGold transition-colors">Tours & Rides</a></li>
                     </ul>
                 </div>
+
                 <div>
                     <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] text-white mb-6">Rides</h4>
                     <ul class="space-y-4 text-xs font-light">
-                        <li><a href="tours.html" class="hover:text-brand-luxeGold transition-colors">Tours & Rides</a></li>
                         <li><a href="guides.html" class="hover:text-brand-luxeGold transition-colors">Our Guides</a></li>
+                        <li><a href="journal.html" class="hover:text-brand-luxeGold transition-colors">Journal</a></li>
                         <li><a href="contact.html" class="hover:text-brand-luxeGold transition-colors">Contact</a></li>
                     </ul>
                 </div>
+
+                <div>
+                    <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] text-white mb-6">Contact</h4>
+                    <ul class="space-y-4 text-xs font-light">
+                        <li class="text-stone-400">Mgr. Silvia Karais</li>
+                        <li><a href="mailto:silvia@velocity.sk" class="hover:text-brand-luxeGold transition-colors">silvia@velocity.sk</a></li>
+                        <li><a href="tel:+421903214013" class="hover:text-brand-luxeGold transition-colors">+421 903 214 013</a></li>
+                    </ul>
+                </div>
+
             </div>
-            <div class="border-t border-stone-900/60 pt-8 flex flex-col md:flex-row items-center justify-between text-[10px] font-light">
+
+                        <div class="border-t border-stone-900/60 pt-8 flex flex-col lg:flex-row items-center justify-between text-[10px] font-light gap-6">
                 <p>&copy; 2026 Bike Bratislava. All rights reserved.</p>
+                <div class="flex items-center space-x-6 md:space-x-8">
+                    <a href="https://www.velocity.sk/" target="_blank" class="flex items-center space-x-3 opacity-70 hover:opacity-100 transition-opacity">
+                        <span class="uppercase tracking-widest text-stone-400 hover:text-white transition-colors">velocity.sk</span>
+                        <div class="h-4 w-[1px] bg-stone-700"></div>
+                        <img src="pictures/logo_Velocity_white.png" alt="Velocity" class="h-5 object-contain">
+                    </a>
+                    <a href="https://www.instagram.com/velocity_cyklo/" target="_blank" class="flex items-center space-x-2 text-stone-400 hover:text-brand-luxeGold transition-colors" aria-label="Instagram">
+                        <i data-lucide="instagram" class="w-5 h-5"></i>
+                        <span class="uppercase tracking-widest font-semibold hidden sm:inline-block">Instagram</span>
+                    </a>
+                    <a href="https://www.facebook.com/VeloCity.sk/" target="_blank" class="flex items-center space-x-2 text-stone-400 hover:text-brand-luxeGold transition-colors" aria-label="Facebook">
+                        <i data-lucide="facebook" class="w-5 h-5"></i>
+                        <span class="uppercase tracking-widest font-semibold hidden sm:inline-block">Facebook</span>
+                    </a>
+                </div>
             </div>
         </div>
     </footer>

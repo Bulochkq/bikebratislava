@@ -166,6 +166,18 @@
             background-size: cover;
             background-position: center;
         }
+        .parallax-bg.dark-minimal {
+            background-color: #0A0A0A;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75)), url('pictures/High-quality_minimalist_background,_full-screen_coverage._202606222338.jpeg');
+            background-size: cover;
+            background-position: center;
+        }
+        .parallax-bg.reviews-bg {
+            background-color: #fdfbfb;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.55)), url('pictures/Minimalist_background_for_a_reviews_202606222355.jpeg');
+            background-size: cover;
+            background-position: center;
+        }
     </style>
 </head>
 <body class="bg-gradient-to-br from-stone-50 via-rose-50/40 to-stone-100 text-brand-luxeTextDark font-sans antialiased selection:bg-brand-luxeGold selection:text-brand-luxeDark overflow-x-hidden">
@@ -186,7 +198,7 @@
             </a>
 
             <!-- Desktop Navigation — compact at 1280px, full at 1440px+ -->
-            <nav class="hidden xl:flex items-center gap-2 xl:gap-3 2xl:gap-6 flex-1 justify-center">
+            <nav class="hidden xl:flex items-center gap-1.5 xl:gap-2 2xl:gap-6 flex-1 justify-center">
                 <a href="index.html" class="text-[10px] 2xl:text-xs font-medium tracking-[0.1em] 2xl:tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 whitespace-nowrap py-1 border-b border-brand-luxeGold">Home</a>
                 <a href="about.html" class="text-[10px] 2xl:text-xs font-medium tracking-[0.1em] 2xl:tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 whitespace-nowrap py-1 border-b border-transparent hover:border-brand-luxeGold/40">About Us</a>
                 <a href="discover.html" class="text-[10px] 2xl:text-xs font-medium tracking-[0.1em] 2xl:tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 whitespace-nowrap py-1 border-b border-transparent hover:border-brand-luxeGold/40">Discover Bratislava</a>
@@ -196,8 +208,12 @@
                 <a href="contact.html" class="text-[10px] 2xl:text-xs font-medium tracking-[0.1em] 2xl:tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 whitespace-nowrap py-1 border-b border-transparent hover:border-brand-luxeGold/40">Contact</a>
             </nav>
 
-            <!-- CTA Button -->
-            <div class="hidden xl:block flex-shrink-0">
+            <!-- CTA Button + Velocity co-branding -->
+            <div class="hidden xl:flex items-center gap-4 flex-shrink-0">
+                <a href="https://www.velocity.sk/" target="_blank" class="flex items-center gap-2 opacity-70 hover:opacity-100 transition-opacity group" title="Velocity website">
+                    <div class="h-5 w-[1px] bg-white/20"></div>
+                    <img src="pictures/logo_Velocity_white.png" alt="Velocity" class="h-4 object-contain">
+                </a>
                 <a href="contact.html" id="nav-cta" class="inline-flex items-center justify-center px-4 xl:px-6 2xl:px-8 py-2.5 2xl:py-3 text-[10px] 2xl:text-xs font-medium tracking-[0.15em] 2xl:tracking-[0.3em] uppercase border border-white/20 text-white hover:bg-white hover:text-brand-luxeDark transition-all duration-500 rounded-none">
                     Plan Your Ride
                 </a>
@@ -393,12 +409,15 @@
         </div>
     </section>
 
-    <!-- SECTION 3: FEATURED EXPERIENCES (Luxury cards) -->
-    <section class="py-32 bg-gradient-to-br from-stone-50 via-rose-50 to-stone-100 border-b border-stone-200/40">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+    <!-- SECTION 3: FEATURED EXPERIENCES (Luxury cards with dark-minimal background) -->
+    <section class="py-32 bg-brand-luxeDark text-white parallax-section border-b border-stone-900" id="section-adventures">
+        <!-- Minimalist dark background texture — inner parallax wrapper prevents white edge bleed -->
+        <div class="parallax-bg dark-minimal" id="parallax-adventures"></div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
             <div class="text-center max-w-2xl mx-auto mb-24 scroll-reveal">
                 <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-4 block">Curated Rides</span>
-                <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-brand-luxeDark">Choose Your Adventure</h2>
+                <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-white">Choose Your Adventure</h2>
                 <div class="h-[1px] w-12 bg-brand-luxeGold mx-auto mt-6"></div>
             </div>
 
@@ -417,14 +436,14 @@
                             </div>
                         </div>
                         <div class="py-6 px-0">
-                            <h3 class="font-serif text-2xl font-light text-brand-luxeDark mb-4">Discover Bratislava</h3>
-                            <p class="text-stone-500 font-light text-xs leading-relaxed font-sans tracking-wide">
+                            <h3 class="font-serif text-2xl font-light text-white mb-4">Discover Bratislava</h3>
+                            <p class="text-stone-300 font-light text-xs leading-relaxed font-sans tracking-wide">
                                 Easy and enjoyable rides designed for visitors who want to explore the city and its surroundings at a relaxed pace.
                             </p>
                         </div>
                     </div>
                     <div class="pb-6 pt-0 px-0">
-                        <a href="tours.html" class="inline-flex items-center space-x-2 text-[10px] font-semibold tracking-[0.2em] uppercase text-brand-luxeDark group-hover:text-brand-luxeGold transition-colors duration-300">
+                        <a href="tours.html" class="inline-flex items-center space-x-2 text-[10px] font-semibold tracking-[0.2em] uppercase text-stone-200 hover:text-brand-luxeGold group-hover:text-brand-luxeGold transition-colors duration-300">
                             <span>Learn More</span>
                             <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"></i>
                         </a>
@@ -444,14 +463,14 @@
                             </div>
                         </div>
                         <div class="py-6 px-0">
-                            <h3 class="font-serif text-2xl font-light text-brand-luxeDark mb-4">Ride Further</h3>
-                            <p class="text-stone-500 font-light text-xs leading-relaxed font-sans tracking-wide">
+                            <h3 class="font-serif text-2xl font-light text-white mb-4">Ride Further</h3>
+                            <p class="text-stone-300 font-light text-xs leading-relaxed font-sans tracking-wide">
                                 Road and gravel routes for cyclists looking for longer distances, climbing challenges and unforgettable scenery.
                             </p>
                         </div>
                     </div>
                     <div class="pb-6 pt-0 px-0">
-                        <a href="tours.html" class="inline-flex items-center space-x-2 text-[10px] font-semibold tracking-[0.2em] uppercase text-brand-luxeDark group-hover:text-brand-luxeGold transition-colors duration-300">
+                        <a href="tours.html" class="inline-flex items-center space-x-2 text-[10px] font-semibold tracking-[0.2em] uppercase text-stone-200 hover:text-brand-luxeGold group-hover:text-brand-luxeGold transition-colors duration-300">
                             <span>Learn More</span>
                             <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"></i>
                         </a>
@@ -471,14 +490,14 @@
                             </div>
                         </div>
                         <div class="py-6 px-0">
-                            <h3 class="font-serif text-2xl font-light text-brand-luxeDark mb-4">Custom Experiences</h3>
-                            <p class="text-stone-500 font-light text-xs leading-relaxed font-sans tracking-wide">
+                            <h3 class="font-serif text-2xl font-light text-white mb-4">Custom Experiences</h3>
+                            <p class="text-stone-300 font-light text-xs leading-relaxed font-sans tracking-wide">
                                 Private rides and tailor-made cycling adventures created around your interests, schedule and fitness level.
                             </p>
                         </div>
                     </div>
                     <div class="pb-6 pt-0 px-0">
-                        <a href="contact.html" class="inline-flex items-center space-x-2 text-[10px] font-semibold tracking-[0.2em] uppercase text-brand-luxeDark group-hover:text-brand-luxeGold transition-colors duration-300">
+                        <a href="contact.html" class="inline-flex items-center space-x-2 text-[10px] font-semibold tracking-[0.2em] uppercase text-stone-200 hover:text-brand-luxeGold group-hover:text-brand-luxeGold transition-colors duration-300">
                             <span>Enquire Now</span>
                             <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"></i>
                         </a>
@@ -534,72 +553,49 @@
         </div>
     </section>
 
-    <!-- SECTION 5: REVIEWS (Luxe Dark theme with asphalt background texture) -->
-    <section class="py-32 lg:py-40 bg-brand-luxeDark text-white parallax-section" id="section-reviews">
-        <!-- Asphalt dark background texture — inner parallax wrapper prevents white edge bleed -->
-        <div class="parallax-bg asphalt" id="parallax-asphalt"></div>
+    <!-- SECTION 5: CLIENTS & PARTNERS (Luxe Light theme with custom reviews background) -->
+    <section class="py-32 lg:py-40 bg-stone-100 text-brand-luxeDark parallax-section" id="section-clients">
+        <!-- Custom reviews background texture — inner parallax wrapper prevents white edge bleed -->
+        <div class="parallax-bg reviews-bg" id="parallax-reviews-bg"></div>
 
-        <div class="max-w-5xl mx-auto px-6 relative z-10 scroll-reveal">
+        <div class="max-w-6xl mx-auto px-6 relative z-10 scroll-reveal">
             <div class="text-center mb-20">
                 <div class="inline-flex items-center space-x-2 mb-4">
-                    <span class="px-4 py-1.5 border border-brand-luxeGold/30 text-brand-luxeGold text-[9px] tracking-[0.25em] uppercase font-medium rounded-none">Rider Experiences</span>
+                    <span class="px-4 py-1.5 border border-brand-luxeGold/30 text-brand-luxeGold text-[9px] tracking-[0.25em] uppercase font-medium rounded-none">Corporate Experiences</span>
                 </div>
-                <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-brand-luxeGold">
-                    Trusted By Riders From Around The World
+                <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold text-brand-luxeGold tracking-wide">
+                    Trusted By Top Companies
                 </h2>
+                <p class="text-stone-600 font-light text-sm mt-6 max-w-2xl mx-auto tracking-wide font-sans leading-relaxed">
+                    We deliver premium corporate cycling tours, team-building rides, and VIP experiences for leading organizations.
+                </p>
             </div>
 
-            <!-- Review Slider -->
-            <div class="relative min-h-[300px] flex items-center justify-center">
-                <button id="slider-prev" class="absolute left-0 md:-left-16 p-2 text-stone-600 hover:text-brand-luxeGold transition-colors focus:outline-none z-20" aria-label="Previous Review">
-                    <i data-lucide="chevron-left" class="w-8 h-8"></i>
-                </button>
-
-                <div class="w-full max-w-3xl mx-auto overflow-hidden">
-                    <div id="slider-content" class="transition-all duration-500 ease-in-out transform">
-                        <div class="text-center px-4 md:px-12 flex flex-col items-center">
-                            <div class="flex space-x-1.5 text-brand-luxeGold mb-6">
-                                <i data-lucide="star" class="w-5 h-5 fill-brand-luxeGold text-brand-luxeGold"></i>
-                                <i data-lucide="star" class="w-5 h-5 fill-brand-luxeGold text-brand-luxeGold"></i>
-                                <i data-lucide="star" class="w-5 h-5 fill-brand-luxeGold text-brand-luxeGold"></i>
-                                <i data-lucide="star" class="w-5 h-5 fill-brand-luxeGold text-brand-luxeGold"></i>
-                                <i data-lucide="star" class="w-5 h-5 fill-brand-luxeGold text-brand-luxeGold"></i>
-                            </div>
-                            
-                            <blockquote class="font-serif text-2xl md:text-3xl italic font-light leading-relaxed mb-8 text-stone-200">
-                                "The border-crossing ride was incredible! Cycling through Slovakia, Austria, and Hungary in one day was unique. Our guide was incredibly knowledgeable and shared so much history."
-                            </blockquote>
-                            
-                            <cite class="not-italic block font-sans">
-                                <span class="font-semibold text-brand-luxeGold tracking-[0.15em] text-xs uppercase block">Markus K.</span>
-                                <span class="text-[10px] text-stone-500 uppercase tracking-[0.2em] font-light">Vienna, Austria</span>
-                            </cite>
-                        </div>
-                    </div>
-                </div>
-
-                <button id="slider-next" class="absolute right-0 md:-right-16 p-2 text-stone-600 hover:text-brand-luxeGold transition-colors focus:outline-none z-20" aria-label="Next Review">
-                    <i data-lucide="chevron-right" class="w-8 h-8"></i>
-                </button>
-            </div>
-
-            <div class="flex justify-center space-x-3 mt-10" id="slider-dots">
-                <button class="w-1.5 h-1.5 rounded-full bg-brand-luxeGold transition-colors duration-300" data-slide="0" aria-label="Slide 1"></button>
-                <button class="w-1.5 h-1.5 rounded-full bg-stone-800 hover:bg-brand-luxeGold transition-colors duration-300" data-slide="1" aria-label="Slide 2"></button>
-                <button class="w-1.5 h-1.5 rounded-full bg-stone-800 hover:bg-brand-luxeGold transition-colors duration-300" data-slide="2" aria-label="Slide 3"></button>
+            <!-- Logos Row -->
+            <div class="flex flex-wrap justify-center items-center gap-10 md:gap-16 lg:gap-20 mt-16 max-w-5xl mx-auto">
+                <img src="pictures/Swissre.png" alt="Swiss Re" class="h-10 md:h-12 lg:h-14 object-contain transition-transform duration-300 hover:scale-105">
+                <img src="pictures/Pixelfederation.png" alt="Pixel Federation" class="h-10 md:h-12 lg:h-14 object-contain transition-transform duration-300 hover:scale-105">
+                <img src="pictures/JTRE.png" alt="JTRE" class="h-10 md:h-12 lg:h-14 object-contain transition-transform duration-300 hover:scale-105">
+                <img src="pictures/Alto_real.png" alt="Alto Real" class="h-10 md:h-12 lg:h-14 object-contain transition-transform duration-300 hover:scale-105">
+                <img src="pictures/corwin_Logo_Vertikal.png" alt="Corwin" class="h-12 md:h-14 lg:h-16 object-contain transition-transform duration-300 hover:scale-105">
+                <img src="pictures/Vodacke_centrum.png" alt="Vodacke centrum" class="h-10 md:h-12 lg:h-14 object-contain transition-transform duration-300 hover:scale-105">
             </div>
         </div>
     </section>
 
-    <!-- SECTION 6: FINAL CTA -->
-    <section class="py-32 bg-gradient-to-tl from-slate-50 via-purple-50 to-pink-50 text-center border-b border-stone-200/40">
-        <div class="max-w-4xl mx-auto px-6 scroll-reveal">
+
+    <!-- SECTION 6: FINAL CTA (Luxe Dark theme with asphalt background texture) -->
+    <section class="py-32 bg-brand-luxeDark text-white parallax-section text-center border-b border-stone-900" id="section-cta">
+        <!-- Asphalt dark background texture — inner parallax wrapper prevents white edge bleed -->
+        <div class="parallax-bg asphalt" id="parallax-cta-asphalt"></div>
+
+        <div class="max-w-4xl mx-auto px-6 relative z-10 scroll-reveal">
             <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-4 block">Start Planning</span>
-            <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-brand-luxeDark mb-8">Ready To Explore Bratislava?</h2>
-            <p class="text-stone-500 font-light text-sm md:text-base max-w-xl mx-auto leading-relaxed mb-12 tracking-wide font-sans">
+            <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8">Ready To Explore Bratislava?</h2>
+            <p class="text-stone-300 font-light text-sm md:text-base max-w-xl mx-auto leading-relaxed mb-12 tracking-wide font-sans">
                 Tell us when you're visiting Bratislava and we'll help you find the perfect ride.
             </p>
-            <a href="contact.html" class="inline-flex items-center justify-center px-12 py-5 bg-brand-luxeDark hover:bg-brand-luxeGold hover:text-white text-white font-medium text-[11px] tracking-[0.25em] uppercase transition-all duration-500 rounded-none shadow-2xl border border-stone-800">
+            <a href="contact.html" class="inline-flex items-center justify-center px-12 py-5 bg-white hover:bg-brand-luxeGold hover:text-white text-brand-luxeDark font-medium text-[11px] tracking-[0.25em] uppercase transition-all duration-300 rounded-none shadow-2xl border border-white hover:border-brand-luxeGold">
                 Go to Inquiry Form
             </a>
         </div>
@@ -654,8 +650,23 @@
 
             </div>
 
-            <div class="border-t border-stone-900/60 pt-8 flex flex-col md:flex-row items-center justify-between text-[10px] font-light">
+            <div class="border-t border-stone-900/60 pt-8 flex flex-col lg:flex-row items-center justify-between text-[10px] font-light gap-6">
                 <p>&copy; 2026 Bike Bratislava. All rights reserved.</p>
+                <div class="flex items-center space-x-6 md:space-x-8">
+                    <a href="https://www.velocity.sk/" target="_blank" class="flex items-center space-x-3 opacity-70 hover:opacity-100 transition-opacity">
+                        <span class="uppercase tracking-widest text-stone-400 hover:text-white transition-colors">velocity.sk</span>
+                        <div class="h-4 w-[1px] bg-stone-700"></div>
+                        <img src="pictures/logo_Velocity_white.png" alt="Velocity" class="h-5 object-contain">
+                    </a>
+                    <a href="https://www.instagram.com/velocity_cyklo/" target="_blank" class="flex items-center space-x-2 text-stone-400 hover:text-brand-luxeGold transition-colors" aria-label="Instagram">
+                        <i data-lucide="instagram" class="w-5 h-5"></i>
+                        <span class="uppercase tracking-widest font-semibold hidden sm:inline-block">Instagram</span>
+                    </a>
+                    <a href="https://www.facebook.com/VeloCity.sk/" target="_blank" class="flex items-center space-x-2 text-stone-400 hover:text-brand-luxeGold transition-colors" aria-label="Facebook">
+                        <i data-lucide="facebook" class="w-5 h-5"></i>
+                        <span class="uppercase tracking-widest font-semibold hidden sm:inline-block">Facebook</span>
+                    </a>
+                </div>
             </div>
         </div>
     </footer>
@@ -666,109 +677,7 @@
     <script src="app.js"></script>
     <script>
 
-        // 4. TripAdvisor Review Slider
-        const reviews = [
-            {
-                stars: 5,
-                text: "The border-crossing ride was incredible! Cycling through Slovakia, Austria, and Hungary in one day was unique. Our guide was incredibly knowledgeable and shared so much history.",
-                name: "Markus K.",
-                location: "Vienna, Austria"
-            },
-            {
-                stars: 5,
-                text: "Riding through the Little Carpathian vineyards with Wine & Villages Ride was the highlight of our vacation. Great bikes, friendly atmosphere, and awesome wine tasting!",
-                name: "Sarah L.",
-                location: "London, UK"
-            },
-            {
-                stars: 5,
-                text: "If you're a cyclist visiting Vienna or Bratislava, do NOT miss this. Custom experience built specifically for my road cycling level. High-speed, professional, and amazing climbs.",
-                name: "Jean-Pierre M.",
-                location: "Lyon, France"
-            }
-        ];
-
-        let currentReviewIndex = 0;
-        const sliderContent = document.getElementById('slider-content');
-        const prevBtn = document.getElementById('slider-prev');
-        const nextBtn = document.getElementById('slider-next');
-        const dotsContainer = document.getElementById('slider-dots');
-
-        function updateSlider(index) {
-            currentReviewIndex = index;
-            sliderContent.style.opacity = 0;
-            sliderContent.style.transform = 'translateY(10px)';
-            
-            setTimeout(() => {
-                const review = reviews[currentReviewIndex];
-                let starsHTML = '';
-                for (let i = 0; i < review.stars; i++) {
-                    starsHTML += '<i data-lucide="star" class="w-5 h-5 fill-brand-luxeGold text-brand-luxeGold"></i>';
-                }
-
-                sliderContent.innerHTML = `
-                    <div class="text-center px-4 md:px-12 flex flex-col items-center">
-                        <div class="flex space-x-1.5 mb-6 text-brand-luxeGold">
-                            ${starsHTML}
-                        </div>
-                        <blockquote class="font-serif text-2xl md:text-3xl italic font-light leading-relaxed mb-8 text-stone-200">
-                            "${review.text}"
-                        </blockquote>
-                        <cite class="not-italic block font-sans">
-                            <span class="font-semibold text-brand-luxeGold tracking-[0.15em] text-xs uppercase block">${review.name}</span>
-                            <span class="text-[10px] text-stone-500 uppercase tracking-[0.2em] font-light">${review.location}</span>
-                        </cite>
-                    </div>
-                `;
-                lucide.createIcons();
-                sliderContent.style.opacity = 1;
-                sliderContent.style.transform = 'translateY(0)';
-                
-                const dots = dotsContainer.querySelectorAll('button');
-                dots.forEach((dot, dIndex) => {
-                    if (dIndex === currentReviewIndex) {
-                        dot.classList.remove('bg-stone-800');
-                        dot.classList.add('bg-brand-luxeGold');
-                    } else {
-                        dot.classList.remove('bg-brand-luxeGold');
-                        dot.classList.add('bg-stone-800');
-                    }
-                });
-            }, 300);
-        }
-
-        prevBtn.addEventListener('click', () => {
-            let nextIndex = currentReviewIndex - 1;
-            if (nextIndex < 0) nextIndex = reviews.length - 1;
-            updateSlider(nextIndex);
-        });
-
-        nextBtn.addEventListener('click', () => {
-            let nextIndex = currentReviewIndex + 1;
-            if (nextIndex >= reviews.length) nextIndex = 0;
-            updateSlider(nextIndex);
-        });
-
-        const dots = dotsContainer.querySelectorAll('button');
-        dots.forEach(dot => {
-            dot.addEventListener('click', (e) => {
-                const index = parseInt(e.currentTarget.getAttribute('data-slide'));
-                updateSlider(index);
-            });
-        });
-
-        let reviewInterval = setInterval(() => {
-            let nextIndex = currentReviewIndex + 1;
-            if (nextIndex >= reviews.length) nextIndex = 0;
-            updateSlider(nextIndex);
-        }, 6000);
-
-        const stopSliderAutoplay = () => { clearInterval(reviewInterval); };
-        prevBtn.addEventListener('click', stopSliderAutoplay);
-        nextBtn.addEventListener('click', stopSliderAutoplay);
-        dots.forEach(dot => dot.addEventListener('click', stopSliderAutoplay));
-
-        // 5. Parallax scroll effect for backgrounds (translateY on inner wrapper — no white edge bleed)
+        // 4. Parallax scroll effect for backgrounds (translateY on inner wrapper — no white edge bleed)
         function updateParallax() {
             if (window.innerWidth <= 768) return;
 
