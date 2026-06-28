@@ -503,10 +503,10 @@
                             <div class="relative w-full">
                                 <select id="group-size" name="group-size" style="display: none !important;">
                                     <option value="" disabled selected>Select size</option>
-                                    <option value="Solo Rider">Solo Rider</option>
-                                    <option value="2-4 Riders">2-4 Riders</option>
-                                    <option value="5-8 Riders">5-8 Riders</option>
-                                    <option value="9+ Corporate/Club">9+ (Corporate/Club)</option>
+                                    <option value="Solo (1 person)">Solo (1 person)</option>
+                                    <option value="Couple (2 people)">Couple (2 people)</option>
+                                    <option value="Small group (3-6 people)">Small group (3-6 people)</option>
+                                    <option value="Corporate (7+ people)">Corporate (7+ people)</option>
                                 </select>
                                 <button type="button"
                                     class="custom-select-trigger w-full text-left bg-stone-50 border border-stone-200 focus:border-red-600 focus:bg-white focus:outline-none text-sm font-light text-brand-luxeTextDark tracking-wide p-3.5 shadow-sm cursor-pointer flex justify-between items-center transition-all duration-300">
@@ -517,13 +517,13 @@
                                                                 <div
                                     class="custom-select-options absolute left-0 right-0 mt-1.5 bg-white border border-brand-luxeGold/20 shadow-2xl opacity-0 pointer-events-none transition-all duration-300 z-30 flex flex-col py-1.5 rounded-none max-h-60 overflow-y-auto" data-lenis-prevent>
                                     <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300"
-                                        data-value="Solo Rider">Solo Rider</div>
+                                        data-value="Solo (1 person)">Solo (1 person)</div>
                                     <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300"
-                                        data-value="2-4 Riders">2-4 Riders</div>
+                                        data-value="Couple (2 people)">Couple (2 people)</div>
                                     <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300"
-                                        data-value="5-8 Riders">5-8 Riders</div>
+                                        data-value="Small group (3-6 people)">Small group (3-6 people)</div>
                                     <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300"
-                                        data-value="9+ Corporate/Club">9+ (Corporate/Club)</div>
+                                        data-value="Corporate (7+ people)">Corporate (7+ people)</div>
                                 </div>
                             </div>
                         </div>
@@ -1147,11 +1147,10 @@
             }
 
             const groupMap = {
-                'Solo': 'Solo Rider',
-                'Couple': '2-4 Riders',
-                'Small group (3–6)': '5-8 Riders',
-                'Larger group (7+)': '9+ Corporate/Club',
-                'Corporate / Club': '9+ Corporate/Club'
+                'Solo': 'Solo (1 person)',
+                'Couple': 'Couple (2 people)',
+                'Small group': 'Small group (3-6 people)',
+                'Corporate': 'Corporate (7+ people)'
             };
             const levelMap = { 'Easy': 'Leisure/Casual', 'Moderate': 'Intermediate', 'Challenging': 'Advanced/Strong' };
             if (cGroup && groupMap[cGroup]) setSelectValue('group-size', groupMap[cGroup]);

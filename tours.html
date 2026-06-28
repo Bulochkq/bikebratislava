@@ -697,63 +697,95 @@
             <div id="cat4-panel" class="cat-panel">
                 <div class="cat-panel-inner">
                     <div class="mt-14 bg-black/60 backdrop-blur-md border border-white/10 p-8 lg:p-12 shadow-2xl">
-                        <div class="grid lg:grid-cols-2 gap-10 lg:gap-16">
-                            <div class="space-y-7">
+                        <div class="grid lg:grid-cols-12 gap-10 lg:gap-12">
+                            <div class="lg:col-span-7 xl:col-span-8 space-y-7">
                                 <div>
                                     <span
                                         class="block text-[10px] uppercase tracking-[0.25em] text-brand-luxeGold font-semibold mb-3">Ride
                                         type</span>
-                                    <div class="flex flex-wrap gap-2.5">
-                                        <button class="chip" data-group="type" data-val="E-Bike &amp; Leisure"
-                                            onclick="selectChip('type',this)">E-Bike &amp; Leisure</button>
-                                        <button class="chip" data-group="type" data-val="Road &amp; Gravel"
-                                            onclick="selectChip('type',this)">Road &amp; Gravel</button>
-                                        <button class="chip" data-group="type" data-val="Trail &amp; MTB"
-                                            onclick="selectChip('type',this)">Trail &amp; MTB</button>
-                                        <button class="chip" data-group="type" data-val="Mixed"
-                                            onclick="selectChip('type',this)">Mixed</button>
+                                    <div class="grid grid-cols-2 xl:grid-cols-4 gap-2.5">
+                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full" data-group="type" data-val="E-Bike &amp; Leisure" onclick="selectChip('type',this)">
+                                            <span class="block">E-Bike &amp; Leisure</span>
+                                            <span class="block text-[9px] text-white/50 font-light normal-case tracking-wide">City &amp; comfort bikes</span>
+                                        </button>
+                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full" data-group="type" data-val="Road &amp; Gravel" onclick="selectChip('type',this)">
+                                            <span class="block">Road &amp; Gravel</span>
+                                            <span class="block text-[9px] text-white/50 font-light normal-case tracking-wide">Sport &amp; endurance</span>
+                                        </button>
+                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full" data-group="type" data-val="Trail &amp; MTB" onclick="selectChip('type',this)">
+                                            <span class="block">Trail &amp; MTB</span>
+                                            <span class="block text-[9px] text-white/50 font-light normal-case tracking-wide">Off-road adventures</span>
+                                        </button>
+                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full" data-group="type" data-val="Mixed" onclick="selectChip('type',this)">
+                                            <span class="block">Mixed</span>
+                                            <span class="block text-[9px] text-white/50 font-light normal-case tracking-wide">Various surfaces</span>
+                                        </button>
                                     </div>
                                 </div>
                                 <div>
                                     <span
                                         class="block text-[10px] uppercase tracking-[0.25em] text-brand-luxeGold font-semibold mb-3">Duration</span>
-                                    <div class="flex flex-wrap gap-2.5">
-                                        <button class="chip" data-group="duration" data-val="Half day"
-                                            onclick="selectChip('duration',this)">Half day</button>
-                                        <button class="chip" data-group="duration" data-val="Full day"
-                                            onclick="selectChip('duration',this)">Full day</button>
-                                        <button class="chip" data-group="duration" data-val="Multi-day"
-                                            onclick="selectChip('duration',this)">Multi-day</button>
+                                    <div class="grid grid-cols-2 xl:grid-cols-4 gap-2.5">
+                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full" data-group="duration" data-val="Half day" onclick="selectChip('duration',this)">
+                                            <span class="block">Half day</span>
+                                            <span class="block text-[9px] text-white/50 font-light normal-case tracking-wide">1-3 hours</span>
+                                        </button>
+                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full" data-group="duration" data-val="Full day" onclick="selectChip('duration',this)">
+                                            <span class="block">Full day</span>
+                                            <span class="block text-[9px] text-white/50 font-light normal-case tracking-wide">3-6 hours</span>
+                                        </button>
+                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full" data-group="duration" data-val="Extended" onclick="selectChip('duration',this)">
+                                            <span class="block">Extended</span>
+                                            <span class="block text-[9px] text-white/50 font-light normal-case tracking-wide">6-12 hours</span>
+                                        </button>
+                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full" data-group="duration" data-val="Multi-day" onclick="selectChip('duration',this)">
+                                            <span class="block">Multi-day</span>
+                                            <span class="block text-[9px] text-white/50 font-light normal-case tracking-wide">2+ days</span>
+                                        </button>
                                     </div>
                                 </div>
                                 <div>
                                     <span
                                         class="block text-[10px] uppercase tracking-[0.25em] text-brand-luxeGold font-semibold mb-3">Group</span>
-                                    <div class="flex flex-wrap gap-2.5">
-                                        <button class="chip" data-group="group" data-val="Solo"
-                                            onclick="selectChip('group',this)">Solo</button>
-                                        <button class="chip" data-group="group" data-val="Couple"
-                                            onclick="selectChip('group',this)">Couple</button>
-                                        <button class="chip" data-group="group" data-val="Small group"
-                                            onclick="selectChip('group',this)">Small group</button>
-                                        <button class="chip" data-group="group" data-val="Corporate"
-                                            onclick="selectChip('group',this)">Corporate</button>
+                                    <div class="grid grid-cols-2 xl:grid-cols-4 gap-2.5">
+                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full" data-group="group" data-val="Solo" onclick="selectChip('group',this)">
+                                            <span class="block">Solo</span>
+                                            <span class="block text-[9px] text-white/50 font-light normal-case tracking-wide">1 person</span>
+                                        </button>
+                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full" data-group="group" data-val="Couple" onclick="selectChip('group',this)">
+                                            <span class="block">Couple</span>
+                                            <span class="block text-[9px] text-white/50 font-light normal-case tracking-wide">2 people</span>
+                                        </button>
+                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full" data-group="group" data-val="Small group" onclick="selectChip('group',this)">
+                                            <span class="block">Small group</span>
+                                            <span class="block text-[9px] text-white/50 font-light normal-case tracking-wide">3-6 people</span>
+                                        </button>
+                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full" data-group="group" data-val="Corporate" onclick="selectChip('group',this)">
+                                            <span class="block">Corporate</span>
+                                            <span class="block text-[9px] text-white/50 font-light normal-case tracking-wide">7+ people</span>
+                                        </button>
                                     </div>
                                 </div>
                                 <div>
                                     <span
                                         class="block text-[10px] uppercase tracking-[0.25em] text-brand-luxeGold font-semibold mb-3">Level</span>
-                                    <div class="flex flex-wrap gap-2.5">
-                                        <button class="chip" data-group="level" data-val="Easy"
-                                            onclick="selectChip('level',this)">Easy</button>
-                                        <button class="chip" data-group="level" data-val="Moderate"
-                                            onclick="selectChip('level',this)">Moderate</button>
-                                        <button class="chip" data-group="level" data-val="Challenging"
-                                            onclick="selectChip('level',this)">Challenging</button>
+                                    <div class="grid grid-cols-2 xl:grid-cols-3 gap-2.5">
+                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full" data-group="level" data-val="Easy" onclick="selectChip('level',this)">
+                                            <span class="block">Easy</span>
+                                            <span class="block text-[9px] text-white/50 font-light normal-case tracking-wide">Casual pace, mostly flat</span>
+                                        </button>
+                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full" data-group="level" data-val="Moderate" onclick="selectChip('level',this)">
+                                            <span class="block">Moderate</span>
+                                            <span class="block text-[9px] text-white/50 font-light normal-case tracking-wide">Some hills, steady pace</span>
+                                        </button>
+                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full" data-group="level" data-val="Challenging" onclick="selectChip('level',this)">
+                                            <span class="block">Challenging</span>
+                                            <span class="block text-[9px] text-white/50 font-light normal-case tracking-wide">Steep climbs, faster</span>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
-                            <div class="flex flex-col justify-between gap-8">
+                            <div class="lg:col-span-5 xl:col-span-4 flex flex-col justify-between gap-8">
                                 <div>
                                     <span
                                         class="block text-[10px] uppercase tracking-[0.25em] text-brand-luxeGold font-semibold mb-3">Ideal

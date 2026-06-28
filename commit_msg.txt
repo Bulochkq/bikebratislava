@@ -1,27 +1,15 @@
-feat: fix dropdowns, add flags, and refine ui elements
+feat: enrich ride builder and sync contact form options
 
 🇬🇧 EN:
-- Fixed the ride-type dropdown to properly separate tours and restore the group-size dropdown.
-- Added `data-lenis-prevent` to all scrollable dropdowns and textareas so mouse wheel works without interference from smooth scroll.
-- Fixed the URL parameter matching bug where "Custom Experience" incorrectly selected "Custom MTB Adventure".
-- Increased the message textarea size from 4 to 7 rows.
-- Replaced native unicode emojis with high-quality SVG flags from flagcdn.com in the country and phone dropdowns to ensure compatibility on Windows.
-- Added two-letter country codes (e.g. UA) to the country dropdown options.
-- Fixed the missing right border on the phone dial code input by adjusting z-indexes and margins.
-- Colored the unselectable category headers in the ride-type dropdown red for better visual separation.
-- Redesigned the "Ideal for" section in the tours ride builder to a clean, minimalist 2-column text grid instead of button-like chips.
-- Refactored `sendmail.php` to include proper email headers and dynamic year.
-- Updated `tours.html` category toggling logic and sticky mobile bar behavior.
+- Enriched the Ride Builder in `tours.html` by adding descriptive subtitles to all filter buttons (Level, Group, Duration, Ride type) to explain their meaning clearly.
+- Added a new 'Extended (6-12 hours)' duration option to the Ride Builder.
+- Improved the layout of the Ride Builder on large screens by shifting from a 50/50 layout to a wider left column (7/12) and using CSS Grid for the button containers. This ensures all buttons fit on a single row without wrapping.
+- Synchronized the 'Group Size' options in `contact.html` with the updated Ride Builder options.
+- Updated the Javascript mapping logic in the contact form so that selections made in the Ride Builder properly pre-fill the form upon redirection.
 
 🇺🇦 UA:
-- Виправлено випадаючий список вибору туру: відновлено поле розміру групи та правильно розподілено категорії турів.
-- Додано атрибут `data-lenis-prevent` до всіх елементів зі скролом, щоб коліщатко мишки працювало без конфліктів із плавним скролом сторінки (Lenis).
-- Виправлено баг з розпізнаванням туру з URL: тепер "Custom Experience" не плутається з "Custom MTB Adventure".
-- Збільшено розмір текстового поля "Message" майже вдвічі (до 7 рядків).
-- Системні емоджі-прапори замінено на якісні картинки з бази flagcdn, щоб прапорці коректно відображалися навіть на ОС Windows.
-- До випадаючого списку країн додано дволітерні коди країн (наприклад, UA).
-- Виправлено візуальний баг із відсутньою правою червоною рамкою у полі вибору телефонного коду.
-- Заголовки неактивних категорій у списку турів змінено на фірмовий червоний колір для кращого візуального розділення.
-- Повністю перероблено дизайн блоку "Ideal for" у конструкторі турів: замість кнопок тепер використовується мінімалістична текстова сітка у дві колонки.
-- Оновлено скрипт `sendmail.php` (додано правильні заголовки та динамічний рік).
-- Покращено логіку розгортання категорій турів та поведінку фіксованої мобільної панелі у `tours.html`.
+- Покращено блок конструктора кастомних турів (Ride Builder) у `tours.html`: до всіх кнопок фільтрів додано короткі пояснювальні підзаголовки (наприклад, рівень складності, кількість людей у групі, тривалість у годинах).
+- Додано нову опцію тривалості туру 'Extended (6-12 hours)'.
+- Оптимізовано верстку конструктора для широких екранів: лівій колонці виділено більше місця, а контейнери кнопок переведено на CSS Grid. Завдяки цьому кнопки завжди вишиковуються в один ряд і не переносяться на новий рядок.
+- Синхронізовано значення поля 'Group Size' у формі контактів (`contact.html`) з новими значеннями з конструктора.
+- Оновлено JavaScript-мапінг у `contact.html`, щоб вибір користувача в конструкторі автоматично та коректно переносився до контактної форми при переході на неї.
