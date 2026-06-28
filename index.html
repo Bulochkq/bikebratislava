@@ -25,7 +25,7 @@
                     <!-- Google Fonts: Outfit & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800;900&family=Outfit:wght@200;300;400;500;600;700;800;900&family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800;900&family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -39,8 +39,8 @@
                         brand: {
                             luxeDark: '#0A0A0A',     /* Matte carbon black background */
                             luxeLight: '#F8F9FA',    /* Clean slate light background */
-                            luxeGold: '#E31C25',     /* Active athletic red accent */
-                            luxeGoldDark: '#B91C1C', /* Deeper active red */
+                            luxeGold: '#D71920',     /* Active athletic red accent */
+                            luxeGoldDark: '#B0141A', /* Deeper active red */
                             luxeTextDark: '#111111', /* Dark charcoal text */
                             luxeTextLight: '#F8F9FA' /* Crisp light text */
                         }
@@ -172,11 +172,43 @@
             background-size: cover;
             background-position: center;
         }
-        .parallax-bg.reviews-bg {
-            background-color: #fdfbfb;
-            background-image: linear-gradient(rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.55)), url('pictures/Minimalist_background_for_a_reviews_202606222355.jpeg');
+        .parallax-bg.light-minimal {
+            background-color: #ffffff;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.94)), url('pictures/High-quality_minimalist_background,_full-screen_coverage._202606222338.jpeg');
             background-size: cover;
             background-position: center;
+            filter: blur(7px);
+        }
+        /* ===== Section background styles ===== */
+        /* Meet Guides -> animated aurora (option 06) */
+        .bg-aurora {
+            background-color:#fff7f6;
+            background-image:
+                radial-gradient(at 27% 37%, rgba(215,25,32,.13) 0, transparent 45%),
+                radial-gradient(at 75% 25%, rgba(255,160,90,.18) 0, transparent 45%),
+                radial-gradient(at 50% 80%, rgba(215,25,32,.10) 0, transparent 45%),
+                radial-gradient(at 85% 70%, rgba(255,210,170,.20) 0, transparent 45%);
+            background-size:180% 180%;
+            animation:auroraMove 16s ease-in-out infinite alternate;
+        }
+        @keyframes auroraMove{
+            0%{background-position:0% 0%,100% 0%,0% 100%,100% 100%;}
+            100%{background-position:50% 30%,55% 55%,45% 60%,50% 40%;}
+        }
+        @media (prefers-reduced-motion: reduce){ .bg-aurora{ animation:none; } }
+        /* Trusted By -> diagonal stripes (option 05) */
+        .bg-diagonal {
+            background-color:#fcfbfa;
+            background-image:repeating-linear-gradient(45deg, rgba(17,17,17,.028) 0 2px, transparent 2px 26px);
+        }
+        /* Final CTA -> graphite gradient (gray, no red) */
+        .parallax-bg.dark-gray {
+            background-color:#161616;
+            background-image:
+                radial-gradient(at 20% 22%, rgba(255,255,255,.08) 0, transparent 46%),
+                radial-gradient(at 85% 72%, rgba(255,255,255,.05) 0, transparent 50%),
+                radial-gradient(at 55% 8%, rgba(150,150,160,.10) 0, transparent 55%),
+                linear-gradient(160deg, #1f1f1f 0%, #0d0d0d 100%);
         }
     </style>
 </head>
@@ -185,16 +217,13 @@
     <!-- HEADER & NAVIGATION (With smart hide/reveal scroll behaviors) -->
     <header id="main-header" class="fixed top-0 left-0 w-full z-50 py-4 border-b border-white/5">
         <div class="max-w-screen-2xl mx-auto px-4 lg:px-6 xl:px-6 2xl:px-10 flex items-center gap-4 xl:gap-4 2xl:gap-8">
-            <a href="index.html" class="flex items-center gap-3 group flex-shrink-0 mr-2" id="header-logo">
-                <img src="pictures/Gemini_Generated_Image_e54b50e54b50e54b (1).png" alt="Bike Bratislava Logo" class="h-10 w-10 object-contain">
-                <div class="flex flex-col">
-                    <span class="font-serif text-lg lg:text-lg xl:text-xl 2xl:text-2xl tracking-widest text-brand-luxeTextLight transition-colors duration-300 group-hover:text-brand-luxeGold" id="logo-text">
-                        BIKE BRATISLAVA
-                    </span>
-                    <span class="text-[7px] tracking-[0.3em] text-stone-400 font-light uppercase transition-colors duration-300" id="logo-subtext">
-                        Central Europe
-                    </span>
-                </div>
+            <a href="index.html" class="grid grid-cols-[auto_auto] items-center gap-x-2.5 group flex-shrink-0 mr-2 leading-none" id="header-logo">
+                <img src="pictures/bike_icon_red.png" alt="Bike Bratislava castle logo" class="self-center h-8 lg:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
+                <span class="font-serif font-bold uppercase text-white tracking-[0.14em] text-lg lg:text-2xl whitespace-nowrap">Bike Bratislava</span>
+                <span class="col-start-2 flex items-center justify-center gap-1.5 -mt-0.5">
+                    <span class="text-[11px] lg:text-sm text-brand-luxeGold font-semibold lowercase">by</span>
+                    <img src="pictures/logo_Velocity_white.png" alt="Velocity" class="h-4 lg:h-5 w-auto object-contain">
+                </span>
             </a>
 
             <!-- Desktop Navigation — compact at 1280px, full at 1440px+ -->
@@ -208,13 +237,9 @@
                 <a href="contact.html" class="text-[10px] 2xl:text-xs font-medium tracking-[0.1em] 2xl:tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 whitespace-nowrap py-1 border-b border-transparent hover:border-brand-luxeGold/40">Contact</a>
             </nav>
 
-            <!-- CTA Button + Velocity co-branding -->
+            <!-- CTA Button -->
             <div class="hidden xl:flex items-center gap-4 flex-shrink-0">
-                <a href="https://www.velocity.sk/" target="_blank" class="flex items-center gap-2 opacity-70 hover:opacity-100 transition-opacity group" title="Velocity website">
-                    <div class="h-5 w-[1px] bg-white/20"></div>
-                    <img src="pictures/logo_Velocity_white.png" alt="Velocity" class="h-4 object-contain">
-                </a>
-                <a href="contact.html" id="nav-cta" class="inline-flex items-center justify-center px-4 xl:px-6 2xl:px-8 py-2.5 2xl:py-3 text-[10px] 2xl:text-xs font-medium tracking-[0.15em] 2xl:tracking-[0.3em] uppercase border border-white/20 text-white hover:bg-white hover:text-brand-luxeDark transition-all duration-500 rounded-none">
+                <a href="contact.html" id="nav-cta" class="inline-flex items-center justify-center px-4 xl:px-6 2xl:px-8 py-2.5 2xl:py-3 text-[10px] 2xl:text-xs font-medium tracking-[0.15em] 2xl:tracking-[0.3em] uppercase bg-brand-luxeGold text-white border border-brand-luxeGold hover:bg-brand-luxeGoldDark hover:border-brand-luxeGoldDark transition-all duration-500 rounded-none">
                     Plan Your Ride
                 </a>
             </div>
@@ -320,7 +345,7 @@
     </section>
 
     <!-- SECTION 2: WHY BRATISLAVA (Concrete textured editorial) -->
-    <section class="py-32 lg:py-40 parallax-section border-b border-stone-200/40" id="section-why">
+    <section class="py-32 lg:py-40 parallax-section border-b border-stone-200" id="section-why">
         <div class="parallax-bg concrete" id="parallax-concrete"></div>
         <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
@@ -410,14 +435,14 @@
     </section>
 
     <!-- SECTION 3: FEATURED EXPERIENCES (Luxury cards with dark-minimal background) -->
-    <section class="py-32 bg-brand-luxeDark text-white parallax-section border-b border-stone-900" id="section-adventures">
-        <!-- Minimalist dark background texture — inner parallax wrapper prevents white edge bleed -->
-        <div class="parallax-bg dark-minimal" id="parallax-adventures"></div>
+    <section class="py-32 bg-white text-brand-luxeDark parallax-section border-b border-stone-200" id="section-adventures">
+        <!-- Subtle blurred light background texture — inner parallax wrapper prevents edge bleed -->
+        <div class="parallax-bg light-minimal" id="parallax-adventures"></div>
 
         <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
             <div class="text-center max-w-2xl mx-auto mb-24 scroll-reveal">
                 <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-4 block">Curated Rides</span>
-                <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-white">Choose Your Adventure</h2>
+                <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-brand-luxeDark">Choose Your Adventure</h2>
                 <div class="h-[1px] w-12 bg-brand-luxeGold mx-auto mt-6"></div>
             </div>
 
@@ -433,14 +458,14 @@
                             </div>
                         </div>
                         <div class="py-6 px-0">
-                            <h3 class="font-serif text-2xl font-light text-white mb-4">E-Bike & Leisure Tours</h3>
-                            <p class="text-stone-300 font-light text-xs leading-relaxed font-sans tracking-wide">
+                            <h3 class="font-serif text-2xl font-light text-brand-luxeDark mb-4">E-Bike & Leisure Tours</h3>
+                            <p class="text-stone-600 font-light text-xs leading-relaxed font-sans tracking-wide">
                                 Designed for visitors who want to explore Bratislava and its surroundings in a relaxed and enjoyable way.
                             </p>
                         </div>
                     </div>
                     <div class="pb-6 pt-0 px-0">
-                        <a href="tours.html" class="inline-flex items-center space-x-2 text-[10px] font-semibold tracking-[0.2em] uppercase text-stone-200 hover:text-brand-luxeGold group-hover:text-brand-luxeGold transition-colors duration-300">
+                        <a href="tours.html" class="inline-flex items-center space-x-2 text-[10px] font-semibold tracking-[0.2em] uppercase text-stone-700 hover:text-brand-luxeGold group-hover:text-brand-luxeGold transition-colors duration-300">
                             <span>Learn More</span>
                             <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"></i>
                         </a>
@@ -457,14 +482,14 @@
                             </div>
                         </div>
                         <div class="py-6 px-0">
-                            <h3 class="font-serif text-2xl font-light text-white mb-4">Road & Gravel Cycling Experiences</h3>
-                            <p class="text-stone-300 font-light text-xs leading-relaxed font-sans tracking-wide">
+                            <h3 class="font-serif text-2xl font-light text-brand-luxeDark mb-4">Road & Gravel Cycling Experiences</h3>
+                            <p class="text-stone-600 font-light text-xs leading-relaxed font-sans tracking-wide">
                                 Created for passionate cyclists looking for longer distances, more demanding routes and unforgettable scenery.
                             </p>
                         </div>
                     </div>
                     <div class="pb-6 pt-0 px-0">
-                        <a href="tours.html" class="inline-flex items-center space-x-2 text-[10px] font-semibold tracking-[0.2em] uppercase text-stone-200 hover:text-brand-luxeGold group-hover:text-brand-luxeGold transition-colors duration-300">
+                        <a href="tours.html" class="inline-flex items-center space-x-2 text-[10px] font-semibold tracking-[0.2em] uppercase text-stone-700 hover:text-brand-luxeGold group-hover:text-brand-luxeGold transition-colors duration-300">
                             <span>Learn More</span>
                             <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"></i>
                         </a>
@@ -481,14 +506,14 @@
                             </div>
                         </div>
                         <div class="py-6 px-0">
-                            <h3 class="font-serif text-2xl font-light text-white mb-4">Trail & MTB Adventures</h3>
-                            <p class="text-stone-300 font-light text-xs leading-relaxed font-sans tracking-wide">
+                            <h3 class="font-serif text-2xl font-light text-brand-luxeDark mb-4">Trail & MTB Adventures</h3>
+                            <p class="text-stone-600 font-light text-xs leading-relaxed font-sans tracking-wide">
                                 For riders looking for more technical terrain, forest trails and off-road adventures.
                             </p>
                         </div>
                     </div>
                     <div class="pb-6 pt-0 px-0">
-                        <a href="tours.html" class="inline-flex items-center space-x-2 text-[10px] font-semibold tracking-[0.2em] uppercase text-stone-200 hover:text-brand-luxeGold group-hover:text-brand-luxeGold transition-colors duration-300">
+                        <a href="tours.html" class="inline-flex items-center space-x-2 text-[10px] font-semibold tracking-[0.2em] uppercase text-stone-700 hover:text-brand-luxeGold group-hover:text-brand-luxeGold transition-colors duration-300">
                             <span>Learn More</span>
                             <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"></i>
                         </a>
@@ -505,14 +530,14 @@
                             </div>
                         </div>
                         <div class="py-6 px-0">
-                            <h3 class="font-serif text-2xl font-light text-white mb-4">Custom Experiences</h3>
-                            <p class="text-stone-300 font-light text-xs leading-relaxed font-sans tracking-wide">
+                            <h3 class="font-serif text-2xl font-light text-brand-luxeDark mb-4">Custom Experiences</h3>
+                            <p class="text-stone-600 font-light text-xs leading-relaxed font-sans tracking-wide">
                                 Fully customised cycling experiences for individuals, groups, cycling clubs and corporate teams.
                             </p>
                         </div>
                     </div>
                     <div class="pb-6 pt-0 px-0">
-                        <a href="contact.html" class="inline-flex items-center space-x-2 text-[10px] font-semibold tracking-[0.2em] uppercase text-stone-200 hover:text-brand-luxeGold group-hover:text-brand-luxeGold transition-colors duration-300">
+                        <a href="contact.html" class="inline-flex items-center space-x-2 text-[10px] font-semibold tracking-[0.2em] uppercase text-stone-700 hover:text-brand-luxeGold group-hover:text-brand-luxeGold transition-colors duration-300">
                             <span>Enquire Now</span>
                             <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"></i>
                         </a>
@@ -524,7 +549,7 @@
     </section>
 
     <!-- SECTION 4: MEET YOUR GUIDES (Asymmetric layout) -->
-    <section class="py-32 lg:py-40 bg-gradient-to-bl from-blue-50 via-indigo-50 to-purple-50">
+    <section class="py-32 lg:py-40 bg-aurora border-b border-stone-200" id="section-guides">
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
                 
@@ -569,9 +594,7 @@
     </section>
 
     <!-- SECTION 5: CLIENTS & PARTNERS (Luxe Light theme with custom reviews background) -->
-    <section class="py-32 lg:py-40 bg-stone-100 text-brand-luxeDark parallax-section" id="section-clients">
-        <!-- Custom reviews background texture — inner parallax wrapper prevents white edge bleed -->
-        <div class="parallax-bg reviews-bg" id="parallax-reviews-bg"></div>
+    <section class="py-32 lg:py-40 bg-diagonal text-brand-luxeDark" id="section-clients">
 
         <div class="max-w-6xl mx-auto px-6 relative z-10 scroll-reveal">
             <div class="text-center mb-20">
@@ -602,7 +625,7 @@
     <!-- SECTION 6: FINAL CTA (Luxe Dark theme with asphalt background texture) -->
     <section class="py-32 bg-brand-luxeDark text-white parallax-section text-center border-b border-stone-900" id="section-cta">
         <!-- Asphalt dark background texture — inner parallax wrapper prevents white edge bleed -->
-        <div class="parallax-bg asphalt" id="parallax-cta-asphalt"></div>
+        <div class="parallax-bg dark-gray" id="parallax-cta-asphalt"></div>
 
         <div class="max-w-4xl mx-auto px-6 relative z-10 scroll-reveal">
             <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-4 block">Start Planning</span>
