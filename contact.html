@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth overflow-x-hidden">
 <head>
     <meta charset="UTF-8">
@@ -185,94 +185,8 @@
 </head>
 <body class="bg-gradient-to-br from-stone-50 via-rose-50/40 to-stone-100 text-brand-luxeTextDark font-sans antialiased selection:bg-brand-luxeGold selection:text-brand-luxeDark overflow-x-hidden">
 
-    <!-- HEADER & NAVIGATION (With smart hide/reveal scroll behaviors) -->
-    <header id="main-header" class="fixed top-0 left-0 w-full z-50 py-4 border-b border-white/5">
-        <div class="max-w-screen-2xl mx-auto px-4 lg:px-6 xl:px-6 2xl:px-10 flex items-center gap-4 xl:gap-4 2xl:gap-8">
-            <a href="index.html" class="flex items-center gap-3 group flex-shrink-0 mr-2" id="header-logo">
-                <img src="pictures/Gemini_Generated_Image_e54b50e54b50e54b (1).png" alt="Bike Bratislava Logo" class="h-10 w-10 object-contain">
-                <div class="flex flex-col">
-                    <span class="font-serif text-lg lg:text-lg xl:text-xl 2xl:text-2xl tracking-widest text-brand-luxeTextLight transition-colors duration-300 group-hover:text-brand-luxeGold" id="logo-text">
-                        BIKE BRATISLAVA
-                    </span>
-                    <span class="text-[7px] tracking-[0.3em] text-stone-400 font-light uppercase transition-colors duration-300" id="logo-subtext">
-                        Central Europe
-                    </span>
-                </div>
-            </a>
-
-            <!-- Desktop Navigation — compact at 1280px, full at 1440px+ -->
-            <nav class="hidden xl:flex items-center gap-1.5 xl:gap-2 2xl:gap-6 flex-1 justify-center">
-                <a href="index.html" class="text-[10px] 2xl:text-xs font-medium tracking-[0.1em] 2xl:tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 whitespace-nowrap py-1 border-b border-transparent hover:border-brand-luxeGold/40">Home</a>
-                <a href="about.html" class="text-[10px] 2xl:text-xs font-medium tracking-[0.1em] 2xl:tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 whitespace-nowrap py-1 border-b border-transparent hover:border-brand-luxeGold/40">About Us</a>
-                <a href="discover.html" class="text-[10px] 2xl:text-xs font-medium tracking-[0.1em] 2xl:tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 whitespace-nowrap py-1 border-b border-transparent hover:border-brand-luxeGold/40">Discover Bratislava</a>
-                <a href="tours.html" class="text-[10px] 2xl:text-xs font-medium tracking-[0.1em] 2xl:tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 whitespace-nowrap py-1 border-b border-transparent hover:border-brand-luxeGold/40">Tours & Rides</a>
-                <a href="guides.html" class="text-[10px] 2xl:text-xs font-medium tracking-[0.1em] 2xl:tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 whitespace-nowrap py-1 border-b border-transparent hover:border-brand-luxeGold/40">Our Guides</a>
-                <a href="journal.html" class="text-[10px] 2xl:text-xs font-medium tracking-[0.1em] 2xl:tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 whitespace-nowrap py-1 border-b border-transparent hover:border-brand-luxeGold/40">Journal</a>
-                <a href="contact.html" class="text-[10px] 2xl:text-xs font-medium tracking-[0.1em] 2xl:tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 whitespace-nowrap py-1 border-b border-brand-luxeGold">Contact</a>
-            </nav>
-
-            <!-- CTA Button + Velocity co-branding -->
-            <div class="hidden xl:flex items-center gap-4 flex-shrink-0">
-                <a href="https://www.velocity.sk/" target="_blank" class="flex items-center gap-2 opacity-70 hover:opacity-100 transition-opacity group" title="Velocity website">
-                    <div class="h-5 w-[1px] bg-white/20"></div>
-                    <img src="pictures/logo_Velocity_white.png" alt="Velocity" class="h-4 object-contain">
-                </a>
-                <a href="contact.html" id="nav-cta" class="inline-flex items-center justify-center px-4 xl:px-6 2xl:px-8 py-2.5 2xl:py-3 text-[10px] 2xl:text-xs font-medium tracking-[0.15em] 2xl:tracking-[0.3em] uppercase border border-white/20 text-white hover:bg-white hover:text-brand-luxeDark transition-all duration-500 rounded-none">
-                    Plan Your Ride
-                </a>
-            </div>
-            <button id="mobile-menu-toggle" class="xl:hidden text-white hover:text-brand-luxeGold transition-colors focus:outline-none ml-auto" aria-label="Toggle Menu">
-                <i data-lucide="menu" class="w-6 h-6"></i>
-            </button>
-        </div>
-    </header>
-
-    <!-- MOBILE MENU OVERLAY (full-screen, centered, premium) -->
-    <div id="mobile-menu" class="fixed inset-0 z-[60] flex flex-col" style="background: #0F0E0E;">
-        <div class="flex items-center justify-between px-6 py-5 border-b border-white/5 flex-shrink-0">
-            <a href="index.html" class="flex flex-col">
-                <span class="font-serif text-lg tracking-widest text-white">BIKE BRATISLAVA</span>
-                <span class="text-[7px] tracking-[0.3em] text-stone-500 font-light uppercase">Central Europe</span>
-            </a>
-            <button id="mobile-menu-close" class="text-white hover:text-brand-luxeGold transition-colors focus:outline-none" aria-label="Close Menu">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-            </button>
-        </div>
-        <nav class="flex-1 flex flex-col items-center justify-center gap-1 py-8">
-            <a href="index.html" class="menu-nav-item group flex items-center gap-5 py-3 px-4 w-full max-w-xs">
-                <span class="text-[10px] tracking-[0.2em] text-brand-luxeGold font-medium w-6 text-right flex-shrink-0">01</span>
-                <span class="font-serif text-3xl text-stone-400 group-hover:text-brand-luxeGold transition-colors duration-200">Home</span>
-            </a>
-            <a href="about.html" class="menu-nav-item group flex items-center gap-5 py-3 px-4 w-full max-w-xs">
-                <span class="text-[10px] tracking-[0.2em] text-brand-luxeGold font-medium w-6 text-right flex-shrink-0">02</span>
-                <span class="font-serif text-3xl text-stone-400 group-hover:text-brand-luxeGold transition-colors duration-200">About Us</span>
-            </a>
-            <a href="discover.html" class="menu-nav-item group flex items-center gap-5 py-3 px-4 w-full max-w-xs">
-                <span class="text-[10px] tracking-[0.2em] text-brand-luxeGold font-medium w-6 text-right flex-shrink-0">03</span>
-                <span class="font-serif text-3xl text-stone-400 group-hover:text-brand-luxeGold transition-colors duration-200">Discover</span>
-            </a>
-            <a href="tours.html" class="menu-nav-item group flex items-center gap-5 py-3 px-4 w-full max-w-xs">
-                <span class="text-[10px] tracking-[0.2em] text-brand-luxeGold font-medium w-6 text-right flex-shrink-0">04</span>
-                <span class="font-serif text-3xl text-stone-400 group-hover:text-brand-luxeGold transition-colors duration-200">Tours &amp; Rides</span>
-            </a>
-            <a href="guides.html" class="menu-nav-item group flex items-center gap-5 py-3 px-4 w-full max-w-xs">
-                <span class="text-[10px] tracking-[0.2em] text-brand-luxeGold font-medium w-6 text-right flex-shrink-0">05</span>
-                <span class="font-serif text-3xl text-stone-400 group-hover:text-brand-luxeGold transition-colors duration-200">Our Guides</span>
-            </a>
-            <a href="journal.html" class="menu-nav-item group flex items-center gap-5 py-3 px-4 w-full max-w-xs">
-                <span class="text-[10px] tracking-[0.2em] text-brand-luxeGold font-medium w-6 text-right flex-shrink-0">06</span>
-                <span class="font-serif text-3xl text-stone-400 group-hover:text-brand-luxeGold transition-colors duration-200">Journal</span>
-            </a>
-            <a href="contact.html" class="menu-nav-item group flex items-center gap-5 py-3 px-4 w-full max-w-xs">
-                <span class="text-[10px] tracking-[0.2em] text-brand-luxeGold font-medium w-6 text-right flex-shrink-0">07</span>
-                <span class="font-serif text-3xl text-stone-400 group-hover:text-brand-luxeGold transition-colors duration-200">Contact</span>
-            </a>
-        </nav>
-        <div class="menu-footer px-6 py-6 border-t border-white/5 flex-shrink-0 flex items-center justify-between">
-            <span class="text-[10px] tracking-[0.2em] uppercase text-stone-500 font-light">Bratislava, Slovakia</span>
-            <a href="contact.html" class="inline-flex items-center gap-2 px-6 py-3 border border-brand-luxeGold/50 text-brand-luxeGold hover:bg-brand-luxeGold hover:text-white transition-all duration-300 text-[10px] tracking-[0.2em] uppercase font-medium">Plan Your Ride</a>
-        </div>
-    </div>
+    <!-- HEADER & NAVIGATION -->
+    <div id="header-placeholder"></div>
 
     <!-- HERO SECTION -->
     <section class="relative min-h-[75vh] flex items-center justify-center bg-brand-luxeDark text-white overflow-hidden">
@@ -318,58 +232,70 @@
                 </div>
                 
                 <div class="flex flex-col space-y-4 relative z-10">
-                    <a href="mailto:silvia@velocity.sk" class="flex items-center space-x-4 text-stone-600 hover:text-brand-luxeGold transition-colors group">
-                        <div class="w-10 h-10 rounded-none bg-gradient-to-br from-stone-50 via-rose-50/40 to-stone-100 flex items-center justify-center border border-stone-200 group-hover:border-brand-luxeGold/30 transition-colors">
-                            <i data-lucide="mail" class="w-4 h-4"></i>
-                        </div>
-                        <span class="text-sm font-light tracking-wide font-sans">silvia@velocity.sk</span>
-                    </a>
-                    <a href="tel:+421903214013" class="flex items-center space-x-4 text-stone-600 hover:text-brand-luxeGold transition-colors group">
-                        <div class="w-10 h-10 rounded-none bg-gradient-to-br from-stone-50 via-rose-50/40 to-stone-100 flex items-center justify-center border border-stone-200 group-hover:border-brand-luxeGold/30 transition-colors">
-                            <i data-lucide="phone" class="w-4 h-4"></i>
-                        </div>
-                        <span class="text-sm font-light tracking-wide font-sans">+421 903 214 013</span>
-                    </a>
+                    <div class="flex items-center group/item">
+                        <a href="mailto:silvia@velocity.sk" class="flex items-center space-x-4 text-stone-600 hover:text-brand-luxeGold transition-colors group">
+                            <div class="w-10 h-10 rounded-none bg-gradient-to-br from-stone-50 via-rose-50/40 to-stone-100 flex items-center justify-center border border-stone-200 group-hover:border-brand-luxeGold/30 transition-colors">
+                                <i data-lucide="mail" class="w-4 h-4"></i>
+                            </div>
+                            <span class="text-sm font-light tracking-wide font-sans">silvia@velocity.sk</span>
+                        </a>
+                        <button onclick="copyToClipboard('silvia@velocity.sk', this)" class="opacity-0 group-hover/item:opacity-100 transition-opacity ml-4 text-stone-400 hover:text-brand-luxeGold focus:outline-none p-2 border border-stone-200 rounded-none bg-stone-50 hover:bg-white" title="Copy Email">
+                            <span class="copy-icon flex items-center justify-center"><i data-lucide="copy" class="w-3.5 h-3.5"></i></span>
+                            <span class="check-icon hidden flex items-center justify-center text-green-600"><i data-lucide="check" class="w-3.5 h-3.5"></i></span>
+                        </button>
+                    </div>
+                    <div class="flex items-center group/item">
+                        <a href="tel:+421903214013" class="flex items-center space-x-4 text-stone-600 hover:text-brand-luxeGold transition-colors group">
+                            <div class="w-10 h-10 rounded-none bg-gradient-to-br from-stone-50 via-rose-50/40 to-stone-100 flex items-center justify-center border border-stone-200 group-hover:border-brand-luxeGold/30 transition-colors">
+                                <i data-lucide="phone" class="w-4 h-4"></i>
+                            </div>
+                            <span class="text-sm font-light tracking-wide font-sans">+421 903 214 013</span>
+                        </a>
+                        <button onclick="copyToClipboard('+421903214013', this)" class="opacity-0 group-hover/item:opacity-100 transition-opacity ml-4 text-stone-400 hover:text-brand-luxeGold focus:outline-none p-2 border border-stone-200 rounded-none bg-stone-50 hover:bg-white" title="Copy Phone Number">
+                            <span class="copy-icon flex items-center justify-center"><i data-lucide="copy" class="w-3.5 h-3.5"></i></span>
+                            <span class="check-icon hidden flex items-center justify-center text-green-600"><i data-lucide="check" class="w-3.5 h-3.5"></i></span>
+                        </button>
+                    </div>
                 </div>
             </div>
 
             <!-- Form Container -->
-            <div class="bg-transparent p-0 relative overflow-hidden rounded-none" id="form-container">
+            <div class="bg-white p-8 md:p-12 relative overflow-hidden rounded-none border border-stone-200 shadow-2xl" id="form-container">
                 <form id="contact-form" class="space-y-10">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                         <!-- Name -->
-                        <div class="flex flex-col border-b border-stone-300 focus-within:border-brand-luxeGold transition-colors pb-2">
-                            <label for="name" class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-400 mb-1">Name</label>
+                        <div class="flex flex-col">
+                            <label for="name" class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-500 mb-2 pl-1">Name</label>
                             <input type="text" id="name" name="name" required placeholder="John Doe" 
-                                   class="bg-transparent focus:outline-none text-sm font-light text-brand-luxeTextDark tracking-wide">
+                                   class="bg-stone-50 border border-stone-200 focus:border-red-600 focus:bg-white focus:outline-none text-sm font-light text-brand-luxeTextDark tracking-wide p-3.5 shadow-sm transition-all duration-300">
                         </div>
                         <!-- Country -->
-                        <div class="flex flex-col border-b border-stone-300 focus-within:border-brand-luxeGold transition-colors pb-2">
-                            <label for="country" class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-400 mb-1">Country</label>
+                        <div class="flex flex-col">
+                            <label for="country" class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-500 mb-2 pl-1">Country</label>
                             <input type="text" id="country" name="country" required placeholder="United Kingdom" 
-                                   class="bg-transparent focus:outline-none text-sm font-light text-brand-luxeTextDark tracking-wide">
+                                   class="bg-stone-50 border border-stone-200 focus:border-red-600 focus:bg-white focus:outline-none text-sm font-light text-brand-luxeTextDark tracking-wide p-3.5 shadow-sm transition-all duration-300">
                         </div>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                         <!-- Email -->
-                        <div class="flex flex-col border-b border-stone-300 focus-within:border-brand-luxeGold transition-colors pb-2">
-                            <label for="email" class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-400 mb-1">Email Address</label>
+                        <div class="flex flex-col">
+                            <label for="email" class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-500 mb-2 pl-1">Email Address</label>
                             <input type="email" id="email" name="email" required placeholder="john@example.com" 
-                                   class="bg-transparent focus:outline-none text-sm font-light text-brand-luxeTextDark tracking-wide">
+                                   class="bg-stone-50 border border-stone-200 focus:border-red-600 focus:bg-white focus:outline-none text-sm font-light text-brand-luxeTextDark tracking-wide p-3.5 shadow-sm transition-all duration-300">
                         </div>
                         <!-- Dates -->
-                        <div class="flex flex-col border-b border-stone-300 focus-within:border-brand-luxeGold transition-colors pb-2">
-                            <label for="dates" class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-400 mb-1">Travel Dates</label>
+                        <div class="flex flex-col">
+                            <label for="dates" class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-500 mb-2 pl-1">Travel Dates</label>
                             <input type="text" id="dates" name="dates" required placeholder="e.g., Late September 2026" 
-                                   class="bg-transparent focus:outline-none text-sm font-light text-brand-luxeTextDark tracking-wide">
+                                   class="bg-stone-50 border border-stone-200 focus:border-red-600 focus:bg-white focus:outline-none text-sm font-light text-brand-luxeTextDark tracking-wide p-3.5 shadow-sm transition-all duration-300">
                         </div>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
                         <!-- Group Size -->
-                        <div class="flex flex-col border-b border-stone-300 focus-within:border-brand-luxeGold transition-colors pb-2 relative custom-select-container">
-                            <label class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-400 mb-1">Group Size</label>
+                        <div class="flex flex-col relative custom-select-container">
+                            <label class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-500 mb-2 pl-1">Group Size</label>
                             <div class="relative w-full">
                                 <select id="group-size" name="group-size" style="display: none !important;">
                                     <option value="" disabled selected>Select size</option>
@@ -378,7 +304,7 @@
                                     <option value="5-8 Riders">5-8 Riders</option>
                                     <option value="9+ Corporate/Club">9+ (Corporate/Club)</option>
                                 </select>
-                                <button type="button" class="custom-select-trigger w-full text-left bg-transparent focus:outline-none text-xs font-light text-brand-luxeTextDark tracking-wide py-2.5 cursor-pointer flex justify-between items-center">
+                                <button type="button" class="custom-select-trigger w-full text-left bg-stone-50 border border-stone-200 focus:border-red-600 focus:bg-white focus:outline-none text-sm font-light text-brand-luxeTextDark tracking-wide p-3.5 shadow-sm cursor-pointer flex justify-between items-center transition-all duration-300">
                                     <span class="selected-text text-stone-400">Select size</span>
                                     <i data-lucide="chevron-down" class="w-4 h-4 text-brand-luxeGold transition-transform duration-300"></i>
                                 </button>
@@ -392,8 +318,8 @@
                         </div>
 
                         <!-- Experience Level -->
-                        <div class="flex flex-col border-b border-stone-300 focus-within:border-brand-luxeGold transition-colors pb-2 relative custom-select-container">
-                            <label class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-400 mb-1">Experience Level</label>
+                        <div class="flex flex-col relative custom-select-container">
+                            <label class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-500 mb-2 pl-1">Experience Level</label>
                             <div class="relative w-full">
                                 <select id="experience" name="experience" style="display: none !important;">
                                     <option value="" disabled selected>Select level</option>
@@ -401,7 +327,7 @@
                                     <option value="Intermediate">Intermediate Road/Gravel</option>
                                     <option value="Advanced/Strong">Advanced / Strong Cyclist</option>
                                 </select>
-                                <button type="button" class="custom-select-trigger w-full text-left bg-transparent focus:outline-none text-xs font-light text-brand-luxeTextDark tracking-wide py-2.5 cursor-pointer flex justify-between items-center">
+                                <button type="button" class="custom-select-trigger w-full text-left bg-stone-50 border border-stone-200 focus:border-red-600 focus:bg-white focus:outline-none text-sm font-light text-brand-luxeTextDark tracking-wide p-3.5 shadow-sm cursor-pointer flex justify-between items-center transition-all duration-300">
                                     <span class="selected-text text-stone-400">Select level</span>
                                     <i data-lucide="chevron-down" class="w-4 h-4 text-brand-luxeGold transition-transform duration-300"></i>
                                 </button>
@@ -414,8 +340,8 @@
                         </div>
 
                         <!-- Preferred Ride Type -->
-                        <div class="flex flex-col border-b border-stone-300 focus-within:border-brand-luxeGold transition-colors pb-2 relative custom-select-container">
-                            <label class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-400 mb-1">Preferred Ride Type</label>
+                        <div class="flex flex-col relative custom-select-container">
+                            <label class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-500 mb-2 pl-1">Preferred Ride Type</label>
                             <div class="relative w-full">
                                 <select id="ride-type" name="ride-type" style="display: none !important;">
                                     <option value="" disabled selected>Select type</option>
@@ -432,7 +358,7 @@
                                     <option value="Gravel Through The Vineyards">Gravel Through The Vineyards</option>
                                     <option value="Four Countries Challenge">Four Countries Challenge</option>
                                 </select>
-                                <button type="button" class="custom-select-trigger w-full text-left bg-transparent focus:outline-none text-xs font-light text-brand-luxeTextDark tracking-wide py-2.5 cursor-pointer flex justify-between items-center">
+                                <button type="button" class="custom-select-trigger w-full text-left bg-stone-50 border border-stone-200 focus:border-red-600 focus:bg-white focus:outline-none text-sm font-light text-brand-luxeTextDark tracking-wide p-3.5 shadow-sm cursor-pointer flex justify-between items-center transition-all duration-300">
                                     <span class="selected-text text-stone-400">Select type</span>
                                     <i data-lucide="chevron-down" class="w-4 h-4 text-brand-luxeGold transition-transform duration-300"></i>
                                 </button>
@@ -455,10 +381,10 @@
                     </div>
 
                     <!-- Message -->
-                    <div class="flex flex-col border-b border-stone-300 focus-within:border-brand-luxeGold transition-colors pb-2">
-                        <label for="message" class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-400 mb-2">Message</label>
+                    <div class="flex flex-col">
+                        <label for="message" class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-500 mb-2 pl-1">Message</label>
                         <textarea id="message" name="message" rows="4" placeholder="Tell us about your interests, rental needs, or special requests..."
-                                  class="bg-transparent focus:outline-none text-sm font-light text-brand-luxeTextDark tracking-wide resize-none"></textarea>
+                                  class="bg-stone-50 border border-stone-200 focus:border-red-600 focus:bg-white focus:outline-none text-sm font-light text-brand-luxeTextDark tracking-wide p-3.5 shadow-sm transition-all duration-300 resize-none"></textarea>
                     </div>
 
                     <!-- Submit Button -->
@@ -866,6 +792,24 @@
                 });
             }
         });
+
+        // Copy to clipboard function
+        function copyToClipboard(text, btn) {
+            navigator.clipboard.writeText(text).then(function() {
+                var copyIcon = btn.querySelector('.copy-icon');
+                var checkIcon = btn.querySelector('.check-icon');
+                if(copyIcon && checkIcon) {
+                    copyIcon.classList.add('hidden');
+                    checkIcon.classList.remove('hidden');
+                    setTimeout(function() {
+                        copyIcon.classList.remove('hidden');
+                        checkIcon.classList.add('hidden');
+                    }, 2000);
+                }
+            }).catch(function(err) {
+                console.error('Could not copy text: ', err);
+            });
+        }
     </script>
 </body>
 </html>

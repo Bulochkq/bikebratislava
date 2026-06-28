@@ -214,94 +214,8 @@
 </head>
 <body class="bg-gradient-to-br from-stone-50 via-rose-50/40 to-stone-100 text-brand-luxeTextDark font-sans antialiased selection:bg-brand-luxeGold selection:text-brand-luxeDark overflow-x-hidden">
 
-    <!-- HEADER & NAVIGATION (With smart hide/reveal scroll behaviors) -->
-    <header id="main-header" class="fixed top-0 left-0 w-full z-50 py-4 border-b border-white/5">
-        <div class="max-w-screen-2xl mx-auto px-4 lg:px-6 xl:px-6 2xl:px-10 flex items-center gap-4 xl:gap-4 2xl:gap-8">
-            <a href="index.html" class="grid grid-cols-[auto_auto] items-center gap-x-2.5 group flex-shrink-0 mr-2 leading-none" id="header-logo">
-                <img src="pictures/bike_icon_red.png" alt="Bike Bratislava castle logo" class="self-center h-8 lg:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
-                <span class="font-serif font-bold uppercase text-white tracking-[0.14em] text-lg lg:text-2xl whitespace-nowrap">Bike Bratislava</span>
-                <span class="col-start-2 flex items-center justify-center gap-1.5 -mt-0.5">
-                    <span class="text-[11px] lg:text-sm text-brand-luxeGold font-semibold lowercase">by</span>
-                    <img src="pictures/logo_Velocity_white.png" alt="Velocity" class="h-4 lg:h-5 w-auto object-contain">
-                </span>
-            </a>
-
-            <!-- Desktop Navigation — compact at 1280px, full at 1440px+ -->
-            <nav class="hidden xl:flex items-center gap-1.5 xl:gap-2 2xl:gap-6 flex-1 justify-center">
-                <a href="index.html" class="text-[10px] 2xl:text-xs font-medium tracking-[0.1em] 2xl:tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 whitespace-nowrap py-1 border-b border-brand-luxeGold">Home</a>
-                <a href="about.html" class="text-[10px] 2xl:text-xs font-medium tracking-[0.1em] 2xl:tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 whitespace-nowrap py-1 border-b border-transparent hover:border-brand-luxeGold/40">About Us</a>
-                <a href="discover.html" class="text-[10px] 2xl:text-xs font-medium tracking-[0.1em] 2xl:tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 whitespace-nowrap py-1 border-b border-transparent hover:border-brand-luxeGold/40">Discover Bratislava</a>
-                <a href="tours.html" class="text-[10px] 2xl:text-xs font-medium tracking-[0.1em] 2xl:tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 whitespace-nowrap py-1 border-b border-transparent hover:border-brand-luxeGold/40">Tours & Rides</a>
-                <a href="guides.html" class="text-[10px] 2xl:text-xs font-medium tracking-[0.1em] 2xl:tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 whitespace-nowrap py-1 border-b border-transparent hover:border-brand-luxeGold/40">Our Guides</a>
-                <a href="journal.html" class="text-[10px] 2xl:text-xs font-medium tracking-[0.1em] 2xl:tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 whitespace-nowrap py-1 border-b border-transparent hover:border-brand-luxeGold/40">Journal</a>
-                <a href="contact.html" class="text-[10px] 2xl:text-xs font-medium tracking-[0.1em] 2xl:tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 whitespace-nowrap py-1 border-b border-transparent hover:border-brand-luxeGold/40">Contact</a>
-            </nav>
-
-            <!-- CTA Button -->
-            <div class="hidden xl:flex items-center gap-4 flex-shrink-0">
-                <a href="contact.html" id="nav-cta" class="inline-flex items-center justify-center px-4 xl:px-6 2xl:px-8 py-2.5 2xl:py-3 text-[10px] 2xl:text-xs font-medium tracking-[0.15em] 2xl:tracking-[0.3em] uppercase bg-brand-luxeGold text-white border border-brand-luxeGold hover:bg-brand-luxeGoldDark hover:border-brand-luxeGoldDark transition-all duration-500 rounded-none">
-                    Plan Your Ride
-                </a>
-            </div>
-            <button id="mobile-menu-toggle" class="xl:hidden text-white hover:text-brand-luxeGold transition-colors focus:outline-none ml-auto" aria-label="Toggle Menu">
-                <i data-lucide="menu" class="w-6 h-6"></i>
-            </button>
-        </div>
-    </header>
-
-    <!-- MOBILE MENU OVERLAY (full-screen, centered, premium) -->
-    <div id="mobile-menu" class="fixed inset-0 z-[60] flex flex-col" style="background: #0F0E0E;">
-        <!-- Top bar inside menu: logo left, close right -->
-        <div class="flex items-center justify-between px-6 py-5 border-b border-white/5 flex-shrink-0">
-            <a href="index.html" class="flex flex-col">
-                <span class="font-serif text-lg tracking-widest text-white">BIKE BRATISLAVA</span>
-                <span class="text-[7px] tracking-[0.3em] text-stone-500 font-light uppercase">Central Europe</span>
-            </a>
-            <button id="mobile-menu-close" class="text-white hover:text-brand-luxeGold transition-colors focus:outline-none" aria-label="Close Menu">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-            </button>
-        </div>
-
-        <!-- Centered navigation -->
-        <nav class="flex-1 flex flex-col items-center justify-center gap-1 py-8">
-            <a href="index.html" class="menu-nav-item group flex items-center gap-5 py-3 px-4 w-full max-w-xs">
-                <span class="text-[10px] tracking-[0.2em] text-brand-luxeGold font-medium w-6 text-right flex-shrink-0">01</span>
-                <span class="font-serif text-3xl text-white group-hover:text-brand-luxeGold transition-colors duration-200">Home</span>
-            </a>
-            <a href="about.html" class="menu-nav-item group flex items-center gap-5 py-3 px-4 w-full max-w-xs">
-                <span class="text-[10px] tracking-[0.2em] text-brand-luxeGold font-medium w-6 text-right flex-shrink-0">02</span>
-                <span class="font-serif text-3xl text-stone-400 group-hover:text-brand-luxeGold transition-colors duration-200">About Us</span>
-            </a>
-            <a href="discover.html" class="menu-nav-item group flex items-center gap-5 py-3 px-4 w-full max-w-xs">
-                <span class="text-[10px] tracking-[0.2em] text-brand-luxeGold font-medium w-6 text-right flex-shrink-0">03</span>
-                <span class="font-serif text-3xl text-stone-400 group-hover:text-brand-luxeGold transition-colors duration-200">Discover</span>
-            </a>
-            <a href="tours.html" class="menu-nav-item group flex items-center gap-5 py-3 px-4 w-full max-w-xs">
-                <span class="text-[10px] tracking-[0.2em] text-brand-luxeGold font-medium w-6 text-right flex-shrink-0">04</span>
-                <span class="font-serif text-3xl text-stone-400 group-hover:text-brand-luxeGold transition-colors duration-200">Tours &amp; Rides</span>
-            </a>
-            <a href="guides.html" class="menu-nav-item group flex items-center gap-5 py-3 px-4 w-full max-w-xs">
-                <span class="text-[10px] tracking-[0.2em] text-brand-luxeGold font-medium w-6 text-right flex-shrink-0">05</span>
-                <span class="font-serif text-3xl text-stone-400 group-hover:text-brand-luxeGold transition-colors duration-200">Our Guides</span>
-            </a>
-            <a href="journal.html" class="menu-nav-item group flex items-center gap-5 py-3 px-4 w-full max-w-xs">
-                <span class="text-[10px] tracking-[0.2em] text-brand-luxeGold font-medium w-6 text-right flex-shrink-0">06</span>
-                <span class="font-serif text-3xl text-stone-400 group-hover:text-brand-luxeGold transition-colors duration-200">Journal</span>
-            </a>
-            <a href="contact.html" class="menu-nav-item group flex items-center gap-5 py-3 px-4 w-full max-w-xs">
-                <span class="text-[10px] tracking-[0.2em] text-brand-luxeGold font-medium w-6 text-right flex-shrink-0">07</span>
-                <span class="font-serif text-3xl text-stone-400 group-hover:text-brand-luxeGold transition-colors duration-200">Contact</span>
-            </a>
-        </nav>
-
-        <!-- Bottom footer inside menu -->
-        <div class="menu-footer px-6 py-6 border-t border-white/5 flex-shrink-0 flex items-center justify-between">
-            <span class="text-[10px] tracking-[0.2em] uppercase text-stone-500 font-light">Bratislava, Slovakia</span>
-            <a href="contact.html" class="inline-flex items-center gap-2 px-6 py-3 border border-brand-luxeGold/50 text-brand-luxeGold hover:bg-brand-luxeGold hover:text-white transition-all duration-300 text-[10px] tracking-[0.2em] uppercase font-medium">
-                Plan Your Ride
-            </a>
-        </div>
-    </div>
+    <!-- HEADER & NAVIGATION -->
+    <div id="header-placeholder"></div>
 
     <!-- SECTION 1: HERO (With local intro.mp4 video background) -->
     <section class="relative min-h-screen flex items-center justify-center bg-brand-luxeDark overflow-hidden">
@@ -358,10 +272,10 @@
                              class="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-out">
                     </div>
                     <!-- Redesigned floating callout card -->
-                    <div class="absolute -bottom-6 -right-6 bg-[#A39E93] p-6 max-w-xs shadow-2xl hidden md:block rounded-none z-20">
+                    <div class="absolute -bottom-6 -right-6 bg-white/30 backdrop-blur-md border border-white/40 p-6 max-w-xs shadow-2xl hidden md:block rounded-none z-20">
                         <div class="w-8 h-[2px] bg-brand-luxeGold mb-3"></div>
-                        <h4 class="font-sans font-bold uppercase tracking-widest text-sm text-brand-luxeDark mb-3">DID YOU KNOW?</h4>
-                        <p class="text-[11px] text-brand-luxeDark leading-relaxed font-semibold font-sans tracking-wide">Bratislava is the only national capital that borders two sovereign countries: Austria and Hungary.</p>
+                        <h4 class="font-sans font-bold uppercase tracking-widest text-sm text-stone-900 mb-3">DID YOU KNOW?</h4>
+                        <p class="text-[11px] text-stone-900 leading-relaxed font-semibold font-sans tracking-wide">Bratislava is the only national capital that borders two sovereign countries: Austria and Hungary.</p>
                     </div>
                 </div>
 
@@ -439,108 +353,96 @@
         <!-- Subtle blurred light background texture — inner parallax wrapper prevents edge bleed -->
         <div class="parallax-bg light-minimal" id="parallax-adventures"></div>
 
-        <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
             <div class="text-center max-w-2xl mx-auto mb-24 scroll-reveal">
                 <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-4 block">Curated Rides</span>
                 <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-brand-luxeDark">Choose Your Adventure</h2>
                 <div class="h-[1px] w-12 bg-brand-luxeGold mx-auto mt-6"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
                 
                 <!-- Card 1 -->
-                <div class="group bg-transparent flex flex-col justify-between transition-colors duration-500 rounded-none scroll-reveal">
+                <div class="group bg-white flex flex-col justify-between transition-all duration-500 rounded-none scroll-reveal border border-red-600/30 hover:border-red-600/70 hover:shadow-2xl">
                     <div>
-                        <div class="aspect-[4/5] overflow-hidden relative">
-                            <img src="pictures/professional cyclists ride through the city.jpg" alt="E-Bike & Leisure Tours" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                        <div class="aspect-square overflow-hidden relative">
+                            <img src="pictures/Cyclists having a coffee break at a local outdoor cafe, road bikes parked nearby, lifestyle photography, authentic.jpg" alt="E-Bike & Leisure Tours" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
                             <div class="absolute top-4 left-4 bg-brand-luxeDark text-white text-[9px] tracking-[0.25em] uppercase font-medium py-1 px-3 border border-brand-luxeGold/25">
                                 Category 1
                             </div>
                         </div>
-                        <div class="py-6 px-0">
+                        <div class="pt-6 pb-2 px-5 lg:px-6">
                             <h3 class="font-serif text-2xl font-light text-brand-luxeDark mb-4">E-Bike & Leisure Tours</h3>
                             <p class="text-stone-600 font-light text-xs leading-relaxed font-sans tracking-wide">
                                 Designed for visitors who want to explore Bratislava and its surroundings in a relaxed and enjoyable way.
                             </p>
                         </div>
                     </div>
-                    <div class="pb-6 pt-0 px-0">
-                        <a href="tours.html" class="inline-flex items-center space-x-2 text-[10px] font-semibold tracking-[0.2em] uppercase text-stone-700 hover:text-brand-luxeGold group-hover:text-brand-luxeGold transition-colors duration-300">
-                            <span>Learn More</span>
-                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"></i>
-                        </a>
+                    <div class="pb-6 pt-0 px-5 lg:px-6">
+                        <a href="tours.html#cat1" class="inline-flex items-center justify-center bg-red-600 text-white px-8 py-3.5 text-[10px] font-bold tracking-[0.25em] uppercase hover:bg-stone-900 transition-colors duration-300 rounded-none w-max">Learn More</a>
                     </div>
                 </div>
 
                 <!-- Card 2 -->
-                <div class="group bg-transparent flex flex-col justify-between transition-colors duration-500 rounded-none scroll-reveal">
+                <div class="group bg-white flex flex-col justify-between transition-all duration-500 rounded-none scroll-reveal border border-red-600/30 hover:border-red-600/70 hover:shadow-2xl">
                     <div>
-                        <div class="aspect-[4/5] overflow-hidden relative">
-                            <img src="pictures/Athletic road cyclist climbing a scenic mountain road, gravel bike rider on a dirt trail, endurance.jpg" alt="Road & Gravel" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                        <div class="aspect-square overflow-hidden relative">
+                            <img src="pictures/gen_peloton.png" alt="Road & Gravel" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
                             <div class="absolute top-4 left-4 bg-brand-luxeDark text-white text-[9px] tracking-[0.25em] uppercase font-medium py-1 px-3 border border-brand-luxeGold/25">
                                 Category 2
                             </div>
                         </div>
-                        <div class="py-6 px-0">
+                        <div class="pt-6 pb-2 px-5 lg:px-6">
                             <h3 class="font-serif text-2xl font-light text-brand-luxeDark mb-4">Road & Gravel Cycling Experiences</h3>
                             <p class="text-stone-600 font-light text-xs leading-relaxed font-sans tracking-wide">
                                 Created for passionate cyclists looking for longer distances, more demanding routes and unforgettable scenery.
                             </p>
                         </div>
                     </div>
-                    <div class="pb-6 pt-0 px-0">
-                        <a href="tours.html" class="inline-flex items-center space-x-2 text-[10px] font-semibold tracking-[0.2em] uppercase text-stone-700 hover:text-brand-luxeGold group-hover:text-brand-luxeGold transition-colors duration-300">
-                            <span>Learn More</span>
-                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"></i>
-                        </a>
+                    <div class="pb-6 pt-0 px-5 lg:px-6">
+                        <a href="tours.html#cat2" class="inline-flex items-center justify-center bg-red-600 text-white px-8 py-3.5 text-[10px] font-bold tracking-[0.25em] uppercase hover:bg-stone-900 transition-colors duration-300 rounded-none w-max">Learn More</a>
                     </div>
                 </div>
 
                 <!-- Card 3 -->
-                <div class="group bg-transparent flex flex-col justify-between transition-colors duration-500 rounded-none scroll-reveal">
+                <div class="group bg-white flex flex-col justify-between transition-all duration-500 rounded-none scroll-reveal border border-red-600/30 hover:border-red-600/70 hover:shadow-2xl">
                     <div>
-                        <div class="aspect-[4/5] overflow-hidden relative">
-                            <img src="pictures/Cyclists riding during golden hour sunset, warm silhouettes, back light, cinematic photography.jpg" alt="Trail & MTB Adventures" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                        <div class="aspect-square overflow-hidden relative">
+                            <img src="pictures/Mountain_biker_navigating_a_technical,_202606281129.jpeg" alt="Trail & MTB Adventures" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
                             <div class="absolute top-4 left-4 bg-brand-luxeDark text-white text-[9px] tracking-[0.25em] uppercase font-medium py-1 px-3 border border-brand-luxeGold/25">
                                 Category 3
                             </div>
                         </div>
-                        <div class="py-6 px-0">
+                        <div class="pt-6 pb-2 px-5 lg:px-6">
                             <h3 class="font-serif text-2xl font-light text-brand-luxeDark mb-4">Trail & MTB Adventures</h3>
                             <p class="text-stone-600 font-light text-xs leading-relaxed font-sans tracking-wide">
                                 For riders looking for more technical terrain, forest trails and off-road adventures.
                             </p>
                         </div>
                     </div>
-                    <div class="pb-6 pt-0 px-0">
-                        <a href="tours.html" class="inline-flex items-center space-x-2 text-[10px] font-semibold tracking-[0.2em] uppercase text-stone-700 hover:text-brand-luxeGold group-hover:text-brand-luxeGold transition-colors duration-300">
-                            <span>Learn More</span>
-                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"></i>
-                        </a>
+                    <div class="pb-6 pt-0 px-5 lg:px-6">
+                        <a href="tours.html#cat3" class="inline-flex items-center justify-center bg-red-600 text-white px-8 py-3.5 text-[10px] font-bold tracking-[0.25em] uppercase hover:bg-stone-900 transition-colors duration-300 rounded-none w-max">Learn More</a>
                     </div>
                 </div>
 
                 <!-- Card 4 -->
-                <div class="group bg-transparent flex flex-col justify-between transition-colors duration-500 rounded-none scroll-reveal">
+                <div class="group bg-white flex flex-col justify-between transition-all duration-500 rounded-none scroll-reveal border border-red-600/30 hover:border-red-600/70 hover:shadow-2xl">
                     <div>
-                        <div class="aspect-[4/5] overflow-hidden relative">
+                        <div class="aspect-square overflow-hidden relative">
                             <img src="pictures/Corporate cycling group, custom private bike tour, diverse group of people riding together, authentic experience.jpg" alt="Custom Experiences" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
                             <div class="absolute top-4 left-4 bg-brand-luxeDark text-white text-[9px] tracking-[0.25em] uppercase font-medium py-1 px-3 border border-brand-luxeGold/25">
                                 Category 4
                             </div>
                         </div>
-                        <div class="py-6 px-0">
+                        <div class="pt-6 pb-2 px-5 lg:px-6">
                             <h3 class="font-serif text-2xl font-light text-brand-luxeDark mb-4">Custom Experiences</h3>
                             <p class="text-stone-600 font-light text-xs leading-relaxed font-sans tracking-wide">
                                 Fully customised cycling experiences for individuals, groups, cycling clubs and corporate teams.
                             </p>
                         </div>
                     </div>
-                    <div class="pb-6 pt-0 px-0">
-                        <a href="contact.html" class="inline-flex items-center space-x-2 text-[10px] font-semibold tracking-[0.2em] uppercase text-stone-700 hover:text-brand-luxeGold group-hover:text-brand-luxeGold transition-colors duration-300">
-                            <span>Enquire Now</span>
-                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"></i>
-                        </a>
+                    <div class="pb-6 pt-0 px-5 lg:px-6">
+                        <a href="tours.html#cat4" class="inline-flex items-center justify-center bg-red-600 text-white px-8 py-3.5 text-[10px] font-bold tracking-[0.25em] uppercase hover:bg-stone-900 transition-colors duration-300 rounded-none w-max">Enquire Now</a>
                     </div>
                 </div>
 
@@ -577,12 +479,12 @@
                 </div>
 
                 <div class="lg:col-span-6 order-1 lg:order-2 scroll-reveal">
-                    <div class="relative">
+                    <div class="relative max-w-sm mx-auto lg:max-w-none">
                         <!-- Cyclists coffee stop portrait with hover transition -->
-                        <div class="aspect-[4/5] md:aspect-[4/3] overflow-hidden shadow-2xl border border-stone-300/60">
-                            <img src="pictures/Cyclists having a coffee break at a local outdoor cafe, road bikes parked nearby, lifestyle photography, authentic.jpg" 
-                                 alt="Cyclists enjoying coffee stop in Bratislava region" 
-                                 class="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-out">
+                        <div class="aspect-[3/4] overflow-hidden shadow-2xl border border-stone-300/60">
+                            <img src="pictures/Smiling professional bike guide portrait, friendly local cyclist looking at camera, outdoor sports clothing.jpg" 
+                                 alt="Professional bike guide in Bratislava region" 
+                                 class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700 ease-out">
                         </div>
                         <div class="absolute -top-6 -left-6 w-20 h-20 border-t border-l border-brand-luxeGold/40"></div>
                         <div class="absolute -bottom-6 -right-6 w-20 h-20 border-b border-r border-brand-luxeGold/40"></div>
