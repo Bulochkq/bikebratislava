@@ -1,19 +1,7 @@
-fix: ui bug fixes, mobile enhancements, and gdpr compliance
+chore: remove unused media assets
 
 🇬🇧 EN:
-- Fixed a critical JavaScript syntax error that blocked category buttons from functioning across devices.
-- Implemented a full-screen modal for tour categories specifically optimized for mobile devices.
-- Added logic to automatically clear lingering parallax transforms on mobile resize, resolving image rendering cutoffs.
-- Integrated a required GDPR consent checkbox with a hyperlink to the privacy policy in the contact form.
-- Swapped hero background images between the About Us and Discover Bratislava pages.
-- Standardized section spacing globally across the website.
-- Added dynamic difficulty badge colors (Green/Orange/Red) to individual tour pages.
+- Removed 10 orphaned images and videos from the pictures directory that were no longer referenced anywhere in the HTML/JS/CSS files, saving space.
 
 🇺🇦 UA:
-- Виправлено критичну синтаксичну помилку JavaScript, яка блокувала роботу кнопок категорій на всіх пристроях.
-- Реалізовано повноекранне вікно для категорій турів, оптимізоване спеціально для мобільних пристроїв.
-- Додано логіку для автоматичного скидання завислих ефектів паралаксу при зміні розміру екрану на телефонах, що вирішило проблему з обрізаними фото.
-- Додано обов'язковий чекбокс згоди GDPR з посиланням на політику конфіденційності в контактну форму.
-- Головні фонові зображення (hero images) змінено місцями між сторінками "Про нас" та "Дослідження Братислави".
-- Уніфіковано відступи між блоками по всьому сайту.
-- Додано динамічні кольори для позначок складності турів (зелений/оранжевий/червоний).
+- Видалено 10 залишкових зображень та відео з папки pictures, які більше ніде не використовувалися в коді сайту, для економії місця.
