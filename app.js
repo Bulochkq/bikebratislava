@@ -337,8 +337,8 @@ window.addEventListener('scroll', () => {
         const wrap = document.createElement('div');
         wrap.id = 'cookie-consent-root';
         wrap.innerHTML = `
-        <div id="cc-banner" style="display:none" class="fixed bottom-0 left-0 right-0 z-[120] border-t border-[#E31C25]/50 shadow-2xl" data-cc-region>
-            <div style="background:#0A0A0A" class="max-w-7xl mx-auto px-6 py-5 flex flex-col lg:flex-row lg:items-center gap-5">
+        <div id="cc-banner" style="display:none; background:#0A0A0A" class="fixed bottom-0 left-0 right-0 z-[120] border-t border-[#E31C25]/50 shadow-2xl" data-cc-region>
+            <div class="max-w-7xl mx-auto px-6 py-5 flex flex-col lg:flex-row lg:items-center gap-5">
                 <p class="flex-1 text-stone-300 text-xs leading-relaxed font-light tracking-wide">
                     We use necessary cookies to run this site and, with your consent, analytics cookies (Google Analytics) to understand how it is used.
                     See our <a href="${POLICY_COOKIES}" target="_blank" rel="noopener" class="text-[#E31C25] hover:underline font-medium">Cookie Policy</a>

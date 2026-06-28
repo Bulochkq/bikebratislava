@@ -1,0 +1,9 @@
+fix: fix cookie banner background styling
+
+🇬🇧 EN:
+- Moved background color styling to the outer full-width container of the cookie banner to fix incomplete border issue
+- Deleted unused commit_msg.txt
+
+🇺🇦 UA:
+- Перенесено колір фону банера файлів cookie на зовнішній контейнер, щоб виправити проблему з неповною рамкою
+- Видалено непотрібний файл commit_msg.txt
