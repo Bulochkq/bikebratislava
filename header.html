@@ -93,52 +93,81 @@
                 </svg>
             </button>
         </div>
-        <nav class="flex-1 flex flex-col items-center justify-center gap-1 py-8">
-            <a href="index.html" class="mobile-nav-link menu-nav-item group flex items-center gap-5 py-3 px-4 w-full max-w-xs">
-                <span
-                    class="text-[10px] tracking-[0.2em] text-brand-luxeGold font-medium w-6 text-right flex-shrink-0">01</span>
-                <span
-                    class="font-serif text-3xl text-stone-400 group-hover:text-brand-luxeGold transition-colors duration-200">Home</span>
-            </a>
-            <a href="about.html" class="mobile-nav-link menu-nav-item group flex items-center gap-5 py-3 px-4 w-full max-w-xs">
-                <span
-                    class="text-[10px] tracking-[0.2em] text-brand-luxeGold font-medium w-6 text-right flex-shrink-0">02</span>
-                <span
-                    class="font-serif text-3xl text-stone-400 group-hover:text-brand-luxeGold transition-colors duration-200">About
-                    Us</span>
-            </a>
-            <a href="discover.html" class="mobile-nav-link menu-nav-item group flex items-center gap-5 py-3 px-4 w-full max-w-xs">
-                <span
-                    class="text-[10px] tracking-[0.2em] text-brand-luxeGold font-medium w-6 text-right flex-shrink-0">03</span>
-                <span
-                    class="font-serif text-3xl text-stone-400 group-hover:text-brand-luxeGold transition-colors duration-200">Discover</span>
-            </a>
-            <a href="tours.html" class="mobile-nav-link menu-nav-item group flex items-center gap-5 py-3 px-4 w-full max-w-xs">
-                <span
-                    class="text-[10px] tracking-[0.2em] text-brand-luxeGold font-medium w-6 text-right flex-shrink-0">04</span>
-                <span
-                    class="font-serif text-3xl text-stone-400 group-hover:text-brand-luxeGold transition-colors duration-200">Tours
-                    &amp; Rides</span>
-            </a>
-            <a href="guides.html" class="mobile-nav-link menu-nav-item group flex items-center gap-5 py-3 px-4 w-full max-w-xs">
-                <span
-                    class="text-[10px] tracking-[0.2em] text-brand-luxeGold font-medium w-6 text-right flex-shrink-0">05</span>
-                <span
-                    class="font-serif text-3xl text-stone-400 group-hover:text-brand-luxeGold transition-colors duration-200">Our
-                    Guides</span>
-            </a>
-            <a href="journal.html" class="mobile-nav-link menu-nav-item group flex items-center gap-5 py-3 px-4 w-full max-w-xs">
-                <span
-                    class="text-[10px] tracking-[0.2em] text-brand-luxeGold font-medium w-6 text-right flex-shrink-0">06</span>
-                <span
-                    class="font-serif text-3xl text-stone-400 group-hover:text-brand-luxeGold transition-colors duration-200">Journal</span>
-            </a>
-            <a href="contact.html" class="mobile-nav-link menu-nav-item group flex items-center gap-5 py-3 px-4 w-full max-w-xs">
-                <span
-                    class="text-[10px] tracking-[0.2em] text-brand-luxeGold font-medium w-6 text-right flex-shrink-0">07</span>
-                <span
-                    class="font-serif text-3xl text-stone-400 group-hover:text-brand-luxeGold transition-colors duration-200">Contact</span>
-            </a>
+        <nav class="flex-1 overflow-y-auto flex flex-col py-8">
+            <div class="flex flex-col items-center gap-1 w-full max-w-xs m-auto">
+                <a href="index.html" class="mobile-nav-link menu-nav-item group flex items-center gap-5 py-3 px-4 w-full">
+                    <span
+                        class="text-[10px] tracking-[0.2em] text-brand-luxeGold font-medium w-6 text-right flex-shrink-0">01</span>
+                    <span
+                        class="font-serif text-3xl text-stone-400 group-hover:text-brand-luxeGold transition-colors duration-200">Home</span>
+                </a>
+                <a href="about.html" class="mobile-nav-link menu-nav-item group flex items-center gap-5 py-3 px-4 w-full">
+                    <span
+                        class="text-[10px] tracking-[0.2em] text-brand-luxeGold font-medium w-6 text-right flex-shrink-0">02</span>
+                    <span
+                        class="font-serif text-3xl text-stone-400 group-hover:text-brand-luxeGold transition-colors duration-200">About
+                        Us</span>
+                </a>
+                <a href="discover.html" class="mobile-nav-link menu-nav-item group flex items-center gap-5 py-3 px-4 w-full">
+                    <span
+                        class="text-[10px] tracking-[0.2em] text-brand-luxeGold font-medium w-6 text-right flex-shrink-0">03</span>
+                    <span
+                        class="font-serif text-3xl text-stone-400 group-hover:text-brand-luxeGold transition-colors duration-200">Discover</span>
+                </a>
+
+                <!-- Tours & Rides — expandable so sub-categories are reachable on mobile -->
+                <div class="menu-nav-item w-full">
+                    <button id="mobile-tours-toggle" type="button" aria-expanded="false"
+                        class="mobile-nav-link group flex items-center gap-5 py-3 px-4 w-full text-left focus:outline-none">
+                        <span
+                            class="text-[10px] tracking-[0.2em] text-brand-luxeGold font-medium w-6 text-right flex-shrink-0">04</span>
+                        <span
+                            class="font-serif text-3xl text-stone-400 group-hover:text-brand-luxeGold transition-colors duration-200">Tours
+                            &amp; Rides</span>
+                        <i data-lucide="chevron-down" id="mobile-tours-chevron"
+                            class="w-5 h-5 ml-auto text-stone-500 transition-transform duration-300"></i>
+                    </button>
+                    <div id="mobile-tours-sub" class="overflow-hidden max-h-0 transition-all duration-500 ease-out">
+                        <div class="flex flex-col pl-11 pr-4 pt-1 pb-3 gap-0.5">
+                            <a href="tours.html"
+                                class="py-2.5 text-xs tracking-[0.18em] uppercase text-stone-300 hover:text-brand-luxeGold transition-colors">All
+                                Tours</a>
+                            <a href="tours.html#cat1"
+                                class="py-2.5 text-xs tracking-[0.18em] uppercase text-stone-400 hover:text-brand-luxeGold transition-colors">E-Bike
+                                &amp; Leisure Tours</a>
+                            <a href="tours.html#cat2"
+                                class="py-2.5 text-xs tracking-[0.18em] uppercase text-stone-400 hover:text-brand-luxeGold transition-colors">Road
+                                &amp; Gravel Experiences</a>
+                            <a href="tours.html#cat3"
+                                class="py-2.5 text-xs tracking-[0.18em] uppercase text-stone-400 hover:text-brand-luxeGold transition-colors">Trail
+                                &amp; MTB Adventures</a>
+                            <a href="tours.html#cat4"
+                                class="py-2.5 text-xs tracking-[0.18em] uppercase text-stone-400 hover:text-brand-luxeGold transition-colors">Built
+                                Around Your Ride</a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="guides.html" class="mobile-nav-link menu-nav-item group flex items-center gap-5 py-3 px-4 w-full">
+                    <span
+                        class="text-[10px] tracking-[0.2em] text-brand-luxeGold font-medium w-6 text-right flex-shrink-0">05</span>
+                    <span
+                        class="font-serif text-3xl text-stone-400 group-hover:text-brand-luxeGold transition-colors duration-200">Our
+                        Guides</span>
+                </a>
+                <a href="journal.html" class="mobile-nav-link menu-nav-item group flex items-center gap-5 py-3 px-4 w-full">
+                    <span
+                        class="text-[10px] tracking-[0.2em] text-brand-luxeGold font-medium w-6 text-right flex-shrink-0">06</span>
+                    <span
+                        class="font-serif text-3xl text-stone-400 group-hover:text-brand-luxeGold transition-colors duration-200">Journal</span>
+                </a>
+                <a href="contact.html" class="mobile-nav-link menu-nav-item group flex items-center gap-5 py-3 px-4 w-full">
+                    <span
+                        class="text-[10px] tracking-[0.2em] text-brand-luxeGold font-medium w-6 text-right flex-shrink-0">07</span>
+                    <span
+                        class="font-serif text-3xl text-stone-400 group-hover:text-brand-luxeGold transition-colors duration-200">Contact</span>
+                </a>
+            </div>
         </nav>
         <div class="menu-footer px-6 py-6 border-t border-white/5 flex-shrink-0 flex items-center justify-between">
             <span class="text-[10px] tracking-[0.2em] uppercase text-stone-500 font-light">Bratislava, Slovakia</span>

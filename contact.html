@@ -1,35 +1,41 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth overflow-x-hidden">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | Bike Bratislava</title>
-    <meta name="description" content="Let's plan your ride. Tell us about your travel dates, group size, and cycling experience. We'll help you create the perfect tour.">
+    <meta name="description"
+        content="Let's plan your ride. Tell us about your travel dates, group size, and cycling experience. We'll help you create the perfect tour.">
 
     <link rel="canonical" href="https://bikebratislava.com/contact.html">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://bikebratislava.com/contact.html">
     <meta property="og:title" content="Contact Us | Bike Bratislava">
-    <meta property="og:description" content="Let's plan your ride. Tell us about your travel dates, group size, and cycling experience. We'll help you create the perfect tour.">
+    <meta property="og:description"
+        content="Let's plan your ride. Tell us about your travel dates, group size, and cycling experience. We'll help you create the perfect tour.">
     <meta property="og:image" content="https://bikebratislava.com/pictures/sunset_devin.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://bikebratislava.com/contact.html">
     <meta property="twitter:title" content="Contact Us | Bike Bratislava">
-    <meta property="twitter:description" content="Let's plan your ride. Tell us about your travel dates, group size, and cycling experience. We'll help you create the perfect tour.">
+    <meta property="twitter:description"
+        content="Let's plan your ride. Tell us about your travel dates, group size, and cycling experience. We'll help you create the perfect tour.">
     <meta property="twitter:image" content="https://bikebratislava.com/pictures/sunset_devin.png">
-    
-                    <!-- Google Fonts: Outfit & Inter -->
+
+    <!-- Google Fonts: Outfit & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800;900&family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800;900&family=Inter:wght@200;300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Tailwind Configuration -->
     <script>
         tailwind.config = {
@@ -53,23 +59,28 @@
             }
         }
     </script>
-    
+
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    
+
     <style>
-        html.lenis, html.lenis body {
+        html.lenis,
+        html.lenis body {
             height: auto;
         }
+
         .lenis.lenis-smooth {
             scroll-behavior: auto !important;
         }
+
         .lenis.lenis-smooth [data-lenis-prevent] {
             overscroll-behavior: contain;
         }
+
         .lenis.lenis-stopped {
             overflow: hidden;
         }
+
         .lenis.lenis-scrolling iframe {
             pointer-events: none;
         }
@@ -77,19 +88,27 @@
         .fade-in-up {
             animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        .animation-delay-200 { animation-delay: 200ms; }
-        .animation-delay-400 { animation-delay: 400ms; }
-        
+
+        .animation-delay-200 {
+            animation-delay: 200ms;
+        }
+
+        .animation-delay-400 {
+            animation-delay: 400ms;
+        }
+
         /* Smooth transitions for smart hidden header */
         #main-header {
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.4s ease, padding 0.4s ease;
@@ -102,38 +121,78 @@
             pointer-events: none;
             transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.45s ease;
         }
+
         #mobile-menu.is-open {
             opacity: 1;
             visibility: visible;
             pointer-events: auto;
         }
+
         #mobile-menu .menu-nav-item {
             opacity: 0;
             transform: translateY(22px);
-            transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16,1,0.3,1), color 0.2s ease;
+            transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
         }
-        #mobile-menu.is-open .menu-nav-item:nth-child(1) { opacity:1; transform:translateY(0); transition-delay:0.08s; }
-        #mobile-menu.is-open .menu-nav-item:nth-child(2) { opacity:1; transform:translateY(0); transition-delay:0.14s; }
-        #mobile-menu.is-open .menu-nav-item:nth-child(3) { opacity:1; transform:translateY(0); transition-delay:0.20s; }
-        #mobile-menu.is-open .menu-nav-item:nth-child(4) { opacity:1; transform:translateY(0); transition-delay:0.26s; }
-        #mobile-menu.is-open .menu-nav-item:nth-child(5) { opacity:1; transform:translateY(0); transition-delay:0.32s; }
-        #mobile-menu.is-open .menu-nav-item:nth-child(6) { opacity:1; transform:translateY(0); transition-delay:0.38s; }
-        #mobile-menu.is-open .menu-nav-item:nth-child(7) { opacity:1; transform:translateY(0); transition-delay:0.44s; }
+
+        #mobile-menu.is-open .menu-nav-item:nth-child(1) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.08s;
+        }
+
+        #mobile-menu.is-open .menu-nav-item:nth-child(2) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.14s;
+        }
+
+        #mobile-menu.is-open .menu-nav-item:nth-child(3) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.20s;
+        }
+
+        #mobile-menu.is-open .menu-nav-item:nth-child(4) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.26s;
+        }
+
+        #mobile-menu.is-open .menu-nav-item:nth-child(5) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.32s;
+        }
+
+        #mobile-menu.is-open .menu-nav-item:nth-child(6) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.38s;
+        }
+
+        #mobile-menu.is-open .menu-nav-item:nth-child(7) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.44s;
+        }
+
         #mobile-menu .menu-footer {
             opacity: 0;
             transform: translateY(14px);
             transition: opacity 0.4s ease 0.5s, transform 0.4s ease 0.5s;
         }
+
         #mobile-menu.is-open .menu-footer {
             opacity: 1;
             transform: translateY(0);
         }
-        
+
         /* Parallax texture backgrounds — uses inner wrapper with translateY */
         .parallax-section {
             position: relative;
             overflow: hidden;
         }
+
         .parallax-bg {
             position: absolute;
             inset: -20% 0;
@@ -142,160 +201,305 @@
             will-change: transform;
             z-index: 0;
         }
-        .parallax-section > *:not(.parallax-bg) {
+
+        .parallax-section>*:not(.parallax-bg) {
             position: relative;
             z-index: 1;
         }
-                        .parallax-bg.concrete {
+
+        .parallax-bg.concrete {
             background-color: #fdfbfb;
-            background-image: 
-                radial-gradient(at 40% 20%, hsla(28,100%,74%,0.15) 0px, transparent 50%),
-                radial-gradient(at 80% 0%, hsla(189,100%,56%,0.15) 0px, transparent 50%),
-                radial-gradient(at 0% 50%, hsla(355,100%,93%,0.15) 0px, transparent 50%),
-                radial-gradient(at 80% 50%, hsla(340,100%,76%,0.15) 0px, transparent 50%),
-                radial-gradient(at 0% 100%, hsla(22,100%,77%,0.15) 0px, transparent 50%),
-                radial-gradient(at 80% 100%, hsla(242,100%,70%,0.15) 0px, transparent 50%),
-                radial-gradient(at 0% 0%, hsla(343,100%,76%,0.15) 0px, transparent 50%);
+            background-image:
+                radial-gradient(at 40% 20%, hsla(28, 100%, 74%, 0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 0%, hsla(189, 100%, 56%, 0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 50%, hsla(355, 100%, 93%, 0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 50%, hsla(340, 100%, 76%, 0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, hsla(22, 100%, 77%, 0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 100%, hsla(242, 100%, 70%, 0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 0%, hsla(343, 100%, 76%, 0.15) 0px, transparent 50%);
         }
-                .parallax-bg.asphalt {
+
+        .parallax-bg.asphalt {
             background-color: #0A0A0A;
             background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('pictures/Fine texture of dark grey asphalt surface, top view, clean, consistent pattern, minimalist dark background, high resolutio.jpg');
             background-size: cover;
             background-position: center;
         }
+
         .parallax-bg.dark-minimal {
             background-color: #0A0A0A;
             background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('pictures/High-quality_minimalist_background,_full-screen_coverage._202606222338.jpeg');
             background-size: cover;
             background-position: center;
         }
+
         /* Legacy: concrete-bg as section bg for guides card row */
-                        .concrete-bg-inline {
+        .concrete-bg-inline {
             background-color: #fdfbfb;
-            background-image: 
-                radial-gradient(at 40% 20%, hsla(28,100%,74%,0.15) 0px, transparent 50%),
-                radial-gradient(at 80% 0%, hsla(189,100%,56%,0.15) 0px, transparent 50%),
-                radial-gradient(at 0% 50%, hsla(355,100%,93%,0.15) 0px, transparent 50%),
-                radial-gradient(at 80% 50%, hsla(340,100%,76%,0.15) 0px, transparent 50%),
-                radial-gradient(at 0% 100%, hsla(22,100%,77%,0.15) 0px, transparent 50%),
-                radial-gradient(at 80% 100%, hsla(242,100%,70%,0.15) 0px, transparent 50%),
-                radial-gradient(at 0% 0%, hsla(343,100%,76%,0.15) 0px, transparent 50%);
+            background-image:
+                radial-gradient(at 40% 20%, hsla(28, 100%, 74%, 0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 0%, hsla(189, 100%, 56%, 0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 50%, hsla(355, 100%, 93%, 0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 50%, hsla(340, 100%, 76%, 0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, hsla(22, 100%, 77%, 0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 100%, hsla(242, 100%, 70%, 0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 0%, hsla(343, 100%, 76%, 0.15) 0px, transparent 50%);
+        }
+
+        /* Searchable dropdown lists (country of origin + phone code) */
+        .searchable-list .sl-item {
+            padding: 0.65rem 1.25rem;
+            font-size: 0.78rem;
+            font-weight: 300;
+            color: #57534e;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+            transition: background-color .2s ease, color .2s ease, padding-left .2s ease;
+        }
+
+        .searchable-list .sl-item:hover,
+        .searchable-list .sl-item.sl-active {
+            background-color: rgba(227, 28, 37, 0.06);
+            color: #E31C25;
+            padding-left: 1.6rem;
+        }
+
+        .searchable-list .sl-item .sl-dial {
+            color: #a8a29e;
+            font-weight: 500;
+            font-size: 0.72rem;
+        }
+
+        .searchable-list .sl-item .sl-flag {
+            margin-right: 0.55rem;
+            font-size: 1rem;
+            line-height: 1;
+        }
+
+        .searchable-list .sl-empty {
+            padding: 0.85rem 1.25rem;
+            font-size: 0.75rem;
+            font-weight: 300;
+            color: #a8a29e;
+        }
+
+        /* Ride type preview card */
+        #ride-preview .rp-card {
+            display: flex;
+            gap: 1rem;
+            background: #ffffff;
+            border: 1px solid #e7e5e4;
+            border-left: 3px solid #E31C25;
+            padding: 0.85rem;
+            box-shadow: 0 10px 30px -18px rgba(0, 0, 0, 0.25);
+            animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        #ride-preview .rp-img {
+            width: 110px;
+            height: 90px;
+            flex-shrink: 0;
+            object-fit: cover;
+            background: #e7e5e4;
+        }
+
+        @media (max-width: 480px) {
+            #ride-preview .rp-img {
+                width: 84px;
+                height: 84px;
+            }
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-stone-50 via-rose-50/40 to-stone-100 text-brand-luxeTextDark font-sans antialiased selection:bg-brand-luxeGold selection:text-brand-luxeDark overflow-x-hidden">
+
+<body
+    class="bg-gradient-to-br from-stone-50 via-rose-50/40 to-stone-100 text-brand-luxeTextDark font-sans antialiased selection:bg-brand-luxeGold selection:text-brand-luxeDark overflow-x-hidden">
 
     <!-- HEADER & NAVIGATION -->
     <div id="header-placeholder"></div>
 
     <!-- HERO SECTION -->
-    <section class="relative min-h-[75vh] flex items-center justify-center bg-brand-luxeDark text-white overflow-hidden">
+    <section
+        class="relative min-h-[75vh] flex items-center justify-center bg-brand-luxeDark text-white overflow-hidden">
         <div class="absolute inset-0 z-0">
             <!-- Scale-110 for parallax -->
-            <img src="pictures/sunset_devin.png" 
-                 alt="Contact us background slovakia devin castle cyclists" 
-                 class="w-full h-full object-cover object-center opacity-45 scale-110" id="hero-img" style="will-change: transform;">
-            <div class="absolute inset-0 bg-gradient-to-t from-brand-luxeDark via-brand-luxeDark/35 to-transparent"></div>
+            <img src="pictures/sunset_devin.png" alt="Contact us background slovakia devin castle cyclists"
+                class="w-full h-full object-cover object-center opacity-45 scale-110" id="hero-img"
+                style="will-change: transform;">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-luxeDark via-brand-luxeDark/35 to-transparent">
+            </div>
         </div>
 
         <div class="relative z-10 max-w-4xl mx-auto px-6 text-center flex flex-col items-center">
-            <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-4 block opacity-0 fade-in-up">Get In Touch</span>
-            <h1 class="font-serif text-5xl md:text-7xl font-light mb-6 opacity-0 fade-in-up animation-delay-200">Let's Plan Your Ride</h1>
-            <p class="text-stone-400 text-sm md:text-base font-light max-w-2xl mx-auto leading-relaxed tracking-wider opacity-0 fade-in-up animation-delay-400">
-                Tell us about your visit, cycling experience and interests. We'll help you choose the perfect route or create a custom cycling experience.
+            <span
+                class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-4 block opacity-0 fade-in-up">Get
+                In Touch</span>
+            <h1 class="font-serif text-5xl md:text-7xl font-light mb-6 opacity-0 fade-in-up animation-delay-200">Let's
+                Plan Your Ride</h1>
+            <p
+                class="text-stone-400 text-sm md:text-base font-light max-w-2xl mx-auto leading-relaxed tracking-wider opacity-0 fade-in-up animation-delay-400">
+                Tell us about your visit, cycling experience and interests. We'll help you choose the perfect route or
+                create a custom cycling experience.
             </p>
         </div>
     </section>
 
     <!-- SECTION: CONTACT FORM (Concrete bg) -->
-    <section class="py-32 parallax-section border-b border-stone-200/40"><div class="parallax-bg concrete"></div>
+    <section class="py-32 parallax-section border-b border-stone-200/40">
+        <div class="parallax-bg concrete"></div>
         <div class="max-w-4xl mx-auto px-6 scroll-reveal">
-            
+
             <!-- Selected Tour Alert Banner -->
-            <div id="tour-selected-banner" class="hidden mb-12 p-5 bg-white border border-brand-luxeGold/30 flex items-center justify-between font-sans">
-                <div class="flex items-center space-x-3 text-brand-luxeTextDark text-xs font-semibold uppercase tracking-wider">
+            <div id="tour-selected-banner"
+                class="hidden mb-12 p-5 bg-white border border-brand-luxeGold/30 flex items-center justify-between font-sans">
+                <div
+                    class="flex items-center space-x-3 text-brand-luxeTextDark text-xs font-semibold uppercase tracking-wider">
                     <i data-lucide="info" class="w-5 h-5 text-brand-luxeGold"></i>
-                    <span>Enquiring about: <strong id="selected-tour-name" class="text-brand-luxeGold">None</strong></span>
+                    <span>Enquiring about: <strong id="selected-tour-name"
+                            class="text-brand-luxeGold">None</strong></span>
                 </div>
-                <button onclick="clearSelectedTour()" class="text-stone-400 hover:text-brand-luxeDark transition-colors focus:outline-none">
+                <button onclick="clearSelectedTour()"
+                    class="text-stone-400 hover:text-brand-luxeDark transition-colors focus:outline-none">
                     <i data-lucide="x" class="w-4 h-4"></i>
                 </button>
             </div>
 
             <!-- Direct Contact Info -->
-            <div class="mb-16 flex flex-col md:flex-row items-start md:items-center justify-between p-8 md:p-10 bg-white border border-brand-luxeGold/20 shadow-xl relative overflow-hidden">
-                <div class="absolute right-0 top-0 w-48 h-48 bg-brand-luxeGold/5 rounded-full -mr-16 -mt-16 blur-3xl"></div>
-                
+            <div
+                class="mb-16 flex flex-col md:flex-row items-start md:items-center justify-between p-8 md:p-10 bg-white border border-brand-luxeGold/20 shadow-xl relative overflow-hidden">
+                <div class="absolute right-0 top-0 w-48 h-48 bg-brand-luxeGold/5 rounded-full -mr-16 -mt-16 blur-3xl">
+                </div>
+
                 <div class="mb-6 md:mb-0 relative z-10">
-                    <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-luxeGold block mb-2">Direct Contact</span>
+                    <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-luxeGold block mb-2">Direct
+                        Contact</span>
                     <h3 class="font-serif text-3xl font-light text-brand-luxeDark">Mgr. Silvia Karais</h3>
                 </div>
-                
+
                 <div class="flex flex-col space-y-4 relative z-10">
                     <div class="flex items-center group/item">
-                        <a href="mailto:silvia@velocity.sk" class="flex items-center space-x-4 text-stone-600 hover:text-brand-luxeGold transition-colors group">
-                            <div class="w-10 h-10 rounded-none bg-gradient-to-br from-stone-50 via-rose-50/40 to-stone-100 flex items-center justify-center border border-stone-200 group-hover:border-brand-luxeGold/30 transition-colors">
+                        <a href="mailto:silvia@velocity.sk"
+                            class="flex items-center space-x-4 text-stone-600 hover:text-brand-luxeGold transition-colors group">
+                            <div
+                                class="w-10 h-10 rounded-none bg-gradient-to-br from-stone-50 via-rose-50/40 to-stone-100 flex items-center justify-center border border-stone-200 group-hover:border-brand-luxeGold/30 transition-colors">
                                 <i data-lucide="mail" class="w-4 h-4"></i>
                             </div>
                             <span class="text-sm font-light tracking-wide font-sans">silvia@velocity.sk</span>
                         </a>
-                        <button onclick="copyToClipboard('silvia@velocity.sk', this)" class="opacity-0 group-hover/item:opacity-100 transition-opacity ml-4 text-stone-400 hover:text-brand-luxeGold focus:outline-none p-2 border border-stone-200 rounded-none bg-stone-50 hover:bg-white" title="Copy Email">
-                            <span class="copy-icon flex items-center justify-center"><i data-lucide="copy" class="w-3.5 h-3.5"></i></span>
-                            <span class="check-icon hidden flex items-center justify-center text-green-600"><i data-lucide="check" class="w-3.5 h-3.5"></i></span>
+                        <button onclick="copyToClipboard('silvia@velocity.sk', this)"
+                            class="opacity-0 group-hover/item:opacity-100 transition-opacity ml-4 text-stone-400 hover:text-brand-luxeGold focus:outline-none p-2 border border-stone-200 rounded-none bg-stone-50 hover:bg-white"
+                            title="Copy Email">
+                            <span class="copy-icon flex items-center justify-center"><i data-lucide="copy"
+                                    class="w-3.5 h-3.5"></i></span>
+                            <span class="check-icon hidden flex items-center justify-center text-green-600"><i
+                                    data-lucide="check" class="w-3.5 h-3.5"></i></span>
                         </button>
                     </div>
                     <div class="flex items-center group/item">
-                        <a href="tel:+421903214013" class="flex items-center space-x-4 text-stone-600 hover:text-brand-luxeGold transition-colors group">
-                            <div class="w-10 h-10 rounded-none bg-gradient-to-br from-stone-50 via-rose-50/40 to-stone-100 flex items-center justify-center border border-stone-200 group-hover:border-brand-luxeGold/30 transition-colors">
+                        <a href="tel:+421903214013"
+                            class="flex items-center space-x-4 text-stone-600 hover:text-brand-luxeGold transition-colors group">
+                            <div
+                                class="w-10 h-10 rounded-none bg-gradient-to-br from-stone-50 via-rose-50/40 to-stone-100 flex items-center justify-center border border-stone-200 group-hover:border-brand-luxeGold/30 transition-colors">
                                 <i data-lucide="phone" class="w-4 h-4"></i>
                             </div>
                             <span class="text-sm font-light tracking-wide font-sans">+421 903 214 013</span>
                         </a>
-                        <button onclick="copyToClipboard('+421903214013', this)" class="opacity-0 group-hover/item:opacity-100 transition-opacity ml-4 text-stone-400 hover:text-brand-luxeGold focus:outline-none p-2 border border-stone-200 rounded-none bg-stone-50 hover:bg-white" title="Copy Phone Number">
-                            <span class="copy-icon flex items-center justify-center"><i data-lucide="copy" class="w-3.5 h-3.5"></i></span>
-                            <span class="check-icon hidden flex items-center justify-center text-green-600"><i data-lucide="check" class="w-3.5 h-3.5"></i></span>
+                        <button onclick="copyToClipboard('+421903214013', this)"
+                            class="opacity-0 group-hover/item:opacity-100 transition-opacity ml-4 text-stone-400 hover:text-brand-luxeGold focus:outline-none p-2 border border-stone-200 rounded-none bg-stone-50 hover:bg-white"
+                            title="Copy Phone Number">
+                            <span class="copy-icon flex items-center justify-center"><i data-lucide="copy"
+                                    class="w-3.5 h-3.5"></i></span>
+                            <span class="check-icon hidden flex items-center justify-center text-green-600"><i
+                                    data-lucide="check" class="w-3.5 h-3.5"></i></span>
                         </button>
                     </div>
                 </div>
             </div>
 
             <!-- Form Container -->
-            <div class="bg-white p-8 md:p-12 relative overflow-hidden rounded-none border border-stone-200 shadow-2xl" id="form-container">
+            <div class="bg-white p-8 md:p-12 relative overflow-hidden rounded-none border border-stone-200 shadow-2xl"
+                id="form-container">
                 <form id="contact-form" class="space-y-10">
+                    <!-- Source flag, set to "Ride Builder" when the visitor arrives from the Tours builder -->
+                    <input type="hidden" id="form-source" name="source" value="Manual form">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                         <!-- Name -->
                         <div class="flex flex-col">
-                            <label for="name" class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-500 mb-2 pl-1">Name</label>
-                            <input type="text" id="name" name="name" required placeholder="John Doe" 
-                                   class="bg-stone-50 border border-stone-200 focus:border-red-600 focus:bg-white focus:outline-none text-sm font-light text-brand-luxeTextDark tracking-wide p-3.5 shadow-sm transition-all duration-300">
+                            <label for="name"
+                                class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-500 mb-2 pl-1">Name</label>
+                            <input type="text" id="name" name="name" required placeholder="John Doe"
+                                class="bg-stone-50 border border-stone-200 focus:border-red-600 focus:bg-white focus:outline-none text-sm font-light text-brand-luxeTextDark tracking-wide p-3.5 shadow-sm transition-all duration-300">
                         </div>
-                        <!-- Country -->
+                        <!-- Country of Origin (searchable) -->
                         <div class="flex flex-col">
-                            <label for="country" class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-500 mb-2 pl-1">Country</label>
-                            <input type="text" id="country" name="country" required placeholder="United Kingdom" 
-                                   class="bg-stone-50 border border-stone-200 focus:border-red-600 focus:bg-white focus:outline-none text-sm font-light text-brand-luxeTextDark tracking-wide p-3.5 shadow-sm transition-all duration-300">
+                            <label for="country"
+                                class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-500 mb-2 pl-1">Country
+                                of Origin</label>
+                            <div class="relative w-full" id="country-field">
+                                <input type="text" id="country" name="country" required autocomplete="off"
+                                    placeholder="Start typing your country…"
+                                    class="w-full bg-stone-50 border border-stone-200 focus:border-red-600 focus:bg-white focus:outline-none text-sm font-light text-brand-luxeTextDark tracking-wide p-3.5 shadow-sm transition-all duration-300">
+                                <div id="country-list"
+                                    class="searchable-list absolute left-0 right-0 mt-1.5 bg-white border border-brand-luxeGold/20 shadow-2xl z-40 max-h-60 overflow-y-auto hidden" data-lenis-prevent>
+                                </div>
+                            </div>
+                            
                         </div>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                         <!-- Email -->
                         <div class="flex flex-col">
-                            <label for="email" class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-500 mb-2 pl-1">Email Address</label>
-                            <input type="email" id="email" name="email" required placeholder="john@example.com" 
-                                   class="bg-stone-50 border border-stone-200 focus:border-red-600 focus:bg-white focus:outline-none text-sm font-light text-brand-luxeTextDark tracking-wide p-3.5 shadow-sm transition-all duration-300">
+                            <label for="email"
+                                class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-500 mb-2 pl-1">Email
+                                Address</label>
+                            <input type="email" id="email" name="email" required placeholder="john@example.com"
+                                class="bg-stone-50 border border-stone-200 focus:border-red-600 focus:bg-white focus:outline-none text-sm font-light text-brand-luxeTextDark tracking-wide p-3.5 shadow-sm transition-all duration-300">
                         </div>
-                        <!-- Dates -->
+                        <!-- Phone (optional, with country dial code) -->
                         <div class="flex flex-col">
-                            <label for="dates" class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-500 mb-2 pl-1">Travel Dates</label>
-                            <input type="text" id="dates" name="dates" required placeholder="e.g., Late September 2026" 
-                                   class="bg-stone-50 border border-stone-200 focus:border-red-600 focus:bg-white focus:outline-none text-sm font-light text-brand-luxeTextDark tracking-wide p-3.5 shadow-sm transition-all duration-300">
+                            <label for="phone-number"
+                                class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-500 mb-2 pl-1">Phone
+                                <span
+                                    class="text-stone-400 font-medium normal-case tracking-normal">(optional)</span></label>
+                            <div class="relative w-full" id="phone-field">
+                                <div class="flex">
+                                    <div class="relative flex-shrink-0">
+                                        <input type="text" id="phone-code" name="phone-code" value="+421"
+                                            inputmode="tel" autocomplete="off" aria-label="Country dial code"
+                                            class="relative z-0 focus:z-10 w-[5.5rem] bg-stone-100 border border-stone-200 focus:border-red-600 focus:bg-white focus:outline-none text-sm font-medium text-brand-luxeTextDark p-3.5 shadow-sm transition-all duration-300">
+                                        <div id="phone-code-list"
+                                            class="searchable-list absolute left-0 top-full mt-1.5 w-72 max-w-[80vw] bg-white border border-brand-luxeGold/20 shadow-2xl z-40 max-h-60 overflow-y-auto hidden" data-lenis-prevent>
+                                        </div>
+                                    </div>
+                                    <input type="tel" id="phone-number" name="phone-number" autocomplete="tel"
+                                        placeholder="903 214 013"
+                                        class="relative z-0 focus:z-10 -ml-px flex-1 min-w-0 bg-stone-50 border border-stone-200 focus:border-red-600 focus:bg-white focus:outline-none text-sm font-light text-brand-luxeTextDark tracking-wide p-3.5 shadow-sm transition-all duration-300">
+                                </div>
+                                <span class="text-[10px] font-light text-stone-400 mt-1.5 pl-1 leading-relaxed">Type or
+                                    pick your country code, then your number.</span>
+                            </div>
                         </div>
+                    </div>
+
+                    <!-- Travel Dates -->
+                    <div class="flex flex-col">
+                        <label for="dates"
+                            class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-500 mb-2 pl-1">Travel
+                            Dates</label>
+                        <input type="text" id="dates" name="dates" required placeholder="e.g., Late September 2026"
+                            class="bg-stone-50 border border-stone-200 focus:border-red-600 focus:bg-white focus:outline-none text-sm font-light text-brand-luxeTextDark tracking-wide p-3.5 shadow-sm transition-all duration-300">
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
                         <!-- Group Size -->
                         <div class="flex flex-col relative custom-select-container">
-                            <label class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-500 mb-2 pl-1">Group Size</label>
+                            <label
+                                class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-500 mb-2 pl-1">Group
+                                Size</label>
                             <div class="relative w-full">
                                 <select id="group-size" name="group-size" style="display: none !important;">
                                     <option value="" disabled selected>Select size</option>
@@ -304,51 +508,35 @@
                                     <option value="5-8 Riders">5-8 Riders</option>
                                     <option value="9+ Corporate/Club">9+ (Corporate/Club)</option>
                                 </select>
-                                <button type="button" class="custom-select-trigger w-full text-left bg-stone-50 border border-stone-200 focus:border-red-600 focus:bg-white focus:outline-none text-sm font-light text-brand-luxeTextDark tracking-wide p-3.5 shadow-sm cursor-pointer flex justify-between items-center transition-all duration-300">
+                                <button type="button"
+                                    class="custom-select-trigger w-full text-left bg-stone-50 border border-stone-200 focus:border-red-600 focus:bg-white focus:outline-none text-sm font-light text-brand-luxeTextDark tracking-wide p-3.5 shadow-sm cursor-pointer flex justify-between items-center transition-all duration-300">
                                     <span class="selected-text text-stone-400">Select size</span>
-                                    <i data-lucide="chevron-down" class="w-4 h-4 text-brand-luxeGold transition-transform duration-300"></i>
+                                    <i data-lucide="chevron-down"
+                                        class="w-4 h-4 text-brand-luxeGold transition-transform duration-300"></i>
                                 </button>
-                                <div class="custom-select-options absolute left-0 right-0 mt-1.5 bg-white border border-brand-luxeGold/20 shadow-2xl opacity-0 pointer-events-none transition-all duration-300 z-30 flex flex-col py-1.5 rounded-none">
-                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300" data-value="Solo Rider">Solo Rider</div>
-                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300" data-value="2-4 Riders">2-4 Riders</div>
-                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300" data-value="5-8 Riders">5-8 Riders</div>
-                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300" data-value="9+ Corporate/Club">9+ (Corporate/Club)</div>
+                                                                <div
+                                    class="custom-select-options absolute left-0 right-0 mt-1.5 bg-white border border-brand-luxeGold/20 shadow-2xl opacity-0 pointer-events-none transition-all duration-300 z-30 flex flex-col py-1.5 rounded-none max-h-60 overflow-y-auto" data-lenis-prevent>
+                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300"
+                                        data-value="Solo Rider">Solo Rider</div>
+                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300"
+                                        data-value="2-4 Riders">2-4 Riders</div>
+                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300"
+                                        data-value="5-8 Riders">5-8 Riders</div>
+                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300"
+                                        data-value="9+ Corporate/Club">9+ (Corporate/Club)</div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Experience Level -->
-                        <div class="flex flex-col relative custom-select-container">
-                            <label class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-500 mb-2 pl-1">Experience Level</label>
-                            <div class="relative w-full">
-                                <select id="experience" name="experience" style="display: none !important;">
-                                    <option value="" disabled selected>Select level</option>
-                                    <option value="Leisure/Casual">Leisure / Casual</option>
-                                    <option value="Intermediate">Intermediate Road/Gravel</option>
-                                    <option value="Advanced/Strong">Advanced / Strong Cyclist</option>
-                                </select>
-                                <button type="button" class="custom-select-trigger w-full text-left bg-stone-50 border border-stone-200 focus:border-red-600 focus:bg-white focus:outline-none text-sm font-light text-brand-luxeTextDark tracking-wide p-3.5 shadow-sm cursor-pointer flex justify-between items-center transition-all duration-300">
-                                    <span class="selected-text text-stone-400">Select level</span>
-                                    <i data-lucide="chevron-down" class="w-4 h-4 text-brand-luxeGold transition-transform duration-300"></i>
-                                </button>
-                                <div class="custom-select-options absolute left-0 right-0 mt-1.5 bg-white border border-brand-luxeGold/20 shadow-2xl opacity-0 pointer-events-none transition-all duration-300 z-30 flex flex-col py-1.5 rounded-none">
-                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300" data-value="Leisure/Casual">Leisure / Casual</div>
-                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300" data-value="Intermediate">Intermediate Road/Gravel</div>
-                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300" data-value="Advanced/Strong">Advanced / Strong Cyclist</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Preferred Ride Type -->
-                        <div class="flex flex-col relative custom-select-container">
-                            <label class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-500 mb-2 pl-1">Preferred Ride Type</label>
+                        <!-- Preferred Ride Type (spanning 2 columns) -->
+                        <div class="flex flex-col relative custom-select-container md:col-span-2">
+                            <label for="ride-type"
+                                class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-500 mb-2 pl-1">Preferred
+                                Ride Type</label>
                             <div class="relative w-full">
                                 <select id="ride-type" name="ride-type" style="display: none !important;">
                                     <option value="" disabled selected>Select type</option>
-                                    <option value="Guided Tour (Leisure)">Guided Tour (Leisure)</option>
-                                    <option value="Guided Road Ride (Sportive)">Guided Road Ride (Sportive)</option>
-                                    <option value="Guided Gravel Ride">Guided Gravel Ride</option>
-                                    <option value="Custom Experience">Custom Experience</option>
+                                    <option value="Not sure — help me choose">Not sure — help me choose</option>
                                     <option value="Bratislava Highlights Ride">Bratislava Highlights Ride</option>
                                     <option value="Danube Discovery Tour">Danube Discovery Tour</option>
                                     <option value="Wine & Villages Ride">Wine & Villages Ride</option>
@@ -357,57 +545,108 @@
                                     <option value="Little Carpathians Road Ride">Little Carpathians Road Ride</option>
                                     <option value="Gravel Through The Vineyards">Gravel Through The Vineyards</option>
                                     <option value="Four Countries Challenge">Four Countries Challenge</option>
+                                    <option value="Forest Trails Explorer">Forest Trails Explorer</option>
+                                    <option value="Little Carpathians MTB Ride">Little Carpathians MTB Ride</option>
+                                    <option value="Trail Discovery Experience">Trail Discovery Experience</option>
+                                    <option value="Custom MTB Adventure">Custom MTB Adventure</option>
+                                    <option value="Custom Experience">Custom Experience</option>
                                 </select>
-                                <button type="button" class="custom-select-trigger w-full text-left bg-stone-50 border border-stone-200 focus:border-red-600 focus:bg-white focus:outline-none text-sm font-light text-brand-luxeTextDark tracking-wide p-3.5 shadow-sm cursor-pointer flex justify-between items-center transition-all duration-300">
+                                <button type="button"
+                                    class="custom-select-trigger w-full text-left bg-stone-50 border border-stone-200 focus:border-red-600 focus:bg-white focus:outline-none text-sm font-light text-brand-luxeTextDark tracking-wide p-3.5 shadow-sm cursor-pointer flex justify-between items-center transition-all duration-300">
                                     <span class="selected-text text-stone-400">Select type</span>
-                                    <i data-lucide="chevron-down" class="w-4 h-4 text-brand-luxeGold transition-transform duration-300"></i>
+                                    <i data-lucide="chevron-down"
+                                        class="w-4 h-4 text-brand-luxeGold transition-transform duration-300"></i>
                                 </button>
-                                <div class="custom-select-options absolute left-0 right-0 mt-1.5 bg-white border border-brand-luxeGold/20 shadow-2xl opacity-0 pointer-events-none transition-all duration-300 z-30 flex flex-col py-1.5 rounded-none max-h-60 overflow-y-auto">
-                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300" data-value="Guided Tour (Leisure)">Guided Tour (Leisure)</div>
-                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300" data-value="Guided Road Ride (Sportive)">Guided Road Ride (Sportive)</div>
-                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300" data-value="Guided Gravel Ride">Guided Gravel Ride</div>
-                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300" data-value="Custom Experience">Custom Experience</div>
-                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300" data-value="Bratislava Highlights Ride">Bratislava Highlights Ride</div>
-                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300" data-value="Danube Discovery Tour">Danube Discovery Tour</div>
-                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300" data-value="Wine & Villages Ride">Wine & Villages Ride</div>
-                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300" data-value="Sunset Ride">Sunset Ride</div>
-                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300" data-value="Cross Border Ride">Cross Border Ride</div>
-                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300" data-value="Little Carpathians Road Ride">Little Carpathians Road Ride</div>
-                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300" data-value="Gravel Through The Vineyards">Gravel Through The Vineyards</div>
-                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300" data-value="Four Countries Challenge">Four Countries Challenge</div>
+                                <div
+                                    class="custom-select-options absolute left-0 right-0 mt-1.5 bg-white border border-brand-luxeGold/20 shadow-2xl opacity-0 pointer-events-none transition-all duration-300 z-30 flex flex-col py-1.5 rounded-none max-h-60 overflow-y-auto" data-lenis-prevent data-lenis-prevent>
+                                    <div class="custom-option ride-option-help px-5 py-2.5 text-xs font-semibold text-brand-luxeGold bg-brand-luxeGold/5 border-l-2 border-brand-luxeGold hover:bg-brand-luxeGold/10 hover:pl-7 cursor-pointer transition-all duration-300 flex items-center gap-2"
+                                        data-value="Not sure — help me choose"><i data-lucide="sparkles"
+                                            class="w-3.5 h-3.5"></i>Not sure — help me choose</div>
+                                    
+                                    <!-- CATEGORY: LEISURE & CITY -->
+                                    <div class="px-5 py-2 text-[9px] font-bold tracking-[0.2em] text-red-600 uppercase bg-stone-50/80 border-y border-stone-100 cursor-default pointer-events-none mt-1">Leisure & City</div>
+                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300"
+                                        data-value="Bratislava Highlights Ride">Bratislava Highlights Ride</div>
+                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300"
+                                        data-value="Danube Discovery Tour">Danube Discovery Tour</div>
+                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300"
+                                        data-value="Wine & Villages Ride">Wine & Villages Ride</div>
+                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300"
+                                        data-value="Sunset Ride">Sunset Ride</div>
+
+                                    <!-- CATEGORY: ROAD & GRAVEL -->
+                                    <div class="px-5 py-2 text-[9px] font-bold tracking-[0.2em] text-red-600 uppercase bg-stone-50/80 border-y border-stone-100 cursor-default pointer-events-none mt-1">Road & Gravel</div>
+                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300"
+                                        data-value="Cross Border Ride">Cross Border Ride</div>
+                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300"
+                                        data-value="Little Carpathians Road Ride">Little Carpathians Road Ride</div>
+                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300"
+                                        data-value="Gravel Through The Vineyards">Gravel Through The Vineyards</div>
+                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300"
+                                        data-value="Four Countries Challenge">Four Countries Challenge</div>
+
+                                    <!-- CATEGORY: TRAIL & MTB -->
+                                    <div class="px-5 py-2 text-[9px] font-bold tracking-[0.2em] text-red-600 uppercase bg-stone-50/80 border-y border-stone-100 cursor-default pointer-events-none mt-1">Trail & MTB</div>
+                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300"
+                                        data-value="Forest Trails Explorer">Forest Trails Explorer</div>
+                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300"
+                                        data-value="Little Carpathians MTB Ride">Little Carpathians MTB Ride</div>
+                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300"
+                                        data-value="Trail Discovery Experience">Trail Discovery Experience</div>
+                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300"
+                                        data-value="Custom MTB Adventure">Custom MTB Adventure</div>
+
+                                    <!-- CATEGORY: CUSTOM -->
+                                    <div class="px-5 py-2 text-[9px] font-bold tracking-[0.2em] text-red-600 uppercase bg-stone-50/80 border-y border-stone-100 cursor-default pointer-events-none mt-1">Custom</div>
+                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300 mb-1"
+                                        data-value="Custom Experience">Custom Experience</div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
+                    <!-- Preferred Ride Type live preview -->
+                    <div id="ride-preview" class="hidden"></div>
+
                     <!-- Message -->
                     <div class="flex flex-col">
-                        <label for="message" class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-500 mb-2 pl-1">Message</label>
-                        <textarea id="message" name="message" rows="4" placeholder="Tell us about your interests, rental needs, or special requests..."
-                                  class="bg-stone-50 border border-stone-200 focus:border-red-600 focus:bg-white focus:outline-none text-sm font-light text-brand-luxeTextDark tracking-wide p-3.5 shadow-sm transition-all duration-300 resize-none"></textarea>
+                        <label for="message"
+                            class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-500 mb-2 pl-1">Message</label>
+                        <textarea id="message" name="message" rows="7" data-lenis-prevent
+                            placeholder="Tell us about your interests, rental needs, or special requests..."
+                            class="bg-stone-50 border border-stone-200 focus:border-red-600 focus:bg-white focus:outline-none text-sm font-light text-brand-luxeTextDark tracking-wide p-3.5 shadow-sm transition-all duration-300 resize-none"></textarea>
                     </div>
 
                     <!-- Submit Button -->
-                    <button type="submit" class="group relative w-full overflow-hidden border border-brand-luxeDark/20 bg-brand-luxeDark py-5 px-8 text-center text-xs font-medium uppercase tracking-[0.3em] transition-all duration-500 rounded-none shadow-2xl">
+                    <button type="submit"
+                        class="group relative w-full overflow-hidden border border-brand-luxeDark/20 bg-brand-luxeDark py-5 px-8 text-center text-xs font-medium uppercase tracking-[0.3em] transition-all duration-500 rounded-none shadow-2xl">
                         <!-- Absolute gold background overlay that slides up -->
-                        <span class="absolute inset-0 w-full h-full bg-brand-luxeGold transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-0"></span>
+                        <span
+                            class="absolute inset-0 w-full h-full bg-brand-luxeGold transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-0"></span>
                         <!-- Relative text content to stay above overlay -->
-                        <span class="relative z-10 text-white group-hover:text-brand-luxeDark transition-colors duration-500 flex items-center justify-center space-x-2" id="submit-btn-text">
+                        <span
+                            class="relative z-10 text-white group-hover:text-brand-luxeDark transition-colors duration-500 flex items-center justify-center space-x-2"
+                            id="submit-btn-text">
                             <span>Submit Inquiry</span>
                         </span>
                     </button>
                 </form>
-                
+
                 <!-- Success State Overlay -->
-                <div id="success-message" class="absolute inset-0 bg-brand-luxeDark text-white z-20 flex flex-col items-center justify-center p-8 text-center opacity-0 pointer-events-none transition-all duration-500">
-                    <div class="w-16 h-16 bg-brand-luxeGold/20 border border-brand-luxeGold rounded-none flex items-center justify-center text-brand-luxeGold mb-6">
+                <div id="success-message"
+                    class="absolute inset-0 bg-brand-luxeDark text-white z-20 flex flex-col items-center justify-center p-8 text-center opacity-0 pointer-events-none transition-all duration-500">
+                    <div
+                        class="w-16 h-16 bg-brand-luxeGold/20 border border-brand-luxeGold rounded-none flex items-center justify-center text-brand-luxeGold mb-6">
                         <i data-lucide="check" class="w-8 h-8"></i>
                     </div>
                     <h3 class="font-serif text-3xl font-light tracking-tight mb-4">Inquiry Received</h3>
-                    <p class="max-w-md text-stone-400 font-light text-xs md:text-sm leading-relaxed mb-8 tracking-wide font-sans">
-                        Thank you for reaching out to Bike Bratislava. One of our local ride leaders will review your request and get back to you within 24 hours to help plan your adventure.
+                    <p
+                        class="max-w-md text-stone-400 font-light text-xs md:text-sm leading-relaxed mb-8 tracking-wide font-sans">
+                        Thank you for reaching out to Bike Bratislava. One of our local ride leaders will review your
+                        request and get back to you within 24 hours to help plan your adventure.
                     </p>
-                    <button id="success-reset-btn" class="px-8 py-3.5 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white font-medium text-[10px] tracking-[0.25em] uppercase transition-colors duration-300 rounded-none">
+                    <button id="success-reset-btn"
+                        class="px-8 py-3.5 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white font-medium text-[10px] tracking-[0.25em] uppercase transition-colors duration-300 rounded-none">
                         Send Another Message
                     </button>
                 </div>
@@ -416,11 +655,11 @@
         </div>
     </section>
 
-            <!-- FOOTER -->
+    <!-- FOOTER -->
     <footer class="bg-brand-luxeDark text-stone-500 py-24 border-t border-stone-900">
         <div class="max-w-7xl mx-auto px-6 lg:px-12 font-sans tracking-wide">
             <div class="grid grid-cols-1 md:grid-cols-5 gap-16 mb-20">
-                
+
                 <div class="md:col-span-2">
                     <a href="index.html" class="flex flex-col mb-6 group">
                         <span class="font-serif text-2xl tracking-widest text-white transition-colors duration-300">
@@ -431,7 +670,8 @@
                         </span>
                     </a>
                     <p class="text-xs font-light leading-relaxed mt-6 pr-8 text-stone-400">
-                        Discover Bratislava and the heart of Central Europe from the saddle. Guided cycling tours, road rides, gravel adventures and custom cycling experiences designed by local riders.
+                        Discover Bratislava and the heart of Central Europe from the saddle. Guided cycling tours, road
+                        rides, gravel adventures and custom cycling experiences designed by local riders.
                     </p>
                 </div>
 
@@ -440,15 +680,18 @@
                     <ul class="space-y-4 text-xs font-light">
                         <li><a href="index.html" class="hover:text-brand-luxeGold transition-colors">Home</a></li>
                         <li><a href="about.html" class="hover:text-brand-luxeGold transition-colors">About Us</a></li>
-                        <li><a href="discover.html" class="hover:text-brand-luxeGold transition-colors">Discover Bratislava</a></li>
-                        <li><a href="tours.html" class="hover:text-brand-luxeGold transition-colors">Tours & Rides</a></li>
+                        <li><a href="discover.html" class="hover:text-brand-luxeGold transition-colors">Discover
+                                Bratislava</a></li>
+                        <li><a href="tours.html" class="hover:text-brand-luxeGold transition-colors">Tours & Rides</a>
+                        </li>
                     </ul>
                 </div>
 
                 <div>
                     <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] text-white mb-6">Rides</h4>
                     <ul class="space-y-4 text-xs font-light">
-                        <li><a href="guides.html" class="hover:text-brand-luxeGold transition-colors">Our Guides</a></li>
+                        <li><a href="guides.html" class="hover:text-brand-luxeGold transition-colors">Our Guides</a>
+                        </li>
                         <li><a href="journal.html" class="hover:text-brand-luxeGold transition-colors">Journal</a></li>
                         <li><a href="contact.html" class="hover:text-brand-luxeGold transition-colors">Contact</a></li>
                     </ul>
@@ -458,26 +701,35 @@
                     <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] text-white mb-6">Contact</h4>
                     <ul class="space-y-4 text-xs font-light">
                         <li class="text-stone-400">Mgr. Silvia Karais</li>
-                        <li><a href="mailto:silvia@velocity.sk" class="hover:text-brand-luxeGold transition-colors">silvia@velocity.sk</a></li>
-                        <li><a href="tel:+421903214013" class="hover:text-brand-luxeGold transition-colors">+421 903 214 013</a></li>
+                        <li><a href="mailto:silvia@velocity.sk"
+                                class="hover:text-brand-luxeGold transition-colors">silvia@velocity.sk</a></li>
+                        <li><a href="tel:+421903214013" class="hover:text-brand-luxeGold transition-colors">+421 903 214
+                                013</a></li>
                     </ul>
                 </div>
 
             </div>
 
-                        <div class="border-t border-stone-900/60 pt-8 flex flex-col lg:flex-row items-center justify-between text-[10px] font-light gap-6">
+            <div
+                class="border-t border-stone-900/60 pt-8 flex flex-col lg:flex-row items-center justify-between text-[10px] font-light gap-6">
                 <p>&copy; 2026 Bike Bratislava. All rights reserved.</p>
                 <div class="flex items-center space-x-6 md:space-x-8">
-                    <a href="https://www.velocity.sk/" target="_blank" class="flex items-center space-x-3 opacity-70 hover:opacity-100 transition-opacity">
-                        <span class="uppercase tracking-widest text-stone-400 hover:text-white transition-colors">velocity.sk</span>
+                    <a href="https://www.velocity.sk/" target="_blank"
+                        class="flex items-center space-x-3 opacity-70 hover:opacity-100 transition-opacity">
+                        <span
+                            class="uppercase tracking-widest text-stone-400 hover:text-white transition-colors">velocity.sk</span>
                         <div class="h-4 w-[1px] bg-stone-700"></div>
                         <img src="pictures/logo_Velocity_white.png" alt="Velocity" class="h-5 object-contain">
                     </a>
-                    <a href="https://www.instagram.com/velocity_cyklo/" target="_blank" class="flex items-center space-x-2 text-stone-400 hover:text-brand-luxeGold transition-colors" aria-label="Instagram">
+                    <a href="https://www.instagram.com/velocity_cyklo/" target="_blank"
+                        class="flex items-center space-x-2 text-stone-400 hover:text-brand-luxeGold transition-colors"
+                        aria-label="Instagram">
                         <i data-lucide="instagram" class="w-5 h-5"></i>
                         <span class="uppercase tracking-widest font-semibold hidden sm:inline-block">Instagram</span>
                     </a>
-                    <a href="https://www.facebook.com/VeloCity.sk/" target="_blank" class="flex items-center space-x-2 text-stone-400 hover:text-brand-luxeGold transition-colors" aria-label="Facebook">
+                    <a href="https://www.facebook.com/VeloCity.sk/" target="_blank"
+                        class="flex items-center space-x-2 text-stone-400 hover:text-brand-luxeGold transition-colors"
+                        aria-label="Facebook">
                         <i data-lucide="facebook" class="w-5 h-5"></i>
                         <span class="uppercase tracking-widest font-semibold hidden sm:inline-block">Facebook</span>
                     </a>
@@ -485,6 +737,20 @@
             </div>
         </div>
     </footer>
+
+    <!-- RIDE DETAIL MODAL (full tour info, opened from the Preferred Ride Type preview) -->
+    <div id="ride-modal"
+        class="fixed inset-0 bg-stone-950/80 backdrop-blur-sm z-[70] flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-500">
+        <div
+            class="bg-white max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative rounded-none text-brand-luxeDark" data-lenis-prevent>
+            <button onclick="closeRideModal()"
+                class="absolute top-4 right-4 text-white hover:text-brand-luxeGold transition-all z-10 bg-black/30 hover:bg-black/60 p-2 rounded-full backdrop-blur-md"
+                aria-label="Close details">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <div id="ride-modal-content"></div>
+        </div>
+    </div>
 
     <!-- INTERACTIVE SCRIPTS -->
     <!-- Lenis Smooth Scroll -->
@@ -508,7 +774,7 @@
             const optionsList = container.querySelector('.custom-select-options');
             const selectEl = container.querySelector('select');
             const selectedText = container.querySelector('.selected-text');
-            
+
             trigger.addEventListener('click', (e) => {
                 e.stopPropagation();
                 // Close other custom dropdowns first
@@ -533,26 +799,26 @@
                     if (arrow) arrow.classList.remove('rotate-180');
                 }
             });
-            
+
             container.querySelectorAll('.custom-option').forEach(option => {
                 option.addEventListener('click', (e) => {
                     e.stopPropagation();
                     const val = option.getAttribute('data-value');
-                    
+
                     // Set select value
                     selectEl.value = val;
                     // Trigger change event
                     selectEl.dispatchEvent(new Event('change'));
-                    
+
                     // Clear error styling on option select
                     container.classList.remove('border-red-500');
                     container.classList.add('border-stone-300');
-                    
+
                     // Update text
                     selectedText.textContent = option.textContent;
                     selectedText.classList.remove('text-stone-400');
                     selectedText.classList.add('text-brand-luxeTextDark');
-                    
+
                     const arrow = getArrowEl(trigger);
                     optionsList.classList.add('opacity-0', 'pointer-events-none');
                     if (arrow) arrow.classList.remove('rotate-180');
@@ -582,7 +848,7 @@
                 }
             });
         });
-        
+
         // Close dropdowns when clicking outside
         document.addEventListener('click', () => {
             document.querySelectorAll('.custom-select-options').forEach(list => {
@@ -597,34 +863,263 @@
             });
         });
 
+        // ===== Searchable country / phone-code pickers + ride preview =====
+        (function setupContactExtras() {
+            const countries = [
+                { n: 'Afghanistan', c: 'AF', d: '+93' }, { n: 'Albania', c: 'AL', d: '+355' }, { n: 'Algeria', c: 'DZ', d: '+213' },
+                { n: 'Andorra', c: 'AD', d: '+376' }, { n: 'Angola', c: 'AO', d: '+244' }, { n: 'Argentina', c: 'AR', d: '+54' },
+                { n: 'Armenia', c: 'AM', d: '+374' }, { n: 'Australia', c: 'AU', d: '+61' }, { n: 'Austria', c: 'AT', d: '+43' },
+                { n: 'Azerbaijan', c: 'AZ', d: '+994' }, { n: 'Bahrain', c: 'BH', d: '+973' }, { n: 'Bangladesh', c: 'BD', d: '+880' },
+                { n: 'Belarus', c: 'BY', d: '+375' }, { n: 'Belgium', c: 'BE', d: '+32' }, { n: 'Bolivia', c: 'BO', d: '+591' },
+                { n: 'Bosnia and Herzegovina', c: 'BA', d: '+387' }, { n: 'Brazil', c: 'BR', d: '+55' }, { n: 'Bulgaria', c: 'BG', d: '+359' },
+                { n: 'Cambodia', c: 'KH', d: '+855' }, { n: 'Canada', c: 'CA', d: '+1' }, { n: 'Chile', c: 'CL', d: '+56' },
+                { n: 'China', c: 'CN', d: '+86' }, { n: 'Colombia', c: 'CO', d: '+57' }, { n: 'Costa Rica', c: 'CR', d: '+506' },
+                { n: 'Croatia', c: 'HR', d: '+385' }, { n: 'Cyprus', c: 'CY', d: '+357' }, { n: 'Czechia', c: 'CZ', d: '+420' },
+                { n: 'Denmark', c: 'DK', d: '+45' }, { n: 'Dominican Republic', c: 'DO', d: '+1' }, { n: 'Ecuador', c: 'EC', d: '+593' },
+                { n: 'Egypt', c: 'EG', d: '+20' }, { n: 'Estonia', c: 'EE', d: '+372' }, { n: 'Finland', c: 'FI', d: '+358' },
+                { n: 'France', c: 'FR', d: '+33' }, { n: 'Georgia', c: 'GE', d: '+995' }, { n: 'Germany', c: 'DE', d: '+49' },
+                { n: 'Greece', c: 'GR', d: '+30' }, { n: 'Hong Kong', c: 'HK', d: '+852' }, { n: 'Hungary', c: 'HU', d: '+36' },
+                { n: 'Iceland', c: 'IS', d: '+354' }, { n: 'India', c: 'IN', d: '+91' }, { n: 'Indonesia', c: 'ID', d: '+62' },
+                { n: 'Iran', c: 'IR', d: '+98' }, { n: 'Iraq', c: 'IQ', d: '+964' }, { n: 'Ireland', c: 'IE', d: '+353' },
+                { n: 'Israel', c: 'IL', d: '+972' }, { n: 'Italy', c: 'IT', d: '+39' }, { n: 'Japan', c: 'JP', d: '+81' },
+                { n: 'Jordan', c: 'JO', d: '+962' }, { n: 'Kazakhstan', c: 'KZ', d: '+7' }, { n: 'Kenya', c: 'KE', d: '+254' },
+                { n: 'Kuwait', c: 'KW', d: '+965' }, { n: 'Latvia', c: 'LV', d: '+371' }, { n: 'Lebanon', c: 'LB', d: '+961' },
+                { n: 'Liechtenstein', c: 'LI', d: '+423' }, { n: 'Lithuania', c: 'LT', d: '+370' }, { n: 'Luxembourg', c: 'LU', d: '+352' },
+                { n: 'Malaysia', c: 'MY', d: '+60' }, { n: 'Malta', c: 'MT', d: '+356' }, { n: 'Mexico', c: 'MX', d: '+52' },
+                { n: 'Moldova', c: 'MD', d: '+373' }, { n: 'Monaco', c: 'MC', d: '+377' }, { n: 'Montenegro', c: 'ME', d: '+382' },
+                { n: 'Morocco', c: 'MA', d: '+212' }, { n: 'Netherlands', c: 'NL', d: '+31' }, { n: 'New Zealand', c: 'NZ', d: '+64' },
+                { n: 'North Macedonia', c: 'MK', d: '+389' }, { n: 'Norway', c: 'NO', d: '+47' }, { n: 'Oman', c: 'OM', d: '+968' },
+                { n: 'Pakistan', c: 'PK', d: '+92' }, { n: 'Peru', c: 'PE', d: '+51' }, { n: 'Philippines', c: 'PH', d: '+63' },
+                { n: 'Poland', c: 'PL', d: '+48' }, { n: 'Portugal', c: 'PT', d: '+351' }, { n: 'Qatar', c: 'QA', d: '+974' },
+                { n: 'Romania', c: 'RO', d: '+40' }, { n: 'Russia', c: 'RU', d: '+7' }, { n: 'San Marino', c: 'SM', d: '+378' },
+                { n: 'Saudi Arabia', c: 'SA', d: '+966' }, { n: 'Serbia', c: 'RS', d: '+381' }, { n: 'Singapore', c: 'SG', d: '+65' },
+                { n: 'Slovakia', c: 'SK', d: '+421' }, { n: 'Slovenia', c: 'SI', d: '+386' }, { n: 'South Africa', c: 'ZA', d: '+27' },
+                { n: 'South Korea', c: 'KR', d: '+82' }, { n: 'Spain', c: 'ES', d: '+34' }, { n: 'Sri Lanka', c: 'LK', d: '+94' },
+                { n: 'Sweden', c: 'SE', d: '+46' }, { n: 'Switzerland', c: 'CH', d: '+41' }, { n: 'Taiwan', c: 'TW', d: '+886' },
+                { n: 'Thailand', c: 'TH', d: '+66' }, { n: 'Tunisia', c: 'TN', d: '+216' }, { n: 'Turkey', c: 'TR', d: '+90' },
+                { n: 'Ukraine', c: 'UA', d: '+380' }, { n: 'United Arab Emirates', c: 'AE', d: '+971' },
+                { n: 'United Kingdom', c: 'GB', d: '+44' }, { n: 'United States', c: 'US', d: '+1' }, { n: 'Uruguay', c: 'UY', d: '+598' },
+                { n: 'Uzbekistan', c: 'UZ', d: '+998' }, { n: 'Venezuela', c: 'VE', d: '+58' }, { n: 'Vietnam', c: 'VN', d: '+84' }
+            ];
+
+            function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+            function flag(iso) { return iso ? '<img src="https://flagcdn.com/w20/' + iso.toLowerCase() + '.png" srcset="https://flagcdn.com/w40/' + iso.toLowerCase() + '.png 2x" width="20" class="inline-block mr-2 shadow-sm border border-stone-200" alt="' + iso + '">' : ''; }
+
+            /* ---- Phone dial code: a typeable input that also opens a searchable, flagged list ---- */
+            const phoneField = document.getElementById('phone-field');
+            const phoneCode = document.getElementById('phone-code');   // typeable, name="phone-code"
+            const phoneList = document.getElementById('phone-code-list');
+            const phoneNumber = document.getElementById('phone-number');
+
+            function setPhoneCode(dial) { if (phoneCode) phoneCode.value = dial; }
+            window.resetPhoneCode = function () { setPhoneCode('+421'); };
+
+            function renderPhoneList(filter) {
+                const q = (filter || '').trim().toLowerCase();
+                const qd = q.replace(/\D/g, '');
+                const matches = countries.filter(c => !q || c.n.toLowerCase().indexOf(q) > -1 || (qd && c.d.replace(/\D/g, '').indexOf(qd) > -1));
+                phoneList.innerHTML = matches.length
+                    ? matches.map(c => '<div class="sl-item" data-dial="' + c.d + '"><span><span class="sl-flag">' + flag(c.c) + '</span><span class="text-stone-400 font-medium mr-2">' + c.c + '</span>' + esc(c.n) + '</span><span class="sl-dial">' + c.d + '</span></div>').join('')
+                    : '<div class="sl-empty">No match — you can type your code in.</div>';
+            }
+            if (phoneCode && phoneList) {
+                phoneCode.addEventListener('focus', () => { renderPhoneList(''); phoneList.classList.remove('hidden'); });
+                phoneCode.addEventListener('input', () => { renderPhoneList(phoneCode.value); phoneList.classList.remove('hidden'); });
+                phoneList.addEventListener('click', (e) => {
+                    const item = e.target.closest('.sl-item');
+                    if (!item) return;
+                    setPhoneCode(item.getAttribute('data-dial'));
+                    phoneList.classList.add('hidden');
+                    if (phoneNumber) phoneNumber.focus();
+                });
+            }
+
+            /* ---- Country of origin: names only, alphabetical, type to filter ---- */
+            const countryInput = document.getElementById('country');
+            const countryList = document.getElementById('country-list');
+            const countryField = document.getElementById('country-field');
+
+            function renderCountryList(filter) {
+                const q = (filter || '').trim().toLowerCase();
+                const matches = countries.filter(c => !q || c.n.toLowerCase().indexOf(q) > -1);
+                countryList.innerHTML = matches.length
+                    ? matches.slice(0, 100).map(c => '<div class="sl-item" data-name="' + esc(c.n) + '" data-dial="' + c.d + '"><span><span class="sl-flag">' + flag(c.c) + '</span><span class="text-stone-400 font-medium mr-2">' + c.c + '</span>' + esc(c.n) + '</span></div>').join('')
+                    : '<div class="sl-empty">No match — you can just type it in.</div>';
+            }
+            if (countryInput && countryList) {
+                countryInput.addEventListener('focus', () => { renderCountryList(countryInput.value); countryList.classList.remove('hidden'); });
+                countryInput.addEventListener('input', () => { renderCountryList(countryInput.value); countryList.classList.remove('hidden'); });
+                countryList.addEventListener('click', (e) => {
+                    const item = e.target.closest('.sl-item');
+                    if (!item) return;
+                    countryInput.value = item.getAttribute('data-name');
+                    const dial = item.getAttribute('data-dial');
+                    if (dial && (!phoneNumber || !phoneNumber.value)) setPhoneCode(dial);
+                    countryList.classList.add('hidden');
+                });
+            }
+
+            /* ---- Outside click closes both pickers ---- */
+            document.addEventListener('click', (e) => {
+                if (countryField && countryList && !countryField.contains(e.target)) countryList.classList.add('hidden');
+                if (phoneField && phoneList && !phoneList.classList.contains('hidden') && !phoneField.contains(e.target)) phoneList.classList.add('hidden');
+            });
+
+            /* ---- Preferred ride type: short preview card (all options) ---- */
+            const rideInfo = {
+                'Guided Tour (Leisure)': { img: 'pictures/discover bratislava.jpeg', desc: 'Relaxed, scenic riding at an easy pace with culture, history and coffee stops. Perfect for first-timers, couples and families.' },
+                'Guided Road Ride (Sportive)': { img: 'pictures/gen_peloton.png', desc: 'A faster road ride on quiet tarmac for cyclists who want a proper workout and real distance.' },
+                'Guided Gravel Ride': { img: 'pictures/gen_gravel_bike.png', desc: 'A mixed-surface adventure on gravel paths through forests and vineyards. Fun and a little wild.' },
+                'Custom Experience': { img: 'pictures/Corporate cycling group, custom private bike tour, diverse group of people riding together, authentic experience.jpg', desc: 'Fully tailored to you — distance, pace, theme and stops built around your group.' },
+                'Bratislava Highlights Ride': { img: 'pictures/discover bratislava.jpeg', desc: "The city's historic centre, Danube waterfront and hidden local gems. About 15 km, easy." },
+                'Danube Discovery Tour': { img: 'pictures/A_group_of_three_amateur_202606281349.jpeg', desc: "A scenic ride along one of Europe's great rivers. About 35 km, easy." },
+                'Wine & Villages Ride': { img: 'pictures/vineyard_ride.png', desc: 'Charming wine towns, vineyards and local culture beyond the city. About 40 km, moderate.' },
+                'Sunset Ride': { img: 'pictures/sunset_devin.png', desc: 'Bratislava and the Devín cliffs during the golden hour. About 20 km, easy.' },
+                'Cross Border Ride': { img: 'pictures/Cyclists riding during golden hour sunset, warm silhouettes, back light, cinematic photography.jpg', desc: 'Cycle between Slovakia and Austria on scenic paths. About 60 km, moderate.' },
+                'Little Carpathians Road Ride': { img: 'pictures/Athletic road cyclist climbing a scenic mountain road, gravel bike rider on a dirt trail, endurance.jpg', desc: "Rolling terrain and some of the region's best climbs. About 90 km, hard." },
+                'Gravel Through The Vineyards': { img: 'pictures/gen_gravel_bike.png', desc: 'Adventure, nature and wine country on gravel. About 50 km, moderate.' },
+                                'Four Countries Challenge': { img: 'pictures/four_countries.png', desc: 'Our signature endurance ride connecting four countries in a single day. About 120 km, hard.' },
+                'Forest Trails Explorer': { img: 'pictures/A_mountain_biker_riding_fast_202606281129.jpeg', desc: "A fun introduction to Bratislava's trail network. About 25 km, moderate." },
+                'Little Carpathians MTB Ride': { img: 'pictures/Mountain_biker_navigating_a_technical,_202606281129.jpeg', desc: "A guided mountain bike adventure through forests, ridgelines and scenic viewpoints. About 45 km, hard." },
+                'Trail Discovery Experience': { img: 'pictures/First-person_point_of_view_(POV)_202606281129.jpeg', desc: "A mix of flowing singletracks, forest roads and local favourites. About 30 km, moderate." },
+                'Custom MTB Adventure': { img: 'pictures/A_small_group_of_friends_202606281127.jpeg', desc: "Tailor-made trail rides adapted to your skill level and riding style. Custom distance." }
+            };
+
+                        /* ---- Full tour details (for the "View more" modal, mirrors the Tours page) ---- */
+            const recomLeisure = 'Perfect for travellers, couples, families and leisure riders.';
+            const recomSport = 'For passionate cyclists looking for longer distances.';
+            const rideDetails = {
+                'Guided Tour (Leisure)': { title: 'Leisure & E-Bike Tours', desc: 'Designed for visitors who want to explore Bratislava and its surroundings in a relaxed and enjoyable way. These guided rides combine culture, history, local stories and beautiful scenery.', dist: '15-40 km', elev: '0-200 m', dur: '2-4 hours', diff: 'Easy to Moderate', bike: 'E-Bike / City / Hybrid', keypoints: ['Scenic relaxed pace', 'Historical stops', 'Coffee & cake breaks', 'Photo opportunities'], recom: recomLeisure, img: 'pictures/discover bratislava.jpeg' },
+                'Guided Road Ride (Sportive)': { title: 'Road Cycling Experiences', desc: 'Created for passionate cyclists looking for longer distances, more demanding routes and unforgettable scenery. Ride alongside locals on their favorite tarmac routes.', dist: '60-120 km', elev: '500-1500 m', dur: '3-6 hours', diff: 'Hard', bike: 'Road Bike', keypoints: ['Pezinská Baba mountain climb', 'Austrian quiet roads', 'High-speed descents', 'Peloton experience'], recom: recomSport, img: 'pictures/gen_peloton.png' },
+                'Guided Gravel Ride': { title: 'Gravel & Trail Adventures', desc: 'For riders looking for more technical terrain, forest trails and off-road adventures. Explore the Little Carpathians and hidden single tracks.', dist: '30-70 km', elev: '400-1000 m', dur: '3-5 hours', diff: 'Moderate to Hard', bike: 'Gravel / MTB', keypoints: ['Vineyard dirt paths', 'Forest trails', 'Technical descents', 'Nature escape'], recom: recomSport, img: 'pictures/gen_gravel_bike.png' },
+                'Custom Experience': { title: 'Custom & Corporate Experiences', desc: 'Fully customised cycling experiences for individuals, groups, cycling clubs and corporate teams. We design the route, distance, pace and stops around your specific needs.', dist: 'Tailored', elev: 'Tailored', dur: 'Tailored', diff: 'Adapted to group', bike: 'Any', keypoints: ['Fully tailored route', 'Flexible starting time', 'Private dedicated guide', 'Custom food/drink stops'], recom: 'Perfect for team building, groups of friends, or cyclists with specific goals.', img: 'pictures/Corporate cycling group, custom private bike tour, diverse group of people riding together, authentic experience.jpg' },
+                'Bratislava Highlights Ride': { title: 'Bratislava Highlights Tour', desc: "Discover the city's historic centre, the Danube waterfront and hidden local gems.", dist: '15 km', elev: '50 m', dur: '2.5 hours', diff: 'Easy', bike: 'City / Hybrid Bike', keypoints: ['Bratislava Castle park', 'Old Town historic squares', 'Danube river park view', 'Confluence spots & coffee'], recom: recomLeisure, img: 'pictures/discover bratislava.jpeg' },
+                'Danube Discovery Tour': { title: 'Danube Discovery Tour', desc: "Enjoy a scenic ride along one of Europe's most famous rivers.", dist: '35 km', elev: '20 m', dur: '3.5 hours', diff: 'Easy', bike: 'Hybrid / Gravel Bike', keypoints: ['Danubiana Meulensteen Art Museum', 'Water sports dike cycles', 'Bird-watching reservoirs', 'Riverside buffet breaks'], recom: recomLeisure, img: 'pictures/A_group_of_three_amateur_202606281349.jpeg' },
+                'Wine & Villages Ride': { title: 'Wine & Villages Tour', desc: 'Explore charming wine towns, vineyards and local culture beyond the city.', dist: '40 km', elev: '250 m', dur: '4 hours', diff: 'Moderate', bike: 'Gravel / Road / Hybrid', keypoints: ['Historic Svätý Jur town', 'Picturesque vineyard trails', 'Local family wine cellar stops', 'Traditional Slovak gastronomy'], recom: recomLeisure, img: 'pictures/vineyard_ride.png' },
+                'Sunset Ride': { title: 'Sunset Ride', desc: 'Experience Bratislava during the most beautiful hours of the day.', dist: '20 km', elev: '80 m', dur: '2 hours', diff: 'Easy', bike: 'City / Hybrid Bike', keypoints: ['Morava & Danube confluence', 'Devín Castle cliff viewpoints', 'Scenic dusk river ride', 'Cozy cycling trail side stops'], recom: recomLeisure, img: 'pictures/sunset_devin.png' },
+                'Cross Border Ride': { title: 'Cross Border Ride', desc: 'Cycle between Slovakia and Austria on scenic roads and cycle paths.', dist: '60 km', elev: '150 m', dur: '4 hours', diff: 'Moderate', bike: 'Road / Gravel Bike', keypoints: ['Austrian Kittsee castle paths', 'Former Iron Curtain cycle path', 'Hungarian border landscape trails', 'Danube bridge crossings'], recom: recomSport, img: 'pictures/Cyclists riding during golden hour sunset, warm silhouettes, back light, cinematic photography.jpg' },
+                'Little Carpathians Road Ride': { title: 'Little Carpathians Road Ride', desc: "Rolling terrain, vineyard landscapes and some of the region's best cycling roads.", dist: '90 km', elev: '1,200 m', dur: '5 hours', diff: 'Hard', bike: 'Road Bike', keypoints: ['Pezinská Baba mountain climb', 'Quiet forest paved ascents', 'High-speed sweeping descents', 'Traditional coffee & pastry stops'], recom: recomSport, img: 'pictures/Athletic road cyclist climbing a scenic mountain road, gravel bike rider on a dirt trail, endurance.jpg' },
+                'Gravel Through The Vineyards': { title: 'Gravel Through The Vineyards', desc: 'A perfect combination of adventure, nature and local wine country.', dist: '50 km', elev: '600 m', dur: '4 hours', diff: 'Moderate', bike: 'Gravel / XC Mountain Bike', keypoints: ['Vineyard hillside gravel paths', 'Forest fire roads', 'Devínska Kobyla panorama', 'Fun single tracks'], recom: recomSport, img: 'pictures/gen_gravel_bike.png' },
+                                'Four Countries Challenge': { title: 'Four Countries Challenge', desc: 'Our signature endurance experience connecting multiple countries in a single ride.', dist: '120 km', elev: '400 m', dur: '6 hours', diff: 'Hard', bike: 'Road Bike', keypoints: ['4 national boundaries in a day', 'Border monuments and history', 'Endurance pacing along rivers', 'Celebration drinks in Bratislava'], recom: recomSport, img: 'pictures/four_countries.png' },
+                'Forest Trails Explorer': { title: 'Forest Trails Explorer', desc: "A fun introduction to Bratislava's trail network.", dist: '25 km', elev: '400 m', dur: '3 hours', diff: 'Moderate', bike: 'MTB', keypoints: ['Introduction to off-road trails', 'Forest fire roads', 'Local nature spots', 'Basic technical sections'], recom: 'For riders looking for more technical terrain and off-road adventures.', img: 'pictures/A_mountain_biker_riding_fast_202606281129.jpeg' },
+                'Little Carpathians MTB Ride': { title: 'Little Carpathians MTB Ride', desc: "A guided mountain bike adventure through forests, ridgelines and scenic viewpoints.", dist: '45 km', elev: '900 m', dur: '4.5 hours', diff: 'Hard', bike: 'MTB', keypoints: ['Challenging steep climbs', 'Technical rooty descents', 'Deep forest immersion', 'Mountain ridgeline panoramas'], recom: 'For riders looking for more technical terrain and off-road adventures.', img: 'pictures/Mountain_biker_navigating_a_technical,_202606281129.jpeg' },
+                'Trail Discovery Experience': { title: 'Trail Discovery Experience', desc: "A mix of flowing singletracks, forest roads and local favourites.", dist: '30 km', elev: '600 m', dur: '3.5 hours', diff: 'Moderate', bike: 'MTB', keypoints: ['Flowing singletracks', 'Forest roads', 'Local mountain bike favourites', 'Technical skill improvement'], recom: 'For riders looking for more technical terrain and off-road adventures.', img: 'pictures/First-person_point_of_view_(POV)_202606281129.jpeg' },
+                'Custom MTB Adventure': { title: 'Custom MTB Adventure', desc: "Tailor-made trail rides adapted to your skill level and riding style.", dist: 'Custom', elev: 'Custom', dur: 'Custom', diff: 'Variable', bike: 'MTB', keypoints: ['Tailor-made routes', 'Adapted to your skill level', 'Custom riding style and pace', 'Expert guiding'], recom: 'For riders looking for more technical terrain and off-road adventures.', img: 'pictures/A_small_group_of_friends_202606281127.jpeg' }
+            };
+
+            const rideSel = document.getElementById('ride-type');
+            const preview = document.getElementById('ride-preview');
+            const HELP_VALUE = 'Not sure — help me choose';
+
+            function renderRidePreview() {
+                if (!rideSel || !preview) return;
+                const val = rideSel.value;
+                const cont = rideSel.closest('.custom-select-container');
+                const selText = cont ? cont.querySelector('.selected-text') : null;
+
+                if (val === HELP_VALUE) {
+                    if (selText) { selText.classList.remove('text-brand-luxeTextDark'); selText.classList.add('text-brand-luxeGold', 'font-semibold'); }
+                    preview.classList.remove('hidden');
+                    preview.innerHTML = '<div class="rp-card"><div class="rp-img flex items-center justify-center" style="background:rgba(227,28,37,0.08);"><i data-lucide="sparkles" class="w-7 h-7 text-brand-luxeGold"></i></div>' +
+                        '<div class="flex flex-col justify-center"><span class="text-[9px] font-bold uppercase tracking-[0.2em] text-brand-luxeGold mb-1">We\'ve got you</span>' +
+                        '<h4 class="font-serif text-base font-medium text-brand-luxeDark leading-snug mb-1">We\'ll pick the perfect ride for you</h4>' +
+                        '<p class="text-xs font-light text-stone-600 leading-relaxed">No cycling knowledge needed. Just tell us your dates, group and fitness in the message below — our local team will suggest the best route and bike.</p></div></div>';
+                    if (typeof lucide !== 'undefined') lucide.createIcons();
+                    return;
+                }
+
+                if (selText) selText.classList.remove('text-brand-luxeGold', 'font-semibold');
+                const info = rideInfo[val];
+                if (!val || !info) { preview.classList.add('hidden'); preview.innerHTML = ''; return; }
+                const moreBtn = rideDetails[val]
+                    ? '<button type="button" onclick="openRideModal(\'' + val.replace(/'/g, "\\'") + '\')" class="mt-3 self-start px-4 py-2 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[9px] font-bold uppercase tracking-[0.15em] transition-all duration-300 shadow-sm">View more</button>'
+                    : '';
+                preview.classList.remove('hidden');
+                preview.innerHTML = '<div class="rp-card"><img class="rp-img" src="' + info.img + '" alt="' + esc(val) + '">' +
+                    '<div class="flex flex-col justify-center"><span class="text-[9px] font-bold uppercase tracking-[0.2em] text-brand-luxeGold mb-1">Your selection</span>' +
+                    '<h4 class="font-serif text-base font-medium text-brand-luxeDark leading-snug mb-1">' + esc(val) + '</h4>' +
+                    '<p class="text-xs font-light text-stone-600 leading-relaxed">' + info.desc + '</p>' + moreBtn + '</div></div>';
+                if (typeof lucide !== 'undefined') lucide.createIcons();
+            }
+            if (rideSel) rideSel.addEventListener('change', renderRidePreview);
+            window.renderRidePreview = renderRidePreview;
+
+            /* ---- Full tour detail modal ---- */
+            const rideModal = document.getElementById('ride-modal');
+            const rideModalContent = document.getElementById('ride-modal-content');
+            window.openRideModal = function (val) {
+                const d = rideDetails[val];
+                if (!d || !rideModal) return;
+                let kp = '';
+                d.keypoints.forEach(k => {
+                    kp += '<li class="flex items-center space-x-3 text-stone-700 text-xs font-sans"><i data-lucide="check" class="w-4 h-4 text-brand-luxeGold"></i><span>' + esc(k) + '</span></li>';
+                });
+                rideModalContent.innerHTML = '' +
+                    '<div class="relative w-full h-56 sm:h-64 border-b border-stone-200"><img src="' + d.img + '" alt="' + esc(d.title) + '" class="w-full h-full object-cover"></div>' +
+                    '<div class="p-6 sm:p-8 pb-4"><span class="text-[9px] uppercase font-bold tracking-[0.25em] text-brand-luxeGold border border-brand-luxeGold/30 px-3 py-1 bg-brand-luxeGold/10 mb-4 inline-block">' + esc(d.diff) + '</span>' +
+                    '<h3 class="font-serif text-2xl sm:text-3xl md:text-4xl font-bold leading-tight text-brand-luxeDark">' + esc(d.title) + '</h3></div>' +
+                    '<div class="px-6 sm:px-8 space-y-8 pb-8">' +
+                    '<p class="text-stone-600 font-light text-xs md:text-sm leading-relaxed font-sans tracking-wide">' + esc(d.desc) + '</p>' +
+                    '<div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-4 border-y border-stone-200 text-xs font-sans">' +
+                    '<div><span class="text-[9px] uppercase font-bold text-stone-500 block mb-1 tracking-wider">Distance</span><span class="font-semibold text-brand-luxeDark text-sm">' + esc(d.dist) + '</span></div>' +
+                    '<div><span class="text-[9px] uppercase font-bold text-stone-500 block mb-1 tracking-wider">Elevation</span><span class="font-semibold text-brand-luxeDark text-sm">' + esc(d.elev) + '</span></div>' +
+                    '<div><span class="text-[9px] uppercase font-bold text-stone-500 block mb-1 tracking-wider">Duration</span><span class="font-semibold text-brand-luxeDark text-sm">' + esc(d.dur) + '</span></div>' +
+                    '<div><span class="text-[9px] uppercase font-bold text-stone-500 block mb-1 tracking-wider">Bike Type</span><span class="font-semibold text-brand-luxeDark text-[11px] block">' + esc(d.bike) + '</span></div></div>' +
+                    '<div><h4 class="text-[10px] uppercase font-bold text-stone-500 tracking-widest mb-4">Highlights</h4><ul class="grid grid-cols-1 md:grid-cols-2 gap-3">' + kp + '</ul></div>' +
+                    '<div class="bg-stone-50 p-6 border-l-2 border-brand-luxeGold"><h4 class="text-[10px] uppercase font-bold text-brand-luxeGold tracking-widest mb-2">Guide Recommendation</h4><p class="text-xs text-stone-600 font-light leading-relaxed tracking-wide font-sans">' + esc(d.recom) + '</p></div>' +
+                    '<div class="pt-2 flex justify-end"><button type="button" onclick="closeRideModal()" class="px-10 py-4 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[10px] font-bold uppercase tracking-[0.2em] transition-all duration-300 shadow-xl">Sounds good</button></div>' +
+                    '</div>';
+                rideModal.classList.remove('opacity-0', 'pointer-events-none');
+                if (typeof lucide !== 'undefined') lucide.createIcons();
+            };
+            window.closeRideModal = function () { if (rideModal) rideModal.classList.add('opacity-0', 'pointer-events-none'); };
+            if (rideModal) rideModal.addEventListener('click', (e) => { if (e.target === rideModal) window.closeRideModal(); });
+        })();
+
         function checkQueryParam() {
             const urlParams = new URLSearchParams(window.location.search);
             const selectedRide = urlParams.get('ride');
             const selectedGuide = urlParams.get('guide');
-            
+
             if (selectedRide) {
                 let foundMatch = false;
-                for (let option of rideSelect.options) {
-                    if (option.value.toLowerCase() === selectedRide.toLowerCase() || 
-                        option.value.toLowerCase().includes(selectedRide.toLowerCase())) {
-                        option.selected = true;
-                        foundMatch = true;
-                        
-                        selectedTourText.innerText = option.value;
-                        banner.classList.remove('hidden');
-                        rideSelect.dispatchEvent(new Event('change'));
-                        break;
-                    }
-                }
                 
-                if (!foundMatch && selectedRide.toLowerCase() === 'custom') {
+                // First pass: Exact match or special 'custom' keyword
+                if (selectedRide.toLowerCase() === 'custom') {
                     for (let option of rideSelect.options) {
-                        if (option.value.includes('Custom')) {
+                        if (option.value === 'Custom Experience') {
                             option.selected = true;
                             selectedTourText.innerText = "Custom Experience";
                             banner.classList.remove('hidden');
                             rideSelect.dispatchEvent(new Event('change'));
+                            foundMatch = true;
                             break;
+                        }
+                    }
+                } else {
+                    // Exact match
+                    for (let option of rideSelect.options) {
+                        if (option.value.toLowerCase() === selectedRide.toLowerCase()) {
+                            option.selected = true;
+                            foundMatch = true;
+                            selectedTourText.innerText = option.value;
+                            banner.classList.remove('hidden');
+                            rideSelect.dispatchEvent(new Event('change'));
+                            break;
+                        }
+                    }
+                    
+                    // Partial match (fallback)
+                    if (!foundMatch) {
+                        for (let option of rideSelect.options) {
+                            if (option.value.toLowerCase().includes(selectedRide.toLowerCase())) {
+                                option.selected = true;
+                                foundMatch = true;
+                                selectedTourText.innerText = option.value;
+                                banner.classList.remove('hidden');
+                                rideSelect.dispatchEvent(new Event('change'));
+                                break;
+                            }
                         }
                     }
                 }
@@ -651,20 +1146,32 @@
                 }
             }
 
-            const groupMap = { 'Solo': 'Solo Rider', 'Couple': '2-4 Riders', 'Small group': '5-8 Riders', 'Corporate': '9+ Corporate/Club' };
+            const groupMap = {
+                'Solo': 'Solo Rider',
+                'Couple': '2-4 Riders',
+                'Small group (3–6)': '5-8 Riders',
+                'Larger group (7+)': '9+ Corporate/Club',
+                'Corporate / Club': '9+ Corporate/Club'
+            };
             const levelMap = { 'Easy': 'Leisure/Casual', 'Moderate': 'Intermediate', 'Challenging': 'Advanced/Strong' };
             if (cGroup && groupMap[cGroup]) setSelectValue('group-size', groupMap[cGroup]);
             if (cLevel && levelMap[cLevel]) setSelectValue('experience', levelMap[cLevel]);
 
             if (cType || cDuration || cGroup || cLevel) {
+                const sourceInput = document.getElementById('form-source');
+                if (sourceInput) sourceInput.value = 'Ride Builder';
+
+                // Write the choices back into the message so the visitor can SEE
+                // what they picked in the builder (and can still edit/add to it).
                 const messageArea = document.getElementById('message');
                 if (messageArea && !messageArea.value) {
-                    const lines = ['I used the ride builder. My preferences:'];
-                    if (cType) lines.push('• Ride type: ' + cType);
-                    if (cDuration) lines.push('• Duration: ' + cDuration);
-                    if (cGroup) lines.push('• Group: ' + cGroup);
-                    if (cLevel) lines.push('• Level: ' + cLevel);
-                    messageArea.value = lines.join('\n') + '\n\n';
+                    const lines = ['— My ride builder choices —'];
+                    if (cType) lines.push('Ride type: ' + cType);
+                    if (cDuration) lines.push('Duration: ' + cDuration);
+                    if (cGroup) lines.push('Group: ' + cGroup);
+                    if (cLevel) lines.push('Difficulty: ' + cLevel);
+                    lines.push('', 'Anything else we should know?');
+                    messageArea.value = lines.join('\n');
                 }
                 if (banner) {
                     selectedTourText.innerText = 'Custom Experience';
@@ -694,9 +1201,9 @@
             const groupSize = document.getElementById('group-size').value;
             const experience = document.getElementById('experience').value;
             const rideType = document.getElementById('ride-type').value;
-            
+
             let hasError = false;
-            
+
             const groupSizeContainer = document.getElementById('group-size').closest('.custom-select-container');
             if (!groupSize) {
                 groupSizeContainer.classList.add('border-red-500');
@@ -706,7 +1213,7 @@
                 groupSizeContainer.classList.remove('border-red-500');
                 groupSizeContainer.classList.add('border-stone-300');
             }
-            
+
             const experienceContainer = document.getElementById('experience').closest('.custom-select-container');
             if (!experience) {
                 experienceContainer.classList.add('border-red-500');
@@ -716,7 +1223,7 @@
                 experienceContainer.classList.remove('border-red-500');
                 experienceContainer.classList.add('border-stone-300');
             }
-            
+
             const rideTypeContainer = document.getElementById('ride-type').closest('.custom-select-container');
             if (!rideType) {
                 rideTypeContainer.classList.add('border-red-500');
@@ -726,7 +1233,7 @@
                 rideTypeContainer.classList.remove('border-red-500');
                 rideTypeContainer.classList.add('border-stone-300');
             }
-            
+
             if (hasError) {
                 const firstError = document.querySelector('.border-red-500');
                 if (firstError) {
@@ -753,49 +1260,51 @@
                 },
                 body: formData
             })
-            .then(response => {
-                if (response.ok) {
-                    return response.text();
-                }
-                throw new Error('Network response error');
-            })
-            .then(result => {
-                if (result.trim() === 'success') {
-                    // Show success screen overlay
-                    successMessage.classList.remove('pointer-events-none');
-                    successMessage.classList.remove('opacity-0');
-                    successMessage.classList.add('opacity-100');
-                    
-                    form.reset();
-                    // Reset visual styling for custom trigger text placeholders
-                    document.querySelectorAll('.custom-select-container').forEach(container => {
-                        const selectedText = container.querySelector('.selected-text');
-                        const selectEl = container.querySelector('select');
-                        if (selectEl.id === 'group-size') {
-                            selectedText.textContent = 'Select size';
-                        } else if (selectEl.id === 'experience') {
-                            selectedText.textContent = 'Select level';
-                        } else if (selectEl.id === 'ride-type') {
-                            selectedText.textContent = 'Select type';
-                        }
-                        selectedText.classList.add('text-stone-400');
-                        selectedText.classList.remove('text-brand-luxeTextDark');
-                    });
-                    banner.classList.add('hidden');
-                } else {
-                    alert('Chyba pri odosielaní. Prosím, kontaktujte nás priamo na info@bikebratislava.com');
-                }
-            })
-            .catch(error => {
-                alert('Chyba pri pripojení k serveru. Prosím, kontaktujte nás priamo na info@bikebratislava.com');
-            })
-            .finally(() => {
-                // Re-enable submit button
-                submitBtn.disabled = false;
-                if (submitBtnText) {
-                    submitBtnText.innerHTML = '<span>Submit Inquiry</span>';
-                }
-            });
+                .then(response => {
+                    if (response.ok) {
+                        return response.text();
+                    }
+                    throw new Error('Network response error');
+                })
+                .then(result => {
+                    if (result.trim() === 'success') {
+                        // Show success screen overlay
+                        successMessage.classList.remove('pointer-events-none');
+                        successMessage.classList.remove('opacity-0');
+                        successMessage.classList.add('opacity-100');
+
+                        form.reset();
+                        // Reset visual styling for custom trigger text placeholders
+                        document.querySelectorAll('.custom-select-container').forEach(container => {
+                            const selectedText = container.querySelector('.selected-text');
+                            const selectEl = container.querySelector('select');
+                            if (selectEl.id === 'group-size') {
+                                selectedText.textContent = 'Select size';
+                            } else if (selectEl.id === 'experience') {
+                                selectedText.textContent = 'Select level';
+                            } else if (selectEl.id === 'ride-type') {
+                                selectedText.textContent = 'Select type';
+                            }
+                            selectedText.classList.add('text-stone-400');
+                            selectedText.classList.remove('text-brand-luxeTextDark', 'text-brand-luxeGold', 'font-semibold');
+                        });
+                        banner.classList.add('hidden');
+                        if (typeof window.renderRidePreview === 'function') window.renderRidePreview();
+                        if (typeof window.resetPhoneCode === 'function') window.resetPhoneCode();
+                    } else {
+                        alert('Chyba pri odosielaní. Prosím, kontaktujte nás priamo na info@bikebratislava.com');
+                    }
+                })
+                .catch(error => {
+                    alert('Chyba pri pripojení k serveru. Prosím, kontaktujte nás priamo na info@bikebratislava.com');
+                })
+                .finally(() => {
+                    // Re-enable submit button
+                    submitBtn.disabled = false;
+                    if (submitBtnText) {
+                        submitBtnText.innerHTML = '<span>Submit Inquiry</span>';
+                    }
+                });
         });
 
         resetBtn.addEventListener('click', () => {
@@ -830,21 +1339,22 @@
 
         // Copy to clipboard function
         function copyToClipboard(text, btn) {
-            navigator.clipboard.writeText(text).then(function() {
+            navigator.clipboard.writeText(text).then(function () {
                 var copyIcon = btn.querySelector('.copy-icon');
                 var checkIcon = btn.querySelector('.check-icon');
-                if(copyIcon && checkIcon) {
+                if (copyIcon && checkIcon) {
                     copyIcon.classList.add('hidden');
                     checkIcon.classList.remove('hidden');
-                    setTimeout(function() {
+                    setTimeout(function () {
                         copyIcon.classList.remove('hidden');
                         checkIcon.classList.add('hidden');
                     }, 2000);
                 }
-            }).catch(function(err) {
+            }).catch(function (err) {
                 console.error('Could not copy text: ', err);
             });
         }
     </script>
 </body>
+
 </html>

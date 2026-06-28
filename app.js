@@ -128,6 +128,35 @@ async function loadUniversalHeader() {
             if (mobileMenuToggle) mobileMenuToggle.addEventListener('click', openMobileMenu);
             if (mobileMenuClose) mobileMenuClose.addEventListener('click', closeMobileMenu);
 
+            // Mobile "Tours & Rides" expandable sub-menu
+            const toursToggle = document.getElementById('mobile-tours-toggle');
+            const toursSub = document.getElementById('mobile-tours-sub');
+            const toursChevron = document.getElementById('mobile-tours-chevron');
+            if (toursToggle && toursSub) {
+                toursToggle.addEventListener('click', () => {
+                    const isOpen = toursSub.classList.toggle('max-h-96');
+                    toursSub.classList.toggle('max-h-0', !isOpen);
+                    toursToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                    if (toursChevron) toursChevron.classList.toggle('rotate-180', isOpen);
+                    // While the sub-menu is open, pin the toggle to the top of the
+                    // scrollable menu so it stays reachable as a quick close control
+                    // (no scrolling back through a long menu).
+                    if (isOpen) {
+                        toursToggle.classList.add('sticky', 'top-0', 'z-10');
+                        toursToggle.style.backgroundColor = '#0F0E0E';
+                        setTimeout(() => toursToggle.scrollIntoView({ block: 'start', behavior: 'smooth' }), 80);
+                    } else {
+                        toursToggle.classList.remove('sticky', 'top-0', 'z-10');
+                        toursToggle.style.backgroundColor = '';
+                    }
+                });
+            }
+
+            // Close the mobile menu whenever a link inside it is tapped
+            document.querySelectorAll('#mobile-menu a[href]').forEach(link => {
+                link.addEventListener('click', closeMobileMenu);
+            });
+
             // Highlight active link
             const currentPage = window.location.pathname.split('/').pop() || 'index.html';
             document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => {

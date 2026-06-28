@@ -758,25 +758,13 @@
                                     <span
                                         class="block text-[10px] uppercase tracking-[0.25em] text-brand-luxeGold font-semibold mb-3">Ideal
                                         for</span>
-                                    <div class="flex flex-wrap gap-2">
-                                        <span
-                                            class="px-3 py-1.5 border border-white/20 text-[10px] uppercase tracking-widest text-stone-300">Private
-                                            groups</span>
-                                        <span
-                                            class="px-3 py-1.5 border border-white/20 text-[10px] uppercase tracking-widest text-stone-300">Cycling
-                                            clubs</span>
-                                        <span
-                                            class="px-3 py-1.5 border border-white/20 text-[10px] uppercase tracking-widest text-stone-300">Corporate
-                                            events</span>
-                                        <span
-                                            class="px-3 py-1.5 border border-white/20 text-[10px] uppercase tracking-widest text-stone-300">Team
-                                            building</span>
-                                        <span
-                                            class="px-3 py-1.5 border border-white/20 text-[10px] uppercase tracking-widest text-stone-300">Multi-day
-                                            holidays</span>
-                                        <span
-                                            class="px-3 py-1.5 border border-white/20 text-[10px] uppercase tracking-widest text-stone-300">Special
-                                            occasions</span>
+                                    <div class="grid grid-cols-2 gap-x-6 gap-y-2.5">
+                                        <span class="text-stone-400 text-xs font-light tracking-wide">Private groups</span>
+                                        <span class="text-stone-400 text-xs font-light tracking-wide">Cycling clubs</span>
+                                        <span class="text-stone-400 text-xs font-light tracking-wide">Corporate events</span>
+                                        <span class="text-stone-400 text-xs font-light tracking-wide">Team building</span>
+                                        <span class="text-stone-400 text-xs font-light tracking-wide">Multi-day holidays</span>
+                                        <span class="text-stone-400 text-xs font-light tracking-wide">Special occasions</span>
                                     </div>
                                 </div>
                                 <div class="bg-white/[0.03] border border-white/10 p-6">
@@ -1079,6 +1067,13 @@
         });
 
         // ===== Expandable categories =====
+        function closeAllCats() {
+            ['cat1', 'cat2', 'cat3', 'cat4'].forEach(id => setCat(id, false));
+            var closeBar = document.getElementById('mobile-cat-close-bar');
+            if (closeBar) closeBar.classList.add('-translate-y-full');
+            // smooth scroll back to the top of the categories if needed
+        }
+
         function setCat(id, open) {
             var panel = document.getElementById(id + '-panel');
             if (!panel) return;
@@ -1088,9 +1083,52 @@
                 btn.setAttribute('aria-expanded', open ? 'true' : 'false');
                 var lbl = btn.querySelector('.toggle-label');
                 if (lbl) lbl.textContent = open ? (btn.dataset.openLabel || 'Hide') : btn.dataset.label;
+                
+                // Show sticky mobile bar
+                var closeBar = document.getElementById('mobile-cat-close-bar');
+                var closeTitle = document.getElementById('mobile-cat-close-title');
+                if (closeBar && closeTitle) {
+                    if (open) {
+                        // get the title from the section h2
+                        var section = document.getElementById(id);
+                        if (section) {
+                            var h2 = section.querySelector('h2');
+                            if (h2) closeTitle.textContent = h2.textContent.replace('&amp;', '&');
+                        }
+                        closeBar.classList.remove('-translate-y-full');
+                    } else {
+                        // if no panels are open, hide the bar
+                        var anyOpen = document.querySelectorAll('.cat-panel.open').length > 0;
+                        if (!anyOpen) {
+                            closeBar.classList.add('-translate-y-full');
+                        }
+                    }
+                }
             }
         }
-        function toggleCat(id) { var p = document.getElementById(id + '-panel'); setCat(id, !p.classList.contains('open')); }
+        function toggleCat(id) { 
+            var p = document.getElementById(id + '-panel'); 
+            var willOpen = !p.classList.contains('open');
+            setCat(id, willOpen); 
+            if (willOpen) {
+                // optionally scroll slightly so the top of the panel is visible, avoiding the fixed header
+                setTimeout(() => {
+                    var section = document.getElementById(id);
+                    if (section) {
+                        const y = section.getBoundingClientRect().top + window.scrollY - 100;
+                        window.scrollTo({top: y, behavior: 'smooth'});
+                    }
+                }, 100);
+            } else {
+                setTimeout(() => {
+                    var section = document.getElementById(id);
+                    if (section) {
+                        const y = section.getBoundingClientRect().top + window.scrollY - 100;
+                        window.scrollTo({top: y, behavior: 'smooth'});
+                    }
+                }, 100);
+            }
+        }
         function openCat(id) { setCat(id, true); }
         function openFromHash() { var h = location.hash.replace('#', ''); if (['cat1', 'cat2', 'cat3', 'cat4'].indexOf(h) > -1) openCat(h); }
         window.addEventListener('hashchange', openFromHash);

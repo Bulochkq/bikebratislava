@@ -1,0 +1,27 @@
+feat: fix dropdowns, add flags, and refine ui elements
+
+🇬🇧 EN:
+- Fixed the ride-type dropdown to properly separate tours and restore the group-size dropdown.
+- Added `data-lenis-prevent` to all scrollable dropdowns and textareas so mouse wheel works without interference from smooth scroll.
+- Fixed the URL parameter matching bug where "Custom Experience" incorrectly selected "Custom MTB Adventure".
+- Increased the message textarea size from 4 to 7 rows.
+- Replaced native unicode emojis with high-quality SVG flags from flagcdn.com in the country and phone dropdowns to ensure compatibility on Windows.
+- Added two-letter country codes (e.g. UA) to the country dropdown options.
+- Fixed the missing right border on the phone dial code input by adjusting z-indexes and margins.
+- Colored the unselectable category headers in the ride-type dropdown red for better visual separation.
+- Redesigned the "Ideal for" section in the tours ride builder to a clean, minimalist 2-column text grid instead of button-like chips.
+- Refactored `sendmail.php` to include proper email headers and dynamic year.
+- Updated `tours.html` category toggling logic and sticky mobile bar behavior.
+
+🇺🇦 UA:
+- Виправлено випадаючий список вибору туру: відновлено поле розміру групи та правильно розподілено категорії турів.
+- Додано атрибут `data-lenis-prevent` до всіх елементів зі скролом, щоб коліщатко мишки працювало без конфліктів із плавним скролом сторінки (Lenis).
+- Виправлено баг з розпізнаванням туру з URL: тепер "Custom Experience" не плутається з "Custom MTB Adventure".
+- Збільшено розмір текстового поля "Message" майже вдвічі (до 7 рядків).
+- Системні емоджі-прапори замінено на якісні картинки з бази flagcdn, щоб прапорці коректно відображалися навіть на ОС Windows.
+- До випадаючого списку країн додано дволітерні коди країн (наприклад, UA).
+- Виправлено візуальний баг із відсутньою правою червоною рамкою у полі вибору телефонного коду.
+- Заголовки неактивних категорій у списку турів змінено на фірмовий червоний колір для кращого візуального розділення.
+- Повністю перероблено дизайн блоку "Ideal for" у конструкторі турів: замість кнопок тепер використовується мінімалістична текстова сітка у дві колонки.
+- Оновлено скрипт `sendmail.php` (додано правильні заголовки та динамічний рік).
+- Покращено логіку розгортання категорій турів та поведінку фіксованої мобільної панелі у `tours.html`.
