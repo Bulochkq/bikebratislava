@@ -301,10 +301,9 @@
     <!-- HERO SECTION -->
     <section class="relative min-h-[75vh] flex items-center justify-center bg-brand-luxeDark text-white overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <!-- Scale-110 for parallax -->
             <img src="pictures/Cyclists riding during golden hour sunset, warm silhouettes, back light, cinematic photography.jpg" 
                  alt="Tours and rides hero background" 
-                 class="w-full h-full object-cover object-center opacity-45 scale-110" id="hero-img" style="will-change: transform;">
+                 class="w-full h-full object-cover object-center opacity-45" id="hero-img">
             <div class="absolute inset-0 bg-gradient-to-t from-brand-luxeDark via-brand-luxeDark/35 to-transparent"></div>
         </div>
 
@@ -316,18 +315,17 @@
         </div>
     </section>
 
-        <!-- SECTION: CATEGORY 1 -->
-    <section id="cat1" class="parallax-section py-20 lg:py-28 border-b border-stone-200">
-        <div class="parallax-bg concrete"></div>
+    <!-- SECTION: CATEGORY 1 -->
+    <section id="cat1" class="py-20 lg:py-28 border-b border-stone-200 relative bg-stone-100 overflow-hidden">
+        <div class="absolute inset-0 z-0 bg-cover bg-center" style="background-image: url('pictures/High-quality_minimalist_background,_top-down_birds-eye_202606281336.jpeg'); opacity: 0.65;"></div>
         <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-                <div class="lg:order-1 scroll-reveal">
-                    <div class="aspect-[4/3] overflow-hidden relative shadow-2xl border border-stone-300/50">
-                        <img src="pictures/Cyclists having a coffee break at a local outdoor cafe, road bikes parked nearby, lifestyle photography, authentic.jpg" alt="E-Bike &amp; Leisure Tours" class="w-full h-full object-cover">
-                        <span class="absolute top-4 left-4 bg-brand-luxeDark text-white text-[9px] tracking-[0.25em] uppercase font-medium py-1 px-3 border border-brand-luxeGold/30">Category 1</span>
+            <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-stretch">
+                <div class="lg:order-1 scroll-reveal h-full flex">
+                    <div class="aspect-[4/3] w-full h-full overflow-hidden relative shadow-2xl border border-white/40">
+                        <img src="pictures/Cyclists having a coffee break at a local outdoor cafe, road bikes parked nearby, lifestyle photography, authentic.jpg" alt="E-Bike &amp; Leisure Tours" class="absolute inset-0 w-full h-full object-cover">
                     </div>
                 </div>
-                <div class="lg:order-2 scroll-reveal">
+                <div class="lg:order-2 scroll-reveal h-full flex flex-col justify-center bg-white/90 backdrop-blur-md border border-white/60 p-8 lg:p-12 shadow-2xl">
                     <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-3 block">Category 1</span>
                     <h2 class="font-serif text-3xl md:text-5xl font-bold uppercase text-brand-luxeDark leading-tight">E-Bike &amp; Leisure Tours</h2>
                     <p class="text-stone-600 font-light text-sm md:text-base mt-5 leading-relaxed tracking-wide font-sans max-w-xl">Designed for visitors who want to explore Bratislava and its surroundings in a relaxed and enjoyable way. These guided rides combine culture, history, local stories and beautiful scenery, making them perfect for travellers, couples, families and leisure riders.</p>
@@ -340,45 +338,45 @@
             <div id="cat1-panel" class="cat-panel">
                 <div class="cat-panel-inner">
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 pt-14">
-                        <article class="group flex flex-col">
+                        <article class="group flex flex-col bg-white/90 backdrop-blur-md border border-white/60 p-4 transition-all duration-500 hover:-translate-y-2">
                             <div class="aspect-[4/5] overflow-hidden relative bg-stone-200">
-                                <img src="pictures/bratislava_highlights.png" alt="Bratislava Highlights Tour" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                                <img src="pictures/discover bratislava.jpeg" alt="Bratislava Highlights Tour" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
                             </div>
-                            <div class="pt-5 flex-1">
+                            <div class="pt-4 flex-1">
                                 <h3 class="font-serif text-lg font-medium text-brand-luxeDark mb-2 leading-snug">Bratislava Highlights Tour</h3>
                                 <p class="text-stone-600 font-light text-xs leading-relaxed font-sans">Discover the city's historic centre, the Danube waterfront and hidden local gems.</p>
                             </div>
-                            <button onclick="openModal('tour1')" class="mt-4 inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.2em] uppercase text-brand-luxeDark hover:text-brand-luxeGold transition-colors duration-300 self-start"><span>View Details</span><i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></button>
+                            <button onclick="openModal('tour1')" class="mt-4 px-5 py-2 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:scale-105 shadow-md self-start">View Details</button>
                         </article>
-                        <article class="group flex flex-col">
+                        <article class="group flex flex-col bg-white/90 backdrop-blur-md border border-white/60 p-4 transition-all duration-500 hover:-translate-y-2">
                             <div class="aspect-[4/5] overflow-hidden relative bg-stone-200">
-                                <img src="pictures/discover bratislava.jpeg" alt="Danube Discovery Tour" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                                <img src="pictures/A_group_of_three_amateur_202606281349.jpeg" alt="Danube Discovery Tour" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
                             </div>
-                            <div class="pt-5 flex-1">
+                            <div class="pt-4 flex-1">
                                 <h3 class="font-serif text-lg font-medium text-brand-luxeDark mb-2 leading-snug">Danube Discovery Tour</h3>
                                 <p class="text-stone-600 font-light text-xs leading-relaxed font-sans">Enjoy a scenic ride along one of Europe's most famous rivers.</p>
                             </div>
-                            <button onclick="openModal('tour2')" class="mt-4 inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.2em] uppercase text-brand-luxeDark hover:text-brand-luxeGold transition-colors duration-300 self-start"><span>View Details</span><i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></button>
+                            <button onclick="openModal('tour2')" class="mt-4 px-5 py-2 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:scale-105 shadow-md self-start">View Details</button>
                         </article>
-                        <article class="group flex flex-col">
+                        <article class="group flex flex-col bg-white/90 backdrop-blur-md border border-white/60 p-4 transition-all duration-500 hover:-translate-y-2">
                             <div class="aspect-[4/5] overflow-hidden relative bg-stone-200">
                                 <img src="pictures/vineyard_ride.png" alt="Wine &amp; Villages Tour" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
                             </div>
-                            <div class="pt-5 flex-1">
+                            <div class="pt-4 flex-1">
                                 <h3 class="font-serif text-lg font-medium text-brand-luxeDark mb-2 leading-snug">Wine &amp; Villages Tour</h3>
                                 <p class="text-stone-600 font-light text-xs leading-relaxed font-sans">Explore charming wine towns, vineyards and local culture beyond the city.</p>
                             </div>
-                            <button onclick="openModal('tour3')" class="mt-4 inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.2em] uppercase text-brand-luxeDark hover:text-brand-luxeGold transition-colors duration-300 self-start"><span>View Details</span><i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></button>
+                            <button onclick="openModal('tour3')" class="mt-4 px-5 py-2 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:scale-105 shadow-md self-start">View Details</button>
                         </article>
-                        <article class="group flex flex-col">
+                        <article class="group flex flex-col bg-white/90 backdrop-blur-md border border-white/60 p-4 transition-all duration-500 hover:-translate-y-2">
                             <div class="aspect-[4/5] overflow-hidden relative bg-stone-200">
                                 <img src="pictures/sunset_devin.png" alt="Sunset Ride" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
                             </div>
-                            <div class="pt-5 flex-1">
+                            <div class="pt-4 flex-1">
                                 <h3 class="font-serif text-lg font-medium text-brand-luxeDark mb-2 leading-snug">Sunset Ride</h3>
                                 <p class="text-stone-600 font-light text-xs leading-relaxed font-sans">Experience Bratislava during the most beautiful hours of the day.</p>
                             </div>
-                            <button onclick="openModal('tour4')" class="mt-4 inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.2em] uppercase text-brand-luxeDark hover:text-brand-luxeGold transition-colors duration-300 self-start"><span>View Details</span><i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></button>
+                            <button onclick="openModal('tour4')" class="mt-4 px-5 py-2 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:scale-105 shadow-md self-start">View Details</button>
                         </article>
                     </div>
                 </div>
@@ -387,17 +385,16 @@
     </section>
 
     <!-- SECTION: CATEGORY 2 -->
-    <section id="cat2" class="parallax-section py-20 lg:py-28 bg-brand-luxeDark text-white">
-        <div class="parallax-bg asphalt"></div>
+    <section id="cat2" class="py-20 lg:py-28 bg-brand-luxeDark text-white relative overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-20 bg-cover bg-center" style="background-image: url('pictures/Minimalist_birds-eye_view_of_a_202606281324.jpeg');"></div>
         <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-                <div class="lg:order-2 scroll-reveal">
-                    <div class="aspect-[4/3] overflow-hidden relative shadow-2xl border border-white/10">
-                        <img src="pictures/gen_peloton.png" alt="Road &amp; Gravel Cycling Experiences" class="w-full h-full object-cover">
-                        <span class="absolute top-4 left-4 bg-brand-luxeDark text-white text-[9px] tracking-[0.25em] uppercase font-medium py-1 px-3 border border-brand-luxeGold/30">Category 2</span>
+            <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-stretch">
+                <div class="lg:order-2 scroll-reveal h-full flex">
+                    <div class="aspect-[4/3] w-full h-full overflow-hidden relative shadow-2xl border border-white/10">
+                        <img src="pictures/gen_peloton.png" alt="Road &amp; Gravel Cycling Experiences" class="absolute inset-0 w-full h-full object-cover">
                     </div>
                 </div>
-                <div class="lg:order-1 scroll-reveal">
+                <div class="lg:order-1 scroll-reveal h-full flex flex-col justify-center bg-black/60 backdrop-blur-md border border-white/10 p-8 lg:p-12 shadow-2xl">
                     <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-3 block">Category 2</span>
                     <h2 class="font-serif text-3xl md:text-5xl font-bold uppercase text-white leading-tight">Road &amp; Gravel Cycling Experiences</h2>
                     <p class="text-stone-400 font-light text-sm md:text-base mt-5 leading-relaxed tracking-wide font-sans max-w-xl">Created for passionate cyclists looking for longer distances, more demanding routes and unforgettable scenery. Ride through vineyards, rolling countryside, quiet roads and cross-border routes in the heart of Central Europe.</p>
@@ -410,45 +407,45 @@
             <div id="cat2-panel" class="cat-panel">
                 <div class="cat-panel-inner">
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 pt-14">
-                        <article class="group flex flex-col">
+                        <article class="group flex flex-col bg-black/60 backdrop-blur-md border border-white/10 p-4 transition-all duration-500 hover:-translate-y-2">
                             <div class="aspect-[4/5] overflow-hidden relative bg-stone-200">
                                 <img src="pictures/Cyclists riding during golden hour sunset, warm silhouettes, back light, cinematic photography.jpg" alt="Cross Border Ride" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
                             </div>
-                            <div class="pt-5 flex-1">
+                            <div class="pt-4 flex-1">
                                 <h3 class="font-serif text-lg font-medium text-white mb-2 leading-snug">Cross Border Ride</h3>
                                 <p class="text-stone-400 font-light text-xs leading-relaxed font-sans">Cycle between Slovakia and Austria on scenic roads and cycle paths.</p>
                             </div>
-                            <button onclick="openModal('tour5')" class="mt-4 inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.2em] uppercase text-stone-200 hover:text-brand-luxeGold transition-colors duration-300 self-start"><span>View Details</span><i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></button>
+                            <button onclick="openModal('tour5')" class="mt-4 px-5 py-2 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:scale-105 shadow-md self-start">View Details</button>
                         </article>
-                        <article class="group flex flex-col">
+                        <article class="group flex flex-col bg-black/60 backdrop-blur-md border border-white/10 p-4 transition-all duration-500 hover:-translate-y-2">
                             <div class="aspect-[4/5] overflow-hidden relative bg-stone-200">
                                 <img src="pictures/Athletic road cyclist climbing a scenic mountain road, gravel bike rider on a dirt trail, endurance.jpg" alt="Little Carpathians Road Ride" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
                             </div>
-                            <div class="pt-5 flex-1">
+                            <div class="pt-4 flex-1">
                                 <h3 class="font-serif text-lg font-medium text-white mb-2 leading-snug">Little Carpathians Road Ride</h3>
                                 <p class="text-stone-400 font-light text-xs leading-relaxed font-sans">Rolling terrain, vineyard landscapes and some of the region's best cycling roads.</p>
                             </div>
-                            <button onclick="openModal('tour6')" class="mt-4 inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.2em] uppercase text-stone-200 hover:text-brand-luxeGold transition-colors duration-300 self-start"><span>View Details</span><i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></button>
+                            <button onclick="openModal('tour6')" class="mt-4 px-5 py-2 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:scale-105 shadow-md self-start">View Details</button>
                         </article>
-                        <article class="group flex flex-col">
+                        <article class="group flex flex-col bg-black/60 backdrop-blur-md border border-white/10 p-4 transition-all duration-500 hover:-translate-y-2">
                             <div class="aspect-[4/5] overflow-hidden relative bg-stone-200">
                                 <img src="pictures/gen_gravel_bike.png" alt="Gravel Through The Vineyards" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
                             </div>
-                            <div class="pt-5 flex-1">
+                            <div class="pt-4 flex-1">
                                 <h3 class="font-serif text-lg font-medium text-white mb-2 leading-snug">Gravel Through The Vineyards</h3>
                                 <p class="text-stone-400 font-light text-xs leading-relaxed font-sans">A perfect combination of adventure, nature and local wine country.</p>
                             </div>
-                            <button onclick="openModal('tour7')" class="mt-4 inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.2em] uppercase text-stone-200 hover:text-brand-luxeGold transition-colors duration-300 self-start"><span>View Details</span><i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></button>
+                            <button onclick="openModal('tour7')" class="mt-4 px-5 py-2 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:scale-105 shadow-md self-start">View Details</button>
                         </article>
-                        <article class="group flex flex-col">
+                        <article class="group flex flex-col bg-black/60 backdrop-blur-md border border-white/10 p-4 transition-all duration-500 hover:-translate-y-2">
                             <div class="aspect-[4/5] overflow-hidden relative bg-stone-200">
                                 <img src="pictures/four_countries.png" alt="Four Countries Challenge" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
                             </div>
-                            <div class="pt-5 flex-1">
+                            <div class="pt-4 flex-1">
                                 <h3 class="font-serif text-lg font-medium text-white mb-2 leading-snug">Four Countries Challenge</h3>
                                 <p class="text-stone-400 font-light text-xs leading-relaxed font-sans">Our signature endurance experience connecting multiple countries in a single ride.</p>
                             </div>
-                            <button onclick="openModal('tour8')" class="mt-4 inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.2em] uppercase text-stone-200 hover:text-brand-luxeGold transition-colors duration-300 self-start"><span>View Details</span><i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></button>
+                            <button onclick="openModal('tour8')" class="mt-4 px-5 py-2 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:scale-105 shadow-md self-start">View Details</button>
                         </article>
                     </div>
                 </div>
@@ -457,20 +454,20 @@
     </section>
 
     <!-- SECTION: CATEGORY 3 -->
-    <section id="cat3" class="bg-diagonal py-20 lg:py-28 border-b border-stone-200">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12">
-            <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-                <div class="lg:order-1 scroll-reveal">
-                    <div class="aspect-[4/3] overflow-hidden relative shadow-2xl border border-stone-300/50">
-                        <img src="pictures/Mountain_biker_navigating_a_technical,_202606281129.jpeg" alt="Trail &amp; MTB Adventures" class="w-full h-full object-cover">
-                        <span class="absolute top-4 left-4 bg-brand-luxeDark text-white text-[9px] tracking-[0.25em] uppercase font-medium py-1 px-3 border border-brand-luxeGold/30">Category 3</span>
+    <section id="cat3" class="py-20 lg:py-28 border-b border-stone-200 relative bg-stone-200 overflow-hidden">
+        <div class="absolute inset-0 z-0 bg-cover bg-center" style="background-image: url('pictures/Minimalist_texture_of_a_light_202606281258.jpeg'); opacity: 0.35;"></div>
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-stretch">
+                <div class="lg:order-1 scroll-reveal h-full flex">
+                    <div class="aspect-[4/3] w-full h-full overflow-hidden relative shadow-2xl border border-white/20">
+                        <img src="pictures/Mountain_biker_navigating_a_technical,_202606281129.jpeg" alt="Trail &amp; MTB Adventures" class="absolute inset-0 w-full h-full object-cover">
                     </div>
                 </div>
-                <div class="lg:order-2 scroll-reveal">
+                <div class="lg:order-2 scroll-reveal h-full flex flex-col justify-center bg-white/90 backdrop-blur-md border border-white/60 p-8 lg:p-12 shadow-2xl">
                     <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-3 block">Category 3</span>
                     <h2 class="font-serif text-3xl md:text-5xl font-bold uppercase text-brand-luxeDark leading-tight">Trail &amp; MTB Adventures</h2>
-                    <p class="text-stone-600 font-light text-sm md:text-base mt-5 leading-relaxed tracking-wide font-sans max-w-xl">For riders looking for more technical terrain, forest trails and off-road adventures. Explore the Little Carpathians and discover some of the best trail riding opportunities around Bratislava.</p>
-                    <button data-toggle="cat3" data-label="Explore the 4 tours" data-open-label="Hide" aria-expanded="false" onclick="toggleCat('cat3')" class="cat-toggle inline-flex items-center gap-3 mt-8 px-7 py-3.5 bg-brand-luxeGold text-white text-[11px] font-semibold tracking-[0.2em] uppercase hover:bg-brand-luxeGoldDark transition-colors duration-300">
+                    <p class="text-stone-700 font-light text-sm md:text-base mt-5 leading-relaxed tracking-wide font-sans max-w-xl">For riders looking for more technical terrain, forest trails and off-road adventures. Explore the Little Carpathians and discover some of the best trail riding opportunities around Bratislava.</p>
+                    <button data-toggle="cat3" data-label="Explore the 4 tours" data-open-label="Hide" aria-expanded="false" onclick="toggleCat('cat3')" class="cat-toggle inline-flex items-center gap-3 mt-8 px-7 py-3.5 bg-brand-luxeGold text-white text-[11px] font-semibold tracking-[0.2em] uppercase hover:bg-brand-luxeGoldDark transition-colors duration-300 shadow-lg">
                         <span class="toggle-label">Explore the 4 tours</span>
                         <i data-lucide="chevron-down" class="w-4 h-4 cat-chevron transition-transform duration-300"></i>
                     </button>
@@ -479,45 +476,45 @@
             <div id="cat3-panel" class="cat-panel">
                 <div class="cat-panel-inner">
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 pt-14">
-                        <article class="group flex flex-col">
+                        <article class="group flex flex-col bg-white/90 backdrop-blur-md border border-white/60 p-4 transition-all duration-500 hover:-translate-y-2">
                             <div class="aspect-[4/5] overflow-hidden relative bg-stone-200">
                                 <img src="pictures/A_mountain_biker_riding_fast_202606281129.jpeg" alt="Forest Trails Explorer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
                             </div>
-                            <div class="pt-5 flex-1">
+                            <div class="pt-4 flex-1">
                                 <h3 class="font-serif text-lg font-medium text-brand-luxeDark mb-2 leading-snug">Forest Trails Explorer</h3>
-                                <p class="text-stone-600 font-light text-xs leading-relaxed font-sans">A fun introduction to Bratislava's trail network.</p>
+                                <p class="text-stone-700 font-light text-xs leading-relaxed font-sans">A fun introduction to Bratislava's trail network.</p>
                             </div>
-                            <button onclick="openModal('tour9')" class="mt-4 inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.2em] uppercase text-brand-luxeDark hover:text-brand-luxeGold transition-colors duration-300 self-start"><span>View Details</span><i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></button>
+                            <button onclick="openModal('tour9')" class="mt-4 px-5 py-2 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:scale-105 shadow-md self-start">View Details</button>
                         </article>
-                        <article class="group flex flex-col">
+                        <article class="group flex flex-col bg-white/90 backdrop-blur-md border border-white/60 p-4 transition-all duration-500 hover:-translate-y-2">
                             <div class="aspect-[4/5] overflow-hidden relative bg-stone-200">
                                 <img src="pictures/Mountain_biker_navigating_a_technical,_202606281129.jpeg" alt="Little Carpathians MTB Ride" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
                             </div>
-                            <div class="pt-5 flex-1">
+                            <div class="pt-4 flex-1">
                                 <h3 class="font-serif text-lg font-medium text-brand-luxeDark mb-2 leading-snug">Little Carpathians MTB Ride</h3>
-                                <p class="text-stone-600 font-light text-xs leading-relaxed font-sans">A guided mountain bike adventure through forests, ridgelines and scenic viewpoints.</p>
+                                <p class="text-stone-700 font-light text-xs leading-relaxed font-sans">A guided mountain bike adventure through forests, ridgelines and scenic viewpoints.</p>
                             </div>
-                            <button onclick="openModal('tour10')" class="mt-4 inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.2em] uppercase text-brand-luxeDark hover:text-brand-luxeGold transition-colors duration-300 self-start"><span>View Details</span><i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></button>
+                            <button onclick="openModal('tour10')" class="mt-4 px-5 py-2 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:scale-105 shadow-md self-start">View Details</button>
                         </article>
-                        <article class="group flex flex-col">
+                        <article class="group flex flex-col bg-white/90 backdrop-blur-md border border-white/60 p-4 transition-all duration-500 hover:-translate-y-2">
                             <div class="aspect-[4/5] overflow-hidden relative bg-stone-200">
                                 <img src="pictures/First-person_point_of_view_(POV)_202606281129.jpeg" alt="Trail Discovery Experience" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
                             </div>
-                            <div class="pt-5 flex-1">
+                            <div class="pt-4 flex-1">
                                 <h3 class="font-serif text-lg font-medium text-brand-luxeDark mb-2 leading-snug">Trail Discovery Experience</h3>
-                                <p class="text-stone-600 font-light text-xs leading-relaxed font-sans">A mix of flowing singletracks, forest roads and local favourites.</p>
+                                <p class="text-stone-700 font-light text-xs leading-relaxed font-sans">A mix of flowing singletracks, forest roads and local favourites.</p>
                             </div>
-                            <button onclick="openModal('tour11')" class="mt-4 inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.2em] uppercase text-brand-luxeDark hover:text-brand-luxeGold transition-colors duration-300 self-start"><span>View Details</span><i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></button>
+                            <button onclick="openModal('tour11')" class="mt-4 px-5 py-2 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:scale-105 shadow-md self-start">View Details</button>
                         </article>
-                        <article class="group flex flex-col">
+                        <article class="group flex flex-col bg-white/90 backdrop-blur-md border border-white/60 p-4 transition-all duration-500 hover:-translate-y-2">
                             <div class="aspect-[4/5] overflow-hidden relative bg-stone-200">
                                 <img src="pictures/A_small_group_of_friends_202606281127.jpeg" alt="Custom MTB Adventure" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
                             </div>
-                            <div class="pt-5 flex-1">
+                            <div class="pt-4 flex-1">
                                 <h3 class="font-serif text-lg font-medium text-brand-luxeDark mb-2 leading-snug">Custom MTB Adventure</h3>
-                                <p class="text-stone-600 font-light text-xs leading-relaxed font-sans">Tailor-made trail rides adapted to your skill level and riding style.</p>
+                                <p class="text-stone-700 font-light text-xs leading-relaxed font-sans">Tailor-made trail rides adapted to your skill level and riding style.</p>
                             </div>
-                            <button onclick="openModal('tour12')" class="mt-4 inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.2em] uppercase text-brand-luxeDark hover:text-brand-luxeGold transition-colors duration-300 self-start"><span>View Details</span><i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></button>
+                            <button onclick="openModal('tour12')" class="mt-4 px-5 py-2 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:scale-105 shadow-md self-start">View Details</button>
                         </article>
                     </div>
                 </div>
@@ -526,16 +523,16 @@
     </section>
 
     <!-- SECTION: CATEGORY 4 (Custom — interactive constructor) -->
-    <section id="cat4" class="bg-graphite text-white py-20 lg:py-28">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12">
-            <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-                <div class="lg:order-2 scroll-reveal">
-                    <div class="aspect-[4/3] overflow-hidden relative shadow-2xl border border-white/10">
-                        <img src="pictures/Corporate cycling group, custom private bike tour, diverse group of people riding together, authentic experience.jpg" alt="Built Around Your Ride" class="w-full h-full object-cover">
-                        <span class="absolute top-4 left-4 bg-brand-luxeDark text-white text-[9px] tracking-[0.25em] uppercase font-medium py-1 px-3 border border-brand-luxeGold/30">Category 4</span>
+    <section id="cat4" class="py-20 lg:py-28 bg-black text-white relative overflow-hidden">
+        <div class="absolute inset-0 z-0 bg-cover bg-center" style="background-image: url('pictures/Fine texture of dark grey asphalt surface, top view, clean, consistent pattern, minimalist dark background, high resolutio.jpg'); opacity: 0.75;"></div>
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-stretch">
+                <div class="lg:order-2 scroll-reveal h-full flex">
+                    <div class="aspect-[4/3] w-full h-full overflow-hidden relative shadow-2xl border border-white/10">
+                        <img src="pictures/Corporate cycling group, custom private bike tour, diverse group of people riding together, authentic experience.jpg" alt="Built Around Your Ride" class="absolute inset-0 w-full h-full object-cover">
                     </div>
                 </div>
-                <div class="lg:order-1 scroll-reveal">
+                <div class="lg:order-1 scroll-reveal h-full flex flex-col justify-center bg-black/60 backdrop-blur-md border border-white/10 p-8 lg:p-12 shadow-2xl">
                     <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-3 block">Category 4 &middot; Custom Experiences</span>
                     <h2 class="font-serif text-3xl md:text-5xl font-bold uppercase text-white leading-tight">Built Around Your Ride</h2>
                     <p class="text-stone-400 font-light text-sm md:text-base mt-5 leading-relaxed tracking-wide font-sans max-w-xl">Looking for something unique? We create fully customised cycling experiences for individuals, groups, cycling clubs and corporate teams. From private city tours and wine experiences to multi-day cycling adventures, every detail can be tailored to your preferences.</p>
@@ -547,7 +544,7 @@
             </div>
             <div id="cat4-panel" class="cat-panel">
                 <div class="cat-panel-inner">
-                    <div class="pt-14 mt-14 border-t border-white/10">
+                    <div class="mt-14 bg-black/60 backdrop-blur-md border border-white/10 p-8 lg:p-12 shadow-2xl">
                         <div class="grid lg:grid-cols-2 gap-10 lg:gap-16">
                             <div class="space-y-7">
                                 <div>
@@ -612,10 +609,10 @@
     </section>
 
     <!-- TOUR DETAIL MODAL / POPUP -->
-    <div id="tour-modal" class="fixed inset-0 bg-stone-950/90 backdrop-blur-md z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-500">
-        <div class="bg-brand-luxeDark max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative border border-brand-luxeGold/25 rounded-none text-white">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-stone-500 hover:text-white transition-colors z-10" aria-label="Close details">
-                <i data-lucide="x" class="w-6 h-6"></i>
+    <div id="tour-modal" class="fixed inset-0 bg-stone-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-500">
+        <div class="bg-white max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative rounded-none text-brand-luxeDark">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-white hover:text-brand-luxeGold transition-all z-10 bg-black/30 hover:bg-black/60 p-2 rounded-full backdrop-blur-md" aria-label="Close details">
+                <i data-lucide="x" class="w-5 h-5"></i>
             </button>
             <div id="modal-content"></div>
         </div>
@@ -703,7 +700,7 @@
                 dist: "15 km", elev: "50 m", dur: "2.5 hours", diff: "Easy", bike: "City / Hybrid Bike",
                 keypoints: ["Bratislava Castle park", "Old Town historic squares", "Danube river park view", "Confluence spots & coffee"],
                 recom: "Perfect for travellers, couples, families and leisure riders.",
-                img: "pictures/Cyclists having a coffee break at a local outdoor cafe, road bikes parked nearby, lifestyle photography, authentic.jpg"
+                img: "pictures/discover bratislava.jpeg"
             },
             tour2: {
                 title: "Danube Discovery Tour",
@@ -711,7 +708,7 @@
                 dist: "35 km", elev: "20 m", dur: "3.5 hours", diff: "Easy", bike: "Hybrid / Gravel Bike",
                 keypoints: ["Danubiana Meulensteen Art Museum", "Water sports dike cycles", "Bird-watching reservoirs", "Riverside buffet breaks"],
                 recom: "Perfect for travellers, couples, families and leisure riders.",
-                img: "pictures/Corporate cycling group, custom private bike tour, diverse group of people riding together, authentic experience.jpg"
+                img: "pictures/A_group_of_three_amateur_202606281349.jpeg"
             },
             tour3: {
                 title: "Wine & Villages Tour",
@@ -719,7 +716,7 @@
                 dist: "40 km", elev: "250 m", dur: "4 hours", diff: "Moderate", bike: "Gravel / Road / Hybrid",
                 keypoints: ["Historic Svätý Jur town", "Picturesque vineyard trails", "Local family wine cellar stops", "Traditional Slovak gastronomy"],
                 recom: "Perfect for travellers, couples, families and leisure riders.",
-                img: "pictures/Corporate cycling group, custom private bike tour, diverse group of people riding together, authentic experience.jpg"
+                img: "pictures/vineyard_ride.png"
             },
             tour4: {
                 title: "Sunset Ride",
@@ -751,7 +748,7 @@
                 dist: "50 km", elev: "600 m", dur: "4 hours", diff: "Moderate", bike: "Gravel / XC Mountain Bike",
                 keypoints: ["Vineyard hillside gravel paths", "Forest fire roads", "Devínska Kobyla panorama", "Fun single tracks"],
                 recom: "For passionate cyclists looking for longer distances.",
-                img: "pictures/Corporate cycling group, custom private bike tour, diverse group of people riding together, authentic experience.jpg"
+                img: "pictures/gen_gravel_bike.png"
             },
             tour8: {
                 title: "Four Countries Challenge",
@@ -759,7 +756,7 @@
                 dist: "120 km", elev: "400 m", dur: "6 hours", diff: "Hard", bike: "Road Bike",
                 keypoints: ["4 national boundaries in a day", "Border monuments and history", "Endurance pacing along rivers", "Celebration drinks in Bratislava"],
                 recom: "For passionate cyclists looking for longer distances.",
-                img: "pictures/professional cyclists ride through the city.jpg"
+                img: "pictures/four_countries.png"
             },
             tour9: {
                 title: "Forest Trails Explorer",
@@ -805,7 +802,7 @@
             let keypointsHTML = '';
             data.keypoints.forEach(kp => {
                 keypointsHTML += `
-                    <li class="flex items-center space-x-3 text-stone-300 text-xs font-sans">
+                    <li class="flex items-center space-x-3 text-stone-700 text-xs font-sans">
                         <i data-lucide="check" class="w-4 h-4 text-brand-luxeGold"></i>
                         <span>${kp}</span>
                     </li>
@@ -813,51 +810,51 @@
             });
 
             modalContent.innerHTML = `
-                <div class="relative w-full h-72 bg-stone-900 border-b border-brand-luxeGold/20">
-                    <img src="${data.img}" alt="${data.title}" class="w-full h-full object-cover opacity-45">
-                    <div class="absolute inset-0 bg-gradient-to-t from-brand-luxeDark via-transparent to-black/35"></div>
-                    <div class="absolute bottom-6 left-6 text-white pr-6">
-                        <span class="text-[9px] uppercase font-bold tracking-[0.25em] text-brand-luxeGold border border-brand-luxeGold/30 px-3 py-1 bg-brand-luxeDark/50 rounded-none">${data.diff}</span>
-                        <h3 class="font-serif text-3xl font-light mt-3 leading-tight text-white">${data.title}</h3>
-                    </div>
+                <div class="relative w-full h-64 border-b border-stone-200">
+                    <img src="${data.img}" alt="${data.title}" class="w-full h-full object-cover">
                 </div>
 
-                <div class="p-8 space-y-8">
-                    <p class="text-stone-400 font-light text-xs md:text-sm leading-relaxed font-sans tracking-wide">${data.desc}</p>
+                <div class="p-8 pb-4">
+                    <span class="text-[9px] uppercase font-bold tracking-[0.25em] text-brand-luxeGold border border-brand-luxeGold/30 px-3 py-1 bg-brand-luxeGold/10 rounded-none mb-4 inline-block">${data.diff}</span>
+                    <h3 class="font-serif text-3xl md:text-4xl font-bold leading-tight text-brand-luxeDark">${data.title}</h3>
+                </div>
+
+                <div class="px-8 space-y-8 pb-8">
+                    <p class="text-stone-600 font-light text-xs md:text-sm leading-relaxed font-sans tracking-wide">${data.desc}</p>
                     
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-4 border-y border-stone-800 text-xs font-sans">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-4 border-y border-stone-200 text-xs font-sans">
                         <div>
                             <span class="text-[9px] uppercase font-bold text-stone-500 block mb-1 tracking-wider">Distance</span>
-                            <span class="font-semibold text-brand-luxeGold text-sm">${data.dist}</span>
+                            <span class="font-semibold text-brand-luxeDark text-sm">${data.dist}</span>
                         </div>
                         <div>
                             <span class="text-[9px] uppercase font-bold text-stone-500 block mb-1 tracking-wider">Elevation</span>
-                            <span class="font-semibold text-brand-luxeGold text-sm">${data.elev}</span>
+                            <span class="font-semibold text-brand-luxeDark text-sm">${data.elev}</span>
                         </div>
                         <div>
                             <span class="text-[9px] uppercase font-bold text-stone-500 block mb-1 tracking-wider">Duration</span>
-                            <span class="font-semibold text-brand-luxeGold text-sm">${data.dur}</span>
+                            <span class="font-semibold text-brand-luxeDark text-sm">${data.dur}</span>
                         </div>
                         <div>
                             <span class="text-[9px] uppercase font-bold text-stone-500 block mb-1 tracking-wider">Bike Type</span>
-                            <span class="font-semibold text-brand-luxeGold text-[11px] block truncate">${data.bike}</span>
+                            <span class="font-semibold text-brand-luxeDark text-[11px] block truncate">${data.bike}</span>
                         </div>
                     </div>
 
                     <div>
-                        <h4 class="text-[10px] uppercase font-bold text-stone-400 tracking-widest mb-4">Highlights</h4>
+                        <h4 class="text-[10px] uppercase font-bold text-stone-500 tracking-widest mb-4">Highlights</h4>
                         <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
                             ${keypointsHTML}
                         </ul>
                     </div>
 
-                    <div class="bg-white/[0.02] p-6 border-l border-brand-luxeGold/60 rounded-none">
+                    <div class="bg-stone-50 p-6 border-l-2 border-brand-luxeGold rounded-none">
                         <h4 class="text-[10px] uppercase font-bold text-brand-luxeGold tracking-widest mb-2">Guide Recommendation</h4>
-                        <p class="text-xs text-stone-400 font-light leading-relaxed tracking-wide font-sans">${data.recom}</p>
+                        <p class="text-xs text-stone-600 font-light leading-relaxed tracking-wide font-sans">${data.recom}</p>
                     </div>
 
                     <div class="pt-2 flex justify-end">
-                        <a href="contact.html?ride=${encodeURIComponent(data.title)}" class="px-10 py-4.5 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[10px] font-semibold uppercase tracking-[0.2em] transition-colors duration-300 rounded-none border border-brand-luxeGold shadow-2xl">
+                        <a href="contact.html?ride=${encodeURIComponent(data.title)}" class="px-10 py-4.5 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[10px] font-bold uppercase tracking-[0.2em] transition-all duration-300 rounded-none shadow-xl hover:shadow-2xl hover:-translate-y-1">
                             Book / Enquire
                         </a>
                     </div>
