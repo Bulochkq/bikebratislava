@@ -1,7 +1,15 @@
-chore: remove unused media assets
+fix: mobile scrolling, deep-links, and resize bugs
 
 🇬🇧 EN:
-- Removed 10 orphaned images and videos from the pictures directory that were no longer referenced anywhere in the HTML/JS/CSS files, saving space.
+- Fixed body scroll locking in the mobile category modal to prevent background scrolling.
+- Added data-lenis-prevent attributes to modals and sidebars across the site to fix smooth scrolling interference.
+- Fixed deep-links for categories (e.g. #cat1) on mobile devices to open the bottom sheet modal instead of expanding inline.
+- Updated the custom ride builder CTA logic to properly update URLs in cloned instances within the mobile modal.
+- Improved parallax reset logic on window resize to include hero videos and background wrappers.
 
 🇺🇦 UA:
-- Видалено 10 залишкових зображень та відео з папки pictures, які більше ніде не використовувалися в коді сайту, для економії місця.
+- Виправлено блокування прокрутки фону при відкритому мобільному вікні категорій.
+- Додано атрибути data-lenis-prevent до всіх модальних вікон і бокових меню сайту для правильної роботи плавного скролінгу (Lenis).
+- Виправлено роботу прямих посилань на категорії (наприклад, #cat1) на мобільних пристроях: тепер вони коректно відкривають нижнє вікно замість розгортання секції.
+- Оновлено логіку кнопки конструктора турів, щоб вона правильно генерувала посилання навіть у скопійованому мобільному вікні.
+- Покращено логіку скидання ефектів паралаксу при зміні розміру вікна для фонових відео та зображень.

@@ -827,7 +827,7 @@
                     <i data-lucide="x" class="w-6 h-6"></i>
                 </button>
             </div>
-            <div id="mobile-cats-body" class="flex-1 overflow-y-auto p-4 bg-stone-50">
+            <div id="mobile-cats-body" class="flex-1 overflow-y-auto p-4 bg-stone-50" data-lenis-prevent>
                 <!-- Cards injected here -->
             </div>
         </div>
@@ -836,7 +836,7 @@
     <div id="tour-modal"
         class="fixed inset-0 bg-stone-950/80 backdrop-blur-sm z-[110] flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-500">
         <div
-            class="bg-white max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative rounded-none text-brand-luxeDark">
+            class="bg-white max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative rounded-none text-brand-luxeDark" data-lenis-prevent>
             <button onclick="closeModal()"
                 class="absolute top-4 right-4 text-white hover:text-brand-luxeGold transition-all z-10 bg-black/30 hover:bg-black/60 p-2 rounded-full backdrop-blur-md"
                 aria-label="Close details">
@@ -1207,16 +1207,21 @@
             
             const modal = document.getElementById('mobile-cats-modal');
             const content = document.getElementById('mobile-cats-content');
-            
+
             modal.classList.remove('opacity-0', 'pointer-events-none');
             setTimeout(() => {
                 content.classList.remove('translate-y-full');
             }, 10);
-            
+
+            // Lock the page behind the full-screen sheet so it can't scroll through
+            document.documentElement.style.overflow = 'hidden';
+            document.body.style.overflow = 'hidden';
+            if (typeof lenis !== 'undefined') lenis.stop();
+
             if (typeof lucide !== 'undefined') {
                 lucide.createIcons();
             }
-            
+
             var closeBar = document.getElementById('mobile-cat-close-bar');
             if (closeBar) closeBar.classList.add('-translate-y-full');
         }
@@ -1225,14 +1230,36 @@
             const modal = document.getElementById('mobile-cats-modal');
             const content = document.getElementById('mobile-cats-content');
             if (!modal) return;
-            
+
+            // Only the cats sheet owns the scroll lock when it's actually open; guard so
+            // the resize handler (which calls this on every 1024px crossing) can't release
+            // a lock held by something else, e.g. an open mobile menu.
+            var wasOpen = !modal.classList.contains('pointer-events-none');
+
             content.classList.add('translate-y-full');
             setTimeout(() => {
                 modal.classList.add('opacity-0', 'pointer-events-none');
             }, 300);
+
+            if (wasOpen) {
+                document.documentElement.style.overflow = '';
+                document.body.style.overflow = '';
+                if (typeof lenis !== 'undefined') lenis.start();
+            }
         }
 
-        function openCat(id) { setCat(id, true); }
+        // Deep-links (tours.html#cat1 …) must respect the breakpoint: open the
+        // bottom-sheet modal on mobile, expand the inline panel on desktop —
+        // otherwise mobile gets the long inline scroll this design avoids.
+        function openCat(id) {
+            if (window.innerWidth < 1024) {
+                var section = document.getElementById(id);
+                var title = section ? section.querySelector('h2').textContent.replace('&amp;', '&') : 'Tours';
+                openMobileCatsModal(id, title);
+            } else {
+                setCat(id, true);
+            }
+        }
         function openFromHash() { var h = location.hash.replace('#', ''); if (['cat1', 'cat2', 'cat3', 'cat4'].indexOf(h) > -1) openCat(h); }
         window.addEventListener('hashchange', openFromHash);
         window.addEventListener('load', openFromHash);
@@ -1244,14 +1271,18 @@
             updateBuildLink();
         }
         function updateBuildLink() {
-            var cta = document.getElementById('build-cta');
-            if (!cta) return;
+            // The custom-ride panel is cloned into the mobile sheet, which duplicates
+            // #build-cta. Update every instance so the visible button (mobile clone or
+            // desktop original) always carries the current selections.
+            var ctas = document.querySelectorAll('#build-cta');
+            if (!ctas.length) return;
             var params = new URLSearchParams({ ride: 'Custom' });
             ['type', 'duration', 'group', 'level'].forEach(function (g) {
                 var el = document.querySelector('[data-group="' + g + '"].chip-active');
                 if (el) params.set(g, el.dataset.val);
             });
-            cta.href = 'contact.html?' + params.toString();
+            var href = 'contact.html?' + params.toString();
+            ctas.forEach(function (cta) { cta.href = href; });
         }
 
         // ===== Handle Screen Resize Edge Cases =====

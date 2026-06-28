@@ -618,7 +618,20 @@
 
         // 4. Parallax scroll effect for backgrounds (translateY on inner wrapper — no white edge bleed)
         function updateParallax() {
-            if (window.innerWidth <= 768) return;
+            if (window.innerWidth <= 768) {
+                // Reset transforms on mobile so the hero video and backgrounds don't stay
+                // stuck offset after a resize down from desktop.
+                const heroReset = document.getElementById('hero-video');
+                if (heroReset && heroReset.style.transform !== 'none' && heroReset.style.transform !== '') {
+                    heroReset.style.transform = 'none';
+                }
+                document.querySelectorAll('.parallax-bg').forEach(bg => {
+                    if (bg.style.transform !== 'none' && bg.style.transform !== '') {
+                        bg.style.transform = 'none';
+                    }
+                });
+                return;
+            }
 
             const scroll = window.scrollY;
 
