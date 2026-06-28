@@ -215,3 +215,244 @@ window.addEventListener('scroll', () => {
         });
     }
 });
+
+/* =====================================================================
+   Sitewide SEO injection — favicon + Organization/LocalBusiness JSON-LD.
+   Injected once per page so it stays in a single place (DRY), the same
+   way the universal header is loaded.
+   ===================================================================== */
+(function injectSeo() {
+    // Favicon (browsers + Google search result icon) + Apple touch icon.
+    if (!document.querySelector('link[rel~="icon"]')) {
+        const ico = document.createElement('link');
+        ico.rel = 'icon';
+        ico.href = 'favicon.ico';
+        ico.type = 'image/x-icon';
+        document.head.appendChild(ico);
+
+        const png = document.createElement('link');
+        png.rel = 'icon';
+        png.type = 'image/png';
+        png.setAttribute('sizes', '32x32');
+        png.href = 'favicon-32.png';
+        document.head.appendChild(png);
+
+        const apple = document.createElement('link');
+        apple.rel = 'apple-touch-icon';
+        apple.href = 'apple-touch-icon.png';
+        document.head.appendChild(apple);
+    }
+
+    // Structured data for the business (Knowledge Panel + local SEO).
+    if (!document.getElementById('ld-org')) {
+        const ld = document.createElement('script');
+        ld.type = 'application/ld+json';
+        ld.id = 'ld-org';
+        ld.textContent = JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": ["LocalBusiness", "TravelAgency"],
+            "name": "Bike Bratislava",
+            "description": "Guided cycling tours, road rides, gravel adventures and custom cycling experiences in Bratislava and Central Europe.",
+            "url": "https://bikebratislava.com/",
+            "image": "https://bikebratislava.com/pictures/devin-sunset.png",
+            "email": "silvia@velocity.sk",
+            "telephone": "+421903214013",
+            "areaServed": "Bratislava, Slovakia",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Bratislava",
+                "addressCountry": "SK"
+            },
+            "parentOrganization": {
+                "@type": "Organization",
+                "name": "Velocity",
+                "url": "https://www.velocity.sk/"
+            },
+            "sameAs": [
+                "https://www.instagram.com/velocity_cyklo/",
+                "https://www.facebook.com/VeloCity.sk/",
+                "https://www.velocity.sk/"
+            ]
+        });
+        document.head.appendChild(ld);
+    }
+})();
+
+/* =====================================================================
+   Cookie consent (GDPR / ePrivacy) + Google Consent Mode v2.
+   - No analytics cookies OR network requests fire until the visitor
+     opts in (strict EU-compliant: GA is only loaded after consent).
+   - To enable Google Analytics: set GA_MEASUREMENT_ID to your GA4 id
+     (e.g. 'G-XXXXXXX'). Nothing else is required.
+   - Google Search Console verification (meta tag / DNS / file) does not
+     set cookies, so it needs no consent and can be added directly.
+   ===================================================================== */
+(function cookieConsent() {
+    const GA_MEASUREMENT_ID = ''; // <-- put your GA4 ID here, e.g. 'G-ABC123XYZ'
+    const STORAGE_KEY = 'bb-cookie-consent';
+    const POLICY_COOKIES = 'privacy.html#cookies';
+    const POLICY_PRIVACY = 'privacy.html';
+
+    // --- Google Consent Mode v2 defaults (must run before GA loads) ---
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    window.gtag = window.gtag || gtag;
+    gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+        functionality_storage: 'granted',
+        security_storage: 'granted',
+        wait_for_update: 500
+    });
+
+    let gaLoaded = false;
+    function loadGA() {
+        if (gaLoaded || !GA_MEASUREMENT_ID) return;
+        gaLoaded = true;
+        const s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
+        document.head.appendChild(s);
+        gtag('js', new Date());
+        gtag('config', GA_MEASUREMENT_ID, { anonymize_ip: true });
+    }
+
+    function readConsent() {
+        try { return JSON.parse(localStorage.getItem(STORAGE_KEY)); } catch (e) { return null; }
+    }
+    function applyConsent(consent) {
+        gtag('consent', 'update', { analytics_storage: consent.analytics ? 'granted' : 'denied' });
+        if (consent.analytics) loadGA();
+    }
+    function saveConsent(analytics) {
+        const consent = { necessary: true, analytics: !!analytics, ts: Date.now(), v: 1 };
+        try { localStorage.setItem(STORAGE_KEY, JSON.stringify(consent)); } catch (e) {}
+        applyConsent(consent);
+    }
+
+    // --- UI ---------------------------------------------------------
+    function buildUI() {
+        const wrap = document.createElement('div');
+        wrap.id = 'cookie-consent-root';
+        wrap.innerHTML = `
+        <div id="cc-banner" style="display:none" class="fixed bottom-0 left-0 right-0 z-[120] border-t border-[#E31C25]/50 shadow-2xl" data-cc-region>
+            <div style="background:#0A0A0A" class="max-w-7xl mx-auto px-6 py-5 flex flex-col lg:flex-row lg:items-center gap-5">
+                <p class="flex-1 text-stone-300 text-xs leading-relaxed font-light tracking-wide">
+                    We use necessary cookies to run this site and, with your consent, analytics cookies (Google Analytics) to understand how it is used.
+                    See our <a href="${POLICY_COOKIES}" target="_blank" rel="noopener" class="text-[#E31C25] hover:underline font-medium">Cookie Policy</a>
+                    and <a href="${POLICY_PRIVACY}" target="_blank" rel="noopener" class="text-[#E31C25] hover:underline font-medium">Privacy Policy</a>.
+                </p>
+                <div class="flex flex-wrap items-center gap-3 shrink-0">
+                    <button data-cc="reject" class="px-5 py-2.5 text-[10px] font-semibold tracking-[0.2em] uppercase text-stone-300 border border-white/20 hover:border-white/50 hover:text-white transition-colors duration-300">Reject all</button>
+                    <button data-cc="settings" class="px-5 py-2.5 text-[10px] font-semibold tracking-[0.2em] uppercase text-stone-300 border border-white/20 hover:border-white/50 hover:text-white transition-colors duration-300">Settings</button>
+                    <button data-cc="accept" class="px-6 py-2.5 text-[10px] font-semibold tracking-[0.2em] uppercase text-white bg-[#E31C25] hover:bg-[#B0141A] transition-colors duration-300">Accept all</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="cc-modal" style="display:none" class="fixed inset-0 z-[130] flex items-center justify-center p-4" data-cc-region>
+            <div data-cc="backdrop" class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+            <div style="background:#0A0A0A" class="relative w-full max-w-lg border border-white/10 shadow-2xl max-h-[90vh] overflow-y-auto" data-lenis-prevent>
+                <div class="flex items-center justify-between px-7 py-5 border-b border-white/10">
+                    <h3 class="font-serif text-xl font-light text-white tracking-wide">Cookie Preferences</h3>
+                    <button data-cc="close" aria-label="Close" class="text-stone-400 hover:text-[#E31C25] transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                    </button>
+                </div>
+                <div class="px-7 py-6 space-y-6">
+                    <p class="text-stone-400 text-xs font-light leading-relaxed">Choose which cookies you allow. Necessary cookies are always on because the site cannot work without them.</p>
+                    <div class="flex items-start justify-between gap-4 border border-white/10 p-4">
+                        <div>
+                            <span class="block text-white text-sm font-medium">Strictly necessary</span>
+                            <span class="block text-stone-500 text-xs font-light mt-1">Required for core functionality. Always active.</span>
+                        </div>
+                        <span class="text-[10px] uppercase tracking-[0.2em] text-[#E31C25] font-semibold mt-1">Always on</span>
+                    </div>
+                    <div class="flex items-start justify-between gap-4 border border-white/10 p-4">
+                        <div>
+                            <span class="block text-white text-sm font-medium">Analytics</span>
+                            <span class="block text-stone-500 text-xs font-light mt-1">Google Analytics — anonymous traffic statistics.</span>
+                        </div>
+                        <label class="relative inline-flex items-center cursor-pointer mt-1 shrink-0">
+                            <input type="checkbox" id="cc-analytics" class="sr-only peer">
+                            <span class="w-11 h-6 bg-stone-700 peer-checked:bg-[#E31C25] transition-colors duration-300 relative after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:h-5 after:w-5 after:transition-all after:duration-300 peer-checked:after:translate-x-5"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="px-7 py-5 border-t border-white/10 flex flex-col sm:flex-row gap-3 sm:justify-end">
+                    <button data-cc="save" class="px-6 py-3 text-[10px] font-semibold tracking-[0.2em] uppercase text-stone-300 border border-white/20 hover:border-white/50 hover:text-white transition-colors duration-300">Save preferences</button>
+                    <button data-cc="accept" class="px-6 py-3 text-[10px] font-semibold tracking-[0.2em] uppercase text-white bg-[#E31C25] hover:bg-[#B0141A] transition-colors duration-300">Accept all</button>
+                </div>
+            </div>
+        </div>`;
+        document.body.appendChild(wrap);
+        return wrap;
+    }
+
+    function init() {
+        const root = buildUI();
+        const banner = root.querySelector('#cc-banner');
+        const modal = root.querySelector('#cc-modal');
+        const analyticsToggle = root.querySelector('#cc-analytics');
+
+        const showBanner = () => { banner.style.display = 'block'; };
+        const hideBanner = () => { banner.style.display = 'none'; };
+        const openModal = () => {
+            const stored = readConsent();
+            analyticsToggle.checked = stored ? !!stored.analytics : false;
+            modal.style.display = 'flex';
+        };
+        const closeModal = () => { modal.style.display = 'none'; };
+
+        root.addEventListener('click', (e) => {
+            const action = e.target.closest('[data-cc]')?.getAttribute('data-cc');
+            if (!action) return;
+            if (action === 'accept') { saveConsent(true); hideBanner(); closeModal(); }
+            else if (action === 'reject') { saveConsent(false); hideBanner(); closeModal(); }
+            else if (action === 'settings') { openModal(); }
+            else if (action === 'save') { saveConsent(analyticsToggle.checked); hideBanner(); closeModal(); }
+            else if (action === 'close' || action === 'backdrop') { closeModal(); }
+        });
+
+        // Expose a global so a footer/menu link can reopen preferences anytime
+        // (required so consent can be withdrawn as easily as it was given).
+        window.openCookieSettings = openModal;
+
+        // Add discreet "Privacy Policy" + "Cookie Settings" controls to each footer.
+        document.querySelectorAll('footer').forEach(footer => {
+            const copy = Array.from(footer.querySelectorAll('p')).find(p => /rights reserved/i.test(p.textContent));
+            if (!copy || footer.querySelector('[data-cc-footer]')) return;
+            const bar = document.createElement('div');
+            bar.setAttribute('data-cc-footer', '');
+            bar.className = 'flex items-center gap-4 mt-2 text-[10px] tracking-widest uppercase text-stone-500';
+
+            const privacy = document.createElement('a');
+            privacy.href = 'privacy.html';
+            privacy.textContent = 'Privacy Policy';
+            privacy.className = 'hover:text-[#E31C25] transition-colors';
+
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.textContent = 'Cookie Settings';
+            btn.className = 'hover:text-[#E31C25] transition-colors';
+            btn.addEventListener('click', openModal);
+
+            bar.appendChild(privacy);
+            bar.appendChild(btn);
+            copy.insertAdjacentElement('afterend', bar);
+        });
+
+        // Apply existing choice, or surface the banner on first visit.
+        const stored = readConsent();
+        if (stored) applyConsent(stored);
+        else showBanner();
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();

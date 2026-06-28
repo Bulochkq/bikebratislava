@@ -13,14 +13,14 @@
     <meta property="og:url" content="https://bikebratislava.com/">
     <meta property="og:title" content="Bike Bratislava | Discover Central Europe from the Saddle">
     <meta property="og:description" content="Discover Bratislava and Central Europe from the saddle. Premium guided cycling tours, road rides, gravel adventures, and custom experiences by local riders.">
-    <meta property="og:image" content="https://bikebratislava.com/pictures/Cyclists having a coffee break at a local outdoor cafe, road bikes parked nearby, lifestyle photography, authentic.jpg">
+    <meta property="og:image" content="https://bikebratislava.com/pictures/coffee-break.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://bikebratislava.com/">
     <meta property="twitter:title" content="Bike Bratislava | Discover Central Europe from the Saddle">
     <meta property="twitter:description" content="Discover Bratislava and Central Europe from the saddle. Premium guided cycling tours, road rides, gravel adventures, and custom experiences by local riders.">
-    <meta property="twitter:image" content="https://bikebratislava.com/pictures/Cyclists having a coffee break at a local outdoor cafe, road bikes parked nearby, lifestyle photography, authentic.jpg">
+    <meta property="twitter:image" content="https://bikebratislava.com/pictures/coffee-break.jpg">
     
                     <!-- Google Fonts: Outfit & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,8 +39,8 @@
                         brand: {
                             luxeDark: '#0A0A0A',     /* Matte carbon black background */
                             luxeLight: '#F8F9FA',    /* Clean slate light background */
-                            luxeGold: '#D71920',     /* Active athletic red accent */
-                            luxeGoldDark: '#B0141A', /* Deeper active red */
+                            luxeGold: '#E31C25',     /* Active athletic red accent */
+                            luxeGoldDark: '#B91C1C', /* Deeper active red */
                             luxeTextDark: '#111111', /* Dark charcoal text */
                             luxeTextLight: '#F8F9FA' /* Crisp light text */
                         }
@@ -162,19 +162,19 @@
         }
         .parallax-bg.asphalt {
             background-color: #0A0A0A;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('pictures/Fine texture of dark grey asphalt surface, top view, clean, consistent pattern, minimalist dark background, high resolutio.jpg');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('pictures/texture-asphalt.jpg');
             background-size: cover;
             background-position: center;
         }
         .parallax-bg.dark-minimal {
             background-color: #0A0A0A;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75)), url('pictures/High-quality_minimalist_background,_full-screen_coverage._202606222338.jpeg');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75)), url('pictures/bg-minimal-1.jpeg');
             background-size: cover;
             background-position: center;
         }
         .parallax-bg.light-minimal {
             background-color: #ffffff;
-            background-image: linear-gradient(rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.94)), url('pictures/High-quality_minimalist_background,_full-screen_coverage._202606222338.jpeg');
+            background-image: linear-gradient(rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.94)), url('pictures/bg-minimal-1.jpeg');
             background-size: cover;
             background-position: center;
             filter: blur(7px);
@@ -217,15 +217,15 @@
     <!-- HEADER & NAVIGATION -->
     <div id="header-placeholder"></div>
 
-    <!-- SECTION 1: HERO (With local intro.mp4 video background) -->
+    <!-- SECTION 1: HERO (local looping cyclist video playlist) -->
     <section class="relative min-h-screen flex items-center justify-center bg-brand-luxeDark overflow-hidden">
         <div class="absolute inset-0 z-0">
             <!-- Autoplaying, muted local MP4 video with transform class for parallax -->
             <!-- poster shows if video can't be loaded (e.g. GitHub Pages file size limit) -->
             <video autoplay muted playsinline
-                   poster="pictures/Cyclists riding during golden hour sunset, warm silhouettes, back light, cinematic photography.jpg"
+                   poster="pictures/cyclists-sunset.jpg"
                    class="w-full h-full object-cover object-center opacity-45 scale-110" id="hero-video" style="will-change: transform;">
-                <source src="pictures/Group of road cyclists city waterfront morning drone shot.mp4" type="video/mp4">
+                <source src="pictures/hero-waterfront.mp4" type="video/mp4">
             </video>
             <div class="absolute inset-0 bg-gradient-to-t from-brand-luxeDark via-brand-luxeDark/20 to-transparent"></div>
         </div>
@@ -267,7 +267,7 @@
                 <div class="lg:col-span-5 flex flex-col scroll-reveal">
                     <div class="relative z-10 aspect-[3/4] overflow-hidden shadow-2xl border border-stone-300/60">
                         <!-- Local cyclists stopping at historic Devin/Bratislava castle -->
-                        <img src="pictures/sunset_devin.png" 
+                        <img src="pictures/devin-sunset.png" 
                              alt="Cyclists looking at historic castle landmark in Bratislava" 
                              class="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-out">
                     </div>
@@ -365,7 +365,7 @@
                 <div class="group bg-white flex flex-col justify-between transition-all duration-500 rounded-none scroll-reveal border border-red-600/30 hover:border-red-600/70 hover:shadow-2xl">
                     <div>
                         <div class="aspect-square overflow-hidden relative">
-                            <img src="pictures/Cyclists having a coffee break at a local outdoor cafe, road bikes parked nearby, lifestyle photography, authentic.jpg" alt="E-Bike & Leisure Tours" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                            <img src="pictures/coffee-break.jpg" alt="E-Bike & Leisure Tours" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
                             <div class="absolute top-4 left-4 bg-brand-luxeDark text-white text-[9px] tracking-[0.25em] uppercase font-medium py-1 px-3 border border-brand-luxeGold/25">
                                 Category 1
                             </div>
@@ -386,7 +386,7 @@
                 <div class="group bg-white flex flex-col justify-between transition-all duration-500 rounded-none scroll-reveal border border-red-600/30 hover:border-red-600/70 hover:shadow-2xl">
                     <div>
                         <div class="aspect-square overflow-hidden relative">
-                            <img src="pictures/gen_peloton.png" alt="Road & Gravel" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                            <img src="pictures/peloton.png" alt="Road & Gravel" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
                             <div class="absolute top-4 left-4 bg-brand-luxeDark text-white text-[9px] tracking-[0.25em] uppercase font-medium py-1 px-3 border border-brand-luxeGold/25">
                                 Category 2
                             </div>
@@ -407,7 +407,7 @@
                 <div class="group bg-white flex flex-col justify-between transition-all duration-500 rounded-none scroll-reveal border border-red-600/30 hover:border-red-600/70 hover:shadow-2xl">
                     <div>
                         <div class="aspect-square overflow-hidden relative">
-                            <img src="pictures/Mountain_biker_navigating_a_technical,_202606281129.jpeg" alt="Trail & MTB Adventures" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                            <img src="pictures/mtb-technical.jpeg" alt="Trail & MTB Adventures" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
                             <div class="absolute top-4 left-4 bg-brand-luxeDark text-white text-[9px] tracking-[0.25em] uppercase font-medium py-1 px-3 border border-brand-luxeGold/25">
                                 Category 3
                             </div>
@@ -428,7 +428,7 @@
                 <div class="group bg-white flex flex-col justify-between transition-all duration-500 rounded-none scroll-reveal border border-red-600/30 hover:border-red-600/70 hover:shadow-2xl">
                     <div>
                         <div class="aspect-square overflow-hidden relative">
-                            <img src="pictures/Corporate cycling group, custom private bike tour, diverse group of people riding together, authentic experience.jpg" alt="Custom Experiences" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                            <img src="pictures/corporate-group.jpg" alt="Custom Experiences" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
                             <div class="absolute top-4 left-4 bg-brand-luxeDark text-white text-[9px] tracking-[0.25em] uppercase font-medium py-1 px-3 border border-brand-luxeGold/25">
                                 Category 4
                             </div>
@@ -481,7 +481,7 @@
                     <div class="relative max-w-sm mx-auto lg:max-w-none">
                         <!-- Cyclists coffee stop portrait with hover transition -->
                         <div class="aspect-[3/4] overflow-hidden shadow-2xl border border-stone-300/60">
-                            <img src="pictures/Smiling professional bike guide portrait, friendly local cyclist looking at camera, outdoor sports clothing.jpg" 
+                            <img src="pictures/guide-portrait.jpg" 
                                  alt="Professional bike guide in Bratislava region" 
                                  class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700 ease-out">
                         </div>
@@ -512,12 +512,12 @@
 
             <!-- Logos Row -->
             <div class="flex flex-wrap justify-center items-center gap-10 md:gap-16 lg:gap-20 mt-16 max-w-5xl mx-auto">
-                <img src="pictures/Swissre.png" alt="Swiss Re" class="h-10 md:h-12 lg:h-14 object-contain transition-transform duration-300 hover:scale-105">
-                <img src="pictures/Pixelfederation.png" alt="Pixel Federation" class="h-10 md:h-12 lg:h-14 object-contain transition-transform duration-300 hover:scale-105">
-                <img src="pictures/JTRE.png" alt="JTRE" class="h-10 md:h-12 lg:h-14 object-contain transition-transform duration-300 hover:scale-105">
-                <img src="pictures/Alto_real.png" alt="Alto Real" class="h-10 md:h-12 lg:h-14 object-contain transition-transform duration-300 hover:scale-105">
-                <img src="pictures/corwin_Logo_Vertikal.png" alt="Corwin" class="h-12 md:h-14 lg:h-16 object-contain transition-transform duration-300 hover:scale-105">
-                <img src="pictures/Vodacke_centrum.png" alt="Vodacke centrum" class="h-10 md:h-12 lg:h-14 object-contain transition-transform duration-300 hover:scale-105">
+                <img src="pictures/partner-swissre.png" alt="Swiss Re" class="h-10 md:h-12 lg:h-14 object-contain transition-transform duration-300 hover:scale-105">
+                <img src="pictures/partner-pixelfederation.png" alt="Pixel Federation" class="h-10 md:h-12 lg:h-14 object-contain transition-transform duration-300 hover:scale-105">
+                <img src="pictures/partner-jtre.png" alt="JTRE" class="h-10 md:h-12 lg:h-14 object-contain transition-transform duration-300 hover:scale-105">
+                <img src="pictures/partner-alto.png" alt="Alto Real" class="h-10 md:h-12 lg:h-14 object-contain transition-transform duration-300 hover:scale-105">
+                <img src="pictures/partner-corwin.png" alt="Corwin" class="h-12 md:h-14 lg:h-16 object-contain transition-transform duration-300 hover:scale-105">
+                <img src="pictures/partner-vodacke-centrum.png" alt="Vodacke centrum" class="h-10 md:h-12 lg:h-14 object-contain transition-transform duration-300 hover:scale-105">
             </div>
         </div>
     </section>
@@ -595,7 +595,7 @@
                     <a href="https://www.velocity.sk/" target="_blank" class="flex items-center space-x-3 opacity-70 hover:opacity-100 transition-opacity">
                         <span class="uppercase tracking-widest text-stone-400 hover:text-white transition-colors">velocity.sk</span>
                         <div class="h-4 w-[1px] bg-stone-700"></div>
-                        <img src="pictures/logo_Velocity_white.png" alt="Velocity" class="h-5 object-contain">
+                        <img src="pictures/logo-velocity-white.png" alt="Velocity" class="h-5 object-contain">
                     </a>
                     <a href="https://www.instagram.com/velocity_cyklo/" target="_blank" class="flex items-center space-x-2 text-stone-400 hover:text-brand-luxeGold transition-colors" aria-label="Instagram">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
@@ -661,9 +661,9 @@
         const heroVideo = document.getElementById('hero-video');
         if (heroVideo) {
             const playlist = [
-                "pictures/Group of road cyclists city waterfront morning drone shot.mp4",
-                "pictures/Road cyclists riding city river sunrise wide shot.mp4",
-                "pictures/Athletic cyclists road bikes city river golden hour wide angle.mp4"
+                "pictures/hero-waterfront.mp4",
+                "pictures/hero-sunrise.mp4",
+                "pictures/hero-golden-hour.mp4"
             ];
             let currentVideoIndex = 0;
             

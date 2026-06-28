@@ -20,7 +20,7 @@ function respond($ok, $isAjax, $errorCode = 'error') {
         if ($ok) {
             echo "success";
         } else {
-            http_response_code($errorCode === 'error_invalid_input' ? 400 : 500);
+            http_response_code($errorCode === 'error_invalid_input' ? 400 : ($errorCode === 'error_rate_limited' ? 429 : 500));
             echo $errorCode;
         }
     } else {
@@ -28,6 +28,37 @@ function respond($ok, $isAjax, $errorCode = 'error') {
         header("Location: https://bikebratislava.com/contact.html?status=" . $status);
     }
     exit;
+}
+
+/* ---------- Anti-spam ---------- */
+// Honeypot: this field is hidden from real users. If a bot fills it, pretend
+// the submission succeeded (so the bot moves on) but send nothing.
+if (!empty($_POST['company_website'])) {
+    respond(true, $isAjax);
+}
+
+// Basic per-IP rate limiting: min 20s between sends, max 5 within an hour.
+function rate_limited() {
+    $ip = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : 'unknown';
+    $dir = sys_get_temp_dir() . '/bb_rl';
+    if (!is_dir($dir)) { @mkdir($dir, 0700, true); }
+    $file = $dir . '/' . md5($ip) . '.json';
+    $now = time();
+    $hits = array();
+    if (is_file($file)) {
+        $data = json_decode(@file_get_contents($file), true);
+        if (is_array($data)) { $hits = $data; }
+    }
+    $recent = array();
+    foreach ($hits as $t) { if ($t > $now - 3600) { $recent[] = $t; } }
+    if (!empty($recent) && ($now - max($recent)) < 20) { return true; }
+    if (count($recent) >= 5) { return true; }
+    $recent[] = $now;
+    @file_put_contents($file, json_encode(array_values($recent)), LOCK_EX);
+    return false;
+}
+if (rate_limited()) {
+    respond(false, $isAjax, 'error_rate_limited');
 }
 
 /* ---------- Collect & sanitize ---------- */
@@ -53,8 +84,10 @@ $name  = str_replace(array("\r", "\n"), '', $name);
 if ($source === '') $source = 'Manual form';
 
 /* ---------- Validate ---------- */
+// GDPR: explicit consent is required (proof of consent, not just client-side).
+$consent = isset($_POST['gdpr-consent']) && $_POST['gdpr-consent'] !== '';
 $isEmailValid = filter_var($email, FILTER_VALIDATE_EMAIL);
-if (empty($name) || empty($email) || !$isEmailValid || empty($dates)) {
+if (empty($name) || empty($email) || !$isEmailValid || empty($dates) || !$consent) {
     respond(false, $isAjax, 'error_invalid_input');
 }
 

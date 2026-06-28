@@ -16,7 +16,7 @@
     <meta property="og:title" content="Contact Us | Bike Bratislava">
     <meta property="og:description"
         content="Let's plan your ride. Tell us about your travel dates, group size, and cycling experience. We'll help you create the perfect tour.">
-    <meta property="og:image" content="https://bikebratislava.com/pictures/sunset_devin.png">
+    <meta property="og:image" content="https://bikebratislava.com/pictures/devin-sunset.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
@@ -24,7 +24,7 @@
     <meta property="twitter:title" content="Contact Us | Bike Bratislava">
     <meta property="twitter:description"
         content="Let's plan your ride. Tell us about your travel dates, group size, and cycling experience. We'll help you create the perfect tour.">
-    <meta property="twitter:image" content="https://bikebratislava.com/pictures/sunset_devin.png">
+    <meta property="twitter:image" content="https://bikebratislava.com/pictures/devin-sunset.png">
 
     <!-- Google Fonts: Outfit & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -221,14 +221,14 @@
 
         .parallax-bg.asphalt {
             background-color: #0A0A0A;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('pictures/Fine texture of dark grey asphalt surface, top view, clean, consistent pattern, minimalist dark background, high resolutio.jpg');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('pictures/texture-asphalt.jpg');
             background-size: cover;
             background-position: center;
         }
 
         .parallax-bg.dark-minimal {
             background-color: #0A0A0A;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('pictures/High-quality_minimalist_background,_full-screen_coverage._202606222338.jpeg');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('pictures/bg-minimal-1.jpeg');
             background-size: cover;
             background-position: center;
         }
@@ -326,7 +326,7 @@
         class="relative min-h-[75vh] flex items-center justify-center bg-brand-luxeDark text-white overflow-hidden">
         <div class="absolute inset-0 z-0">
             <!-- Scale-110 for parallax -->
-            <img src="pictures/sunset_devin.png" alt="Contact us background slovakia devin castle cyclists"
+            <img src="pictures/devin-sunset.png" alt="Contact us background slovakia devin castle cyclists"
                 class="w-full h-full object-cover object-center opacity-45 scale-110" id="hero-img"
                 style="will-change: transform;">
             <div class="absolute inset-0 bg-gradient-to-t from-brand-luxeDark via-brand-luxeDark/35 to-transparent">
@@ -425,11 +425,17 @@
                 <form id="contact-form" class="space-y-10">
                     <!-- Source flag, set to "Ride Builder" when the visitor arrives from the Tours builder -->
                     <input type="hidden" id="form-source" name="source" value="Manual form">
+                    <!-- Honeypot anti-spam field: hidden from humans, must stay empty. Bots that fill it are rejected. -->
+                    <div aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;">
+                        <label>Leave this field empty
+                            <input type="text" name="company_website" tabindex="-1" autocomplete="off">
+                        </label>
+                    </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                         <!-- Name -->
                         <div class="flex flex-col">
                             <label for="name"
-                                class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-500 mb-2 pl-1">Name</label>
+                                class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-500 mb-2 pl-1">Name <span class="text-red-600">*</span></label>
                             <input type="text" id="name" name="name" required placeholder="John Doe"
                                 class="bg-stone-50 border border-stone-200 focus:border-red-600 focus:bg-white focus:outline-none text-sm font-light text-brand-luxeTextDark tracking-wide p-3.5 shadow-sm transition-all duration-300">
                         </div>
@@ -437,7 +443,7 @@
                         <div class="flex flex-col">
                             <label for="country"
                                 class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-500 mb-2 pl-1">Country
-                                of Origin</label>
+                                of Origin <span class="text-red-600">*</span></label>
                             <div class="relative w-full" id="country-field">
                                 <input type="text" id="country" name="country" required autocomplete="off"
                                     placeholder="Start typing your country…"
@@ -455,7 +461,7 @@
                         <div class="flex flex-col">
                             <label for="email"
                                 class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-500 mb-2 pl-1">Email
-                                Address</label>
+                                Address <span class="text-red-600">*</span></label>
                             <input type="email" id="email" name="email" required placeholder="john@example.com"
                                 class="bg-stone-50 border border-stone-200 focus:border-red-600 focus:bg-white focus:outline-none text-sm font-light text-brand-luxeTextDark tracking-wide p-3.5 shadow-sm transition-all duration-300">
                         </div>
@@ -489,7 +495,7 @@
                     <div class="flex flex-col">
                         <label for="dates"
                             class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-500 mb-2 pl-1">Travel
-                            Dates</label>
+                            Dates <span class="text-red-600">*</span></label>
                         <input type="text" id="dates" name="dates" required placeholder="e.g., Late September 2026"
                             class="bg-stone-50 border border-stone-200 focus:border-red-600 focus:bg-white focus:outline-none text-sm font-light text-brand-luxeTextDark tracking-wide p-3.5 shadow-sm transition-all duration-300">
                     </div>
@@ -499,7 +505,7 @@
                         <div class="flex flex-col relative custom-select-container">
                             <label
                                 class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-500 mb-2 pl-1">Group
-                                Size</label>
+                                Size <span class="text-stone-400 font-medium normal-case tracking-normal">(optional)</span></label>
                             <div class="relative w-full">
                                 <select id="group-size" name="group-size" style="display: none !important;">
                                     <option value="" disabled selected>Select size</option>
@@ -532,7 +538,7 @@
                         <div class="flex flex-col relative custom-select-container md:col-span-2">
                             <label for="ride-type"
                                 class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-500 mb-2 pl-1">Preferred
-                                Ride Type</label>
+                                Ride Type <span class="text-stone-400 font-medium normal-case tracking-normal">(optional)</span></label>
                             <div class="relative w-full">
                                 <select id="ride-type" name="ride-type" style="display: none !important;">
                                     <option value="" disabled selected>Select type</option>
@@ -624,9 +630,11 @@
                                 class="w-4 h-4 border border-stone-300 rounded-none bg-stone-50 focus:ring-3 focus:ring-brand-luxeGold/30 accent-brand-luxeGold cursor-pointer transition-colors duration-300">
                         </div>
                         <label for="gdpr-consent" class="text-xs font-light text-stone-600 leading-relaxed font-sans cursor-pointer">
-                            I agree to the <a href="https://www.velocity.sk/sekcia/spracovanie-osobnych-udajov/" target="_blank" class="text-brand-luxeGold hover:underline font-medium">processing of my personal data</a> for the purpose of handling this inquiry, in accordance with European GDPR regulations. <span class="text-red-600">*</span>
+                            I agree to the <a href="privacy.html" target="_blank" class="text-brand-luxeGold hover:underline font-medium">processing of my personal data</a> for the purpose of handling this inquiry, in accordance with European GDPR regulations. <span class="text-red-600">*</span>
                         </label>
                     </div>
+
+                    <p class="text-[10px] text-stone-400 font-light tracking-wide pl-1"><span class="text-red-600">*</span> Required field</p>
 
                     <!-- Submit Button -->
                     <button type="submit"
@@ -730,7 +738,7 @@
                         <span
                             class="uppercase tracking-widest text-stone-400 hover:text-white transition-colors">velocity.sk</span>
                         <div class="h-4 w-[1px] bg-stone-700"></div>
-                        <img src="pictures/logo_Velocity_white.png" alt="Velocity" class="h-5 object-contain">
+                        <img src="pictures/logo-velocity-white.png" alt="Velocity" class="h-5 object-contain">
                     </a>
                     <a href="https://www.instagram.com/velocity_cyklo/" target="_blank"
                         class="flex items-center space-x-2 text-stone-400 hover:text-brand-luxeGold transition-colors"
@@ -978,44 +986,44 @@
 
             /* ---- Preferred ride type: short preview card (all options) ---- */
             const rideInfo = {
-                'Guided Tour (Leisure)': { img: 'pictures/discover bratislava.jpeg', desc: 'Relaxed, scenic riding at an easy pace with culture, history and coffee stops. Perfect for first-timers, couples and families.' },
-                'Guided Road Ride (Sportive)': { img: 'pictures/gen_peloton.png', desc: 'A faster road ride on quiet tarmac for cyclists who want a proper workout and real distance.' },
-                'Guided Gravel Ride': { img: 'pictures/gen_gravel_bike.png', desc: 'A mixed-surface adventure on gravel paths through forests and vineyards. Fun and a little wild.' },
-                'Custom Experience': { img: 'pictures/Corporate cycling group, custom private bike tour, diverse group of people riding together, authentic experience.jpg', desc: 'Fully tailored to you — distance, pace, theme and stops built around your group.' },
-                'Bratislava Highlights Ride': { img: 'pictures/discover bratislava.jpeg', desc: "The city's historic centre, Danube waterfront and hidden local gems. About 15 km, easy." },
-                'Danube Discovery Tour': { img: 'pictures/A_group_of_three_amateur_202606281349.jpeg', desc: "A scenic ride along one of Europe's great rivers. About 35 km, easy." },
-                'Wine & Villages Ride': { img: 'pictures/vineyard_ride.png', desc: 'Charming wine towns, vineyards and local culture beyond the city. About 40 km, moderate.' },
-                'Sunset Ride': { img: 'pictures/sunset_devin.png', desc: 'Bratislava and the Devín cliffs during the golden hour. About 20 km, easy.' },
-                'Cross Border Ride': { img: 'pictures/Cyclists riding during golden hour sunset, warm silhouettes, back light, cinematic photography.jpg', desc: 'Cycle between Slovakia and Austria on scenic paths. About 60 km, moderate.' },
-                'Little Carpathians Road Ride': { img: 'pictures/Athletic road cyclist climbing a scenic mountain road, gravel bike rider on a dirt trail, endurance.jpg', desc: "Rolling terrain and some of the region's best climbs. About 90 km, hard." },
-                'Gravel Through The Vineyards': { img: 'pictures/gen_gravel_bike.png', desc: 'Adventure, nature and wine country on gravel. About 50 km, moderate.' },
-                                'Four Countries Challenge': { img: 'pictures/four_countries.png', desc: 'Our signature endurance ride connecting four countries in a single day. About 120 km, hard.' },
-                'Forest Trails Explorer': { img: 'pictures/A_mountain_biker_riding_fast_202606281129.jpeg', desc: "A fun introduction to Bratislava's trail network. About 25 km, moderate." },
-                'Little Carpathians MTB Ride': { img: 'pictures/Mountain_biker_navigating_a_technical,_202606281129.jpeg', desc: "A guided mountain bike adventure through forests, ridgelines and scenic viewpoints. About 45 km, hard." },
-                'Trail Discovery Experience': { img: 'pictures/First-person_point_of_view_(POV)_202606281129.jpeg', desc: "A mix of flowing singletracks, forest roads and local favourites. About 30 km, moderate." },
-                'Custom MTB Adventure': { img: 'pictures/A_small_group_of_friends_202606281127.jpeg', desc: "Tailor-made trail rides adapted to your skill level and riding style. Custom distance." }
+                'Guided Tour (Leisure)': { img: 'pictures/bratislava-highlights.jpeg', desc: 'Relaxed, scenic riding at an easy pace with culture, history and coffee stops. Perfect for first-timers, couples and families.' },
+                'Guided Road Ride (Sportive)': { img: 'pictures/peloton.png', desc: 'A faster road ride on quiet tarmac for cyclists who want a proper workout and real distance.' },
+                'Guided Gravel Ride': { img: 'pictures/gravel-bike.png', desc: 'A mixed-surface adventure on gravel paths through forests and vineyards. Fun and a little wild.' },
+                'Custom Experience': { img: 'pictures/corporate-group.jpg', desc: 'Fully tailored to you — distance, pace, theme and stops built around your group.' },
+                'Bratislava Highlights Ride': { img: 'pictures/bratislava-highlights.jpeg', desc: "The city's historic centre, Danube waterfront and hidden local gems. About 15 km, easy." },
+                'Danube Discovery Tour': { img: 'pictures/danube-riders.jpeg', desc: "A scenic ride along one of Europe's great rivers. About 35 km, easy." },
+                'Wine & Villages Ride': { img: 'pictures/vineyard-ride.png', desc: 'Charming wine towns, vineyards and local culture beyond the city. About 40 km, moderate.' },
+                'Sunset Ride': { img: 'pictures/devin-sunset.png', desc: 'Bratislava and the Devín cliffs during the golden hour. About 20 km, easy.' },
+                'Cross Border Ride': { img: 'pictures/cyclists-sunset.jpg', desc: 'Cycle between Slovakia and Austria on scenic paths. About 60 km, moderate.' },
+                'Little Carpathians Road Ride': { img: 'pictures/road-cyclist-climb.jpg', desc: "Rolling terrain and some of the region's best climbs. About 90 km, hard." },
+                'Gravel Through The Vineyards': { img: 'pictures/gravel-bike.png', desc: 'Adventure, nature and wine country on gravel. About 50 km, moderate.' },
+                                'Four Countries Challenge': { img: 'pictures/four-countries.png', desc: 'Our signature endurance ride connecting four countries in a single day. About 120 km, hard.' },
+                'Forest Trails Explorer': { img: 'pictures/mtb-fast.jpeg', desc: "A fun introduction to Bratislava's trail network. About 25 km, moderate." },
+                'Little Carpathians MTB Ride': { img: 'pictures/mtb-technical.jpeg', desc: "A guided mountain bike adventure through forests, ridgelines and scenic viewpoints. About 45 km, hard." },
+                'Trail Discovery Experience': { img: 'pictures/mtb-pov.jpeg', desc: "A mix of flowing singletracks, forest roads and local favourites. About 30 km, moderate." },
+                'Custom MTB Adventure': { img: 'pictures/friends-group.jpeg', desc: "Tailor-made trail rides adapted to your skill level and riding style. Custom distance." }
             };
 
                         /* ---- Full tour details (for the "View more" modal, mirrors the Tours page) ---- */
             const recomLeisure = 'Perfect for travellers, couples, families and leisure riders.';
             const recomSport = 'For passionate cyclists looking for longer distances.';
             const rideDetails = {
-                'Guided Tour (Leisure)': { title: 'Leisure & E-Bike Tours', desc: 'Designed for visitors who want to explore Bratislava and its surroundings in a relaxed and enjoyable way. These guided rides combine culture, history, local stories and beautiful scenery.', dist: '15-40 km', elev: '0-200 m', dur: '2-4 hours', diff: 'Easy to Moderate', bike: 'E-Bike / City / Hybrid', keypoints: ['Scenic relaxed pace', 'Historical stops', 'Coffee & cake breaks', 'Photo opportunities'], recom: recomLeisure, img: 'pictures/discover bratislava.jpeg' },
-                'Guided Road Ride (Sportive)': { title: 'Road Cycling Experiences', desc: 'Created for passionate cyclists looking for longer distances, more demanding routes and unforgettable scenery. Ride alongside locals on their favorite tarmac routes.', dist: '60-120 km', elev: '500-1500 m', dur: '3-6 hours', diff: 'Hard', bike: 'Road Bike', keypoints: ['Pezinská Baba mountain climb', 'Austrian quiet roads', 'High-speed descents', 'Peloton experience'], recom: recomSport, img: 'pictures/gen_peloton.png' },
-                'Guided Gravel Ride': { title: 'Gravel & Trail Adventures', desc: 'For riders looking for more technical terrain, forest trails and off-road adventures. Explore the Little Carpathians and hidden single tracks.', dist: '30-70 km', elev: '400-1000 m', dur: '3-5 hours', diff: 'Moderate to Hard', bike: 'Gravel / MTB', keypoints: ['Vineyard dirt paths', 'Forest trails', 'Technical descents', 'Nature escape'], recom: recomSport, img: 'pictures/gen_gravel_bike.png' },
-                'Custom Experience': { title: 'Custom & Corporate Experiences', desc: 'Fully customised cycling experiences for individuals, groups, cycling clubs and corporate teams. We design the route, distance, pace and stops around your specific needs.', dist: 'Tailored', elev: 'Tailored', dur: 'Tailored', diff: 'Adapted to group', bike: 'Any', keypoints: ['Fully tailored route', 'Flexible starting time', 'Private dedicated guide', 'Custom food/drink stops'], recom: 'Perfect for team building, groups of friends, or cyclists with specific goals.', img: 'pictures/Corporate cycling group, custom private bike tour, diverse group of people riding together, authentic experience.jpg' },
-                'Bratislava Highlights Ride': { title: 'Bratislava Highlights Tour', desc: "Discover the city's historic centre, the Danube waterfront and hidden local gems.", dist: '15 km', elev: '50 m', dur: '2.5 hours', diff: 'Easy', bike: 'City / Hybrid Bike', keypoints: ['Bratislava Castle park', 'Old Town historic squares', 'Danube river park view', 'Confluence spots & coffee'], recom: recomLeisure, img: 'pictures/discover bratislava.jpeg' },
-                'Danube Discovery Tour': { title: 'Danube Discovery Tour', desc: "Enjoy a scenic ride along one of Europe's most famous rivers.", dist: '35 km', elev: '20 m', dur: '3.5 hours', diff: 'Easy', bike: 'Hybrid / Gravel Bike', keypoints: ['Danubiana Meulensteen Art Museum', 'Water sports dike cycles', 'Bird-watching reservoirs', 'Riverside buffet breaks'], recom: recomLeisure, img: 'pictures/A_group_of_three_amateur_202606281349.jpeg' },
-                'Wine & Villages Ride': { title: 'Wine & Villages Tour', desc: 'Explore charming wine towns, vineyards and local culture beyond the city.', dist: '40 km', elev: '250 m', dur: '4 hours', diff: 'Moderate', bike: 'Gravel / Road / Hybrid', keypoints: ['Historic Svätý Jur town', 'Picturesque vineyard trails', 'Local family wine cellar stops', 'Traditional Slovak gastronomy'], recom: recomLeisure, img: 'pictures/vineyard_ride.png' },
-                'Sunset Ride': { title: 'Sunset Ride', desc: 'Experience Bratislava during the most beautiful hours of the day.', dist: '20 km', elev: '80 m', dur: '2 hours', diff: 'Easy', bike: 'City / Hybrid Bike', keypoints: ['Morava & Danube confluence', 'Devín Castle cliff viewpoints', 'Scenic dusk river ride', 'Cozy cycling trail side stops'], recom: recomLeisure, img: 'pictures/sunset_devin.png' },
-                'Cross Border Ride': { title: 'Cross Border Ride', desc: 'Cycle between Slovakia and Austria on scenic roads and cycle paths.', dist: '60 km', elev: '150 m', dur: '4 hours', diff: 'Moderate', bike: 'Road / Gravel Bike', keypoints: ['Austrian Kittsee castle paths', 'Former Iron Curtain cycle path', 'Hungarian border landscape trails', 'Danube bridge crossings'], recom: recomSport, img: 'pictures/Cyclists riding during golden hour sunset, warm silhouettes, back light, cinematic photography.jpg' },
-                'Little Carpathians Road Ride': { title: 'Little Carpathians Road Ride', desc: "Rolling terrain, vineyard landscapes and some of the region's best cycling roads.", dist: '90 km', elev: '1,200 m', dur: '5 hours', diff: 'Hard', bike: 'Road Bike', keypoints: ['Pezinská Baba mountain climb', 'Quiet forest paved ascents', 'High-speed sweeping descents', 'Traditional coffee & pastry stops'], recom: recomSport, img: 'pictures/Athletic road cyclist climbing a scenic mountain road, gravel bike rider on a dirt trail, endurance.jpg' },
-                'Gravel Through The Vineyards': { title: 'Gravel Through The Vineyards', desc: 'A perfect combination of adventure, nature and local wine country.', dist: '50 km', elev: '600 m', dur: '4 hours', diff: 'Moderate', bike: 'Gravel / XC Mountain Bike', keypoints: ['Vineyard hillside gravel paths', 'Forest fire roads', 'Devínska Kobyla panorama', 'Fun single tracks'], recom: recomSport, img: 'pictures/gen_gravel_bike.png' },
-                                'Four Countries Challenge': { title: 'Four Countries Challenge', desc: 'Our signature endurance experience connecting multiple countries in a single ride.', dist: '120 km', elev: '400 m', dur: '6 hours', diff: 'Hard', bike: 'Road Bike', keypoints: ['4 national boundaries in a day', 'Border monuments and history', 'Endurance pacing along rivers', 'Celebration drinks in Bratislava'], recom: recomSport, img: 'pictures/four_countries.png' },
-                'Forest Trails Explorer': { title: 'Forest Trails Explorer', desc: "A fun introduction to Bratislava's trail network.", dist: '25 km', elev: '400 m', dur: '3 hours', diff: 'Moderate', bike: 'MTB', keypoints: ['Introduction to off-road trails', 'Forest fire roads', 'Local nature spots', 'Basic technical sections'], recom: 'For riders looking for more technical terrain and off-road adventures.', img: 'pictures/A_mountain_biker_riding_fast_202606281129.jpeg' },
-                'Little Carpathians MTB Ride': { title: 'Little Carpathians MTB Ride', desc: "A guided mountain bike adventure through forests, ridgelines and scenic viewpoints.", dist: '45 km', elev: '900 m', dur: '4.5 hours', diff: 'Hard', bike: 'MTB', keypoints: ['Challenging steep climbs', 'Technical rooty descents', 'Deep forest immersion', 'Mountain ridgeline panoramas'], recom: 'For riders looking for more technical terrain and off-road adventures.', img: 'pictures/Mountain_biker_navigating_a_technical,_202606281129.jpeg' },
-                'Trail Discovery Experience': { title: 'Trail Discovery Experience', desc: "A mix of flowing singletracks, forest roads and local favourites.", dist: '30 km', elev: '600 m', dur: '3.5 hours', diff: 'Moderate', bike: 'MTB', keypoints: ['Flowing singletracks', 'Forest roads', 'Local mountain bike favourites', 'Technical skill improvement'], recom: 'For riders looking for more technical terrain and off-road adventures.', img: 'pictures/First-person_point_of_view_(POV)_202606281129.jpeg' },
-                'Custom MTB Adventure': { title: 'Custom MTB Adventure', desc: "Tailor-made trail rides adapted to your skill level and riding style.", dist: 'Custom', elev: 'Custom', dur: 'Custom', diff: 'Variable', bike: 'MTB', keypoints: ['Tailor-made routes', 'Adapted to your skill level', 'Custom riding style and pace', 'Expert guiding'], recom: 'For riders looking for more technical terrain and off-road adventures.', img: 'pictures/A_small_group_of_friends_202606281127.jpeg' }
+                'Guided Tour (Leisure)': { title: 'Leisure & E-Bike Tours', desc: 'Designed for visitors who want to explore Bratislava and its surroundings in a relaxed and enjoyable way. These guided rides combine culture, history, local stories and beautiful scenery.', dist: '15-40 km', elev: '0-200 m', dur: '2-4 hours', diff: 'Easy to Moderate', bike: 'E-Bike / City / Hybrid', keypoints: ['Scenic relaxed pace', 'Historical stops', 'Coffee & cake breaks', 'Photo opportunities'], recom: recomLeisure, img: 'pictures/bratislava-highlights.jpeg' },
+                'Guided Road Ride (Sportive)': { title: 'Road Cycling Experiences', desc: 'Created for passionate cyclists looking for longer distances, more demanding routes and unforgettable scenery. Ride alongside locals on their favorite tarmac routes.', dist: '60-120 km', elev: '500-1500 m', dur: '3-6 hours', diff: 'Hard', bike: 'Road Bike', keypoints: ['Pezinská Baba mountain climb', 'Austrian quiet roads', 'High-speed descents', 'Peloton experience'], recom: recomSport, img: 'pictures/peloton.png' },
+                'Guided Gravel Ride': { title: 'Gravel & Trail Adventures', desc: 'For riders looking for more technical terrain, forest trails and off-road adventures. Explore the Little Carpathians and hidden single tracks.', dist: '30-70 km', elev: '400-1000 m', dur: '3-5 hours', diff: 'Moderate to Hard', bike: 'Gravel / MTB', keypoints: ['Vineyard dirt paths', 'Forest trails', 'Technical descents', 'Nature escape'], recom: recomSport, img: 'pictures/gravel-bike.png' },
+                'Custom Experience': { title: 'Custom & Corporate Experiences', desc: 'Fully customised cycling experiences for individuals, groups, cycling clubs and corporate teams. We design the route, distance, pace and stops around your specific needs.', dist: 'Tailored', elev: 'Tailored', dur: 'Tailored', diff: 'Adapted to group', bike: 'Any', keypoints: ['Fully tailored route', 'Flexible starting time', 'Private dedicated guide', 'Custom food/drink stops'], recom: 'Perfect for team building, groups of friends, or cyclists with specific goals.', img: 'pictures/corporate-group.jpg' },
+                'Bratislava Highlights Ride': { title: 'Bratislava Highlights Tour', desc: "Discover the city's historic centre, the Danube waterfront and hidden local gems.", dist: '15 km', elev: '50 m', dur: '2.5 hours', diff: 'Easy', bike: 'City / Hybrid Bike', keypoints: ['Bratislava Castle park', 'Old Town historic squares', 'Danube river park view', 'Confluence spots & coffee'], recom: recomLeisure, img: 'pictures/bratislava-highlights.jpeg' },
+                'Danube Discovery Tour': { title: 'Danube Discovery Tour', desc: "Enjoy a scenic ride along one of Europe's most famous rivers.", dist: '35 km', elev: '20 m', dur: '3.5 hours', diff: 'Easy', bike: 'Hybrid / Gravel Bike', keypoints: ['Danubiana Meulensteen Art Museum', 'Water sports dike cycles', 'Bird-watching reservoirs', 'Riverside buffet breaks'], recom: recomLeisure, img: 'pictures/danube-riders.jpeg' },
+                'Wine & Villages Ride': { title: 'Wine & Villages Tour', desc: 'Explore charming wine towns, vineyards and local culture beyond the city.', dist: '40 km', elev: '250 m', dur: '4 hours', diff: 'Moderate', bike: 'Gravel / Road / Hybrid', keypoints: ['Historic Svätý Jur town', 'Picturesque vineyard trails', 'Local family wine cellar stops', 'Traditional Slovak gastronomy'], recom: recomLeisure, img: 'pictures/vineyard-ride.png' },
+                'Sunset Ride': { title: 'Sunset Ride', desc: 'Experience Bratislava during the most beautiful hours of the day.', dist: '20 km', elev: '80 m', dur: '2 hours', diff: 'Easy', bike: 'City / Hybrid Bike', keypoints: ['Morava & Danube confluence', 'Devín Castle cliff viewpoints', 'Scenic dusk river ride', 'Cozy cycling trail side stops'], recom: recomLeisure, img: 'pictures/devin-sunset.png' },
+                'Cross Border Ride': { title: 'Cross Border Ride', desc: 'Cycle between Slovakia and Austria on scenic roads and cycle paths.', dist: '60 km', elev: '150 m', dur: '4 hours', diff: 'Moderate', bike: 'Road / Gravel Bike', keypoints: ['Austrian Kittsee castle paths', 'Former Iron Curtain cycle path', 'Hungarian border landscape trails', 'Danube bridge crossings'], recom: recomSport, img: 'pictures/cyclists-sunset.jpg' },
+                'Little Carpathians Road Ride': { title: 'Little Carpathians Road Ride', desc: "Rolling terrain, vineyard landscapes and some of the region's best cycling roads.", dist: '90 km', elev: '1,200 m', dur: '5 hours', diff: 'Hard', bike: 'Road Bike', keypoints: ['Pezinská Baba mountain climb', 'Quiet forest paved ascents', 'High-speed sweeping descents', 'Traditional coffee & pastry stops'], recom: recomSport, img: 'pictures/road-cyclist-climb.jpg' },
+                'Gravel Through The Vineyards': { title: 'Gravel Through The Vineyards', desc: 'A perfect combination of adventure, nature and local wine country.', dist: '50 km', elev: '600 m', dur: '4 hours', diff: 'Moderate', bike: 'Gravel / XC Mountain Bike', keypoints: ['Vineyard hillside gravel paths', 'Forest fire roads', 'Devínska Kobyla panorama', 'Fun single tracks'], recom: recomSport, img: 'pictures/gravel-bike.png' },
+                                'Four Countries Challenge': { title: 'Four Countries Challenge', desc: 'Our signature endurance experience connecting multiple countries in a single ride.', dist: '120 km', elev: '400 m', dur: '6 hours', diff: 'Hard', bike: 'Road Bike', keypoints: ['4 national boundaries in a day', 'Border monuments and history', 'Endurance pacing along rivers', 'Celebration drinks in Bratislava'], recom: recomSport, img: 'pictures/four-countries.png' },
+                'Forest Trails Explorer': { title: 'Forest Trails Explorer', desc: "A fun introduction to Bratislava's trail network.", dist: '25 km', elev: '400 m', dur: '3 hours', diff: 'Moderate', bike: 'MTB', keypoints: ['Introduction to off-road trails', 'Forest fire roads', 'Local nature spots', 'Basic technical sections'], recom: 'For riders looking for more technical terrain and off-road adventures.', img: 'pictures/mtb-fast.jpeg' },
+                'Little Carpathians MTB Ride': { title: 'Little Carpathians MTB Ride', desc: "A guided mountain bike adventure through forests, ridgelines and scenic viewpoints.", dist: '45 km', elev: '900 m', dur: '4.5 hours', diff: 'Hard', bike: 'MTB', keypoints: ['Challenging steep climbs', 'Technical rooty descents', 'Deep forest immersion', 'Mountain ridgeline panoramas'], recom: 'For riders looking for more technical terrain and off-road adventures.', img: 'pictures/mtb-technical.jpeg' },
+                'Trail Discovery Experience': { title: 'Trail Discovery Experience', desc: "A mix of flowing singletracks, forest roads and local favourites.", dist: '30 km', elev: '600 m', dur: '3.5 hours', diff: 'Moderate', bike: 'MTB', keypoints: ['Flowing singletracks', 'Forest roads', 'Local mountain bike favourites', 'Technical skill improvement'], recom: 'For riders looking for more technical terrain and off-road adventures.', img: 'pictures/mtb-pov.jpeg' },
+                'Custom MTB Adventure': { title: 'Custom MTB Adventure', desc: "Tailor-made trail rides adapted to your skill level and riding style.", dist: 'Custom', elev: 'Custom', dur: 'Custom', diff: 'Variable', bike: 'MTB', keypoints: ['Tailor-made routes', 'Adapted to your skill level', 'Custom riding style and pace', 'Expert guiding'], recom: 'For riders looking for more technical terrain and off-road adventures.', img: 'pictures/friends-group.jpeg' }
             };
 
             const rideSel = document.getElementById('ride-type');
@@ -1163,9 +1171,7 @@
                 'Small group': 'Small group (3-6 people)',
                 'Corporate': 'Corporate (7+ people)'
             };
-            const levelMap = { 'Easy': 'Leisure/Casual', 'Moderate': 'Intermediate', 'Challenging': 'Advanced/Strong' };
             if (cGroup && groupMap[cGroup]) setSelectValue('group-size', groupMap[cGroup]);
-            if (cLevel && levelMap[cLevel]) setSelectValue('experience', levelMap[cLevel]);
 
             if (cType || cDuration || cGroup || cLevel) {
                 const sourceInput = document.getElementById('form-source');
@@ -1207,49 +1213,20 @@
         form.addEventListener('submit', (e) => {
             e.preventDefault();
 
-            // Custom dropdown validation
-            const groupSize = document.getElementById('group-size').value;
-            const experience = document.getElementById('experience').value;
-            const rideType = document.getElementById('ride-type').value;
-
-            let hasError = false;
-
-            const groupSizeContainer = document.getElementById('group-size').closest('.custom-select-container');
-            if (!groupSize) {
-                groupSizeContainer.classList.add('border-red-500');
-                groupSizeContainer.classList.remove('border-stone-300');
-                hasError = true;
-            } else {
-                groupSizeContainer.classList.remove('border-red-500');
-                groupSizeContainer.classList.add('border-stone-300');
-            }
-
-            const experienceContainer = document.getElementById('experience').closest('.custom-select-container');
-            if (!experience) {
-                experienceContainer.classList.add('border-red-500');
-                experienceContainer.classList.remove('border-stone-300');
-                hasError = true;
-            } else {
-                experienceContainer.classList.remove('border-red-500');
-                experienceContainer.classList.add('border-stone-300');
-            }
-
-            const rideTypeContainer = document.getElementById('ride-type').closest('.custom-select-container');
-            if (!rideType) {
-                rideTypeContainer.classList.add('border-red-500');
-                rideTypeContainer.classList.remove('border-stone-300');
-                hasError = true;
-            } else {
-                rideTypeContainer.classList.remove('border-red-500');
-                rideTypeContainer.classList.add('border-stone-300');
-            }
-
-            if (hasError) {
-                const firstError = document.querySelector('.border-red-500');
-                if (firstError) {
-                    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            // Required fields (Name, Email, Country, Travel Dates, consent) are
+            // enforced by native HTML5 validation before this runs.
+            // Group Size and Ride Type are optional; if no ride type was chosen,
+            // default it to "Not sure — help me choose" so the inquiry still carries one.
+            const rideTypeSelect = document.getElementById('ride-type');
+            if (rideTypeSelect && !rideTypeSelect.value) {
+                rideTypeSelect.value = 'Not sure — help me choose';
+                const rideContainer = rideTypeSelect.closest('.custom-select-container');
+                const rideText = rideContainer ? rideContainer.querySelector('.selected-text') : null;
+                if (rideText) {
+                    rideText.textContent = 'Not sure — help me choose';
+                    rideText.classList.remove('text-stone-400');
+                    rideText.classList.add('text-brand-luxeTextDark');
                 }
-                return;
             }
 
             const submitBtn = form.querySelector('button[type="submit"]');
@@ -1290,8 +1267,6 @@
                             const selectEl = container.querySelector('select');
                             if (selectEl.id === 'group-size') {
                                 selectedText.textContent = 'Select size';
-                            } else if (selectEl.id === 'experience') {
-                                selectedText.textContent = 'Select level';
                             } else if (selectEl.id === 'ride-type') {
                                 selectedText.textContent = 'Select type';
                             }

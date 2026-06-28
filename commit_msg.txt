@@ -1,15 +1,17 @@
-fix: mobile scrolling, deep-links, and resize bugs
+feat: add readme, htaccess, favicons and normalize picture names
 
 🇬🇧 EN:
-- Fixed body scroll locking in the mobile category modal to prevent background scrolling.
-- Added data-lenis-prevent attributes to modals and sidebars across the site to fix smooth scrolling interference.
-- Fixed deep-links for categories (e.g. #cat1) on mobile devices to open the bottom sheet modal instead of expanding inline.
-- Updated the custom ride builder CTA logic to properly update URLs in cloned instances within the mobile modal.
-- Improved parallax reset logic on window resize to include hero videos and background wrappers.
+- Renamed all image files in the `pictures` directory to use consistent kebab-case format.
+- Updated all HTML files, `app.js`, and `sitemap.xml` to point to the new image filenames.
+- Added `.htaccess` for server configuration (HTTPS, caching, gzip).
+- Added `README.md` with detailed project structure and setup instructions.
+- Added `privacy.html` and necessary favicons.
+- Removed obsolete files like the blueprint and intro.mp4.
 
 🇺🇦 UA:
-- Виправлено блокування прокрутки фону при відкритому мобільному вікні категорій.
-- Додано атрибути data-lenis-prevent до всіх модальних вікон і бокових меню сайту для правильної роботи плавного скролінгу (Lenis).
-- Виправлено роботу прямих посилань на категорії (наприклад, #cat1) на мобільних пристроях: тепер вони коректно відкривають нижнє вікно замість розгортання секції.
-- Оновлено логіку кнопки конструктора турів, щоб вона правильно генерувала посилання навіть у скопійованому мобільному вікні.
-- Покращено логіку скидання ефектів паралаксу при зміні розміру вікна для фонових відео та зображень.
+- Перейменовано всі файли зображень у каталозі `pictures` на єдиний формат kebab-case.
+- Оновлено всі HTML-файли, `app.js` та `sitemap.xml`, щоб вони вказували на нові імена зображень.
+- Додано `.htaccess` для налаштування сервера (HTTPS, кешування, gzip).
+- Додано `README.md` із детальним описом структури проєкту та інструкціями.
+- Додано `privacy.html` та необхідні фавіконки.
+- Видалено застарілі файли (креслення сайту та intro.mp4).
