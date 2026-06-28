@@ -636,6 +636,41 @@
                     messageArea.value = `I would like to request ${selectedGuide} as our local guide.`;
                 }
             }
+
+            // ===== Custom-ride builder params (from Tours "Build Your Custom Ride") =====
+            const cType = urlParams.get('type');
+            const cDuration = urlParams.get('duration');
+            const cGroup = urlParams.get('group');
+            const cLevel = urlParams.get('level');
+
+            function setSelectValue(id, value) {
+                const sel = document.getElementById(id);
+                if (!sel || !value) return;
+                for (let o of sel.options) {
+                    if (o.value === value) { sel.value = value; sel.dispatchEvent(new Event('change')); return; }
+                }
+            }
+
+            const groupMap = { 'Solo': 'Solo Rider', 'Couple': '2-4 Riders', 'Small group': '5-8 Riders', 'Corporate': '9+ Corporate/Club' };
+            const levelMap = { 'Easy': 'Leisure/Casual', 'Moderate': 'Intermediate', 'Challenging': 'Advanced/Strong' };
+            if (cGroup && groupMap[cGroup]) setSelectValue('group-size', groupMap[cGroup]);
+            if (cLevel && levelMap[cLevel]) setSelectValue('experience', levelMap[cLevel]);
+
+            if (cType || cDuration || cGroup || cLevel) {
+                const messageArea = document.getElementById('message');
+                if (messageArea && !messageArea.value) {
+                    const lines = ['I used the ride builder. My preferences:'];
+                    if (cType) lines.push('• Ride type: ' + cType);
+                    if (cDuration) lines.push('• Duration: ' + cDuration);
+                    if (cGroup) lines.push('• Group: ' + cGroup);
+                    if (cLevel) lines.push('• Level: ' + cLevel);
+                    messageArea.value = lines.join('\n') + '\n\n';
+                }
+                if (banner) {
+                    selectedTourText.innerText = 'Custom Experience';
+                    banner.classList.remove('hidden');
+                }
+            }
         }
 
         function clearSelectedTour() {
