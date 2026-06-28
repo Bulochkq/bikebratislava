@@ -169,6 +169,10 @@ async function loadUniversalHeader() {
                     }
                 }
             });
+
+            // Force scroll event to apply correct header styling immediately after load
+            // (prevents transparent header on page refresh when already scrolled down)
+            window.dispatchEvent(new Event('scroll'));
         }
     } catch (e) {
         console.error('Failed to load header:', e);
@@ -196,6 +200,17 @@ window.addEventListener('scroll', () => {
                 const scrollProgress = (window.innerHeight - rect.top) / (window.innerHeight + section.offsetHeight);
                 const percentOffset = (scrollProgress - 0.5) * -15; // range: -7.5% to +7.5%
                 bg.style.transform = `translateY(${percentOffset}%)`;
+            }
+        });
+    } else {
+        // Reset transforms on mobile to prevent images from getting stuck if resized
+        const heroBg = document.getElementById('hero-img');
+        if (heroBg && heroBg.style.transform !== 'none' && heroBg.style.transform !== '') {
+            heroBg.style.transform = 'none';
+        }
+        document.querySelectorAll('.parallax-bg').forEach(bg => {
+            if (bg.style.transform !== 'none' && bg.style.transform !== '') {
+                bg.style.transform = 'none';
             }
         });
     }

@@ -1,15 +1,19 @@
-feat: enrich ride builder and sync contact form options
+fix: ui bug fixes, mobile enhancements, and gdpr compliance
 
 🇬🇧 EN:
-- Enriched the Ride Builder in `tours.html` by adding descriptive subtitles to all filter buttons (Level, Group, Duration, Ride type) to explain their meaning clearly.
-- Added a new 'Extended (6-12 hours)' duration option to the Ride Builder.
-- Improved the layout of the Ride Builder on large screens by shifting from a 50/50 layout to a wider left column (7/12) and using CSS Grid for the button containers. This ensures all buttons fit on a single row without wrapping.
-- Synchronized the 'Group Size' options in `contact.html` with the updated Ride Builder options.
-- Updated the Javascript mapping logic in the contact form so that selections made in the Ride Builder properly pre-fill the form upon redirection.
+- Fixed a critical JavaScript syntax error that blocked category buttons from functioning across devices.
+- Implemented a full-screen modal for tour categories specifically optimized for mobile devices.
+- Added logic to automatically clear lingering parallax transforms on mobile resize, resolving image rendering cutoffs.
+- Integrated a required GDPR consent checkbox with a hyperlink to the privacy policy in the contact form.
+- Swapped hero background images between the About Us and Discover Bratislava pages.
+- Standardized section spacing globally across the website.
+- Added dynamic difficulty badge colors (Green/Orange/Red) to individual tour pages.
 
 🇺🇦 UA:
-- Покращено блок конструктора кастомних турів (Ride Builder) у `tours.html`: до всіх кнопок фільтрів додано короткі пояснювальні підзаголовки (наприклад, рівень складності, кількість людей у групі, тривалість у годинах).
-- Додано нову опцію тривалості туру 'Extended (6-12 hours)'.
-- Оптимізовано верстку конструктора для широких екранів: лівій колонці виділено більше місця, а контейнери кнопок переведено на CSS Grid. Завдяки цьому кнопки завжди вишиковуються в один ряд і не переносяться на новий рядок.
-- Синхронізовано значення поля 'Group Size' у формі контактів (`contact.html`) з новими значеннями з конструктора.
-- Оновлено JavaScript-мапінг у `contact.html`, щоб вибір користувача в конструкторі автоматично та коректно переносився до контактної форми при переході на неї.
+- Виправлено критичну синтаксичну помилку JavaScript, яка блокувала роботу кнопок категорій на всіх пристроях.
+- Реалізовано повноекранне вікно для категорій турів, оптимізоване спеціально для мобільних пристроїв.
+- Додано логіку для автоматичного скидання завислих ефектів паралаксу при зміні розміру екрану на телефонах, що вирішило проблему з обрізаними фото.
+- Додано обов'язковий чекбокс згоди GDPR з посиланням на політику конфіденційності в контактну форму.
+- Головні фонові зображення (hero images) змінено місцями між сторінками "Про нас" та "Дослідження Братислави".
+- Уніфіковано відступи між блоками по всьому сайту.
+- Додано динамічні кольори для позначок складності турів (зелений/оранжевий/червоний).

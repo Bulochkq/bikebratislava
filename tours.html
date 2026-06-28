@@ -817,8 +817,24 @@
     </section>
 
     <!-- TOUR DETAIL MODAL / POPUP -->
+    <!-- Mobile Categories Modal -->
+    <div id="mobile-cats-modal" class="fixed inset-0 z-[105] flex flex-col justify-end opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="absolute inset-0 bg-brand-luxeDark/80 backdrop-blur-sm" onclick="closeMobileCatsModal()"></div>
+        <div id="mobile-cats-content" class="relative bg-stone-50 w-full h-full shadow-2xl flex flex-col transform translate-y-full transition-transform duration-500 ease-out">
+            <div class="flex items-center justify-between p-5 border-b border-stone-200 bg-white shrink-0">
+                <h3 id="mobile-cats-title" class="font-serif text-2xl font-light text-brand-luxeDark">Category</h3>
+                <button onclick="closeMobileCatsModal()" class="text-stone-400 hover:text-brand-luxeGold transition-colors">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <div id="mobile-cats-body" class="flex-1 overflow-y-auto p-4 bg-stone-50">
+                <!-- Cards injected here -->
+            </div>
+        </div>
+    </div>
+
     <div id="tour-modal"
-        class="fixed inset-0 bg-stone-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-500">
+        class="fixed inset-0 bg-stone-950/80 backdrop-blur-sm z-[110] flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-500">
         <div
             class="bg-white max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative rounded-none text-brand-luxeDark">
             <button onclick="closeModal()"
@@ -899,13 +915,13 @@
                     <a href="https://www.instagram.com/velocity_cyklo/" target="_blank"
                         class="flex items-center space-x-2 text-stone-400 hover:text-brand-luxeGold transition-colors"
                         aria-label="Instagram">
-                        <i data-lucide="instagram" class="w-5 h-5"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                         <span class="uppercase tracking-widest font-semibold hidden sm:inline-block">Instagram</span>
                     </a>
                     <a href="https://www.facebook.com/VeloCity.sk/" target="_blank"
                         class="flex items-center space-x-2 text-stone-400 hover:text-brand-luxeGold transition-colors"
                         aria-label="Facebook">
-                        <i data-lucide="facebook" class="w-5 h-5"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                         <span class="uppercase tracking-widest font-semibold hidden sm:inline-block">Facebook</span>
                     </a>
                 </div>
@@ -1034,13 +1050,23 @@
                 `;
             });
 
+            let diffClass = "text-brand-luxeGold border-brand-luxeGold/30 bg-brand-luxeGold/10";
+            let diffText = data.diff ? data.diff.toLowerCase() : "";
+            if (diffText === 'easy') {
+                diffClass = "text-emerald-600 border-emerald-600/30 bg-emerald-600/10";
+            } else if (diffText === 'moderate') {
+                diffClass = "text-orange-500 border-orange-500/30 bg-orange-500/10";
+            } else if (diffText === 'hard') {
+                diffClass = "text-rose-600 border-rose-600/30 bg-rose-600/10";
+            }
+
             modalContent.innerHTML = `
                 <div class="relative w-full h-64 border-b border-stone-200">
                     <img src="${data.img}" alt="${data.title}" class="w-full h-full object-cover">
                 </div>
 
                 <div class="p-8 pb-4">
-                    <span class="text-[9px] uppercase font-bold tracking-[0.25em] text-brand-luxeGold border border-brand-luxeGold/30 px-3 py-1 bg-brand-luxeGold/10 rounded-none mb-4 inline-block">${data.diff}</span>
+                    <span class="text-[9px] uppercase font-bold tracking-[0.25em] border px-3 py-1 rounded-none mb-4 inline-block ${diffClass}">${data.diff}</span>
                     <h3 class="font-serif text-3xl md:text-4xl font-bold leading-tight text-brand-luxeDark">${data.title}</h3>
                 </div>
 
@@ -1139,28 +1165,73 @@
             }
         }
         function toggleCat(id) { 
-            var p = document.getElementById(id + '-panel'); 
-            var willOpen = !p.classList.contains('open');
-            setCat(id, willOpen); 
-            if (willOpen) {
-                // optionally scroll slightly so the top of the panel is visible, avoiding the fixed header
-                setTimeout(() => {
-                    var section = document.getElementById(id);
-                    if (section) {
-                        const y = section.getBoundingClientRect().top + window.scrollY - 100;
-                        window.scrollTo({top: y, behavior: 'smooth'});
-                    }
-                }, 100);
+            if (window.innerWidth < 1024) {
+                var section = document.getElementById(id);
+                var title = section ? section.querySelector('h2').textContent.replace('&amp;', '&') : 'Tours';
+                openMobileCatsModal(id, title);
             } else {
-                setTimeout(() => {
-                    var section = document.getElementById(id);
-                    if (section) {
-                        const y = section.getBoundingClientRect().top + window.scrollY - 100;
-                        window.scrollTo({top: y, behavior: 'smooth'});
-                    }
-                }, 100);
+                var p = document.getElementById(id + '-panel'); 
+                var willOpen = !p.classList.contains('open');
+                setCat(id, willOpen); 
+                if (willOpen) {
+                    setTimeout(() => {
+                        var section = document.getElementById(id);
+                        if (section) {
+                            const y = section.getBoundingClientRect().top + window.scrollY - 100;
+                            window.scrollTo({top: y, behavior: 'smooth'});
+                        }
+                    }, 100);
+                } else {
+                    setTimeout(() => {
+                        var section = document.getElementById(id);
+                        if (section) {
+                            const y = section.getBoundingClientRect().top + window.scrollY - 100;
+                            window.scrollTo({top: y, behavior: 'smooth'});
+                        }
+                    }, 100);
+                }
             }
         }
+
+        function openMobileCatsModal(id, title) {
+            const sourcePanel = document.querySelector('#' + id + '-panel .cat-panel-inner');
+            if (!sourcePanel) return;
+            
+            document.getElementById('mobile-cats-title').textContent = title;
+            
+            let html = sourcePanel.innerHTML;
+            html = html.replace('pt-14', 'pt-2 pb-8');
+            html = html.replace('gap-6 lg:gap-8', 'gap-4');
+            
+            document.getElementById('mobile-cats-body').innerHTML = html;
+            
+            const modal = document.getElementById('mobile-cats-modal');
+            const content = document.getElementById('mobile-cats-content');
+            
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            setTimeout(() => {
+                content.classList.remove('translate-y-full');
+            }, 10);
+            
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+            
+            var closeBar = document.getElementById('mobile-cat-close-bar');
+            if (closeBar) closeBar.classList.add('-translate-y-full');
+        }
+
+        function closeMobileCatsModal() {
+            const modal = document.getElementById('mobile-cats-modal');
+            const content = document.getElementById('mobile-cats-content');
+            if (!modal) return;
+            
+            content.classList.add('translate-y-full');
+            setTimeout(() => {
+                modal.classList.add('opacity-0', 'pointer-events-none');
+            }, 300);
+        }
+
         function openCat(id) { setCat(id, true); }
         function openFromHash() { var h = location.hash.replace('#', ''); if (['cat1', 'cat2', 'cat3', 'cat4'].indexOf(h) > -1) openCat(h); }
         window.addEventListener('hashchange', openFromHash);
@@ -1182,6 +1253,18 @@
             });
             cta.href = 'contact.html?' + params.toString();
         }
+
+        // ===== Handle Screen Resize Edge Cases =====
+        let lastInnerWidth = window.innerWidth;
+        window.addEventListener('resize', () => {
+            const currentWidth = window.innerWidth;
+            if (lastInnerWidth < 1024 && currentWidth >= 1024) {
+                closeMobileCatsModal();
+            } else if (lastInnerWidth >= 1024 && currentWidth < 1024) {
+                closeAllCats();
+            }
+            lastInnerWidth = currentWidth;
+        });
     </script>
 </body>
 
