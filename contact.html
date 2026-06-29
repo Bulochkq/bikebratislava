@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="scroll-smooth overflow-x-hidden">
 
 <head>
@@ -335,12 +335,12 @@
 
         <div class="relative z-10 max-w-4xl mx-auto px-6 text-center flex flex-col items-center">
             <span
-                class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-4 block opacity-0 fade-in-up">Get
+                class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-4 block opacity-0 fade-in-up editable">Get
                 In Touch</span>
-            <h1 class="font-serif text-5xl md:text-7xl font-light mb-6 opacity-0 fade-in-up animation-delay-200">Let's
+            <h1 class="font-serif text-5xl md:text-7xl font-light mb-6 opacity-0 fade-in-up animation-delay-200 editable">Let's
                 Plan Your Ride</h1>
             <p
-                class="text-stone-400 text-sm md:text-base font-light max-w-2xl mx-auto leading-relaxed tracking-wider opacity-0 fade-in-up animation-delay-400">
+                class="text-stone-400 text-sm md:text-base font-light max-w-2xl mx-auto leading-relaxed tracking-wider opacity-0 fade-in-up animation-delay-400 editable">
                 Tell us about your visit, cycling experience and interests. We'll help you choose the perfect route or
                 create a custom cycling experience.
             </p>
@@ -374,9 +374,9 @@
                 </div>
 
                 <div class="mb-6 md:mb-0 relative z-10">
-                    <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-luxeGold block mb-2">Direct
+                    <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-luxeGold block mb-2 editable">Direct
                         Contact</span>
-                    <h3 class="font-serif text-3xl font-light text-brand-luxeDark">Mgr. Silvia Karais</h3>
+                    <h3 class="font-serif text-3xl font-light text-brand-luxeDark editable">Mgr. Silvia Karais</h3>
                 </div>
 
                 <div class="flex flex-col space-y-4 relative z-10">
@@ -387,7 +387,7 @@
                                 class="w-10 h-10 rounded-none bg-gradient-to-br from-stone-50 via-rose-50/40 to-stone-100 flex items-center justify-center border border-stone-200 group-hover:border-brand-luxeGold/30 transition-colors">
                                 <i data-lucide="mail" class="w-4 h-4"></i>
                             </div>
-                            <span class="text-sm font-light tracking-wide font-sans">silvia@velocity.sk</span>
+                            <span class="text-sm font-light tracking-wide font-sans editable">silvia@velocity.sk</span>
                         </a>
                         <button onclick="copyToClipboard('silvia@velocity.sk', this)"
                             class="opacity-0 group-hover/item:opacity-100 transition-opacity ml-4 text-stone-400 hover:text-brand-luxeGold focus:outline-none p-2 border border-stone-200 rounded-none bg-stone-50 hover:bg-white"
@@ -405,7 +405,7 @@
                                 class="w-10 h-10 rounded-none bg-gradient-to-br from-stone-50 via-rose-50/40 to-stone-100 flex items-center justify-center border border-stone-200 group-hover:border-brand-luxeGold/30 transition-colors">
                                 <i data-lucide="phone" class="w-4 h-4"></i>
                             </div>
-                            <span class="text-sm font-light tracking-wide font-sans">+421 903 214 013</span>
+                            <span class="text-sm font-light tracking-wide font-sans editable">+421 903 214 013</span>
                         </a>
                         <button onclick="copyToClipboard('+421903214013', this)"
                             class="opacity-0 group-hover/item:opacity-100 transition-opacity ml-4 text-stone-400 hover:text-brand-luxeGold focus:outline-none p-2 border border-stone-200 rounded-none bg-stone-50 hover:bg-white"
@@ -470,7 +470,7 @@
                             <label for="phone-number"
                                 class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-500 mb-2 pl-1">Phone
                                 <span
-                                    class="text-stone-400 font-medium normal-case tracking-normal">(optional)</span></label>
+                                    class="text-stone-400 font-medium normal-case tracking-normal editable">(optional)</span></label>
                             <div class="relative w-full" id="phone-field">
                                 <div class="flex">
                                     <div class="relative flex-shrink-0">
@@ -505,7 +505,7 @@
                         <div class="flex flex-col relative custom-select-container">
                             <label
                                 class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-500 mb-2 pl-1">Group
-                                Size <span class="text-stone-400 font-medium normal-case tracking-normal">(optional)</span></label>
+                                Size <span class="text-stone-400 font-medium normal-case tracking-normal editable">(optional)</span></label>
                             <div class="relative w-full">
                                 <select id="group-size" name="group-size" style="display: none !important;">
                                     <option value="" disabled selected>Select size</option>
@@ -538,7 +538,7 @@
                         <div class="flex flex-col relative custom-select-container md:col-span-2">
                             <label for="ride-type"
                                 class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-500 mb-2 pl-1">Preferred
-                                Ride Type <span class="text-stone-400 font-medium normal-case tracking-normal">(optional)</span></label>
+                                Ride Type <span class="text-stone-400 font-medium normal-case tracking-normal editable">(optional)</span></label>
                             <div class="relative w-full">
                                 <select id="ride-type" name="ride-type" style="display: none !important;">
                                     <option value="" disabled selected>Select type</option>
@@ -634,7 +634,7 @@
                         </label>
                     </div>
 
-                    <p class="text-[10px] text-stone-400 font-light tracking-wide pl-1"><span class="text-red-600">*</span> Required field</p>
+                    <p class="text-[10px] text-stone-400 font-light tracking-wide pl-1 editable"><span class="text-red-600">*</span> Required field</p>
 
                     <!-- Submit Button -->
                     <button type="submit"
@@ -658,9 +658,9 @@
                         class="w-16 h-16 bg-brand-luxeGold/20 border border-brand-luxeGold rounded-none flex items-center justify-center text-brand-luxeGold mb-6">
                         <i data-lucide="check" class="w-8 h-8"></i>
                     </div>
-                    <h3 class="font-serif text-3xl font-light tracking-tight mb-4">Inquiry Received</h3>
+                    <h3 class="font-serif text-3xl font-light tracking-tight mb-4 editable">Inquiry Received</h3>
                     <p
-                        class="max-w-md text-stone-400 font-light text-xs md:text-sm leading-relaxed mb-8 tracking-wide font-sans">
+                        class="max-w-md text-stone-400 font-light text-xs md:text-sm leading-relaxed mb-8 tracking-wide font-sans editable">
                         Thank you for reaching out to Bike Bratislava. One of our local ride leaders will review your
                         request and get back to you within 24 hours to help plan your adventure.
                     </p>
@@ -681,21 +681,21 @@
 
                 <div class="md:col-span-2">
                     <a href="index.html" class="flex flex-col mb-6 group">
-                        <span class="font-serif text-2xl tracking-widest text-white transition-colors duration-300">
+                        <span class="font-serif text-2xl tracking-widest text-white transition-colors duration-300 editable">
                             BIKE BRATISLAVA
                         </span>
-                        <span class="text-[8px] tracking-[0.35em] text-stone-500 font-light uppercase">
+                        <span class="text-[8px] tracking-[0.35em] text-stone-500 font-light uppercase editable">
                             Central Europe
                         </span>
                     </a>
-                    <p class="text-xs font-light leading-relaxed mt-6 pr-8 text-stone-400">
+                    <p class="text-xs font-light leading-relaxed mt-6 pr-8 text-stone-400 editable">
                         Discover Bratislava and the heart of Central Europe from the saddle. Guided cycling tours, road
                         rides, gravel adventures and custom cycling experiences designed by local riders.
                     </p>
                 </div>
 
                 <div>
-                    <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] text-white mb-6">Explore</h4>
+                    <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] text-white mb-6 editable">Explore</h4>
                     <ul class="space-y-4 text-xs font-light">
                         <li><a href="index.html" class="hover:text-brand-luxeGold transition-colors">Home</a></li>
                         <li><a href="about.html" class="hover:text-brand-luxeGold transition-colors">About Us</a></li>
@@ -707,7 +707,7 @@
                 </div>
 
                 <div>
-                    <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] text-white mb-6">Rides</h4>
+                    <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] text-white mb-6 editable">Rides</h4>
                     <ul class="space-y-4 text-xs font-light">
                         <li><a href="guides.html" class="hover:text-brand-luxeGold transition-colors">Our Guides</a>
                         </li>
@@ -717,7 +717,7 @@
                 </div>
 
                 <div>
-                    <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] text-white mb-6">Contact</h4>
+                    <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] text-white mb-6 editable">Contact</h4>
                     <ul class="space-y-4 text-xs font-light">
                         <li class="text-stone-400">Mgr. Silvia Karais</li>
                         <li><a href="mailto:silvia@velocity.sk"
@@ -731,12 +731,12 @@
 
             <div
                 class="border-t border-stone-900/60 pt-8 flex flex-col lg:flex-row items-center justify-between text-[10px] font-light gap-6">
-                <p>&copy; 2026 Bike Bratislava. All rights reserved.</p>
+                <p class="editable">&copy; 2026 Bike Bratislava. All rights reserved.</p>
                 <div class="flex items-center space-x-6 md:space-x-8">
                     <a href="https://www.velocity.sk/" target="_blank"
                         class="flex items-center space-x-3 opacity-70 hover:opacity-100 transition-opacity">
                         <span
-                            class="uppercase tracking-widest text-stone-400 hover:text-white transition-colors">velocity.sk</span>
+                            class="uppercase tracking-widest text-stone-400 hover:text-white transition-colors editable">velocity.sk</span>
                         <div class="h-4 w-[1px] bg-stone-700"></div>
                         <img src="pictures/logo-velocity-white.png" alt="Velocity" class="h-5 object-contain">
                     </a>
@@ -744,13 +744,13 @@
                         class="flex items-center space-x-2 text-stone-400 hover:text-brand-luxeGold transition-colors"
                         aria-label="Instagram">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                        <span class="uppercase tracking-widest font-semibold hidden sm:inline-block">Instagram</span>
+                        <span class="uppercase tracking-widest font-semibold hidden sm:inline-block editable">Instagram</span>
                     </a>
                     <a href="https://www.facebook.com/VeloCity.sk/" target="_blank"
                         class="flex items-center space-x-2 text-stone-400 hover:text-brand-luxeGold transition-colors"
                         aria-label="Facebook">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                        <span class="uppercase tracking-widest font-semibold hidden sm:inline-block">Facebook</span>
+                        <span class="uppercase tracking-widest font-semibold hidden sm:inline-block editable">Facebook</span>
                     </a>
                 </div>
             </div>
@@ -1040,9 +1040,9 @@
                     if (selText) { selText.classList.remove('text-brand-luxeTextDark'); selText.classList.add('text-brand-luxeGold', 'font-semibold'); }
                     preview.classList.remove('hidden');
                     preview.innerHTML = '<div class="rp-card"><div class="rp-img flex items-center justify-center" style="background:rgba(227,28,37,0.08);"><i data-lucide="sparkles" class="w-7 h-7 text-brand-luxeGold"></i></div>' +
-                        '<div class="flex flex-col justify-center"><span class="text-[9px] font-bold uppercase tracking-[0.2em] text-brand-luxeGold mb-1">We\'ve got you</span>' +
-                        '<h4 class="font-serif text-base font-medium text-brand-luxeDark leading-snug mb-1">We\'ll pick the perfect ride for you</h4>' +
-                        '<p class="text-xs font-light text-stone-600 leading-relaxed">No cycling knowledge needed. Just tell us your dates, group and fitness in the message below — our local team will suggest the best route and bike.</p></div></div>';
+                        '<div class="flex flex-col justify-center"><span class="text-[9px] font-bold uppercase tracking-[0.2em] text-brand-luxeGold mb-1 editable">We\'ve got you</span>' +
+                        '<h4 class="font-serif text-base font-medium text-brand-luxeDark leading-snug mb-1 editable">We\'ll pick the perfect ride for you</h4>' +
+                        '<p class="text-xs font-light text-stone-600 leading-relaxed editable">No cycling knowledge needed. Just tell us your dates, group and fitness in the message below — our local team will suggest the best route and bike.</p></div></div>';
                     if (typeof lucide !== 'undefined') lucide.createIcons();
                     return;
                 }
@@ -1055,9 +1055,9 @@
                     : '';
                 preview.classList.remove('hidden');
                 preview.innerHTML = '<div class="rp-card"><img class="rp-img" src="' + info.img + '" alt="' + esc(val) + '">' +
-                    '<div class="flex flex-col justify-center"><span class="text-[9px] font-bold uppercase tracking-[0.2em] text-brand-luxeGold mb-1">Your selection</span>' +
-                    '<h4 class="font-serif text-base font-medium text-brand-luxeDark leading-snug mb-1">' + esc(val) + '</h4>' +
-                    '<p class="text-xs font-light text-stone-600 leading-relaxed">' + info.desc + '</p>' + moreBtn + '</div></div>';
+                    '<div class="flex flex-col justify-center"><span class="text-[9px] font-bold uppercase tracking-[0.2em] text-brand-luxeGold mb-1 editable">Your selection</span>' +
+                    '<h4 class="font-serif text-base font-medium text-brand-luxeDark leading-snug mb-1 editable">' + esc(val) + '</h4>' +
+                    '<p class="text-xs font-light text-stone-600 leading-relaxed editable">' + info.desc + '</p>' + moreBtn + '</div></div>';
                 if (typeof lucide !== 'undefined') lucide.createIcons();
             }
             if (rideSel) rideSel.addEventListener('change', renderRidePreview);
@@ -1075,17 +1075,17 @@
                 });
                 rideModalContent.innerHTML = '' +
                     '<div class="relative w-full h-56 sm:h-64 border-b border-stone-200"><img src="' + d.img + '" alt="' + esc(d.title) + '" class="w-full h-full object-cover"></div>' +
-                    '<div class="p-6 sm:p-8 pb-4"><span class="text-[9px] uppercase font-bold tracking-[0.25em] text-brand-luxeGold border border-brand-luxeGold/30 px-3 py-1 bg-brand-luxeGold/10 mb-4 inline-block">' + esc(d.diff) + '</span>' +
-                    '<h3 class="font-serif text-2xl sm:text-3xl md:text-4xl font-bold leading-tight text-brand-luxeDark">' + esc(d.title) + '</h3></div>' +
+                    '<div class="p-6 sm:p-8 pb-4"><span class="text-[9px] uppercase font-bold tracking-[0.25em] text-brand-luxeGold border border-brand-luxeGold/30 px-3 py-1 bg-brand-luxeGold/10 mb-4 inline-block editable">' + esc(d.diff) + '</span>' +
+                    '<h3 class="font-serif text-2xl sm:text-3xl md:text-4xl font-bold leading-tight text-brand-luxeDark editable">' + esc(d.title) + '</h3></div>' +
                     '<div class="px-6 sm:px-8 space-y-8 pb-8">' +
-                    '<p class="text-stone-600 font-light text-xs md:text-sm leading-relaxed font-sans tracking-wide">' + esc(d.desc) + '</p>' +
+                    '<p class="text-stone-600 font-light text-xs md:text-sm leading-relaxed font-sans tracking-wide editable">' + esc(d.desc) + '</p>' +
                     '<div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-4 border-y border-stone-200 text-xs font-sans">' +
-                    '<div><span class="text-[9px] uppercase font-bold text-stone-500 block mb-1 tracking-wider">Distance</span><span class="font-semibold text-brand-luxeDark text-sm">' + esc(d.dist) + '</span></div>' +
-                    '<div><span class="text-[9px] uppercase font-bold text-stone-500 block mb-1 tracking-wider">Elevation</span><span class="font-semibold text-brand-luxeDark text-sm">' + esc(d.elev) + '</span></div>' +
-                    '<div><span class="text-[9px] uppercase font-bold text-stone-500 block mb-1 tracking-wider">Duration</span><span class="font-semibold text-brand-luxeDark text-sm">' + esc(d.dur) + '</span></div>' +
-                    '<div><span class="text-[9px] uppercase font-bold text-stone-500 block mb-1 tracking-wider">Bike Type</span><span class="font-semibold text-brand-luxeDark text-[11px] block">' + esc(d.bike) + '</span></div></div>' +
-                    '<div><h4 class="text-[10px] uppercase font-bold text-stone-500 tracking-widest mb-4">Highlights</h4><ul class="grid grid-cols-1 md:grid-cols-2 gap-3">' + kp + '</ul></div>' +
-                    '<div class="bg-stone-50 p-6 border-l-2 border-brand-luxeGold"><h4 class="text-[10px] uppercase font-bold text-brand-luxeGold tracking-widest mb-2">Guide Recommendation</h4><p class="text-xs text-stone-600 font-light leading-relaxed tracking-wide font-sans">' + esc(d.recom) + '</p></div>' +
+                    '<div><span class="text-[9px] uppercase font-bold text-stone-500 block mb-1 tracking-wider editable">Distance</span><span class="font-semibold text-brand-luxeDark text-sm">' + esc(d.dist) + '</span></div>' +
+                    '<div><span class="text-[9px] uppercase font-bold text-stone-500 block mb-1 tracking-wider editable">Elevation</span><span class="font-semibold text-brand-luxeDark text-sm">' + esc(d.elev) + '</span></div>' +
+                    '<div><span class="text-[9px] uppercase font-bold text-stone-500 block mb-1 tracking-wider editable">Duration</span><span class="font-semibold text-brand-luxeDark text-sm">' + esc(d.dur) + '</span></div>' +
+                    '<div><span class="text-[9px] uppercase font-bold text-stone-500 block mb-1 tracking-wider editable">Bike Type</span><span class="font-semibold text-brand-luxeDark text-[11px] block">' + esc(d.bike) + '</span></div></div>' +
+                    '<div><h4 class="text-[10px] uppercase font-bold text-stone-500 tracking-widest mb-4 editable">Highlights</h4><ul class="grid grid-cols-1 md:grid-cols-2 gap-3">' + kp + '</ul></div>' +
+                    '<div class="bg-stone-50 p-6 border-l-2 border-brand-luxeGold"><h4 class="text-[10px] uppercase font-bold text-brand-luxeGold tracking-widest mb-2 editable">Guide Recommendation</h4><p class="text-xs text-stone-600 font-light leading-relaxed tracking-wide font-sans editable">' + esc(d.recom) + '</p></div>' +
                     '<div class="pt-2 flex justify-end"><button type="button" onclick="closeRideModal()" class="px-10 py-4 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[10px] font-bold uppercase tracking-[0.2em] transition-all duration-300 shadow-xl">Sounds good</button></div>' +
                     '</div>';
                 rideModal.classList.remove('opacity-0', 'pointer-events-none');
