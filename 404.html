@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | Bike Bratislava</title>
+    <meta name="robots" content="noindex">
+
+    <!-- Favicons (absolute paths — this page is served for any broken URL) -->
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <!-- Self-hosted fonts -->
+    <link href="/fonts/fonts.css" rel="stylesheet">
+
+    <!-- Standalone page: no CDN / JS dependencies so it always renders -->
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: #0A0A0A;
+            background-image:
+                radial-gradient(at 20% 22%, rgba(227, 28, 37, .08) 0, transparent 46%),
+                radial-gradient(at 85% 72%, rgba(255, 255, 255, .05) 0, transparent 50%),
+                radial-gradient(at 55% 8%, rgba(150, 150, 160, .08) 0, transparent 55%),
+                linear-gradient(160deg, #1a1a1a 0%, #0a0a0a 100%);
+            color: #F8F9FA;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { text-decoration: none; }
+
+        .top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, .06);
+        }
+        .brand { display: flex; flex-direction: column; }
+        .brand-name {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            letter-spacing: .25em;
+            color: #fff;
+        }
+        .brand-sub {
+            font-size: 7px;
+            letter-spacing: .35em;
+            text-transform: uppercase;
+            color: #78716c;
+            font-weight: 300;
+            margin-top: 2px;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 4rem 1.5rem;
+        }
+
+        .code {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 200;
+            font-size: clamp(7rem, 24vw, 13rem);
+            line-height: 1;
+            color: #fff;
+            letter-spacing: .02em;
+        }
+        .code span { color: #E31C25; }
+
+        .divider {
+            width: 3rem;
+            height: 1px;
+            background: #E31C25;
+            margin: 2rem auto 1.75rem;
+        }
+
+        .kicker {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: .3em;
+            text-transform: uppercase;
+            color: #E31C25;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 300;
+            font-size: clamp(1.6rem, 5vw, 2.6rem);
+            color: #fff;
+            margin-bottom: 1.25rem;
+        }
+
+        .lead {
+            max-width: 30rem;
+            font-weight: 300;
+            font-size: .85rem;
+            line-height: 1.8;
+            letter-spacing: .02em;
+            color: #a8a29e;
+            margin-bottom: 3rem;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.1rem 2.4rem;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: .25em;
+            text-transform: uppercase;
+            transition: all .3s ease;
+        }
+        .btn-primary { background: #E31C25; color: #fff; border: 1px solid #E31C25; }
+        .btn-primary:hover { background: #B91C1C; border-color: #B91C1C; }
+        .btn-ghost { border: 1px solid rgba(255, 255, 255, .2); color: #fff; }
+        .btn-ghost:hover { background: #fff; color: #0A0A0A; }
+
+        .bottom-bar {
+            padding: 1.5rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, .06);
+            display: flex;
+            flex-wrap: wrap;
+            gap: .75rem;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 10px;
+            font-weight: 300;
+            letter-spacing: .1em;
+            color: #57534e;
+        }
+        .bottom-bar a { color: #a8a29e; transition: color .3s ease; }
+        .bottom-bar a:hover { color: #E31C25; }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <a href="/index.html" class="brand">
+            <span class="brand-name">BIKE BRATISLAVA</span>
+            <span class="brand-sub">by Velocity</span>
+        </a>
+    </div>
+
+    <main>
+        <div class="code">4<span>0</span>4</div>
+        <div class="divider"></div>
+        <div class="kicker">Off The Route</div>
+        <h1>This page doesn't exist</h1>
+        <p class="lead">
+            Looks like you've taken a wrong turn — the page you're looking for was moved,
+            renamed or never existed. Let's get you back on track.
+        </p>
+        <div class="actions">
+            <a href="/index.html" class="btn btn-primary">Back To Home</a>
+            <a href="/tours.html" class="btn btn-ghost">Tours &amp; Rides</a>
+            <a href="/contact.html" class="btn btn-ghost">Contact Us</a>
+        </div>
+    </main>
+
+    <div class="bottom-bar">
+        <span>&copy; 2026 Bike Bratislava</span>
+        <a href="mailto:silvia@velocity.sk">silvia@velocity.sk</a>
+    </div>
+
+</body>
+</html>

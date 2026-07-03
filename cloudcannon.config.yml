@@ -1,0 +1,18 @@
+paths:
+  static: ''
+  uploads: uploads
+timezone: Europe/Bratislava
+markdown:
+  engine: commonmark
+  options: {}
+collections_config:
+  pages:
+    path: ''
+    icon: wysiwyg
+    output: true
+    url: /[path]
+    glob:
+      - "*.html"
+      - "!header.html"
+    _enabled_editors:
+      - visual

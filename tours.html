@@ -1,0 +1,1363 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="scroll-smooth overflow-x-hidden">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tours & Rides | Bike Bratislava</title>
+    <meta name="description"
+        content="Find your perfect ride. Explore Bratislava Highlights, Cross Border rides, gravel vineyard tours, and custom cycling experiences.">
+
+    <link rel="canonical" href="https://bikebratislava.com/tours.html">
+
+    <!-- Favicons -->
+    <link rel="icon" href="favicon.ico" sizes="32x32">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <!-- Structured data: business info for Google (static so all crawlers see it) -->
+    <script type="application/ld+json" id="ld-org">
+    {
+        "@context": "https://schema.org",
+        "@type": ["LocalBusiness", "TravelAgency"],
+        "name": "Bike Bratislava",
+        "description": "Guided cycling tours, road rides, gravel adventures and custom cycling experiences in Bratislava and Central Europe.",
+        "url": "https://bikebratislava.com/",
+        "image": "https://bikebratislava.com/pictures/devin-sunset.png",
+        "email": "silvia@velocity.sk",
+        "telephone": "+421903214013",
+        "areaServed": "Bratislava, Slovakia",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Bratislava",
+            "addressCountry": "SK"
+        },
+        "parentOrganization": {
+            "@type": "Organization",
+            "name": "Velocity",
+            "url": "https://www.velocity.sk/"
+        },
+        "sameAs": [
+            "https://www.instagram.com/velocity_cyklo/",
+            "https://www.facebook.com/VeloCity.sk/",
+            "https://www.velocity.sk/"
+        ]
+    }
+    </script>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bikebratislava.com/tours.html">
+    <meta property="og:title" content="Tours & Rides | Bike Bratislava">
+    <meta property="og:description"
+        content="Find your perfect ride. Explore Bratislava Highlights, Cross Border rides, gravel vineyard tours, and custom cycling experiences.">
+    <meta property="og:image" content="https://bikebratislava.com/pictures/devin-sunset.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://bikebratislava.com/tours.html">
+    <meta property="twitter:title" content="Tours & Rides | Bike Bratislava">
+    <meta property="twitter:description"
+        content="Find your perfect ride. Explore Bratislava Highlights, Cross Border rides, gravel vineyard tours, and custom cycling experiences.">
+    <meta property="twitter:image" content="https://bikebratislava.com/pictures/devin-sunset.png">
+
+    <!-- Fonts: Outfit & Inter (self-hosted — no requests to Google, GDPR) -->
+    <link href="fonts/fonts.css" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            luxeDark: '#0A0A0A',     /* Matte carbon black background */
+                            luxeLight: '#F8F9FA',    /* Clean slate light background */
+                            luxeGold: '#E31C25',     /* Active athletic red accent */
+                            luxeGoldDark: '#B91C1C', /* Deeper active red */
+                            luxeTextDark: '#111111', /* Dark charcoal text */
+                            luxeTextLight: '#F8F9FA' /* Crisp light text */
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Outfit', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        html.lenis,
+        html.lenis body {
+            height: auto;
+        }
+
+        .lenis.lenis-smooth {
+            scroll-behavior: auto !important;
+        }
+
+        .lenis.lenis-smooth [data-lenis-prevent] {
+            overscroll-behavior: contain;
+        }
+
+        .lenis.lenis-stopped {
+            overflow: hidden;
+        }
+
+        .lenis.lenis-scrolling iframe {
+            pointer-events: none;
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animation-delay-200 {
+            animation-delay: 200ms;
+        }
+
+        .animation-delay-400 {
+            animation-delay: 400ms;
+        }
+
+        /* Smooth transitions for smart hidden header */
+        #main-header {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.4s ease, padding 0.4s ease;
+        }
+
+        /* Mobile menu overlay */
+        #mobile-menu {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.45s ease;
+        }
+
+        #mobile-menu.is-open {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        #mobile-menu .menu-nav-item {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
+        }
+
+        #mobile-menu.is-open .menu-nav-item:nth-child(1) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.08s;
+        }
+
+        #mobile-menu.is-open .menu-nav-item:nth-child(2) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.14s;
+        }
+
+        #mobile-menu.is-open .menu-nav-item:nth-child(3) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.20s;
+        }
+
+        #mobile-menu.is-open .menu-nav-item:nth-child(4) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.26s;
+        }
+
+        #mobile-menu.is-open .menu-nav-item:nth-child(5) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.32s;
+        }
+
+        #mobile-menu.is-open .menu-nav-item:nth-child(6) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.38s;
+        }
+
+        #mobile-menu.is-open .menu-nav-item:nth-child(7) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.44s;
+        }
+
+        #mobile-menu .menu-footer {
+            opacity: 0;
+            transform: translateY(14px);
+            transition: opacity 0.4s ease 0.5s, transform 0.4s ease 0.5s;
+        }
+
+        #mobile-menu.is-open .menu-footer {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Parallax texture backgrounds — uses inner wrapper with translateY */
+        .parallax-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .parallax-bg {
+            position: absolute;
+            inset: -20% 0;
+            background-size: cover;
+            background-position: center;
+            will-change: transform;
+            z-index: 0;
+        }
+
+        .parallax-section>*:not(.parallax-bg) {
+            position: relative;
+            z-index: 1;
+        }
+
+        .parallax-bg.concrete {
+            background-color: #fdfbfb;
+            background-image:
+                radial-gradient(at 40% 20%, hsla(28, 100%, 74%, 0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 0%, hsla(189, 100%, 56%, 0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 50%, hsla(355, 100%, 93%, 0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 50%, hsla(340, 100%, 76%, 0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, hsla(22, 100%, 77%, 0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 100%, hsla(242, 100%, 70%, 0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 0%, hsla(343, 100%, 76%, 0.15) 0px, transparent 50%);
+        }
+
+        .parallax-bg.asphalt {
+            background-color: #0A0A0A;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('pictures/texture-asphalt.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .parallax-bg.dark-minimal {
+            background-color: #0A0A0A;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('pictures/bg-minimal-1.jpeg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Legacy: concrete-bg as section bg for guides card row */
+        .concrete-bg-inline {
+            background-color: #fdfbfb;
+            background-image:
+                radial-gradient(at 40% 20%, hsla(28, 100%, 74%, 0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 0%, hsla(189, 100%, 56%, 0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 50%, hsla(355, 100%, 93%, 0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 50%, hsla(340, 100%, 76%, 0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, hsla(22, 100%, 77%, 0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 100%, hsla(242, 100%, 70%, 0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 0%, hsla(343, 100%, 76%, 0.15) 0px, transparent 50%);
+        }
+
+        /* ===== Tours: expandable category panels + custom-ride constructor ===== */
+        .cat-panel {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows .55s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .cat-panel.open {
+            grid-template-rows: 1fr;
+        }
+
+        .cat-panel>.cat-panel-inner {
+            overflow: hidden;
+            min-height: 0;
+        }
+
+        .cat-toggle[aria-expanded="true"] .cat-chevron {
+            transform: rotate(180deg);
+        }
+
+        .chip {
+            display: inline-flex;
+            align-items: center;
+            padding: .6rem 1.05rem;
+            border: 1px solid rgba(255, 255, 255, .22);
+            color: #d6d3d1;
+            font-size: 11px;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            font-weight: 500;
+            line-height: 1;
+            cursor: pointer;
+            transition: all .25s ease;
+        }
+
+        .chip:hover {
+            border-color: #E31C25;
+            color: #fff;
+        }
+
+        .chip.chip-active {
+            background: #E31C25;
+            border-color: #E31C25;
+            color: #fff;
+        }
+
+        .bg-diagonal {
+            background-color: #fcfbfa;
+            background-image: repeating-linear-gradient(45deg, rgba(17, 17, 17, .028) 0 2px, transparent 2px 26px);
+        }
+
+        .bg-graphite {
+            background-color: #161616;
+            background-image:
+                radial-gradient(at 20% 22%, rgba(255, 255, 255, .07) 0, transparent 46%),
+                radial-gradient(at 85% 72%, rgba(255, 255, 255, .05) 0, transparent 50%),
+                radial-gradient(at 55% 8%, rgba(150, 150, 160, .10) 0, transparent 55%),
+                linear-gradient(160deg, #1f1f1f 0%, #0d0d0d 100%);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-gradient-to-br from-stone-50 via-rose-50/40 to-stone-100 text-brand-luxeTextDark font-sans antialiased selection:bg-brand-luxeGold selection:text-brand-luxeDark overflow-x-hidden">
+
+    <!-- HEADER & NAVIGATION -->
+    <div id="header-placeholder"></div>
+
+    <!-- HERO SECTION -->
+    <section
+        class="relative min-h-[75vh] flex items-center justify-center bg-brand-luxeDark text-white overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="pictures/cyclists-sunset.jpg"
+                alt="Tours and rides hero background" class="w-full h-full object-cover object-center opacity-45"
+                id="hero-img">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-luxeDark via-brand-luxeDark/35 to-transparent">
+            </div>
+        </div>
+
+        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center flex flex-col items-center">
+            <h1
+                class="font-serif text-6xl md:text-8xl font-bold uppercase tracking-tight mb-6 opacity-0 fade-in-up animation-delay-200 editable">
+                Find Your Perfect Ride</h1>
+            <p
+                class="text-stone-300 font-light text-sm md:text-lg max-w-2xl mx-auto leading-relaxed mb-10 tracking-wide font-sans opacity-0 fade-in-up animation-delay-400 editable">
+                Whether you're discovering Bratislava for the first time or searching for your next cycling challenge,
+                we offer guided experiences for every type of rider.
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTION: CATEGORY 1 -->
+    <section id="cat1" class="py-20 lg:py-28 border-b border-stone-200 relative bg-stone-100 overflow-hidden">
+        <div class="absolute inset-0 z-0 bg-cover bg-center"
+            style="background-image: url('pictures/bg-minimal-topdown.jpeg'); opacity: 0.65;">
+        </div>
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-stretch">
+                <div class="lg:order-1 scroll-reveal h-full flex">
+                    <div class="aspect-[4/3] w-full h-full overflow-hidden relative shadow-2xl border border-white/40">
+                        <img loading="lazy" decoding="async" src="pictures/coffee-break.jpg"
+                            alt="E-Bike &amp; Leisure Tours" class="absolute inset-0 w-full h-full object-cover">
+                    </div>
+                </div>
+                <div
+                    class="lg:order-2 scroll-reveal h-full flex flex-col justify-center bg-white/90 backdrop-blur-md border border-white/60 p-8 lg:p-12 shadow-2xl">
+                    <span
+                        class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-3 block editable">Category
+                        1</span>
+                    <h2 class="font-serif text-3xl md:text-5xl font-bold uppercase text-brand-luxeDark leading-tight editable">
+                        E-Bike &amp; Leisure Tours</h2>
+                    <p
+                        class="text-stone-600 font-light text-sm md:text-base mt-5 leading-relaxed tracking-wide font-sans max-w-xl editable">
+                        Designed for visitors who want to explore Bratislava and its surroundings in a relaxed and
+                        enjoyable way. These guided rides combine culture, history, local stories and beautiful scenery,
+                        making them perfect for travellers, couples, families and leisure riders.</p>
+                    <button data-toggle="cat1" data-label="Explore the 4 tours" data-open-label="Hide"
+                        aria-expanded="false" onclick="toggleCat('cat1')"
+                        class="cat-toggle inline-flex items-center gap-3 mt-8 px-7 py-3.5 bg-brand-luxeGold text-white text-[11px] font-semibold tracking-[0.2em] uppercase hover:bg-brand-luxeGoldDark transition-colors duration-300">
+                        <span class="toggle-label">Explore the 4 tours</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 cat-chevron transition-transform duration-300"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="cat1-panel" class="cat-panel">
+                <div class="cat-panel-inner">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 pt-14">
+                        <article
+                            class="group flex flex-col bg-white/90 backdrop-blur-md border border-white/60 p-4 transition-all duration-500 hover:-translate-y-2">
+                            <div class="aspect-[4/5] overflow-hidden relative bg-stone-200">
+                                <img loading="lazy" decoding="async" src="pictures/bratislava-highlights.jpeg" alt="Bratislava Highlights Tour"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                            </div>
+                            <div class="pt-4 flex-1">
+                                <h3 class="font-serif text-lg font-medium text-brand-luxeDark mb-2 leading-snug editable">
+                                    Bratislava Highlights Tour</h3>
+                                <p class="text-stone-600 font-light text-xs leading-relaxed font-sans editable">Discover the
+                                    city's historic centre, the Danube waterfront and hidden local gems.</p>
+                            </div>
+                            <button onclick="openModal('tour1')"
+                                class="mt-4 px-5 py-2 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:scale-105 shadow-md self-start">View
+                                Details</button>
+                        </article>
+                        <article
+                            class="group flex flex-col bg-white/90 backdrop-blur-md border border-white/60 p-4 transition-all duration-500 hover:-translate-y-2">
+                            <div class="aspect-[4/5] overflow-hidden relative bg-stone-200">
+                                <img loading="lazy" decoding="async" src="pictures/danube-riders.jpeg"
+                                    alt="Danube Discovery Tour"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                            </div>
+                            <div class="pt-4 flex-1">
+                                <h3 class="font-serif text-lg font-medium text-brand-luxeDark mb-2 leading-snug editable">Danube
+                                    Discovery Tour</h3>
+                                <p class="text-stone-600 font-light text-xs leading-relaxed font-sans editable">Enjoy a scenic
+                                    ride along one of Europe's most famous rivers.</p>
+                            </div>
+                            <button onclick="openModal('tour2')"
+                                class="mt-4 px-5 py-2 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:scale-105 shadow-md self-start">View
+                                Details</button>
+                        </article>
+                        <article
+                            class="group flex flex-col bg-white/90 backdrop-blur-md border border-white/60 p-4 transition-all duration-500 hover:-translate-y-2">
+                            <div class="aspect-[4/5] overflow-hidden relative bg-stone-200">
+                                <img loading="lazy" decoding="async" src="pictures/vineyard-ride.png" alt="Wine &amp; Villages Tour"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                            </div>
+                            <div class="pt-4 flex-1">
+                                <h3 class="font-serif text-lg font-medium text-brand-luxeDark mb-2 leading-snug editable">Wine
+                                    &amp; Villages Tour</h3>
+                                <p class="text-stone-600 font-light text-xs leading-relaxed font-sans editable">Explore charming
+                                    wine towns, vineyards and local culture beyond the city.</p>
+                            </div>
+                            <button onclick="openModal('tour3')"
+                                class="mt-4 px-5 py-2 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:scale-105 shadow-md self-start">View
+                                Details</button>
+                        </article>
+                        <article
+                            class="group flex flex-col bg-white/90 backdrop-blur-md border border-white/60 p-4 transition-all duration-500 hover:-translate-y-2">
+                            <div class="aspect-[4/5] overflow-hidden relative bg-stone-200">
+                                <img loading="lazy" decoding="async" src="pictures/devin-sunset.png" alt="Sunset Ride"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                            </div>
+                            <div class="pt-4 flex-1">
+                                <h3 class="font-serif text-lg font-medium text-brand-luxeDark mb-2 leading-snug editable">Sunset
+                                    Ride</h3>
+                                <p class="text-stone-600 font-light text-xs leading-relaxed font-sans editable">Experience
+                                    Bratislava during the most beautiful hours of the day.</p>
+                            </div>
+                            <button onclick="openModal('tour4')"
+                                class="mt-4 px-5 py-2 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:scale-105 shadow-md self-start">View
+                                Details</button>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: CATEGORY 2 -->
+    <section id="cat2" class="py-20 lg:py-28 bg-brand-luxeDark text-white relative overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-20 bg-cover bg-center"
+            style="background-image: url('pictures/bg-birdseye.jpeg');"></div>
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-stretch">
+                <div class="lg:order-2 scroll-reveal h-full flex">
+                    <div class="aspect-[4/3] w-full h-full overflow-hidden relative shadow-2xl border border-white/10">
+                        <img loading="lazy" decoding="async" src="pictures/peloton.png" alt="Road &amp; Gravel Cycling Experiences"
+                            class="absolute inset-0 w-full h-full object-cover">
+                    </div>
+                </div>
+                <div
+                    class="lg:order-1 scroll-reveal h-full flex flex-col justify-center bg-black/60 backdrop-blur-md border border-white/10 p-8 lg:p-12 shadow-2xl">
+                    <span
+                        class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-3 block editable">Category
+                        2</span>
+                    <h2 class="font-serif text-3xl md:text-5xl font-bold uppercase text-white leading-tight editable">Road &amp;
+                        Gravel Cycling Experiences</h2>
+                    <p
+                        class="text-stone-400 font-light text-sm md:text-base mt-5 leading-relaxed tracking-wide font-sans max-w-xl editable">
+                        Created for passionate cyclists looking for longer distances, more demanding routes and
+                        unforgettable scenery. Ride through vineyards, rolling countryside, quiet roads and cross-border
+                        routes in the heart of Central Europe.</p>
+                    <button data-toggle="cat2" data-label="Explore the 4 tours" data-open-label="Hide"
+                        aria-expanded="false" onclick="toggleCat('cat2')"
+                        class="cat-toggle inline-flex items-center gap-3 mt-8 px-7 py-3.5 bg-brand-luxeGold text-white text-[11px] font-semibold tracking-[0.2em] uppercase hover:bg-brand-luxeGoldDark transition-colors duration-300">
+                        <span class="toggle-label">Explore the 4 tours</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 cat-chevron transition-transform duration-300"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="cat2-panel" class="cat-panel">
+                <div class="cat-panel-inner">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 pt-14">
+                        <article
+                            class="group flex flex-col bg-black/60 backdrop-blur-md border border-white/10 p-4 transition-all duration-500 hover:-translate-y-2">
+                            <div class="aspect-[4/5] overflow-hidden relative bg-stone-200">
+                                <img loading="lazy" decoding="async" src="pictures/cyclists-sunset.jpg"
+                                    alt="Cross Border Ride"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                            </div>
+                            <div class="pt-4 flex-1">
+                                <h3 class="font-serif text-lg font-medium text-white mb-2 leading-snug editable">Cross Border
+                                    Ride</h3>
+                                <p class="text-stone-400 font-light text-xs leading-relaxed font-sans editable">Cycle between
+                                    Slovakia and Austria on scenic roads and cycle paths.</p>
+                            </div>
+                            <button onclick="openModal('tour5')"
+                                class="mt-4 px-5 py-2 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:scale-105 shadow-md self-start">View
+                                Details</button>
+                        </article>
+                        <article
+                            class="group flex flex-col bg-black/60 backdrop-blur-md border border-white/10 p-4 transition-all duration-500 hover:-translate-y-2">
+                            <div class="aspect-[4/5] overflow-hidden relative bg-stone-200">
+                                <img loading="lazy" decoding="async" src="pictures/road-cyclist-climb.jpg"
+                                    alt="Little Carpathians Road Ride"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                            </div>
+                            <div class="pt-4 flex-1">
+                                <h3 class="font-serif text-lg font-medium text-white mb-2 leading-snug editable">Little
+                                    Carpathians Road Ride</h3>
+                                <p class="text-stone-400 font-light text-xs leading-relaxed font-sans editable">Rolling terrain,
+                                    vineyard landscapes and some of the region's best cycling roads.</p>
+                            </div>
+                            <button onclick="openModal('tour6')"
+                                class="mt-4 px-5 py-2 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:scale-105 shadow-md self-start">View
+                                Details</button>
+                        </article>
+                        <article
+                            class="group flex flex-col bg-black/60 backdrop-blur-md border border-white/10 p-4 transition-all duration-500 hover:-translate-y-2">
+                            <div class="aspect-[4/5] overflow-hidden relative bg-stone-200">
+                                <img loading="lazy" decoding="async" src="pictures/gravel-bike.png" alt="Gravel Through The Vineyards"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                            </div>
+                            <div class="pt-4 flex-1">
+                                <h3 class="font-serif text-lg font-medium text-white mb-2 leading-snug editable">Gravel Through
+                                    The Vineyards</h3>
+                                <p class="text-stone-400 font-light text-xs leading-relaxed font-sans editable">A perfect
+                                    combination of adventure, nature and local wine country.</p>
+                            </div>
+                            <button onclick="openModal('tour7')"
+                                class="mt-4 px-5 py-2 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:scale-105 shadow-md self-start">View
+                                Details</button>
+                        </article>
+                        <article
+                            class="group flex flex-col bg-black/60 backdrop-blur-md border border-white/10 p-4 transition-all duration-500 hover:-translate-y-2">
+                            <div class="aspect-[4/5] overflow-hidden relative bg-stone-200">
+                                <img loading="lazy" decoding="async" src="pictures/four-countries.png" alt="Four Countries Challenge"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                            </div>
+                            <div class="pt-4 flex-1">
+                                <h3 class="font-serif text-lg font-medium text-white mb-2 leading-snug editable">Four Countries
+                                    Challenge</h3>
+                                <p class="text-stone-400 font-light text-xs leading-relaxed font-sans editable">Our signature
+                                    endurance experience connecting multiple countries in a single ride.</p>
+                            </div>
+                            <button onclick="openModal('tour8')"
+                                class="mt-4 px-5 py-2 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:scale-105 shadow-md self-start">View
+                                Details</button>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: CATEGORY 3 -->
+    <section id="cat3" class="py-20 lg:py-28 border-b border-stone-200 relative bg-stone-200 overflow-hidden">
+        <div class="absolute inset-0 z-0 bg-cover bg-center"
+            style="background-image: url('pictures/texture-light.jpeg'); opacity: 0.35;">
+        </div>
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-stretch">
+                <div class="lg:order-1 scroll-reveal h-full flex">
+                    <div class="aspect-[4/3] w-full h-full overflow-hidden relative shadow-2xl border border-white/20">
+                        <img loading="lazy" decoding="async" src="pictures/mtb-technical.jpeg"
+                            alt="Trail &amp; MTB Adventures" class="absolute inset-0 w-full h-full object-cover">
+                    </div>
+                </div>
+                <div
+                    class="lg:order-2 scroll-reveal h-full flex flex-col justify-center bg-white/90 backdrop-blur-md border border-white/60 p-8 lg:p-12 shadow-2xl">
+                    <span
+                        class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-3 block editable">Category
+                        3</span>
+                    <h2 class="font-serif text-3xl md:text-5xl font-bold uppercase text-brand-luxeDark leading-tight editable">
+                        Trail &amp; MTB Adventures</h2>
+                    <p
+                        class="text-stone-700 font-light text-sm md:text-base mt-5 leading-relaxed tracking-wide font-sans max-w-xl editable">
+                        For riders looking for more technical terrain, forest trails and off-road adventures. Explore
+                        the Little Carpathians and discover some of the best trail riding opportunities around
+                        Bratislava.</p>
+                    <button data-toggle="cat3" data-label="Explore the 4 tours" data-open-label="Hide"
+                        aria-expanded="false" onclick="toggleCat('cat3')"
+                        class="cat-toggle inline-flex items-center gap-3 mt-8 px-7 py-3.5 bg-brand-luxeGold text-white text-[11px] font-semibold tracking-[0.2em] uppercase hover:bg-brand-luxeGoldDark transition-colors duration-300 shadow-lg">
+                        <span class="toggle-label">Explore the 4 tours</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 cat-chevron transition-transform duration-300"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="cat3-panel" class="cat-panel">
+                <div class="cat-panel-inner">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 pt-14">
+                        <article
+                            class="group flex flex-col bg-white/90 backdrop-blur-md border border-white/60 p-4 transition-all duration-500 hover:-translate-y-2">
+                            <div class="aspect-[4/5] overflow-hidden relative bg-stone-200">
+                                <img loading="lazy" decoding="async" src="pictures/mtb-fast.jpeg"
+                                    alt="Forest Trails Explorer"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                            </div>
+                            <div class="pt-4 flex-1">
+                                <h3 class="font-serif text-lg font-medium text-brand-luxeDark mb-2 leading-snug editable">Forest
+                                    Trails Explorer</h3>
+                                <p class="text-stone-700 font-light text-xs leading-relaxed font-sans editable">A fun
+                                    introduction to Bratislava's trail network.</p>
+                            </div>
+                            <button onclick="openModal('tour9')"
+                                class="mt-4 px-5 py-2 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:scale-105 shadow-md self-start">View
+                                Details</button>
+                        </article>
+                        <article
+                            class="group flex flex-col bg-white/90 backdrop-blur-md border border-white/60 p-4 transition-all duration-500 hover:-translate-y-2">
+                            <div class="aspect-[4/5] overflow-hidden relative bg-stone-200">
+                                <img loading="lazy" decoding="async" src="pictures/mtb-technical.jpeg"
+                                    alt="Little Carpathians MTB Ride"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                            </div>
+                            <div class="pt-4 flex-1">
+                                <h3 class="font-serif text-lg font-medium text-brand-luxeDark mb-2 leading-snug editable">Little
+                                    Carpathians MTB Ride</h3>
+                                <p class="text-stone-700 font-light text-xs leading-relaxed font-sans editable">A guided mountain
+                                    bike adventure through forests, ridgelines and scenic viewpoints.</p>
+                            </div>
+                            <button onclick="openModal('tour10')"
+                                class="mt-4 px-5 py-2 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:scale-105 shadow-md self-start">View
+                                Details</button>
+                        </article>
+                        <article
+                            class="group flex flex-col bg-white/90 backdrop-blur-md border border-white/60 p-4 transition-all duration-500 hover:-translate-y-2">
+                            <div class="aspect-[4/5] overflow-hidden relative bg-stone-200">
+                                <img loading="lazy" decoding="async" src="pictures/mtb-pov.jpeg"
+                                    alt="Trail Discovery Experience"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                            </div>
+                            <div class="pt-4 flex-1">
+                                <h3 class="font-serif text-lg font-medium text-brand-luxeDark mb-2 leading-snug editable">Trail
+                                    Discovery Experience</h3>
+                                <p class="text-stone-700 font-light text-xs leading-relaxed font-sans editable">A mix of flowing
+                                    singletracks, forest roads and local favourites.</p>
+                            </div>
+                            <button onclick="openModal('tour11')"
+                                class="mt-4 px-5 py-2 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:scale-105 shadow-md self-start">View
+                                Details</button>
+                        </article>
+                        <article
+                            class="group flex flex-col bg-white/90 backdrop-blur-md border border-white/60 p-4 transition-all duration-500 hover:-translate-y-2">
+                            <div class="aspect-[4/5] overflow-hidden relative bg-stone-200">
+                                <img loading="lazy" decoding="async" src="pictures/friends-group.jpeg"
+                                    alt="Custom MTB Adventure"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                            </div>
+                            <div class="pt-4 flex-1">
+                                <h3 class="font-serif text-lg font-medium text-brand-luxeDark mb-2 leading-snug editable">Custom
+                                    MTB Adventure</h3>
+                                <p class="text-stone-700 font-light text-xs leading-relaxed font-sans editable">Tailor-made trail
+                                    rides adapted to your skill level and riding style.</p>
+                            </div>
+                            <button onclick="openModal('tour12')"
+                                class="mt-4 px-5 py-2 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:scale-105 shadow-md self-start">View
+                                Details</button>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: CATEGORY 4 (Custom — interactive constructor) -->
+    <section id="cat4" class="py-20 lg:py-28 bg-black text-white relative overflow-hidden">
+        <div class="absolute inset-0 z-0 bg-cover bg-center"
+            style="background-image: url('pictures/texture-asphalt.jpg'); opacity: 0.75;">
+        </div>
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-stretch">
+                <div class="lg:order-2 scroll-reveal h-full flex">
+                    <div class="aspect-[4/3] w-full h-full overflow-hidden relative shadow-2xl border border-white/10">
+                        <img loading="lazy" decoding="async" src="pictures/corporate-group.jpg"
+                            alt="Built Around Your Ride" class="absolute inset-0 w-full h-full object-cover">
+                    </div>
+                </div>
+                <div
+                    class="lg:order-1 scroll-reveal h-full flex flex-col justify-center bg-black/60 backdrop-blur-md border border-white/10 p-8 lg:p-12 shadow-2xl">
+                    <span
+                        class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-3 block editable">Category
+                        4 &middot; Custom Experiences</span>
+                    <h2 class="font-serif text-3xl md:text-5xl font-bold uppercase text-white leading-tight editable">Built
+                        Around Your Ride</h2>
+                    <p
+                        class="text-stone-400 font-light text-sm md:text-base mt-5 leading-relaxed tracking-wide font-sans max-w-xl editable">
+                        Looking for something unique? We create fully customised cycling experiences for individuals,
+                        groups, cycling clubs and corporate teams. From private city tours and wine experiences to
+                        multi-day cycling adventures, every detail can be tailored to your preferences.</p>
+                    <button data-toggle="cat4" data-label="Build Your Custom Ride" data-open-label="Hide builder"
+                        aria-expanded="false" onclick="toggleCat('cat4')"
+                        class="cat-toggle inline-flex items-center gap-3 mt-8 px-7 py-3.5 bg-brand-luxeGold text-white text-[11px] font-semibold tracking-[0.2em] uppercase hover:bg-brand-luxeGoldDark transition-colors duration-300">
+                        <span class="toggle-label">Build Your Custom Ride</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 cat-chevron transition-transform duration-300"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="cat4-panel" class="cat-panel">
+                <div class="cat-panel-inner">
+                    <div class="mt-14 bg-black/60 backdrop-blur-md border border-white/10 p-8 lg:p-12 shadow-2xl">
+                        <div class="grid lg:grid-cols-12 gap-10 lg:gap-12">
+                            <div class="lg:col-span-7 xl:col-span-8 space-y-7">
+                                <div>
+                                    <span
+                                        class="block text-[10px] uppercase tracking-[0.25em] text-brand-luxeGold font-semibold mb-3 editable">Ride
+                                        type</span>
+                                    <div class="grid grid-cols-2 xl:grid-cols-4 gap-2.5">
+                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full" data-group="type" data-val="E-Bike &amp; Leisure" onclick="selectChip('type',this)">
+                                            <span class="block">E-Bike &amp; Leisure</span>
+                                            <span class="block text-[9px] text-white/50 font-light normal-case tracking-wide editable">City &amp; comfort bikes</span>
+                                        </button>
+                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full" data-group="type" data-val="Road &amp; Gravel" onclick="selectChip('type',this)">
+                                            <span class="block">Road &amp; Gravel</span>
+                                            <span class="block text-[9px] text-white/50 font-light normal-case tracking-wide editable">Sport &amp; endurance</span>
+                                        </button>
+                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full" data-group="type" data-val="Trail &amp; MTB" onclick="selectChip('type',this)">
+                                            <span class="block">Trail &amp; MTB</span>
+                                            <span class="block text-[9px] text-white/50 font-light normal-case tracking-wide editable">Off-road adventures</span>
+                                        </button>
+                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full" data-group="type" data-val="Mixed" onclick="selectChip('type',this)">
+                                            <span class="block">Mixed</span>
+                                            <span class="block text-[9px] text-white/50 font-light normal-case tracking-wide editable">Various surfaces</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <span
+                                        class="block text-[10px] uppercase tracking-[0.25em] text-brand-luxeGold font-semibold mb-3 editable">Duration</span>
+                                    <div class="grid grid-cols-2 xl:grid-cols-4 gap-2.5">
+                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full" data-group="duration" data-val="Half day" onclick="selectChip('duration',this)">
+                                            <span class="block">Half day</span>
+                                            <span class="block text-[9px] text-white/50 font-light normal-case tracking-wide editable">1-3 hours</span>
+                                        </button>
+                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full" data-group="duration" data-val="Full day" onclick="selectChip('duration',this)">
+                                            <span class="block">Full day</span>
+                                            <span class="block text-[9px] text-white/50 font-light normal-case tracking-wide editable">3-6 hours</span>
+                                        </button>
+                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full" data-group="duration" data-val="Extended" onclick="selectChip('duration',this)">
+                                            <span class="block">Extended</span>
+                                            <span class="block text-[9px] text-white/50 font-light normal-case tracking-wide editable">6-12 hours</span>
+                                        </button>
+                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full" data-group="duration" data-val="Multi-day" onclick="selectChip('duration',this)">
+                                            <span class="block">Multi-day</span>
+                                            <span class="block text-[9px] text-white/50 font-light normal-case tracking-wide editable">2+ days</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <span
+                                        class="block text-[10px] uppercase tracking-[0.25em] text-brand-luxeGold font-semibold mb-3 editable">Group</span>
+                                    <div class="grid grid-cols-2 xl:grid-cols-4 gap-2.5">
+                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full" data-group="group" data-val="Solo" onclick="selectChip('group',this)">
+                                            <span class="block">Solo</span>
+                                            <span class="block text-[9px] text-white/50 font-light normal-case tracking-wide editable">1 person</span>
+                                        </button>
+                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full" data-group="group" data-val="Couple" onclick="selectChip('group',this)">
+                                            <span class="block">Couple</span>
+                                            <span class="block text-[9px] text-white/50 font-light normal-case tracking-wide editable">2 people</span>
+                                        </button>
+                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full" data-group="group" data-val="Small group" onclick="selectChip('group',this)">
+                                            <span class="block">Small group</span>
+                                            <span class="block text-[9px] text-white/50 font-light normal-case tracking-wide editable">3-6 people</span>
+                                        </button>
+                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full" data-group="group" data-val="Corporate" onclick="selectChip('group',this)">
+                                            <span class="block">Corporate</span>
+                                            <span class="block text-[9px] text-white/50 font-light normal-case tracking-wide editable">7+ people</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <span
+                                        class="block text-[10px] uppercase tracking-[0.25em] text-brand-luxeGold font-semibold mb-3 editable">Level</span>
+                                    <div class="grid grid-cols-2 xl:grid-cols-3 gap-2.5">
+                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full" data-group="level" data-val="Easy" onclick="selectChip('level',this)">
+                                            <span class="block">Easy</span>
+                                            <span class="block text-[9px] text-white/50 font-light normal-case tracking-wide editable">Casual pace, mostly flat</span>
+                                        </button>
+                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full" data-group="level" data-val="Moderate" onclick="selectChip('level',this)">
+                                            <span class="block">Moderate</span>
+                                            <span class="block text-[9px] text-white/50 font-light normal-case tracking-wide editable">Some hills, steady pace</span>
+                                        </button>
+                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full" data-group="level" data-val="Challenging" onclick="selectChip('level',this)">
+                                            <span class="block">Challenging</span>
+                                            <span class="block text-[9px] text-white/50 font-light normal-case tracking-wide editable">Steep climbs, faster</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-5 xl:col-span-4 flex flex-col justify-between gap-8">
+                                <div>
+                                    <span
+                                        class="block text-[10px] uppercase tracking-[0.25em] text-brand-luxeGold font-semibold mb-3 editable">Ideal
+                                        for</span>
+                                    <div class="grid grid-cols-2 gap-x-6 gap-y-2.5">
+                                        <span class="text-stone-400 text-xs font-light tracking-wide editable">Private groups</span>
+                                        <span class="text-stone-400 text-xs font-light tracking-wide editable">Cycling clubs</span>
+                                        <span class="text-stone-400 text-xs font-light tracking-wide editable">Corporate events</span>
+                                        <span class="text-stone-400 text-xs font-light tracking-wide editable">Team building</span>
+                                        <span class="text-stone-400 text-xs font-light tracking-wide editable">Multi-day holidays</span>
+                                        <span class="text-stone-400 text-xs font-light tracking-wide editable">Special occasions</span>
+                                    </div>
+                                </div>
+                                <div class="bg-white/[0.03] border border-white/10 p-6">
+                                    <p class="text-stone-400 text-xs font-light leading-relaxed mb-5 editable">Pick what fits you
+                                        above, then send it to our team &mdash; we'll shape the full itinerary around
+                                        your ride.</p>
+                                    <a id="build-cta" href="contact.html?ride=Custom"
+                                        class="inline-flex items-center justify-center gap-3 w-full px-9 py-4.5 bg-brand-luxeGold text-white text-[11px] font-semibold tracking-[0.25em] uppercase hover:bg-brand-luxeGoldDark transition-colors duration-300">
+                                        <span>Plan This Ride</span><i data-lucide="arrow-right" class="w-4 h-4"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TOUR DETAIL MODAL / POPUP -->
+    <!-- Mobile Categories Modal -->
+    <div id="mobile-cats-modal" class="fixed inset-0 z-[105] flex flex-col justify-end opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="absolute inset-0 bg-brand-luxeDark/80 backdrop-blur-sm" onclick="closeMobileCatsModal()"></div>
+        <div id="mobile-cats-content" class="relative bg-stone-50 w-full h-full shadow-2xl flex flex-col transform translate-y-full transition-transform duration-500 ease-out">
+            <div class="flex items-center justify-between p-5 border-b border-stone-200 bg-white shrink-0">
+                <h3 id="mobile-cats-title" class="font-serif text-2xl font-light text-brand-luxeDark editable">Category</h3>
+                <button onclick="closeMobileCatsModal()" class="text-stone-400 hover:text-brand-luxeGold transition-colors">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <div id="mobile-cats-body" class="flex-1 overflow-y-auto p-4 bg-stone-50" data-lenis-prevent>
+                <!-- Cards injected here -->
+            </div>
+        </div>
+    </div>
+
+    <div id="tour-modal"
+        class="fixed inset-0 bg-stone-950/80 backdrop-blur-sm z-[110] flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-500">
+        <div
+            class="bg-white max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative rounded-none text-brand-luxeDark" data-lenis-prevent>
+            <button onclick="closeModal()"
+                class="absolute top-4 right-4 text-white hover:text-brand-luxeGold transition-all z-10 bg-black/30 hover:bg-black/60 p-2 rounded-full backdrop-blur-md"
+                aria-label="Close details">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-luxeDark text-stone-500 py-24 border-t border-stone-900">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 font-sans tracking-wide">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-16 mb-20">
+
+                <div class="md:col-span-2">
+                    <a href="index.html" class="flex flex-col mb-6 group">
+                        <span class="font-serif text-2xl tracking-widest text-white transition-colors duration-300 editable">
+                            BIKE BRATISLAVA
+                        </span>
+                        <span class="text-[8px] tracking-[0.35em] text-stone-500 font-light uppercase editable">
+                            Central Europe
+                        </span>
+                    </a>
+                    <p class="text-xs font-light leading-relaxed mt-6 pr-8 text-stone-400 editable">
+                        Discover Bratislava and the heart of Central Europe from the saddle. Guided cycling tours, road
+                        rides, gravel adventures and custom cycling experiences designed by local riders.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] text-white mb-6 editable">Explore</h4>
+                    <ul class="space-y-4 text-xs font-light">
+                        <li><a href="index.html" class="hover:text-brand-luxeGold transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-brand-luxeGold transition-colors">About Us</a></li>
+                        <li><a href="discover.html" class="hover:text-brand-luxeGold transition-colors">Discover
+                                Bratislava</a></li>
+                        <li><a href="tours.html" class="hover:text-brand-luxeGold transition-colors">Tours & Rides</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] text-white mb-6 editable">Rides</h4>
+                    <ul class="space-y-4 text-xs font-light">
+                        <li><a href="guides.html" class="hover:text-brand-luxeGold transition-colors">Our Guides</a>
+                        </li>
+                        <li><a href="journal.html" class="hover:text-brand-luxeGold transition-colors">Journal</a></li>
+                        <li><a href="contact.html" class="hover:text-brand-luxeGold transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] text-white mb-6 editable">Contact</h4>
+                    <ul class="space-y-4 text-xs font-light">
+                        <li class="text-stone-400">Mgr. Silvia Karais</li>
+                        <li><a href="mailto:silvia@velocity.sk"
+                                class="hover:text-brand-luxeGold transition-colors">silvia@velocity.sk</a></li>
+                        <li><a href="tel:+421903214013" class="hover:text-brand-luxeGold transition-colors">+421 903 214
+                                013</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div
+                class="border-t border-stone-900/60 pt-8 flex flex-col lg:flex-row items-center justify-between text-[10px] font-light gap-6">
+                <p class="editable">&copy; 2026 Bike Bratislava. All rights reserved.</p>
+                <div class="flex items-center space-x-6 md:space-x-8">
+                    <a href="https://www.velocity.sk/" target="_blank"
+                        class="flex items-center space-x-3 opacity-70 hover:opacity-100 transition-opacity">
+                        <span
+                            class="uppercase tracking-widest text-stone-400 hover:text-white transition-colors editable">velocity.sk</span>
+                        <div class="h-4 w-[1px] bg-stone-700"></div>
+                        <img loading="lazy" decoding="async" src="pictures/logo-velocity-white.png" alt="Velocity" class="h-5 object-contain">
+                    </a>
+                    <a href="https://www.instagram.com/velocity_cyklo/" target="_blank"
+                        class="flex items-center space-x-2 text-stone-400 hover:text-brand-luxeGold transition-colors"
+                        aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        <span class="uppercase tracking-widest font-semibold hidden sm:inline-block editable">Instagram</span>
+                    </a>
+                    <a href="https://www.facebook.com/VeloCity.sk/" target="_blank"
+                        class="flex items-center space-x-2 text-stone-400 hover:text-brand-luxeGold transition-colors"
+                        aria-label="Facebook">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        <span class="uppercase tracking-widest font-semibold hidden sm:inline-block editable">Facebook</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL DATA & SCRIPT -->
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+    <script src="app.js?v=1"></script>
+    <script>
+        const tourData = {
+            tour1: {
+                title: "Bratislava Highlights Tour",
+                desc: "Discover the city's historic centre, the Danube waterfront and hidden local gems.",
+                dist: "15 km", elev: "50 m", dur: "2.5 hours", diff: "Easy", bike: "City / Hybrid Bike",
+                keypoints: ["Bratislava Castle park", "Old Town historic squares", "Danube river park view", "Confluence spots & coffee"],
+                recom: "Perfect for travellers, couples, families and leisure riders.",
+                img: "pictures/bratislava-highlights.jpeg"
+            },
+            tour2: {
+                title: "Danube Discovery Tour",
+                desc: "Enjoy a scenic ride along one of Europe's most famous rivers.",
+                dist: "35 km", elev: "20 m", dur: "3.5 hours", diff: "Easy", bike: "Hybrid / Gravel Bike",
+                keypoints: ["Danubiana Meulensteen Art Museum", "Water sports dike cycles", "Bird-watching reservoirs", "Riverside buffet breaks"],
+                recom: "Perfect for travellers, couples, families and leisure riders.",
+                img: "pictures/danube-riders.jpeg"
+            },
+            tour3: {
+                title: "Wine & Villages Tour",
+                desc: "Explore charming wine towns, vineyards and local culture beyond the city.",
+                dist: "40 km", elev: "250 m", dur: "4 hours", diff: "Moderate", bike: "Gravel / Road / Hybrid",
+                keypoints: ["Historic Svätý Jur town", "Picturesque vineyard trails", "Local family wine cellar stops", "Traditional Slovak gastronomy"],
+                recom: "Perfect for travellers, couples, families and leisure riders.",
+                img: "pictures/vineyard-ride.png"
+            },
+            tour4: {
+                title: "Sunset Ride",
+                desc: "Experience Bratislava during the most beautiful hours of the day.",
+                dist: "20 km", elev: "80 m", dur: "2 hours", diff: "Easy", bike: "City / Hybrid Bike",
+                keypoints: ["Morava & Danube confluence", "Devín Castle cliff viewpoints", "Scenic dusk river ride", "Cozy cycling trail side stops"],
+                recom: "Perfect for travellers, couples, families and leisure riders.",
+                img: "pictures/devin-sunset.png"
+            },
+            tour5: {
+                title: "Cross Border Ride",
+                desc: "Cycle between Slovakia and Austria on scenic roads and cycle paths.",
+                dist: "60 km", elev: "150 m", dur: "4 hours", diff: "Moderate", bike: "Road / Gravel Bike",
+                keypoints: ["Austrian Kittsee castle paths", "Former Iron Curtain cycle path", "Hungarian border landscape trails", "Danube bridge crossings"],
+                recom: "For passionate cyclists looking for longer distances.",
+                img: "pictures/cyclists-sunset.jpg"
+            },
+            tour6: {
+                title: "Little Carpathians Road Ride",
+                desc: "Rolling terrain, vineyard landscapes and some of the region's best cycling roads.",
+                dist: "90 km", elev: "1,200 m", dur: "5 hours", diff: "Hard", bike: "Road Bike",
+                keypoints: ["Pezinská Baba mountain climb", "Quiet forest paved ascents", "High-speed sweeping descents", "Traditional coffee & pastry stops"],
+                recom: "For passionate cyclists looking for longer distances.",
+                img: "pictures/road-cyclist-climb.jpg"
+            },
+            tour7: {
+                title: "Gravel Through The Vineyards",
+                desc: "A perfect combination of adventure, nature and local wine country.",
+                dist: "50 km", elev: "600 m", dur: "4 hours", diff: "Moderate", bike: "Gravel / XC Mountain Bike",
+                keypoints: ["Vineyard hillside gravel paths", "Forest fire roads", "Devínska Kobyla panorama", "Fun single tracks"],
+                recom: "For passionate cyclists looking for longer distances.",
+                img: "pictures/gravel-bike.png"
+            },
+            tour8: {
+                title: "Four Countries Challenge",
+                desc: "Our signature endurance experience connecting multiple countries in a single ride.",
+                dist: "120 km", elev: "400 m", dur: "6 hours", diff: "Hard", bike: "Road Bike",
+                keypoints: ["4 national boundaries in a day", "Border monuments and history", "Endurance pacing along rivers", "Celebration drinks in Bratislava"],
+                recom: "For passionate cyclists looking for longer distances.",
+                img: "pictures/four-countries.png"
+            },
+            tour9: {
+                title: "Forest Trails Explorer",
+                desc: "A fun introduction to Bratislava's trail network.",
+                dist: "25 km", elev: "400 m", dur: "3 hours", diff: "Moderate", bike: "MTB",
+                keypoints: ["Introduction to off-road trails", "Forest fire roads", "Local nature spots", "Basic technical sections"],
+                recom: "For riders looking for more technical terrain and off-road adventures.",
+                img: "pictures/mtb-fast.jpeg"
+            },
+            tour10: {
+                title: "Little Carpathians MTB Ride",
+                desc: "A guided mountain bike adventure through forests, ridgelines and scenic viewpoints.",
+                dist: "45 km", elev: "900 m", dur: "4.5 hours", diff: "Hard", bike: "MTB",
+                keypoints: ["Challenging steep climbs", "Technical rooty descents", "Deep forest immersion", "Mountain ridgeline panoramas"],
+                recom: "For riders looking for more technical terrain and off-road adventures.",
+                img: "pictures/mtb-technical.jpeg"
+            },
+            tour11: {
+                title: "Trail Discovery Experience",
+                desc: "A mix of flowing singletracks, forest roads and local favourites.",
+                dist: "30 km", elev: "600 m", dur: "3.5 hours", diff: "Moderate", bike: "MTB",
+                keypoints: ["Flowing singletracks", "Forest roads", "Local mountain bike favourites", "Technical skill improvement"],
+                recom: "For riders looking for more technical terrain and off-road adventures.",
+                img: "pictures/mtb-pov.jpeg"
+            },
+            tour12: {
+                title: "Custom MTB Adventure",
+                desc: "Tailor-made trail rides adapted to your skill level and riding style.",
+                dist: "Custom", elev: "Custom", dur: "Custom", diff: "Variable", bike: "MTB",
+                keypoints: ["Tailor-made routes", "Adapted to your skill level", "Custom riding style and pace", "Expert guiding"],
+                recom: "For riders looking for more technical terrain and off-road adventures.",
+                img: "pictures/friends-group.jpeg"
+            }
+        };
+
+        const modal = document.getElementById('tour-modal');
+        const modalContent = document.getElementById('modal-content');
+
+        // Structured data: expose each tour as a TouristTrip (ItemList) so Google can
+        // understand the individual rides — generated from tourData to stay in sync.
+        (function injectTourSchema() {
+            const baseUrl = 'https://bikebratislava.com/';
+            const itemListElement = Object.keys(tourData).map(function (key, i) {
+                const t = tourData[key];
+                return {
+                    "@type": "ListItem",
+                    "position": i + 1,
+                    "item": {
+                        "@type": "TouristTrip",
+                        "name": t.title,
+                        "description": t.desc,
+                        "image": baseUrl + encodeURI(t.img),
+                        "touristType": t.recom,
+                        "url": baseUrl + "tours.html"
+                    }
+                };
+            });
+            const ld = document.createElement('script');
+            ld.type = 'application/ld+json';
+            ld.textContent = JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "ItemList",
+                "name": "Bike Bratislava — Tours & Rides",
+                "itemListElement": itemListElement
+            });
+            document.head.appendChild(ld);
+        })();
+
+        function openModal(tourKey) {
+            const data = tourData[tourKey];
+            if (!data) return;
+
+            let keypointsHTML = '';
+            data.keypoints.forEach(kp => {
+                keypointsHTML += `
+                    <li class="flex items-center space-x-3 text-stone-700 text-xs font-sans">
+                        <i data-lucide="check" class="w-4 h-4 text-brand-luxeGold"></i>
+                        <span>${kp}</span>
+                    </li>
+                `;
+            });
+
+            let diffClass = "text-brand-luxeGold border-brand-luxeGold/30 bg-brand-luxeGold/10";
+            let diffText = data.diff ? data.diff.toLowerCase() : "";
+            if (diffText === 'easy') {
+                diffClass = "text-emerald-600 border-emerald-600/30 bg-emerald-600/10";
+            } else if (diffText === 'moderate') {
+                diffClass = "text-orange-500 border-orange-500/30 bg-orange-500/10";
+            } else if (diffText === 'hard') {
+                diffClass = "text-rose-600 border-rose-600/30 bg-rose-600/10";
+            }
+
+            modalContent.innerHTML = `
+                <div class="relative w-full h-64 border-b border-stone-200">
+                    <img src="${data.img}" alt="${data.title}" class="w-full h-full object-cover">
+                </div>
+
+                <div class="p-8 pb-4">
+                    <span class="text-[9px] uppercase font-bold tracking-[0.25em] border px-3 py-1 rounded-none mb-4 inline-block ${diffClass} editable">${data.diff}</span>
+                    <h3 class="font-serif text-3xl md:text-4xl font-bold leading-tight text-brand-luxeDark editable">${data.title}</h3>
+                </div>
+
+                <div class="px-8 space-y-8 pb-8">
+                    <p class="text-stone-600 font-light text-xs md:text-sm leading-relaxed font-sans tracking-wide editable">${data.desc}</p>
+                    
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-4 border-y border-stone-200 text-xs font-sans">
+                        <div>
+                            <span class="text-[9px] uppercase font-bold text-stone-500 block mb-1 tracking-wider editable">Distance</span>
+                            <span class="font-semibold text-brand-luxeDark text-sm">${data.dist}</span>
+                        </div>
+                        <div>
+                            <span class="text-[9px] uppercase font-bold text-stone-500 block mb-1 tracking-wider editable">Elevation</span>
+                            <span class="font-semibold text-brand-luxeDark text-sm">${data.elev}</span>
+                        </div>
+                        <div>
+                            <span class="text-[9px] uppercase font-bold text-stone-500 block mb-1 tracking-wider editable">Duration</span>
+                            <span class="font-semibold text-brand-luxeDark text-sm">${data.dur}</span>
+                        </div>
+                        <div>
+                            <span class="text-[9px] uppercase font-bold text-stone-500 block mb-1 tracking-wider editable">Bike Type</span>
+                            <span class="font-semibold text-brand-luxeDark text-[11px] block truncate">${data.bike}</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="text-[10px] uppercase font-bold text-stone-500 tracking-widest mb-4 editable">Highlights</h4>
+                        <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            ${keypointsHTML}
+                        </ul>
+                    </div>
+
+                    <div class="bg-stone-50 p-6 border-l-2 border-brand-luxeGold rounded-none">
+                        <h4 class="text-[10px] uppercase font-bold text-brand-luxeGold tracking-widest mb-2 editable">Guide Recommendation</h4>
+                        <p class="text-xs text-stone-600 font-light leading-relaxed tracking-wide font-sans editable">${data.recom}</p>
+                    </div>
+
+                    <div class="pt-2 flex justify-end">
+                        <a href="contact.html?ride=${encodeURIComponent(data.title)}" class="px-10 py-4.5 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[10px] font-bold uppercase tracking-[0.2em] transition-all duration-300 rounded-none shadow-xl hover:shadow-2xl hover:-translate-y-1">
+                            Book / Enquire
+                        </a>
+                    </div>
+                </div>
+            `;
+
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            lucide.createIcons();
+        }
+
+        function closeModal() {
+            modal.classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        // ===== Expandable categories =====
+        function closeAllCats() {
+            ['cat1', 'cat2', 'cat3', 'cat4'].forEach(id => setCat(id, false));
+            var closeBar = document.getElementById('mobile-cat-close-bar');
+            if (closeBar) closeBar.classList.add('-translate-y-full');
+            // smooth scroll back to the top of the categories if needed
+        }
+
+        function setCat(id, open) {
+            var panel = document.getElementById(id + '-panel');
+            if (!panel) return;
+            panel.classList.toggle('open', open);
+            var btn = document.querySelector('[data-toggle="' + id + '"]');
+            if (btn) {
+                btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+                var lbl = btn.querySelector('.toggle-label');
+                if (lbl) lbl.textContent = open ? (btn.dataset.openLabel || 'Hide') : btn.dataset.label;
+                
+                // Show sticky mobile bar
+                var closeBar = document.getElementById('mobile-cat-close-bar');
+                var closeTitle = document.getElementById('mobile-cat-close-title');
+                if (closeBar && closeTitle) {
+                    if (open) {
+                        // get the title from the section h2
+                        var section = document.getElementById(id);
+                        if (section) {
+                            var h2 = section.querySelector('h2');
+                            if (h2) closeTitle.textContent = h2.textContent.replace('&amp;', '&');
+                        }
+                        closeBar.classList.remove('-translate-y-full');
+                    } else {
+                        // if no panels are open, hide the bar
+                        var anyOpen = document.querySelectorAll('.cat-panel.open').length > 0;
+                        if (!anyOpen) {
+                            closeBar.classList.add('-translate-y-full');
+                        }
+                    }
+                }
+            }
+        }
+        function toggleCat(id) { 
+            if (window.innerWidth < 1024) {
+                var section = document.getElementById(id);
+                var title = section ? section.querySelector('h2').textContent.replace('&amp;', '&') : 'Tours';
+                openMobileCatsModal(id, title);
+            } else {
+                var p = document.getElementById(id + '-panel'); 
+                var willOpen = !p.classList.contains('open');
+                setCat(id, willOpen); 
+                if (willOpen) {
+                    setTimeout(() => {
+                        var section = document.getElementById(id);
+                        if (section) {
+                            const y = section.getBoundingClientRect().top + window.scrollY - 100;
+                            window.scrollTo({top: y, behavior: 'smooth'});
+                        }
+                    }, 100);
+                } else {
+                    setTimeout(() => {
+                        var section = document.getElementById(id);
+                        if (section) {
+                            const y = section.getBoundingClientRect().top + window.scrollY - 100;
+                            window.scrollTo({top: y, behavior: 'smooth'});
+                        }
+                    }, 100);
+                }
+            }
+        }
+
+        function openMobileCatsModal(id, title) {
+            const sourcePanel = document.querySelector('#' + id + '-panel .cat-panel-inner');
+            if (!sourcePanel) return;
+            
+            document.getElementById('mobile-cats-title').textContent = title;
+            
+            let html = sourcePanel.innerHTML;
+            html = html.replace('pt-14', 'pt-2 pb-8');
+            html = html.replace('gap-6 lg:gap-8', 'gap-4');
+            
+            document.getElementById('mobile-cats-body').innerHTML = html;
+            
+            const modal = document.getElementById('mobile-cats-modal');
+            const content = document.getElementById('mobile-cats-content');
+
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            setTimeout(() => {
+                content.classList.remove('translate-y-full');
+            }, 10);
+
+            // Lock the page behind the full-screen sheet so it can't scroll through
+            document.documentElement.style.overflow = 'hidden';
+            document.body.style.overflow = 'hidden';
+            if (typeof lenis !== 'undefined') lenis.stop();
+
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+
+            var closeBar = document.getElementById('mobile-cat-close-bar');
+            if (closeBar) closeBar.classList.add('-translate-y-full');
+        }
+
+        function closeMobileCatsModal() {
+            const modal = document.getElementById('mobile-cats-modal');
+            const content = document.getElementById('mobile-cats-content');
+            if (!modal) return;
+
+            // Only the cats sheet owns the scroll lock when it's actually open; guard so
+            // the resize handler (which calls this on every 1024px crossing) can't release
+            // a lock held by something else, e.g. an open mobile menu.
+            var wasOpen = !modal.classList.contains('pointer-events-none');
+
+            content.classList.add('translate-y-full');
+            setTimeout(() => {
+                modal.classList.add('opacity-0', 'pointer-events-none');
+            }, 300);
+
+            if (wasOpen) {
+                document.documentElement.style.overflow = '';
+                document.body.style.overflow = '';
+                if (typeof lenis !== 'undefined') lenis.start();
+            }
+        }
+
+        // Deep-links (tours.html#cat1 …) must respect the breakpoint: open the
+        // bottom-sheet modal on mobile, expand the inline panel on desktop —
+        // otherwise mobile gets the long inline scroll this design avoids.
+        function openCat(id) {
+            if (window.innerWidth < 1024) {
+                var section = document.getElementById(id);
+                var title = section ? section.querySelector('h2').textContent.replace('&amp;', '&') : 'Tours';
+                openMobileCatsModal(id, title);
+            } else {
+                setCat(id, true);
+            }
+        }
+        function openFromHash() { var h = location.hash.replace('#', ''); if (['cat1', 'cat2', 'cat3', 'cat4'].indexOf(h) > -1) openCat(h); }
+        window.addEventListener('hashchange', openFromHash);
+        window.addEventListener('load', openFromHash);
+
+        // ===== Custom-ride constructor =====
+        function selectChip(group, btn) {
+            document.querySelectorAll('[data-group="' + group + '"]').forEach(function (b) { b.classList.remove('chip-active'); });
+            btn.classList.add('chip-active');
+            updateBuildLink();
+        }
+        function updateBuildLink() {
+            // The custom-ride panel is cloned into the mobile sheet, which duplicates
+            // #build-cta. Update every instance so the visible button (mobile clone or
+            // desktop original) always carries the current selections.
+            var ctas = document.querySelectorAll('#build-cta');
+            if (!ctas.length) return;
+            var params = new URLSearchParams({ ride: 'Custom' });
+            ['type', 'duration', 'group', 'level'].forEach(function (g) {
+                var el = document.querySelector('[data-group="' + g + '"].chip-active');
+                if (el) params.set(g, el.dataset.val);
+            });
+            var href = 'contact.html?' + params.toString();
+            ctas.forEach(function (cta) { cta.href = href; });
+        }
+
+        // ===== Handle Screen Resize Edge Cases =====
+        let lastInnerWidth = window.innerWidth;
+        window.addEventListener('resize', () => {
+            const currentWidth = window.innerWidth;
+            if (lastInnerWidth < 1024 && currentWidth >= 1024) {
+                closeMobileCatsModal();
+            } else if (lastInnerWidth >= 1024 && currentWidth < 1024) {
+                closeAllCats();
+            }
+            lastInnerWidth = currentWidth;
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,439 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="scroll-smooth overflow-x-hidden">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Bike Bratislava</title>
+    <meta name="description" content="Born from a passion for cycling. Learn about Bike Bratislava, our story, experienced guides, and why you should ride with us.">
+
+    <link rel="canonical" href="https://bikebratislava.com/about.html">
+
+    <!-- Favicons -->
+    <link rel="icon" href="favicon.ico" sizes="32x32">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <!-- Structured data: business info for Google (static so all crawlers see it) -->
+    <script type="application/ld+json" id="ld-org">
+    {
+        "@context": "https://schema.org",
+        "@type": ["LocalBusiness", "TravelAgency"],
+        "name": "Bike Bratislava",
+        "description": "Guided cycling tours, road rides, gravel adventures and custom cycling experiences in Bratislava and Central Europe.",
+        "url": "https://bikebratislava.com/",
+        "image": "https://bikebratislava.com/pictures/devin-sunset.png",
+        "email": "silvia@velocity.sk",
+        "telephone": "+421903214013",
+        "areaServed": "Bratislava, Slovakia",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Bratislava",
+            "addressCountry": "SK"
+        },
+        "parentOrganization": {
+            "@type": "Organization",
+            "name": "Velocity",
+            "url": "https://www.velocity.sk/"
+        },
+        "sameAs": [
+            "https://www.instagram.com/velocity_cyklo/",
+            "https://www.facebook.com/VeloCity.sk/",
+            "https://www.velocity.sk/"
+        ]
+    }
+    </script>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bikebratislava.com/about.html">
+    <meta property="og:title" content="About Us | Bike Bratislava">
+    <meta property="og:description" content="Born from a passion for cycling. Learn about Bike Bratislava, our story, experienced guides, and why you should ride with us.">
+    <meta property="og:image" content="https://bikebratislava.com/pictures/coffee-break.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://bikebratislava.com/about.html">
+    <meta property="twitter:title" content="About Us | Bike Bratislava">
+    <meta property="twitter:description" content="Born from a passion for cycling. Learn about Bike Bratislava, our story, experienced guides, and why you should ride with us.">
+    <meta property="twitter:image" content="https://bikebratislava.com/pictures/coffee-break.jpg">
+    
+                    <!-- Fonts: Outfit & Inter (self-hosted — no requests to Google, GDPR) -->
+    <link href="fonts/fonts.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            luxeDark: '#0A0A0A',     /* Matte carbon black background */
+                            luxeLight: '#F8F9FA',    /* Clean slate light background */
+                            luxeGold: '#E31C25',     /* Active athletic red accent */
+                            luxeGoldDark: '#B91C1C', /* Deeper active red */
+                            luxeTextDark: '#111111', /* Dark charcoal text */
+                            luxeTextLight: '#F8F9FA' /* Crisp light text */
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Outfit', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        html.lenis, html.lenis body {
+            height: auto;
+        }
+        .lenis.lenis-smooth {
+            scroll-behavior: auto !important;
+        }
+        .lenis.lenis-smooth [data-lenis-prevent] {
+            overscroll-behavior: contain;
+        }
+        .lenis.lenis-stopped {
+            overflow: hidden;
+        }
+        .lenis.lenis-scrolling iframe {
+            pointer-events: none;
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animation-delay-200 { animation-delay: 200ms; }
+        .animation-delay-400 { animation-delay: 400ms; }
+        
+        /* Smooth transitions for smart hidden header */
+        #main-header {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.4s ease, padding 0.4s ease;
+        }
+
+        /* Mobile menu overlay */
+        #mobile-menu {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.45s ease;
+        }
+        #mobile-menu.is-open {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        #mobile-menu .menu-nav-item {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16,1,0.3,1), color 0.2s ease;
+        }
+        #mobile-menu.is-open .menu-nav-item:nth-child(1) { opacity:1; transform:translateY(0); transition-delay:0.08s; }
+        #mobile-menu.is-open .menu-nav-item:nth-child(2) { opacity:1; transform:translateY(0); transition-delay:0.14s; }
+        #mobile-menu.is-open .menu-nav-item:nth-child(3) { opacity:1; transform:translateY(0); transition-delay:0.20s; }
+        #mobile-menu.is-open .menu-nav-item:nth-child(4) { opacity:1; transform:translateY(0); transition-delay:0.26s; }
+        #mobile-menu.is-open .menu-nav-item:nth-child(5) { opacity:1; transform:translateY(0); transition-delay:0.32s; }
+        #mobile-menu.is-open .menu-nav-item:nth-child(6) { opacity:1; transform:translateY(0); transition-delay:0.38s; }
+        #mobile-menu.is-open .menu-nav-item:nth-child(7) { opacity:1; transform:translateY(0); transition-delay:0.44s; }
+        #mobile-menu .menu-footer {
+            opacity: 0;
+            transform: translateY(14px);
+            transition: opacity 0.4s ease 0.5s, transform 0.4s ease 0.5s;
+        }
+        #mobile-menu.is-open .menu-footer {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Parallax texture backgrounds — uses inner wrapper with translateY */
+        .parallax-section {
+            position: relative;
+            overflow: hidden;
+        }
+        .parallax-bg {
+            position: absolute;
+            inset: -20% 0;
+            background-size: cover;
+            background-position: center;
+            will-change: transform;
+            z-index: 0;
+        }
+        .parallax-section > *:not(.parallax-bg) {
+            position: relative;
+            z-index: 1;
+        }
+                        .parallax-bg.concrete {
+            background-color: #fdfbfb;
+            background-image: 
+                radial-gradient(at 40% 20%, hsla(28,100%,74%,0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 0%, hsla(189,100%,56%,0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 50%, hsla(355,100%,93%,0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 50%, hsla(340,100%,76%,0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, hsla(22,100%,77%,0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 100%, hsla(242,100%,70%,0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 0%, hsla(343,100%,76%,0.15) 0px, transparent 50%);
+        }
+                .parallax-bg.asphalt {
+            background-color: #0A0A0A;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('pictures/texture-asphalt.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .parallax-bg.dark-minimal {
+            background-color: #0A0A0A;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('pictures/bg-minimal-1.jpeg');
+            background-size: cover;
+            background-position: center;
+        }
+        /* Legacy: concrete-bg as section bg for guides card row */
+                        .concrete-bg-inline {
+            background-color: #fdfbfb;
+            background-image: 
+                radial-gradient(at 40% 20%, hsla(28,100%,74%,0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 0%, hsla(189,100%,56%,0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 50%, hsla(355,100%,93%,0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 50%, hsla(340,100%,76%,0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, hsla(22,100%,77%,0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 100%, hsla(242,100%,70%,0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 0%, hsla(343,100%,76%,0.15) 0px, transparent 50%);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-stone-50 via-rose-50/40 to-stone-100 text-brand-luxeTextDark font-sans antialiased selection:bg-brand-luxeGold selection:text-brand-luxeDark overflow-x-hidden">
+
+    <!-- HEADER & NAVIGATION -->
+    <div id="header-placeholder"></div>
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-[75vh] flex items-center justify-center bg-brand-luxeDark overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <!-- Curated group cyclists lifestyle background with scale-110 for parallax -->
+            <img src="pictures/coffee-break.jpg" 
+                 alt="About us background" 
+                 class="w-full h-full object-cover object-center opacity-45 scale-110" id="hero-img" style="will-change: transform;">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-luxeDark via-brand-luxeDark/35 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center text-brand-luxeTextLight flex flex-col items-center">
+            <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-6 block opacity-0 fade-in-up editable">Our Philosophy</span>
+            <h1 class="font-serif text-5xl md:text-7xl font-light mb-6 opacity-0 fade-in-up animation-delay-200 text-white leading-tight editable">We Ride What</h1>
+            <span class="font-sans font-bold uppercase tracking-widest text-brand-luxeGold text-2xl md:text-4xl lg:text-5xl block mt-4 editable">We Recommend</span>
+            <p class="text-stone-400 text-sm md:text-base font-light max-w-xl mx-auto leading-relaxed tracking-wider opacity-0 fade-in-up animation-delay-400 editable">
+                Every route we offer is a route we ride ourselves. Discover the passion that drives us.
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTION: OUR STORY -->
+    <section class="py-16 lg:py-20 relative overflow-hidden border-b border-stone-200/40 bg-gradient-to-br from-rose-50 via-sky-50 to-emerald-50 parallax-section">
+        <div class="parallax-bg concrete"></div>
+        <div class="max-w-6xl mx-auto px-6 lg:px-12 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
+                
+                <div class="lg:col-span-6 scroll-reveal">
+                    <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-4 block editable">Our Story</span>
+                    <h2 class="font-serif text-4xl md:text-5xl font-light text-brand-luxeDark leading-tight mb-8 editable">
+                        Born From A Passion</h2>
+            <span class="font-sans font-bold uppercase tracking-widest text-brand-luxeGold text-xl md:text-3xl block mt-3 editable">For Cycling</span>
+                    <div class="space-y-6 text-stone-600 font-light leading-relaxed text-sm md:text-base tracking-wide font-sans mb-8">
+                        <p class="editable">
+                            Bike Bratislava was created by local cyclists who wanted to share their favourite roads, trails and hidden places with visitors from around the world.
+                        </p>
+                        <p class="editable">
+                            After years of riding across Slovakia and Central Europe, we realised that Bratislava offers something truly unique: a gateway to multiple countries, cultures and landscapes, all accessible by bicycle.
+                        </p>
+                        <p class="font-sans font-bold uppercase tracking-widest text-brand-luxeGold border-l-2 border-brand-luxeGold/60 pl-6 text-sm py-1 leading-relaxed editable">
+                            Our mission is simple: To help people experience Bratislava in a way that goes far beyond traditional tourism.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 scroll-reveal">
+                    <div class="relative aspect-[4/3] lg:aspect-[4/5] overflow-hidden shadow-2xl border border-stone-200">
+                        <!-- local climber/road rider -->
+                        <img loading="lazy" decoding="async" src="pictures/road-cyclist-climb.jpg" 
+                             alt="Athletic road cyclist climbing scenic carpathians route" 
+                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-out">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: WHY RIDE WITH US (Concrete textured layout) -->
+    <section class="py-16 lg:py-20 parallax-section border-b border-stone-200/40 bg-gradient-to-tr from-amber-50 via-orange-50 to-rose-50"><div class="parallax-bg concrete"></div>
+        <div class="max-w-6xl mx-auto px-6 lg:px-12 relative z-10">
+            <div class="text-center max-w-2xl mx-auto mb-24 scroll-reveal">
+                <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-4 block editable">Our Values</span>
+                <h2 class="font-serif text-4xl md:text-5xl font-light text-brand-luxeDark editable">Why Ride With Us</h2>
+                <div class="h-[1px] w-12 bg-brand-luxeGold mx-auto mt-6"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
+                <!-- Value Card 1 -->
+                <div class="bg-transparent border-t border-stone-300/40 pt-8 scroll-reveal">
+                    <span class="font-serif text-3xl text-brand-luxeGold font-light block mb-4">01</span>
+                    <h3 class="font-serif text-lg font-medium text-brand-luxeDark mb-3 editable">Local Knowledge</h3>
+                    <p class="text-stone-500 text-xs font-light leading-relaxed font-sans tracking-wide editable">
+                        We know the quietest lanes, best coffee stops, and views that aren't on standard maps.
+                    </p>
+                </div>
+
+                <!-- Value Card 2 -->
+                <div class="bg-transparent border-t border-stone-300/40 pt-8 scroll-reveal">
+                    <span class="font-serif text-3xl text-brand-luxeGold font-light block mb-4">02</span>
+                    <h3 class="font-serif text-lg font-medium text-brand-luxeDark mb-3 editable">Experienced Guides</h3>
+                    <p class="text-stone-500 text-xs font-light leading-relaxed font-sans tracking-wide editable">
+                        Our ride leaders are certified, highly experienced, and passionate storytellers.
+                    </p>
+                </div>
+
+                <!-- Value Card 3 -->
+                <div class="bg-transparent border-t border-stone-300/40 pt-8 scroll-reveal">
+                    <span class="font-serif text-3xl text-brand-luxeGold font-light block mb-4">03</span>
+                    <h3 class="font-serif text-lg font-medium text-brand-luxeDark mb-3 editable">Small Groups</h3>
+                    <p class="text-stone-500 text-xs font-light leading-relaxed font-sans tracking-wide editable">
+                        We keep our tour sizes small to guarantee personal attention, flexibility, and safety.
+                    </p>
+                </div>
+
+                <!-- Value Card 4 -->
+                <div class="bg-transparent border-t border-stone-300/40 pt-8 scroll-reveal">
+                    <span class="font-serif text-3xl text-brand-luxeGold font-light block mb-4">04</span>
+                    <h3 class="font-serif text-lg font-medium text-brand-luxeDark mb-3 editable">Safety First</h3>
+                    <p class="text-stone-500 text-xs font-light leading-relaxed font-sans tracking-wide editable">
+                        Top quality bikes, helmets, support vehicles, and careful route scouting on every single ride.
+                    </p>
+                </div>
+
+                <!-- Value Card 5 -->
+                <div class="bg-transparent border-t border-stone-300/40 pt-8 scroll-reveal">
+                    <span class="font-serif text-3xl text-brand-luxeGold font-light block mb-4">05</span>
+                    <h3 class="font-serif text-lg font-medium text-brand-luxeDark mb-3 editable">Authentic Experiences</h3>
+                    <p class="text-stone-500 text-xs font-light leading-relaxed font-sans tracking-wide editable">
+                        Taste real local wines, visit rural communities, and interact with the culture, not tourist traps.
+                    </p>
+                </div>
+
+                <!-- Value Card 6 -->
+                <div class="bg-transparent border-t border-stone-300/40 pt-8 scroll-reveal">
+                    <span class="font-serif text-3xl text-brand-luxeGold font-light block mb-4">06</span>
+                    <h3 class="font-serif text-lg font-medium text-brand-luxeDark mb-3 editable">Tailor-Made Options</h3>
+                    <p class="text-stone-500 text-xs font-light leading-relaxed font-sans tracking-wide editable">
+                        Custom distances, difficulty adjustments, corporate events, and specialized itineraries built for you.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: FINAL CTA (Asphalt background) -->
+    <section class="py-16 bg-brand-luxeDark text-white text-center relative overflow-hidden">
+        <!-- Asphalt dark background texture with parallax will-change and styling -->
+        <div class="parallax-bg asphalt"></div>
+
+        <div class="max-w-3xl mx-auto px-6 relative z-10 scroll-reveal">
+            <h2 class="font-serif text-4xl md:text-5xl font-light text-brand-luxeGold mb-6 editable">Ready to see Bratislava from the saddle?</h2>
+            <p class="text-stone-400 font-light text-sm max-w-lg mx-auto mb-10 tracking-wide font-sans leading-relaxed editable">
+                Explore the unique border-crossings, paved riversides, and hidden castles with us.
+            </p>
+            <a href="discover.html" class="inline-flex items-center justify-center px-12 py-5 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white font-medium text-[11px] tracking-[0.25em] uppercase transition-all duration-300 rounded-none border border-brand-luxeGold shadow-2xl">
+                Discover Bratislava
+            </a>
+        </div>
+    </section>
+
+            <!-- FOOTER -->
+    <footer class="bg-brand-luxeDark text-stone-500 py-24 border-t border-stone-900">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 font-sans tracking-wide">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-16 mb-20">
+                
+                <div class="md:col-span-2">
+                    <a href="index.html" class="flex flex-col mb-6 group">
+                        <span class="font-serif text-2xl tracking-widest text-white transition-colors duration-300 editable">
+                            BIKE BRATISLAVA
+                        </span>
+                        <span class="text-[8px] tracking-[0.35em] text-stone-500 font-light uppercase editable">
+                            Central Europe
+                        </span>
+                    </a>
+                    <p class="text-xs font-light leading-relaxed mt-6 pr-8 text-stone-400 editable">
+                        Discover Bratislava and the heart of Central Europe from the saddle. Guided cycling tours, road rides, gravel adventures and custom cycling experiences designed by local riders.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] text-white mb-6 editable">Explore</h4>
+                    <ul class="space-y-4 text-xs font-light">
+                        <li><a href="index.html" class="hover:text-brand-luxeGold transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-brand-luxeGold transition-colors">About Us</a></li>
+                        <li><a href="discover.html" class="hover:text-brand-luxeGold transition-colors">Discover Bratislava</a></li>
+                        <li><a href="tours.html" class="hover:text-brand-luxeGold transition-colors">Tours & Rides</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] text-white mb-6 editable">Rides</h4>
+                    <ul class="space-y-4 text-xs font-light">
+                        <li><a href="guides.html" class="hover:text-brand-luxeGold transition-colors">Our Guides</a></li>
+                        <li><a href="journal.html" class="hover:text-brand-luxeGold transition-colors">Journal</a></li>
+                        <li><a href="contact.html" class="hover:text-brand-luxeGold transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] text-white mb-6 editable">Contact</h4>
+                    <ul class="space-y-4 text-xs font-light">
+                        <li class="text-stone-400">Mgr. Silvia Karais</li>
+                        <li><a href="mailto:silvia@velocity.sk" class="hover:text-brand-luxeGold transition-colors">silvia@velocity.sk</a></li>
+                        <li><a href="tel:+421903214013" class="hover:text-brand-luxeGold transition-colors">+421 903 214 013</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+                        <div class="border-t border-stone-900/60 pt-8 flex flex-col lg:flex-row items-center justify-between text-[10px] font-light gap-6">
+                <p class="editable">&copy; 2026 Bike Bratislava. All rights reserved.</p>
+                <div class="flex items-center space-x-6 md:space-x-8">
+                    <a href="https://www.velocity.sk/" target="_blank" class="flex items-center space-x-3 opacity-70 hover:opacity-100 transition-opacity">
+                        <span class="uppercase tracking-widest text-stone-400 hover:text-white transition-colors editable">velocity.sk</span>
+                        <div class="h-4 w-[1px] bg-stone-700"></div>
+                        <img loading="lazy" decoding="async" src="pictures/logo-velocity-white.png" alt="Velocity" class="h-5 object-contain">
+                    </a>
+                    <a href="https://www.instagram.com/velocity_cyklo/" target="_blank" class="flex items-center space-x-2 text-stone-400 hover:text-brand-luxeGold transition-colors" aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        <span class="uppercase tracking-widest font-semibold hidden sm:inline-block editable">Instagram</span>
+                    </a>
+                    <a href="https://www.facebook.com/VeloCity.sk/" target="_blank" class="flex items-center space-x-2 text-stone-400 hover:text-brand-luxeGold transition-colors" aria-label="Facebook">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        <span class="uppercase tracking-widest font-semibold hidden sm:inline-block editable">Facebook</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+    <script src="app.js?v=1"></script>
+</body>
+</html>
