@@ -25,7 +25,7 @@ function respond($ok, $isAjax, $errorCode = 'error') {
         }
     } else {
         $status = $ok ? 'success' : 'error';
-        header("Location: https://bikebratislava.com/contact.html?status=" . $status);
+        header("Location: https://bikebratislava.com/contact?status=" . $status);
     }
     exit;
 }

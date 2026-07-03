@@ -157,10 +157,16 @@ async function loadUniversalHeader() {
                 link.addEventListener('click', closeMobileMenu);
             });
 
-            // Highlight active link
-            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            // Highlight active link. URLs are extensionless (/tours), but this
+            // also tolerates direct .html requests and the site root.
+            const currentPage = (window.location.pathname.split('/').pop() || '').replace(/\.html$/, '');
+            const isHomePage = currentPage === '' || currentPage === 'index';
             document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => {
-                if (link.getAttribute('href') === currentPage) {
+                const target = (link.getAttribute('href') || '')
+                    .split('#')[0].split('?')[0]
+                    .replace(/^\.\//, '').replace(/\.html$/, '');
+                const linkIsHome = target === '' || target === 'index';
+                if (linkIsHome ? isHomePage : target === currentPage) {
                     link.classList.remove('text-white', 'text-stone-400');
                     link.classList.add('text-brand-luxeGold');
                     if (link.classList.contains('nav-link')) {
@@ -290,8 +296,8 @@ window.addEventListener('scroll', () => {
 (function cookieConsent() {
     const GA_MEASUREMENT_ID = ''; // <-- put your GA4 ID here, e.g. 'G-ABC123XYZ'
     const STORAGE_KEY = 'bb-cookie-consent';
-    const POLICY_COOKIES = 'privacy.html#cookies';
-    const POLICY_PRIVACY = 'privacy.html';
+    const POLICY_COOKIES = 'privacy#cookies';
+    const POLICY_PRIVACY = 'privacy';
 
     // --- Google Consent Mode v2 defaults (must run before GA loads) ---
     window.dataLayer = window.dataLayer || [];
@@ -429,7 +435,7 @@ window.addEventListener('scroll', () => {
             bar.className = 'flex items-center gap-4 mt-2 text-[10px] tracking-widest uppercase text-stone-500';
 
             const privacy = document.createElement('a');
-            privacy.href = 'privacy.html';
+            privacy.href = 'privacy';
             privacy.textContent = 'Privacy Policy';
             privacy.className = 'hover:text-[#E31C25] transition-colors';
 

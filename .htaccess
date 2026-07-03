@@ -24,6 +24,22 @@ AddDefaultCharset UTF-8
     RewriteCond %{HTTPS} off
     RewriteCond %{REQUEST_URI} !^/\.well-known/
     RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # ---- Clean URLs: no index.html / .html in the address bar ----
+    # /index.html -> /
+    RewriteCond %{THE_REQUEST} \s/+index\.html[?\s]
+    RewriteRule ^index\.html$ / [R=301,L]
+
+    # /page.html -> /page (301, except the 404 document itself)
+    RewriteCond %{THE_REQUEST} \s/+([^?\s]+)\.html[?\s]
+    RewriteCond %1 !^404$
+    RewriteRule ^(.+)\.html$ /$1 [R=301,L]
+
+    # Internally serve page.html when /page is requested
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}.html -f
+    RewriteRule ^(.+)$ $1.html [L]
 </IfModule>
 
 # ------------------------------------------------------------

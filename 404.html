@@ -154,7 +154,7 @@
 <body>
 
     <div class="top-bar">
-        <a href="/index.html" class="brand">
+        <a href="/" class="brand">
             <span class="brand-name">BIKE BRATISLAVA</span>
             <span class="brand-sub">by Velocity</span>
         </a>
@@ -170,9 +170,9 @@
             renamed or never existed. Let's get you back on track.
         </p>
         <div class="actions">
-            <a href="/index.html" class="btn btn-primary">Back To Home</a>
-            <a href="/tours.html" class="btn btn-ghost">Tours &amp; Rides</a>
-            <a href="/contact.html" class="btn btn-ghost">Contact Us</a>
+            <a href="/" class="btn btn-primary">Back To Home</a>
+            <a href="/tours" class="btn btn-ghost">Tours &amp; Rides</a>
+            <a href="/contact" class="btn btn-ghost">Contact Us</a>
         </div>
     </main>
 
@@ -180,6 +180,25 @@
         <span>&copy; 2026 Bike Bratislava &middot; NEW VELO s. r. o.</span>
         <a href="mailto:silvia@velocity.sk">silvia@velocity.sk</a>
     </div>
+
+    <script>
+        // The root-absolute links above are correct for the production domain
+        // (site at bikebratislava.com/). GitHub Pages PROJECT sites live under
+        // /<repo>/ instead — detect that case and prefix the links so the 404
+        // page also works while testing on *.github.io.
+        (function () {
+            if (!/\.github\.io$/.test(location.hostname)) return;
+            var seg = location.pathname.split('/')[1];
+            if (!seg) return;
+            fetch('/' + seg + '/index.html', { method: 'HEAD' }).then(function (r) {
+                if (!r.ok) return;
+                var base = '/' + seg;
+                document.querySelectorAll('a[href^="/"], link[href^="/"]').forEach(function (el) {
+                    el.setAttribute('href', base + el.getAttribute('href'));
+                });
+            }).catch(function () {});
+        })();
+    </script>
 
 </body>
 </html>

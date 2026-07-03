@@ -8,7 +8,7 @@
     <meta name="description"
         content="Find your perfect ride. Explore Bratislava Highlights, Cross Border rides, gravel vineyard tours, and custom cycling experiences.">
 
-    <link rel="canonical" href="https://bikebratislava.com/tours.html">
+    <link rel="canonical" href="https://bikebratislava.com/tours">
 
     <!-- Favicons -->
     <link rel="icon" href="favicon.ico" sizes="32x32">
@@ -51,7 +51,7 @@
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://bikebratislava.com/tours.html">
+    <meta property="og:url" content="https://bikebratislava.com/tours">
     <meta property="og:title" content="Tours & Rides | Bike Bratislava">
     <meta property="og:description"
         content="Find your perfect ride. Explore Bratislava Highlights, Cross Border rides, gravel vineyard tours, and custom cycling experiences.">
@@ -59,7 +59,7 @@
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://bikebratislava.com/tours.html">
+    <meta property="twitter:url" content="https://bikebratislava.com/tours">
     <meta property="twitter:title" content="Tours & Rides | Bike Bratislava">
     <meta property="twitter:description"
         content="Find your perfect ride. Explore Bratislava Highlights, Cross Border rides, gravel vineyard tours, and custom cycling experiences.">
@@ -838,7 +838,7 @@
                                     <p class="text-stone-400 text-xs font-light leading-relaxed mb-5 editable">Pick what fits you
                                         above, then send it to our team &mdash; we'll shape the full itinerary around
                                         your ride.</p>
-                                    <a id="build-cta" href="contact.html?ride=Custom"
+                                    <a id="build-cta" href="contact?ride=Custom"
                                         class="inline-flex items-center justify-center gap-3 w-full px-9 py-4.5 bg-brand-luxeGold text-white text-[11px] font-semibold tracking-[0.25em] uppercase hover:bg-brand-luxeGoldDark transition-colors duration-300">
                                         <span>Plan This Ride</span><i data-lucide="arrow-right" class="w-4 h-4"></i>
                                     </a>
@@ -887,7 +887,7 @@
             <div class="grid grid-cols-1 md:grid-cols-5 gap-16 mb-20">
 
                 <div class="md:col-span-2">
-                    <a href="index.html" class="flex flex-col mb-6 group">
+                    <a href="./" class="flex flex-col mb-6 group">
                         <span class="font-serif text-2xl tracking-widest text-white transition-colors duration-300 editable">
                             BIKE BRATISLAVA
                         </span>
@@ -904,11 +904,11 @@
                 <div>
                     <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] text-white mb-6 editable">Explore</h4>
                     <ul class="space-y-4 text-xs font-light">
-                        <li><a href="index.html" class="hover:text-brand-luxeGold transition-colors">Home</a></li>
-                        <li><a href="about.html" class="hover:text-brand-luxeGold transition-colors">About Us</a></li>
-                        <li><a href="discover.html" class="hover:text-brand-luxeGold transition-colors">Discover
+                        <li><a href="./" class="hover:text-brand-luxeGold transition-colors">Home</a></li>
+                        <li><a href="about" class="hover:text-brand-luxeGold transition-colors">About Us</a></li>
+                        <li><a href="discover" class="hover:text-brand-luxeGold transition-colors">Discover
                                 Bratislava</a></li>
-                        <li><a href="tours.html" class="hover:text-brand-luxeGold transition-colors">Tours & Rides</a>
+                        <li><a href="tours" class="hover:text-brand-luxeGold transition-colors">Tours & Rides</a>
                         </li>
                     </ul>
                 </div>
@@ -916,10 +916,10 @@
                 <div>
                     <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] text-white mb-6 editable">Rides</h4>
                     <ul class="space-y-4 text-xs font-light">
-                        <li><a href="guides.html" class="hover:text-brand-luxeGold transition-colors">Our Guides</a>
+                        <li><a href="guides" class="hover:text-brand-luxeGold transition-colors">Our Guides</a>
                         </li>
-                        <li><a href="journal.html" class="hover:text-brand-luxeGold transition-colors">Journal</a></li>
-                        <li><a href="contact.html" class="hover:text-brand-luxeGold transition-colors">Contact</a></li>
+                        <li><a href="journal" class="hover:text-brand-luxeGold transition-colors">Journal</a></li>
+                        <li><a href="contact" class="hover:text-brand-luxeGold transition-colors">Contact</a></li>
                     </ul>
                 </div>
 
@@ -1086,7 +1086,7 @@
                         "description": t.desc,
                         "image": baseUrl + encodeURI(t.img),
                         "touristType": t.recom,
-                        "url": baseUrl + "tours.html"
+                        "url": baseUrl + "tours"
                     }
                 };
             });
@@ -1170,7 +1170,7 @@
                     </div>
 
                     <div class="pt-2 flex justify-end">
-                        <a href="contact.html?ride=${encodeURIComponent(data.title)}" class="px-10 py-4.5 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[10px] font-bold uppercase tracking-[0.2em] transition-all duration-300 rounded-none shadow-xl hover:shadow-2xl hover:-translate-y-1">
+                        <a href="contact?ride=${encodeURIComponent(data.title)}" class="px-10 py-4.5 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[10px] font-bold uppercase tracking-[0.2em] transition-all duration-300 rounded-none shadow-xl hover:shadow-2xl hover:-translate-y-1">
                             Book / Enquire
                         </a>
                     </div>
@@ -1346,7 +1346,7 @@
                 var el = document.querySelector('[data-group="' + g + '"].chip-active');
                 if (el) params.set(g, el.dataset.val);
             });
-            var href = 'contact.html?' + params.toString();
+            var href = 'contact?' + params.toString();
             ctas.forEach(function (cta) { cta.href = href; });
         }
 
