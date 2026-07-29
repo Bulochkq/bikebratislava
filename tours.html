@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth overflow-x-hidden">
 
 <head>
@@ -318,7 +318,7 @@
 
         .chip:hover {
             border-color: #E31C25;
-            color: #fff;
+            color: #E31C25;
         }
 
         .chip.chip-active {
@@ -586,7 +586,7 @@
         </div>
     </section>
 
-    <!-- SECTION: CATEGORY 3 -->
+    <!-- SECTION: CATEGORY 3 (Custom — interactive constructor) -->
     <section id="cat3" class="py-20 lg:py-28 border-b border-stone-200 relative bg-stone-200 overflow-hidden">
         <div class="absolute inset-0 z-0 bg-cover bg-center"
             style="background-image: url('pictures/texture-light.jpeg'); opacity: 0.35;">
@@ -595,143 +595,33 @@
             <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-stretch">
                 <div class="lg:order-1 scroll-reveal h-full flex">
                     <div class="aspect-[4/3] w-full h-full overflow-hidden relative shadow-2xl border border-white/20">
-                        <img loading="lazy" decoding="async" src="pictures/mtb-technical.jpeg"
-                            alt="Trail &amp; MTB Adventures" class="absolute inset-0 w-full h-full object-cover">
+                        <img loading="lazy" decoding="async" src="pictures/corporate-group.jpg"
+                            alt="Built Around Your Ride" class="absolute inset-0 w-full h-full object-cover">
                     </div>
                 </div>
                 <div
                     class="lg:order-2 scroll-reveal h-full flex flex-col justify-center bg-white/90 backdrop-blur-md border border-white/60 p-8 lg:p-12 shadow-2xl">
                     <span
                         class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-3 block editable">Category
-                        3</span>
-                    <h2 class="font-serif text-3xl md:text-5xl font-bold uppercase text-brand-luxeDark leading-tight editable">
-                        Trail &amp; MTB Adventures</h2>
+                        3 &middot; Custom Experiences</span>
+                    <h2 class="font-serif text-3xl md:text-5xl font-bold uppercase text-brand-luxeDark leading-tight editable">Built
+                        Around Your Ride</h2>
                     <p
                         class="text-stone-700 font-light text-sm md:text-base mt-5 leading-relaxed tracking-wide font-sans max-w-xl editable">
-                        For riders looking for more technical terrain, forest trails and off-road adventures. Explore
-                        the Little Carpathians and discover some of the best trail riding opportunities around
-                        Bratislava.</p>
-                    <button data-toggle="cat3" data-label="Explore the 4 tours" data-open-label="Hide"
+                        Looking for something unique? We create fully customised cycling experiences for individuals,
+                        groups, cycling clubs and corporate teams. From private city tours and wine experiences to
+                        multi-day cycling adventures, every detail can be tailored to your preferences.</p>
+                    <button data-toggle="cat3" data-label="Build Your Custom Ride" data-open-label="Hide builder"
                         aria-expanded="false" onclick="toggleCat('cat3')"
                         class="cat-toggle inline-flex items-center gap-3 mt-8 px-7 py-3.5 bg-brand-luxeGold text-white text-[11px] font-semibold tracking-[0.2em] uppercase hover:bg-brand-luxeGoldDark transition-colors duration-300 shadow-lg">
-                        <span class="toggle-label">Explore the 4 tours</span>
+                        <span class="toggle-label">Build Your Custom Ride</span>
                         <i data-lucide="chevron-down" class="w-4 h-4 cat-chevron transition-transform duration-300"></i>
                     </button>
                 </div>
             </div>
             <div id="cat3-panel" class="cat-panel">
                 <div class="cat-panel-inner">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 pt-14">
-                        <article
-                            class="group flex flex-col bg-white/90 backdrop-blur-md border border-white/60 p-4 transition-all duration-500 hover:-translate-y-2">
-                            <div class="aspect-[4/5] overflow-hidden relative bg-stone-200">
-                                <img loading="lazy" decoding="async" src="pictures/mtb-fast.jpeg"
-                                    alt="Forest Trails Explorer"
-                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
-                            </div>
-                            <div class="pt-4 flex-1">
-                                <h3 class="font-serif text-lg font-medium text-brand-luxeDark mb-2 leading-snug editable">Forest
-                                    Trails Explorer</h3>
-                                <p class="text-stone-700 font-light text-xs leading-relaxed font-sans editable">A fun
-                                    introduction to Bratislava's trail network.</p>
-                            </div>
-                            <button onclick="openModal('tour9')"
-                                class="mt-4 px-5 py-2 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:scale-105 shadow-md self-start">View
-                                Details</button>
-                        </article>
-                        <article
-                            class="group flex flex-col bg-white/90 backdrop-blur-md border border-white/60 p-4 transition-all duration-500 hover:-translate-y-2">
-                            <div class="aspect-[4/5] overflow-hidden relative bg-stone-200">
-                                <img loading="lazy" decoding="async" src="pictures/mtb-technical.jpeg"
-                                    alt="Little Carpathians MTB Ride"
-                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
-                            </div>
-                            <div class="pt-4 flex-1">
-                                <h3 class="font-serif text-lg font-medium text-brand-luxeDark mb-2 leading-snug editable">Little
-                                    Carpathians MTB Ride</h3>
-                                <p class="text-stone-700 font-light text-xs leading-relaxed font-sans editable">A guided mountain
-                                    bike adventure through forests, ridgelines and scenic viewpoints.</p>
-                            </div>
-                            <button onclick="openModal('tour10')"
-                                class="mt-4 px-5 py-2 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:scale-105 shadow-md self-start">View
-                                Details</button>
-                        </article>
-                        <article
-                            class="group flex flex-col bg-white/90 backdrop-blur-md border border-white/60 p-4 transition-all duration-500 hover:-translate-y-2">
-                            <div class="aspect-[4/5] overflow-hidden relative bg-stone-200">
-                                <img loading="lazy" decoding="async" src="pictures/mtb-pov.jpeg"
-                                    alt="Trail Discovery Experience"
-                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
-                            </div>
-                            <div class="pt-4 flex-1">
-                                <h3 class="font-serif text-lg font-medium text-brand-luxeDark mb-2 leading-snug editable">Trail
-                                    Discovery Experience</h3>
-                                <p class="text-stone-700 font-light text-xs leading-relaxed font-sans editable">A mix of flowing
-                                    singletracks, forest roads and local favourites.</p>
-                            </div>
-                            <button onclick="openModal('tour11')"
-                                class="mt-4 px-5 py-2 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:scale-105 shadow-md self-start">View
-                                Details</button>
-                        </article>
-                        <article
-                            class="group flex flex-col bg-white/90 backdrop-blur-md border border-white/60 p-4 transition-all duration-500 hover:-translate-y-2">
-                            <div class="aspect-[4/5] overflow-hidden relative bg-stone-200">
-                                <img loading="lazy" decoding="async" src="pictures/friends-group.jpeg"
-                                    alt="Custom MTB Adventure"
-                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
-                            </div>
-                            <div class="pt-4 flex-1">
-                                <h3 class="font-serif text-lg font-medium text-brand-luxeDark mb-2 leading-snug editable">Custom
-                                    MTB Adventure</h3>
-                                <p class="text-stone-700 font-light text-xs leading-relaxed font-sans editable">Tailor-made trail
-                                    rides adapted to your skill level and riding style.</p>
-                            </div>
-                            <button onclick="openModal('tour12')"
-                                class="mt-4 px-5 py-2 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:scale-105 shadow-md self-start">View
-                                Details</button>
-                        </article>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION: CATEGORY 4 (Custom — interactive constructor) -->
-    <section id="cat4" class="py-20 lg:py-28 bg-black text-white relative overflow-hidden">
-        <div class="absolute inset-0 z-0 bg-cover bg-center"
-            style="background-image: url('pictures/texture-asphalt.jpg'); opacity: 0.75;">
-        </div>
-        <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-stretch">
-                <div class="lg:order-2 scroll-reveal h-full flex">
-                    <div class="aspect-[4/3] w-full h-full overflow-hidden relative shadow-2xl border border-white/10">
-                        <img loading="lazy" decoding="async" src="pictures/corporate-group.jpg"
-                            alt="Built Around Your Ride" class="absolute inset-0 w-full h-full object-cover">
-                    </div>
-                </div>
-                <div
-                    class="lg:order-1 scroll-reveal h-full flex flex-col justify-center bg-black/60 backdrop-blur-md border border-white/10 p-8 lg:p-12 shadow-2xl">
-                    <span
-                        class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-3 block editable">Category
-                        4 &middot; Custom Experiences</span>
-                    <h2 class="font-serif text-3xl md:text-5xl font-bold uppercase text-white leading-tight editable">Built
-                        Around Your Ride</h2>
-                    <p
-                        class="text-stone-400 font-light text-sm md:text-base mt-5 leading-relaxed tracking-wide font-sans max-w-xl editable">
-                        Looking for something unique? We create fully customised cycling experiences for individuals,
-                        groups, cycling clubs and corporate teams. From private city tours and wine experiences to
-                        multi-day cycling adventures, every detail can be tailored to your preferences.</p>
-                    <button data-toggle="cat4" data-label="Build Your Custom Ride" data-open-label="Hide builder"
-                        aria-expanded="false" onclick="toggleCat('cat4')"
-                        class="cat-toggle inline-flex items-center gap-3 mt-8 px-7 py-3.5 bg-brand-luxeGold text-white text-[11px] font-semibold tracking-[0.2em] uppercase hover:bg-brand-luxeGoldDark transition-colors duration-300">
-                        <span class="toggle-label">Build Your Custom Ride</span>
-                        <i data-lucide="chevron-down" class="w-4 h-4 cat-chevron transition-transform duration-300"></i>
-                    </button>
-                </div>
-            </div>
-            <div id="cat4-panel" class="cat-panel">
-                <div class="cat-panel-inner">
-                    <div class="mt-14 bg-black/60 backdrop-blur-md border border-white/10 p-8 lg:p-12 shadow-2xl">
+                    <div class="mt-14 bg-white/90 backdrop-blur-md border border-white/60 p-8 lg:p-12 shadow-2xl">
                         <div class="grid lg:grid-cols-12 gap-10 lg:gap-12">
                             <div class="lg:col-span-7 xl:col-span-8 space-y-7">
                                 <div>
@@ -739,21 +629,21 @@
                                         class="block text-[10px] uppercase tracking-[0.25em] text-brand-luxeGold font-semibold mb-3 editable">Ride
                                         type</span>
                                     <div class="grid grid-cols-2 xl:grid-cols-4 gap-2.5">
-                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full" data-group="type" data-val="E-Bike &amp; Leisure" onclick="selectChip('type',this)">
+                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full !border-stone-300 !text-stone-600" data-group="type" data-val="E-Bike &amp; Leisure" onclick="selectChip('type',this)">
                                             <span class="block">E-Bike &amp; Leisure</span>
-                                            <span class="block text-[9px] text-white/50 font-light normal-case tracking-wide editable">City &amp; comfort bikes</span>
+                                            <span class="block text-[9px] text-stone-400 font-light normal-case tracking-wide editable">City &amp; comfort bikes</span>
                                         </button>
-                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full" data-group="type" data-val="Road &amp; Gravel" onclick="selectChip('type',this)">
+                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full !border-stone-300 !text-stone-600" data-group="type" data-val="Road &amp; Gravel" onclick="selectChip('type',this)">
                                             <span class="block">Road &amp; Gravel</span>
-                                            <span class="block text-[9px] text-white/50 font-light normal-case tracking-wide editable">Sport &amp; endurance</span>
+                                            <span class="block text-[9px] text-stone-400 font-light normal-case tracking-wide editable">Sport &amp; endurance</span>
                                         </button>
-                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full" data-group="type" data-val="Trail &amp; MTB" onclick="selectChip('type',this)">
-                                            <span class="block">Trail &amp; MTB</span>
-                                            <span class="block text-[9px] text-white/50 font-light normal-case tracking-wide editable">Off-road adventures</span>
-                                        </button>
-                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full" data-group="type" data-val="Mixed" onclick="selectChip('type',this)">
+                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full !border-stone-300 !text-stone-600" data-group="type" data-val="Mixed" onclick="selectChip('type',this)">
                                             <span class="block">Mixed</span>
-                                            <span class="block text-[9px] text-white/50 font-light normal-case tracking-wide editable">Various surfaces</span>
+                                            <span class="block text-[9px] text-stone-400 font-light normal-case tracking-wide editable">Various surfaces</span>
+                                        </button>
+                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full !border-stone-300 !text-stone-600" data-group="type" data-val="Other" onclick="selectChip('type',this)">
+                                            <span class="block">Other</span>
+                                            <span class="block text-[9px] text-stone-400 font-light normal-case tracking-wide editable">Tell us your idea</span>
                                         </button>
                                     </div>
                                 </div>
@@ -761,21 +651,21 @@
                                     <span
                                         class="block text-[10px] uppercase tracking-[0.25em] text-brand-luxeGold font-semibold mb-3 editable">Duration</span>
                                     <div class="grid grid-cols-2 xl:grid-cols-4 gap-2.5">
-                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full" data-group="duration" data-val="Half day" onclick="selectChip('duration',this)">
+                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full !border-stone-300 !text-stone-600" data-group="duration" data-val="Half day" onclick="selectChip('duration',this)">
                                             <span class="block">Half day</span>
-                                            <span class="block text-[9px] text-white/50 font-light normal-case tracking-wide editable">1-3 hours</span>
+                                            <span class="block text-[9px] text-stone-400 font-light normal-case tracking-wide editable">1-3 hours</span>
                                         </button>
-                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full" data-group="duration" data-val="Full day" onclick="selectChip('duration',this)">
+                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full !border-stone-300 !text-stone-600" data-group="duration" data-val="Full day" onclick="selectChip('duration',this)">
                                             <span class="block">Full day</span>
-                                            <span class="block text-[9px] text-white/50 font-light normal-case tracking-wide editable">3-6 hours</span>
+                                            <span class="block text-[9px] text-stone-400 font-light normal-case tracking-wide editable">3-6 hours</span>
                                         </button>
-                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full" data-group="duration" data-val="Extended" onclick="selectChip('duration',this)">
+                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full !border-stone-300 !text-stone-600" data-group="duration" data-val="Extended" onclick="selectChip('duration',this)">
                                             <span class="block">Extended</span>
-                                            <span class="block text-[9px] text-white/50 font-light normal-case tracking-wide editable">6-12 hours</span>
+                                            <span class="block text-[9px] text-stone-400 font-light normal-case tracking-wide editable">6-12 hours</span>
                                         </button>
-                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full" data-group="duration" data-val="Multi-day" onclick="selectChip('duration',this)">
+                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full !border-stone-300 !text-stone-600" data-group="duration" data-val="Multi-day" onclick="selectChip('duration',this)">
                                             <span class="block">Multi-day</span>
-                                            <span class="block text-[9px] text-white/50 font-light normal-case tracking-wide editable">2+ days</span>
+                                            <span class="block text-[9px] text-stone-400 font-light normal-case tracking-wide editable">2+ days</span>
                                         </button>
                                     </div>
                                 </div>
@@ -783,21 +673,21 @@
                                     <span
                                         class="block text-[10px] uppercase tracking-[0.25em] text-brand-luxeGold font-semibold mb-3 editable">Group</span>
                                     <div class="grid grid-cols-2 xl:grid-cols-4 gap-2.5">
-                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full" data-group="group" data-val="Solo" onclick="selectChip('group',this)">
+                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full !border-stone-300 !text-stone-600" data-group="group" data-val="Solo" onclick="selectChip('group',this)">
                                             <span class="block">Solo</span>
-                                            <span class="block text-[9px] text-white/50 font-light normal-case tracking-wide editable">1 person</span>
+                                            <span class="block text-[9px] text-stone-400 font-light normal-case tracking-wide editable">1 person</span>
                                         </button>
-                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full" data-group="group" data-val="Couple" onclick="selectChip('group',this)">
+                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full !border-stone-300 !text-stone-600" data-group="group" data-val="Couple" onclick="selectChip('group',this)">
                                             <span class="block">Couple</span>
-                                            <span class="block text-[9px] text-white/50 font-light normal-case tracking-wide editable">2 people</span>
+                                            <span class="block text-[9px] text-stone-400 font-light normal-case tracking-wide editable">2 people</span>
                                         </button>
-                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full" data-group="group" data-val="Small group" onclick="selectChip('group',this)">
+                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full !border-stone-300 !text-stone-600" data-group="group" data-val="Small group" onclick="selectChip('group',this)">
                                             <span class="block">Small group</span>
-                                            <span class="block text-[9px] text-white/50 font-light normal-case tracking-wide editable">3-6 people</span>
+                                            <span class="block text-[9px] text-stone-400 font-light normal-case tracking-wide editable">3-6 people</span>
                                         </button>
-                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full" data-group="group" data-val="Corporate" onclick="selectChip('group',this)">
+                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full !border-stone-300 !text-stone-600" data-group="group" data-val="Corporate" onclick="selectChip('group',this)">
                                             <span class="block">Corporate</span>
-                                            <span class="block text-[9px] text-white/50 font-light normal-case tracking-wide editable">7+ people</span>
+                                            <span class="block text-[9px] text-stone-400 font-light normal-case tracking-wide editable">7+ people</span>
                                         </button>
                                     </div>
                                 </div>
@@ -805,17 +695,17 @@
                                     <span
                                         class="block text-[10px] uppercase tracking-[0.25em] text-brand-luxeGold font-semibold mb-3 editable">Level</span>
                                     <div class="grid grid-cols-2 xl:grid-cols-3 gap-2.5">
-                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full" data-group="level" data-val="Easy" onclick="selectChip('level',this)">
+                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full !border-stone-300 !text-stone-600" data-group="level" data-val="Easy" onclick="selectChip('level',this)">
                                             <span class="block">Easy</span>
-                                            <span class="block text-[9px] text-white/50 font-light normal-case tracking-wide editable">Casual pace, mostly flat</span>
+                                            <span class="block text-[9px] text-stone-400 font-light normal-case tracking-wide editable">Casual pace, mostly flat</span>
                                         </button>
-                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full" data-group="level" data-val="Moderate" onclick="selectChip('level',this)">
+                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full !border-stone-300 !text-stone-600" data-group="level" data-val="Moderate" onclick="selectChip('level',this)">
                                             <span class="block">Moderate</span>
-                                            <span class="block text-[9px] text-white/50 font-light normal-case tracking-wide editable">Some hills, steady pace</span>
+                                            <span class="block text-[9px] text-stone-400 font-light normal-case tracking-wide editable">Some hills, steady pace</span>
                                         </button>
-                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full" data-group="level" data-val="Challenging" onclick="selectChip('level',this)">
+                                        <button class="chip flex flex-col items-start gap-1 text-left !px-4 !py-2.5 w-full !border-stone-300 !text-stone-600" data-group="level" data-val="Challenging" onclick="selectChip('level',this)">
                                             <span class="block">Challenging</span>
-                                            <span class="block text-[9px] text-white/50 font-light normal-case tracking-wide editable">Steep climbs, faster</span>
+                                            <span class="block text-[9px] text-stone-400 font-light normal-case tracking-wide editable">Steep climbs, faster</span>
                                         </button>
                                     </div>
                                 </div>
@@ -826,16 +716,16 @@
                                         class="block text-[10px] uppercase tracking-[0.25em] text-brand-luxeGold font-semibold mb-3 editable">Ideal
                                         for</span>
                                     <div class="grid grid-cols-2 gap-x-6 gap-y-2.5">
-                                        <span class="text-stone-400 text-xs font-light tracking-wide editable">Private groups</span>
-                                        <span class="text-stone-400 text-xs font-light tracking-wide editable">Cycling clubs</span>
-                                        <span class="text-stone-400 text-xs font-light tracking-wide editable">Corporate events</span>
-                                        <span class="text-stone-400 text-xs font-light tracking-wide editable">Team building</span>
-                                        <span class="text-stone-400 text-xs font-light tracking-wide editable">Multi-day holidays</span>
-                                        <span class="text-stone-400 text-xs font-light tracking-wide editable">Special occasions</span>
+                                        <span class="text-stone-600 text-xs font-light tracking-wide editable">Private groups</span>
+                                        <span class="text-stone-600 text-xs font-light tracking-wide editable">Cycling clubs</span>
+                                        <span class="text-stone-600 text-xs font-light tracking-wide editable">Corporate events</span>
+                                        <span class="text-stone-600 text-xs font-light tracking-wide editable">Team building</span>
+                                        <span class="text-stone-600 text-xs font-light tracking-wide editable">Multi-day holidays</span>
+                                        <span class="text-stone-600 text-xs font-light tracking-wide editable">Special occasions</span>
                                     </div>
                                 </div>
-                                <div class="bg-white/[0.03] border border-white/10 p-6">
-                                    <p class="text-stone-400 text-xs font-light leading-relaxed mb-5 editable">Pick what fits you
+                                <div class="bg-stone-100 border border-stone-300 p-6">
+                                    <p class="text-stone-600 text-xs font-light leading-relaxed mb-5 editable">Pick what fits you
                                         above, then send it to our team &mdash; we'll shape the full itinerary around
                                         your ride.</p>
                                     <a id="build-cta" href="contact?ride=Custom"
@@ -1033,38 +923,6 @@
                 keypoints: ["4 national boundaries in a day", "Border monuments and history", "Endurance pacing along rivers", "Celebration drinks in Bratislava"],
                 recom: "For passionate cyclists looking for longer distances.",
                 img: "pictures/four-countries.png"
-            },
-            tour9: {
-                title: "Forest Trails Explorer",
-                desc: "A fun introduction to Bratislava's trail network.",
-                dist: "25 km", elev: "400 m", dur: "3 hours", diff: "Moderate", bike: "MTB",
-                keypoints: ["Introduction to off-road trails", "Forest fire roads", "Local nature spots", "Basic technical sections"],
-                recom: "For riders looking for more technical terrain and off-road adventures.",
-                img: "pictures/mtb-fast.jpeg"
-            },
-            tour10: {
-                title: "Little Carpathians MTB Ride",
-                desc: "A guided mountain bike adventure through forests, ridgelines and scenic viewpoints.",
-                dist: "45 km", elev: "900 m", dur: "4.5 hours", diff: "Hard", bike: "MTB",
-                keypoints: ["Challenging steep climbs", "Technical rooty descents", "Deep forest immersion", "Mountain ridgeline panoramas"],
-                recom: "For riders looking for more technical terrain and off-road adventures.",
-                img: "pictures/mtb-technical.jpeg"
-            },
-            tour11: {
-                title: "Trail Discovery Experience",
-                desc: "A mix of flowing singletracks, forest roads and local favourites.",
-                dist: "30 km", elev: "600 m", dur: "3.5 hours", diff: "Moderate", bike: "MTB",
-                keypoints: ["Flowing singletracks", "Forest roads", "Local mountain bike favourites", "Technical skill improvement"],
-                recom: "For riders looking for more technical terrain and off-road adventures.",
-                img: "pictures/mtb-pov.jpeg"
-            },
-            tour12: {
-                title: "Custom MTB Adventure",
-                desc: "Tailor-made trail rides adapted to your skill level and riding style.",
-                dist: "Custom", elev: "Custom", dur: "Custom", diff: "Variable", bike: "MTB",
-                keypoints: ["Tailor-made routes", "Adapted to your skill level", "Custom riding style and pace", "Expert guiding"],
-                recom: "For riders looking for more technical terrain and off-road adventures.",
-                img: "pictures/friends-group.jpeg"
             }
         };
 
@@ -1191,7 +1049,7 @@
 
         // ===== Expandable categories =====
         function closeAllCats() {
-            ['cat1', 'cat2', 'cat3', 'cat4'].forEach(id => setCat(id, false));
+            ['cat1', 'cat2', 'cat3'].forEach(id => setCat(id, false));
             var closeBar = document.getElementById('mobile-cat-close-bar');
             if (closeBar) closeBar.classList.add('-translate-y-full');
             // smooth scroll back to the top of the categories if needed
@@ -1325,7 +1183,7 @@
                 setCat(id, true);
             }
         }
-        function openFromHash() { var h = location.hash.replace('#', ''); if (['cat1', 'cat2', 'cat3', 'cat4'].indexOf(h) > -1) openCat(h); }
+        function openFromHash() { var h = location.hash.replace('#', ''); if (['cat1', 'cat2', 'cat3'].indexOf(h) > -1) openCat(h); }
         window.addEventListener('hashchange', openFromHash);
         window.addEventListener('load', openFromHash);
 
