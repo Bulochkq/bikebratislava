@@ -586,10 +586,6 @@
                                     <option value="Little Carpathians Road Ride">Little Carpathians Road Ride</option>
                                     <option value="Gravel Through The Vineyards">Gravel Through The Vineyards</option>
                                     <option value="Four Countries Challenge">Four Countries Challenge</option>
-                                    <option value="Forest Trails Explorer">Forest Trails Explorer</option>
-                                    <option value="Little Carpathians MTB Ride">Little Carpathians MTB Ride</option>
-                                    <option value="Trail Discovery Experience">Trail Discovery Experience</option>
-                                    <option value="Custom MTB Adventure">Custom MTB Adventure</option>
                                     <option value="Custom Experience">Custom Experience</option>
                                 </select>
                                 <button type="button"
@@ -625,17 +621,6 @@
                                         data-value="Gravel Through The Vineyards">Gravel Through The Vineyards</div>
                                     <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300"
                                         data-value="Four Countries Challenge">Four Countries Challenge</div>
-
-                                    <!-- CATEGORY: TRAIL & MTB -->
-                                    <div class="px-5 py-2 text-[9px] font-bold tracking-[0.2em] text-red-600 uppercase bg-stone-50/80 border-y border-stone-100 cursor-default pointer-events-none mt-1">Trail & MTB</div>
-                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300"
-                                        data-value="Forest Trails Explorer">Forest Trails Explorer</div>
-                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300"
-                                        data-value="Little Carpathians MTB Ride">Little Carpathians MTB Ride</div>
-                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300"
-                                        data-value="Trail Discovery Experience">Trail Discovery Experience</div>
-                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300"
-                                        data-value="Custom MTB Adventure">Custom MTB Adventure</div>
 
                                     <!-- CATEGORY: CUSTOM -->
                                     <div class="px-5 py-2 text-[9px] font-bold tracking-[0.2em] text-red-600 uppercase bg-stone-50/80 border-y border-stone-100 cursor-default pointer-events-none mt-1">Custom</div>
@@ -1044,9 +1029,6 @@
 
             /* ---- Preferred ride type: short preview card (all options) ---- */
             const rideInfo = {
-                'Guided Tour (Leisure)': { img: 'pictures/bratislava-highlights.jpeg', desc: 'Relaxed, scenic riding at an easy pace with culture, history and coffee stops. Perfect for first-timers, couples and families.' },
-                'Guided Road Ride (Sportive)': { img: 'pictures/peloton.png', desc: 'A faster road ride on quiet tarmac for cyclists who want a proper workout and real distance.' },
-                'Guided Gravel Ride': { img: 'pictures/gravel-bike.png', desc: 'A mixed-surface adventure on gravel paths through forests and vineyards. Fun and a little wild.' },
                 'Custom Experience': { img: 'pictures/corporate-group.jpg', desc: 'Fully tailored to you — distance, pace, theme and stops built around your group.' },
                 'Bratislava Highlights Ride': { img: 'pictures/bratislava-highlights.jpeg', desc: "The city's historic centre, Danube waterfront and hidden local gems. About 15 km, easy." },
                 'Danube Discovery Tour': { img: 'pictures/danube-riders.jpeg', desc: "A scenic ride along one of Europe's great rivers. About 35 km, easy." },
@@ -1055,20 +1037,13 @@
                 'Cross Border Ride': { img: 'pictures/cyclists-sunset.jpg', desc: 'Cycle between Slovakia and Austria on scenic paths. About 60 km, moderate.' },
                 'Little Carpathians Road Ride': { img: 'pictures/road-cyclist-climb.jpg', desc: "Rolling terrain and some of the region's best climbs. About 90 km, hard." },
                 'Gravel Through The Vineyards': { img: 'pictures/gravel-bike.png', desc: 'Adventure, nature and wine country on gravel. About 50 km, moderate.' },
-                                'Four Countries Challenge': { img: 'pictures/four-countries.png', desc: 'Our signature endurance ride connecting four countries in a single day. About 120 km, hard.' },
-                'Forest Trails Explorer': { img: 'pictures/mtb-fast.jpeg', desc: "A fun introduction to Bratislava's trail network. About 25 km, moderate." },
-                'Little Carpathians MTB Ride': { img: 'pictures/mtb-technical.jpeg', desc: "A guided mountain bike adventure through forests, ridgelines and scenic viewpoints. About 45 km, hard." },
-                'Trail Discovery Experience': { img: 'pictures/mtb-pov.jpeg', desc: "A mix of flowing singletracks, forest roads and local favourites. About 30 km, moderate." },
-                'Custom MTB Adventure': { img: 'pictures/friends-group.jpeg', desc: "Tailor-made trail rides adapted to your skill level and riding style. Custom distance." }
+                'Four Countries Challenge': { img: 'pictures/four-countries.png', desc: 'Our signature endurance ride connecting four countries in a single day. About 120 km, hard.' }
             };
 
                         /* ---- Full tour details (for the "View more" modal, mirrors the Tours page) ---- */
             const recomLeisure = 'Perfect for travellers, couples, families and leisure riders.';
             const recomSport = 'For passionate cyclists looking for longer distances.';
             const rideDetails = {
-                'Guided Tour (Leisure)': { title: 'Leisure & E-Bike Tours', desc: 'Designed for visitors who want to explore Bratislava and its surroundings in a relaxed and enjoyable way. These guided rides combine culture, history, local stories and beautiful scenery.', dist: '15-40 km', elev: '0-200 m', dur: '2-4 hours', diff: 'Easy to Moderate', bike: 'E-Bike / City / Hybrid', keypoints: ['Scenic relaxed pace', 'Historical stops', 'Coffee & cake breaks', 'Photo opportunities'], recom: recomLeisure, img: 'pictures/bratislava-highlights.jpeg' },
-                'Guided Road Ride (Sportive)': { title: 'Road Cycling Experiences', desc: 'Created for passionate cyclists looking for longer distances, more demanding routes and unforgettable scenery. Ride alongside locals on their favorite tarmac routes.', dist: '60-120 km', elev: '500-1500 m', dur: '3-6 hours', diff: 'Hard', bike: 'Road Bike', keypoints: ['Pezinská Baba mountain climb', 'Austrian quiet roads', 'High-speed descents', 'Peloton experience'], recom: recomSport, img: 'pictures/peloton.png' },
-                'Guided Gravel Ride': { title: 'Gravel & Trail Adventures', desc: 'For riders looking for more technical terrain, forest trails and off-road adventures. Explore the Little Carpathians and hidden single tracks.', dist: '30-70 km', elev: '400-1000 m', dur: '3-5 hours', diff: 'Moderate to Hard', bike: 'Gravel / MTB', keypoints: ['Vineyard dirt paths', 'Forest trails', 'Technical descents', 'Nature escape'], recom: recomSport, img: 'pictures/gravel-bike.png' },
                 'Custom Experience': { title: 'Custom & Corporate Experiences', desc: 'Fully customised cycling experiences for individuals, groups, cycling clubs and corporate teams. We design the route, distance, pace and stops around your specific needs.', dist: 'Tailored', elev: 'Tailored', dur: 'Tailored', diff: 'Adapted to group', bike: 'Any', keypoints: ['Fully tailored route', 'Flexible starting time', 'Private dedicated guide', 'Custom food/drink stops'], recom: 'Perfect for team building, groups of friends, or cyclists with specific goals.', img: 'pictures/corporate-group.jpg' },
                 'Bratislava Highlights Ride': { title: 'Bratislava Highlights Tour', desc: "Discover the city's historic centre, the Danube waterfront and hidden local gems.", dist: '15 km', elev: '50 m', dur: '2.5 hours', diff: 'Easy', bike: 'City / Hybrid Bike', keypoints: ['Bratislava Castle park', 'Old Town historic squares', 'Danube river park view', 'Confluence spots & coffee'], recom: recomLeisure, img: 'pictures/bratislava-highlights.jpeg' },
                 'Danube Discovery Tour': { title: 'Danube Discovery Tour', desc: "Enjoy a scenic ride along one of Europe's most famous rivers.", dist: '35 km', elev: '20 m', dur: '3.5 hours', diff: 'Easy', bike: 'Hybrid / Gravel Bike', keypoints: ['Danubiana Meulensteen Art Museum', 'Water sports dike cycles', 'Bird-watching reservoirs', 'Riverside buffet breaks'], recom: recomLeisure, img: 'pictures/danube-riders.jpeg' },
@@ -1077,11 +1052,7 @@
                 'Cross Border Ride': { title: 'Cross Border Ride', desc: 'Cycle between Slovakia and Austria on scenic roads and cycle paths.', dist: '60 km', elev: '150 m', dur: '4 hours', diff: 'Moderate', bike: 'Road / Gravel Bike', keypoints: ['Austrian Kittsee castle paths', 'Former Iron Curtain cycle path', 'Hungarian border landscape trails', 'Danube bridge crossings'], recom: recomSport, img: 'pictures/cyclists-sunset.jpg' },
                 'Little Carpathians Road Ride': { title: 'Little Carpathians Road Ride', desc: "Rolling terrain, vineyard landscapes and some of the region's best cycling roads.", dist: '90 km', elev: '1,200 m', dur: '5 hours', diff: 'Hard', bike: 'Road Bike', keypoints: ['Pezinská Baba mountain climb', 'Quiet forest paved ascents', 'High-speed sweeping descents', 'Traditional coffee & pastry stops'], recom: recomSport, img: 'pictures/road-cyclist-climb.jpg' },
                 'Gravel Through The Vineyards': { title: 'Gravel Through The Vineyards', desc: 'A perfect combination of adventure, nature and local wine country.', dist: '50 km', elev: '600 m', dur: '4 hours', diff: 'Moderate', bike: 'Gravel / XC Mountain Bike', keypoints: ['Vineyard hillside gravel paths', 'Forest fire roads', 'Devínska Kobyla panorama', 'Fun single tracks'], recom: recomSport, img: 'pictures/gravel-bike.png' },
-                                'Four Countries Challenge': { title: 'Four Countries Challenge', desc: 'Our signature endurance experience connecting multiple countries in a single ride.', dist: '120 km', elev: '400 m', dur: '6 hours', diff: 'Hard', bike: 'Road Bike', keypoints: ['4 national boundaries in a day', 'Border monuments and history', 'Endurance pacing along rivers', 'Celebration drinks in Bratislava'], recom: recomSport, img: 'pictures/four-countries.png' },
-                'Forest Trails Explorer': { title: 'Forest Trails Explorer', desc: "A fun introduction to Bratislava's trail network.", dist: '25 km', elev: '400 m', dur: '3 hours', diff: 'Moderate', bike: 'MTB', keypoints: ['Introduction to off-road trails', 'Forest fire roads', 'Local nature spots', 'Basic technical sections'], recom: 'For riders looking for more technical terrain and off-road adventures.', img: 'pictures/mtb-fast.jpeg' },
-                'Little Carpathians MTB Ride': { title: 'Little Carpathians MTB Ride', desc: "A guided mountain bike adventure through forests, ridgelines and scenic viewpoints.", dist: '45 km', elev: '900 m', dur: '4.5 hours', diff: 'Hard', bike: 'MTB', keypoints: ['Challenging steep climbs', 'Technical rooty descents', 'Deep forest immersion', 'Mountain ridgeline panoramas'], recom: 'For riders looking for more technical terrain and off-road adventures.', img: 'pictures/mtb-technical.jpeg' },
-                'Trail Discovery Experience': { title: 'Trail Discovery Experience', desc: "A mix of flowing singletracks, forest roads and local favourites.", dist: '30 km', elev: '600 m', dur: '3.5 hours', diff: 'Moderate', bike: 'MTB', keypoints: ['Flowing singletracks', 'Forest roads', 'Local mountain bike favourites', 'Technical skill improvement'], recom: 'For riders looking for more technical terrain and off-road adventures.', img: 'pictures/mtb-pov.jpeg' },
-                'Custom MTB Adventure': { title: 'Custom MTB Adventure', desc: "Tailor-made trail rides adapted to your skill level and riding style.", dist: 'Custom', elev: 'Custom', dur: 'Custom', diff: 'Variable', bike: 'MTB', keypoints: ['Tailor-made routes', 'Adapted to your skill level', 'Custom riding style and pace', 'Expert guiding'], recom: 'For riders looking for more technical terrain and off-road adventures.', img: 'pictures/friends-group.jpeg' }
+                'Four Countries Challenge': { title: 'Four Countries Challenge', desc: 'Our signature endurance experience connecting multiple countries in a single ride.', dist: '120 km', elev: '400 m', dur: '6 hours', diff: 'Hard', bike: 'Road Bike', keypoints: ['4 national boundaries in a day', 'Border monuments and history', 'Endurance pacing along rivers', 'Celebration drinks in Bratislava'], recom: recomSport, img: 'pictures/four-countries.png' }
             };
 
             const rideSel = document.getElementById('ride-type');
