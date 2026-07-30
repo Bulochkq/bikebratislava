@@ -1,0 +1,15 @@
+/*
+Theme Name: Bike Bratislava
+Theme URI: https://bikebratislava.com/
+Author: Bike Bratislava
+Description: Власна тема для Bike Bratislava — перенесення існуючого статичного дизайну в WordPress без візуальних змін. Стилі збираються Tailwind CLI у assets/css, цей файл потрібен лише як паспорт теми.
+Version: 0.1.0
+Requires at least: 6.5
+Requires PHP: 8.1
+License: Proprietary
+Text Domain: bikebratislava
+*/
+
+/* Реальні стилі підключаються з assets/ через functions.php.
+   Тримати правила тут не треба — цей файл WordPress читає лише заради
+   заголовка вище. */

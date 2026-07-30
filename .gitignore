@@ -4,3 +4,9 @@ teambuilding-Velocity-main/
 Thumbs.db
 *.log
 *.tmp
+
+# Медіа в темі — це робоча копія кореневої папки pictures/, яка вже є в git.
+# Другий раз 219 МБ у репозиторій не кладемо. Контентні фото згодом переїдуть
+# у медіатеку WordPress, а структурні (текстури, фони) закомітимо після
+# стискання — пункт 5.1 у CHECKLIST.md.
+wp-theme/bikebratislava/assets/pictures/
