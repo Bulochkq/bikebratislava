@@ -66,6 +66,7 @@ JS;
 }
 
 function bb_theme_setup() {
+    add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
     add_theme_support('html5', array('style', 'script'));
     register_nav_menus(array(
@@ -90,3 +91,17 @@ function bb_clean_head() {
     remove_action('wp_print_styles', 'print_emoji_styles');
 }
 add_action('init', 'bb_clean_head');
+
+// Типи записів: тури й гіди.
+require_once get_template_directory() . '/inc/cpt.php';
+
+// Поля для адмінки. Один файл — щоб назви полів не розходились із шаблонами.
+require_once get_template_directory() . '/inc/acf-fields.php';
+
+/*
+ * Одноразові скрипти імпорту (import-tours, import-guides, create-pages,
+ * fix-images, migrate-data) видалені. Вони спрацьовували на кожному заході
+ * в адмінку за GET-параметром без перевірки прав і разових ключів, тобто
+ * будь-який залогінений користувач міг ними скористатися. Свою роботу вони
+ * вже виконали — тури, гіди й сторінки лежать у базі.
+ */
