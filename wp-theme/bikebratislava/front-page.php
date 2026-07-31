@@ -1,4 +1,4 @@
-﻿<?php get_header(); ?>
+<?php get_header(); ?>
 
     <!-- SECTION 1: HERO (local looping cyclist video playlist) -->
     <section class="relative min-h-screen flex items-center justify-center bg-brand-luxeDark overflow-hidden">
@@ -17,18 +17,18 @@
 
             
             <h1 class="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.1] md:leading-[1.05] mb-4 md:mb-6 opacity-0 fade-in-up animation-delay-200 text-white uppercase editable">
-                Discover Bratislava</h1>
-            <span class="font-sans font-black tracking-widest text-brand-luxeGold text-2xl md:text-4xl lg:text-5xl block mt-4 editable">Explore The Heart of Central Europe</span>
+                <?php echo esc_html(get_field('hero_title') ?: 'Discover Bratislava'); ?></h1>
+            <span class="font-sans font-black tracking-widest text-brand-luxeGold text-2xl md:text-4xl lg:text-5xl block mt-4 editable">    <?php echo esc_html(get_field('hero_subtitle') ?: 'Explore The Heart of Central Europe'); ?></span>
             
             <p class="max-w-2xl text-stone-400 text-xs sm:text-sm md:text-base xl:text-lg font-light leading-relaxed mb-8 md:mb-12 opacity-0 fade-in-up animation-delay-400 tracking-wide font-sans editable">
-                Experience one of Europe’s most surprising cycling destinations. Ride through historic streets, riverside landscapes, vineyards and scenic countryside with our local ride leaders who know the region best.
+                <?php echo esc_html(get_field('hero_text') ?: 'Experience one of Europe’s most surprising cycling destinations. Ride through historic streets, riverside landscapes, vineyards and scenic countryside with our local ride leaders who know the region best.'); ?>
             </p>
             
             <div class="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6 opacity-0 fade-in-up animation-delay-400">
-                <a href="tours" class="w-52 text-center px-10 py-5 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white font-medium text-[11px] tracking-[0.25em] uppercase transition-all duration-300 rounded-none">
+                <a href="<?php echo esc_url(home_url('/tours/')); ?>" class="w-52 text-center px-10 py-5 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white font-medium text-[11px] tracking-[0.25em] uppercase transition-all duration-300 rounded-none">
                     Explore Our Tours
                 </a>
-                <a href="contact" class="w-52 text-center px-10 py-5 border border-white/20 hover:bg-white hover:text-brand-luxeDark text-white font-medium text-[11px] tracking-[0.25em] uppercase transition-all duration-300 rounded-none">
+                <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="w-52 text-center px-10 py-5 border border-white/20 hover:bg-white hover:text-brand-luxeDark text-white font-medium text-[11px] tracking-[0.25em] uppercase transition-all duration-300 rounded-none">
                     Plan Your Ride
                 </a>
             </div>
@@ -141,74 +141,65 @@
                 <div class="h-[1px] w-12 bg-brand-luxeGold mx-auto mt-6"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12">
-                
-                <!-- Card 1 -->
+            <?php
+            $bb_categories = get_terms(array(
+                'taxonomy'   => 'tour_category',
+                'hide_empty' => false,
+            ));
+            if (!is_wp_error($bb_categories) && $bb_categories) :
+                // Колонки підлаштовуються під кількість категорій, щоб
+                // четверта не з'їжджала в окремий рядок сама.
+                $bb_cols = (count($bb_categories) % 4 === 0) ? 'lg:grid-cols-4' : 'lg:grid-cols-3';
+            ?>
+            <div class="grid grid-cols-1 md:grid-cols-2 <?php echo $bb_cols; ?> gap-10 lg:gap-12">
+                <?php
+                $bb_n = 0;
+                foreach ($bb_categories as $bb_cat) :
+                    $bb_n++;
+                    // Фото картки — зображення першого туру в категорії.
+                    $bb_img = get_template_directory_uri() . '/assets/pictures/coffee-break.jpg';
+                    $bb_first = new WP_Query(array(
+                        'post_type'      => 'tour',
+                        'posts_per_page' => 1,
+                        'orderby'        => 'menu_order date',
+                        'order'          => 'ASC',
+                        'tax_query'      => array(array(
+                            'taxonomy' => 'tour_category',
+                            'field'    => 'term_id',
+                            'terms'    => $bb_cat->term_id,
+                        )),
+                    ));
+                    if ($bb_first->have_posts()) {
+                        $bb_first->the_post();
+                        if (has_post_thumbnail()) {
+                            $bb_img = get_the_post_thumbnail_url(get_the_ID(), 'large');
+                        }
+                    }
+                    wp_reset_postdata();
+                ?>
                 <div class="group bg-white flex flex-col justify-between transition-all duration-500 rounded-none scroll-reveal border border-red-600/30 hover:border-red-600/70 hover:shadow-2xl">
                     <div>
                         <div class="aspect-square overflow-hidden relative">
-                            <img loading="lazy" decoding="async" src="<?php echo get_template_directory_uri(); ?>/assets/pictures/coffee-break.jpg" alt="E-Bike & Leisure Tours" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                            <img loading="lazy" decoding="async" src="<?php echo esc_url($bb_img); ?>" alt="<?php echo esc_attr($bb_cat->name); ?>" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
                             <div class="absolute top-4 left-4 bg-brand-luxeDark text-white text-[9px] tracking-[0.25em] uppercase font-medium py-1 px-3 border border-brand-luxeGold/25">
-                                Category 1
+                                Category <?php echo $bb_n; ?>
                             </div>
                         </div>
                         <div class="pt-6 pb-2 px-5 lg:px-6">
-                            <h3 class="font-serif text-2xl font-light text-brand-luxeDark mb-4 editable">E-Bike & Leisure Tours</h3>
-                            <p class="text-stone-600 font-light text-xs leading-relaxed font-sans tracking-wide editable">
-                                Designed for visitors who want to explore Bratislava and its surroundings in a relaxed and enjoyable way.
+                            <h3 class="font-serif text-2xl font-light text-brand-luxeDark mb-4"><?php echo esc_html($bb_cat->name); ?></h3>
+                            <p class="text-stone-600 font-light text-xs leading-relaxed font-sans tracking-wide">
+                                <?php echo esc_html($bb_cat->description); ?>
                             </p>
                         </div>
                     </div>
                     <div class="pb-6 pt-0 px-5 lg:px-6">
-                        <a href="tours#cat1" class="inline-flex items-center justify-center bg-red-600 text-white px-8 py-3.5 text-[10px] font-bold tracking-[0.25em] uppercase hover:bg-stone-900 transition-colors duration-300 rounded-none w-max">Learn More</a>
+                        <?php // Секції на сторінці турів мають id cat1/cat2/cat3 — до них прив'язана логіка розкриття панелей. ?>
+                        <a href="<?php echo esc_url(home_url('/tours/#cat' . $bb_n)); ?>" class="inline-flex items-center justify-center bg-red-600 text-white px-8 py-3.5 text-[10px] font-bold tracking-[0.25em] uppercase hover:bg-stone-900 transition-colors duration-300 rounded-none w-max">Learn More</a>
                     </div>
                 </div>
-
-                <!-- Card 2 -->
-                <div class="group bg-white flex flex-col justify-between transition-all duration-500 rounded-none scroll-reveal border border-red-600/30 hover:border-red-600/70 hover:shadow-2xl">
-                    <div>
-                        <div class="aspect-square overflow-hidden relative">
-                            <img loading="lazy" decoding="async" src="<?php echo get_template_directory_uri(); ?>/assets/pictures/peloton.png" alt="Road & Gravel" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
-                            <div class="absolute top-4 left-4 bg-brand-luxeDark text-white text-[9px] tracking-[0.25em] uppercase font-medium py-1 px-3 border border-brand-luxeGold/25">
-                                Category 2
-                            </div>
-                        </div>
-                        <div class="pt-6 pb-2 px-5 lg:px-6">
-                            <h3 class="font-serif text-2xl font-light text-brand-luxeDark mb-4 editable">Road & Gravel Cycling Experiences</h3>
-                            <p class="text-stone-600 font-light text-xs leading-relaxed font-sans tracking-wide editable">
-                                Created for passionate cyclists looking for longer distances, more demanding routes and unforgettable scenery.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="pb-6 pt-0 px-5 lg:px-6">
-                        <a href="tours#cat2" class="inline-flex items-center justify-center bg-red-600 text-white px-8 py-3.5 text-[10px] font-bold tracking-[0.25em] uppercase hover:bg-stone-900 transition-colors duration-300 rounded-none w-max">Learn More</a>
-                    </div>
-                </div>
-
-
-
-                <!-- Card 3 -->
-                <div class="group bg-white flex flex-col justify-between transition-all duration-500 rounded-none scroll-reveal border border-red-600/30 hover:border-red-600/70 hover:shadow-2xl">
-                    <div>
-                        <div class="aspect-square overflow-hidden relative">
-                            <img loading="lazy" decoding="async" src="<?php echo get_template_directory_uri(); ?>/assets/pictures/corporate-group.jpg" alt="Custom Experiences" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
-                            <div class="absolute top-4 left-4 bg-brand-luxeDark text-white text-[9px] tracking-[0.25em] uppercase font-medium py-1 px-3 border border-brand-luxeGold/25">
-                                Category 3
-                            </div>
-                        </div>
-                        <div class="pt-6 pb-2 px-5 lg:px-6">
-                            <h3 class="font-serif text-2xl font-light text-brand-luxeDark mb-4 editable">Custom Experiences</h3>
-                            <p class="text-stone-600 font-light text-xs leading-relaxed font-sans tracking-wide editable">
-                                Fully customised cycling experiences for individuals, groups, cycling clubs and corporate teams.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="pb-6 pt-0 px-5 lg:px-6">
-                        <a href="tours#cat3" class="inline-flex items-center justify-center bg-red-600 text-white px-8 py-3.5 text-[10px] font-bold tracking-[0.25em] uppercase hover:bg-stone-900 transition-colors duration-300 rounded-none w-max">Enquire Now</a>
-                    </div>
-                </div>
-
+                <?php endforeach; ?>
             </div>
+            <?php endif; ?>
         </div>
     </section>
 
@@ -235,7 +226,7 @@
                         </p>
                     </div>
 
-                    <a href="guides" class="inline-flex items-center justify-center px-10 py-4 bg-brand-luxeDark hover:bg-brand-luxeDark/90 text-white font-medium text-[11px] tracking-[0.25em] uppercase transition-all duration-300 rounded-none border border-stone-800">
+                    <a href="<?php echo esc_url(home_url('/guides/')); ?>" class="inline-flex items-center justify-center px-10 py-4 bg-brand-luxeDark hover:bg-brand-luxeDark/90 text-white font-medium text-[11px] tracking-[0.25em] uppercase transition-all duration-300 rounded-none border border-stone-800">
                         Meet The Team
                     </a>
                 </div>
@@ -297,7 +288,7 @@
             <p class="text-stone-300 font-light text-sm md:text-base max-w-xl mx-auto leading-relaxed mb-12 tracking-wide font-sans editable">
                 Tell us when you're visiting Bratislava and we'll help you find the perfect ride.
             </p>
-            <a href="contact" class="inline-flex items-center justify-center px-12 py-5 bg-white hover:bg-brand-luxeGold hover:text-white text-brand-luxeDark font-medium text-[11px] tracking-[0.25em] uppercase transition-all duration-300 rounded-none shadow-2xl border border-white hover:border-brand-luxeGold">
+            <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="inline-flex items-center justify-center px-12 py-5 bg-white hover:bg-brand-luxeGold hover:text-white text-brand-luxeDark font-medium text-[11px] tracking-[0.25em] uppercase transition-all duration-300 rounded-none shadow-2xl border border-white hover:border-brand-luxeGold">
                 Go to Inquiry Form
             </a>
         </div>

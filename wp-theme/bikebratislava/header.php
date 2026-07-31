@@ -87,7 +87,7 @@
             transition: color 0.2s ease;
         }
 
-        /* Parallax texture backgrounds â€” uses inner wrapper with translateY */
+        /* Parallax texture backgrounds — uses inner wrapper with translateY */
         .parallax-section {
             position: relative;
             overflow: hidden;
@@ -192,7 +192,7 @@
                 </div>
             </a>
 
-            <!-- Desktop Navigation â€” compact at 1280px, full at 1440px+ -->
+            <!-- Desktop Navigation — compact at 1280px, full at 1440px+ -->
             <nav class="hidden xl:flex items-center gap-1.5 xl:gap-2 2xl:gap-6 flex-1 justify-center">
                 <a href="<?php echo home_url('/'); ?>"
                     class="nav-link text-[10px] 2xl:text-xs font-medium tracking-[0.1em] 2xl:tracking-[0.25em] uppercase text-white hover:text-brand-luxeGold transition-colors duration-300 whitespace-nowrap py-1 border-b border-transparent hover:border-brand-luxeGold/40">Home</a>
@@ -287,7 +287,7 @@
                         class="font-serif text-3xl text-stone-400 group-hover:text-brand-luxeGold transition-colors duration-200">Discover</span>
                 </a>
 
-                <!-- Tours & Rides â€” expandable so sub-categories are reachable on mobile -->
+                <!-- Tours & Rides — expandable so sub-categories are reachable on mobile -->
                 <div class="menu-nav-item w-full">
                     <button id="mobile-tours-toggle" type="button" aria-expanded="false"
                         class="mobile-nav-link group flex items-center gap-5 py-3 px-4 w-full text-left focus:outline-none">

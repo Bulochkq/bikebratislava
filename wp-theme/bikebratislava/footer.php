@@ -69,7 +69,7 @@
     </footer>
     <script>
 
-        // 4. Parallax scroll effect for backgrounds (translateY on inner wrapper â€” no white edge bleed)
+        // 4. Parallax scroll effect for backgrounds (translateY on inner wrapper — no white edge bleed)
         function updateParallax() {
             if (window.innerWidth <= 768) {
                 // Reset transforms on mobile so the hero video and backgrounds don't stay
