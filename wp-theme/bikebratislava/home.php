@@ -1,235 +1,215 @@
-<!-- Articles Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 xl:gap-24">
-                <?php
-                if (have_posts()) :
-                    while (have_posts()) : the_post();
-                        $cat_names = array();
-                        $categories = get_the_category();
-                        if ( ! empty( $categories ) ) {
-                            foreach( $categories as $category ) {
-                                $cat_names[] = $category->name;
-                            }
-                        }
-                        $cat_string = implode(', ', $cat_names);
-                        $primary_cat = !empty($cat_names) ? $cat_names[0] : '';
-                        $img_url = has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'large') : get_template_directory_uri() . '/assets/pictures/cyclists-sunset.jpg';
-                ?>
-                <!-- Article -->
-                <article class="group flex flex-col justify-between scroll-reveal border border-brand-luxeGold/20 bg-white/50 backdrop-blur-sm p-4 shadow-sm hover:shadow-md hover:border-brand-luxeGold/40 transition-all" data-category="<?php echo esc_attr($primary_cat); ?>">
-                    <div>
-                        <div class="aspect-[4/3] md:aspect-[3/2] lg:aspect-[4/3] overflow-hidden mb-6">
-                            <img loading="lazy" decoding="async" src="<?php echo esc_url($img_url); ?>" alt="<?php the_title_attribute(); ?>" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
-                        </div>
-                        <span class="text-[9px] font-bold tracking-[0.2em] text-brand-luxeGold uppercase font-sans"><?php echo esc_html($cat_string); ?></span>
-                        <h3 class="font-serif text-3xl font-light text-brand-luxeDark mt-3 mb-3 group-hover:text-brand-luxeGold transition-colors"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-                        <div class="text-stone-500 font-light text-xs leading-relaxed mb-6 font-sans tracking-wide">
-                            <?php the_excerpt(); ?>
-                        </div>
-                    </div>
-                    <div>
-                        <a href="<?php the_permalink(); ?>" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-brand-luxeGold text-white text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-brand-luxeGoldDark transition-all duration-300 shadow-sm">
-                            <span>Read Article</span>
-                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"></i>
-                        </a>
-                    </div>
-                </article>
-                <?php
-                    endwhile;
-                else:
-                    echo '<p>No stories found.</p>';
-                endif;
-                ?>
-            </div>
-            </div>
+<?php
+/**
+ * Сторінка «Journal» — стрічка записів.
+ *
+ * WordPress використовує цей шаблон для сторінки, вибраної в
+ * Nastavenia → Čítanie як сторінка записів. Статті — звичайні записи,
+ * фільтри згори будуються з рубрик, у яких є записи.
+ */
+get_header();
+?>
+    <style>
+        html.lenis, html.lenis body {
+            height: auto;
+        }
+        .lenis.lenis-smooth {
+            scroll-behavior: auto !important;
+        }
+        .lenis.lenis-smooth [data-lenis-prevent] {
+            overscroll-behavior: contain;
+        }
+        .lenis.lenis-stopped {
+            overflow: hidden;
+        }
+        .lenis.lenis-scrolling iframe {
+            pointer-events: none;
+        }
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 xl:gap-24">
-                <!-- Article 1 -->
-                <article class="group flex flex-col justify-between scroll-reveal border border-brand-luxeGold/20 bg-white/50 backdrop-blur-sm p-4 shadow-sm hover:shadow-md hover:border-brand-luxeGold/40 transition-all" data-category="Cycling Routes">
-                    <div>
-                        <div class="aspect-[4/3] md:aspect-[3/2] lg:aspect-[4/3] overflow-hidden mb-6">
-                            <img loading="lazy" decoding="async" src="<?php echo get_template_directory_uri(); ?>/assets/pictures/cyclists-sunset.jpg" alt="Iron Curtain cycle path slovakia road" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
-                        </div>
-                        <span class="text-[9px] font-bold tracking-[0.2em] text-brand-luxeGold uppercase font-sans editable">Cycling Routes</span>
-                        <h3 class="font-serif text-3xl font-light text-brand-luxeDark mt-3 mb-3 group-hover:text-brand-luxeGold transition-colors editable">Riding the Iron Curtain Trail</h3>
-                        <p class="text-stone-500 font-light text-xs leading-relaxed mb-6 font-sans tracking-wide editable">A comprehensive guide to tracing history and crossing border checkpoints along the former Austrian-Slovak border on two wheels.</p>
-                    </div>
-                    <div>
-                        <button onclick="openArticleModal('ironcurtain')" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-brand-luxeGold text-white text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-brand-luxeGoldDark transition-all duration-300 shadow-sm">
-                            <span>Read Article</span>
-                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"></i>
-                        </button>
-                    </div>
-                </article>
+        .fade-in-up {
+            animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animation-delay-200 { animation-delay: 200ms; }
+        .animation-delay-400 { animation-delay: 400ms; }
+        
+        /* Smooth transitions for smart hidden header */
+        #main-header {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.4s ease, padding 0.4s ease;
+        }
 
-                <!-- Article 2 -->
-                <article class="group flex flex-col justify-between scroll-reveal border border-brand-luxeGold/20 bg-white/50 backdrop-blur-sm p-4 shadow-sm hover:shadow-md hover:border-brand-luxeGold/40 transition-all" data-category="Wine & Culture">
-                    <div>
-                        <div class="aspect-[4/3] md:aspect-[3/2] lg:aspect-[4/3] overflow-hidden mb-6">
-                            <img loading="lazy" decoding="async" src="<?php echo get_template_directory_uri(); ?>/assets/pictures/vineyard-ride.png" alt="Autumn harvest in vineyards slovakia" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
-                        </div>
-                        <span class="text-[9px] font-bold tracking-[0.2em] text-brand-luxeGold uppercase font-sans editable">Wine & Culture</span>
-                        <h3 class="font-serif text-3xl font-light text-brand-luxeDark mt-3 mb-3 group-hover:text-brand-luxeGold transition-colors editable">Harvest Season in Svätý Jur</h3>
-                        <p class="text-stone-500 font-light text-xs leading-relaxed mb-6 font-sans tracking-wide editable">What it's like to ride through grape-filled hills during autumn harvests and taste wines at historic family-run cellars.</p>
-                    </div>
-                    <div>
-                        <button onclick="openArticleModal('svatyjur')" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-brand-luxeGold text-white text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-brand-luxeGoldDark transition-all duration-300 shadow-sm">
-                            <span>Read Article</span>
-                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"></i>
-                        </button>
-                    </div>
-                </article>
+        /* Mobile menu overlay */
+        #mobile-menu {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.45s ease;
+        }
+        #mobile-menu.is-open {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        #mobile-menu .menu-nav-item {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16,1,0.3,1), color 0.2s ease;
+        }
+        #mobile-menu.is-open .menu-nav-item:nth-child(1) { opacity:1; transform:translateY(0); transition-delay:0.08s; }
+        #mobile-menu.is-open .menu-nav-item:nth-child(2) { opacity:1; transform:translateY(0); transition-delay:0.14s; }
+        #mobile-menu.is-open .menu-nav-item:nth-child(3) { opacity:1; transform:translateY(0); transition-delay:0.20s; }
+        #mobile-menu.is-open .menu-nav-item:nth-child(4) { opacity:1; transform:translateY(0); transition-delay:0.26s; }
+        #mobile-menu.is-open .menu-nav-item:nth-child(5) { opacity:1; transform:translateY(0); transition-delay:0.32s; }
+        #mobile-menu.is-open .menu-nav-item:nth-child(6) { opacity:1; transform:translateY(0); transition-delay:0.38s; }
+        #mobile-menu.is-open .menu-nav-item:nth-child(7) { opacity:1; transform:translateY(0); transition-delay:0.44s; }
+        #mobile-menu .menu-footer {
+            opacity: 0;
+            transform: translateY(14px);
+            transition: opacity 0.4s ease 0.5s, transform 0.4s ease 0.5s;
+        }
+        #mobile-menu.is-open .menu-footer {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Parallax texture backgrounds — uses inner wrapper with translateY */
+        .parallax-section {
+            position: relative;
+            overflow: hidden;
+        }
+        .parallax-bg {
+            position: absolute;
+            inset: -20% 0;
+            background-size: cover;
+            background-position: center;
+            will-change: transform;
+            z-index: 0;
+        }
+        .parallax-section > *:not(.parallax-bg) {
+            position: relative;
+            z-index: 1;
+        }
+                        .parallax-bg.concrete {
+            background-color: #fdfbfb;
+            background-image: 
+                radial-gradient(at 40% 20%, hsla(28,100%,74%,0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 0%, hsla(189,100%,56%,0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 50%, hsla(355,100%,93%,0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 50%, hsla(340,100%,76%,0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, hsla(22,100%,77%,0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 100%, hsla(242,100%,70%,0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 0%, hsla(343,100%,76%,0.15) 0px, transparent 50%);
+        }
+                .parallax-bg.asphalt {
+            background-color: #0A0A0A;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('<?php echo get_template_directory_uri(); ?>/assets/pictures/texture-asphalt.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .parallax-bg.dark-minimal {
+            background-color: #0A0A0A;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('<?php echo get_template_directory_uri(); ?>/assets/pictures/bg-minimal-1.jpeg');
+            background-size: cover;
+            background-position: center;
+        }
+        /* Legacy: concrete-bg as section bg for guides card row */
+                        .concrete-bg-inline {
+            background-color: #fdfbfb;
+            background-image: 
+                radial-gradient(at 40% 20%, hsla(28,100%,74%,0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 0%, hsla(189,100%,56%,0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 50%, hsla(355,100%,93%,0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 50%, hsla(340,100%,76%,0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, hsla(22,100%,77%,0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 100%, hsla(242,100%,70%,0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 0%, hsla(343,100%,76%,0.15) 0px, transparent 50%);
+        }
+    </style>
 
-                <!-- Article 3 -->
-                <article class="group flex flex-col justify-between scroll-reveal border border-brand-luxeGold/20 bg-white/50 backdrop-blur-sm p-4 shadow-sm hover:shadow-md hover:border-brand-luxeGold/40 transition-all" data-category="Travel Tips">
-                    <div>
-                        <div class="aspect-[4/3] md:aspect-[3/2] lg:aspect-[4/3] overflow-hidden mb-6">
-                            <img loading="lazy" decoding="async" src="<?php echo get_template_directory_uri(); ?>/assets/pictures/danube-riders.jpeg" alt="Vienna to Bratislava route path" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
-                        </div>
-                        <span class="text-[9px] font-bold tracking-[0.2em] text-brand-luxeGold uppercase font-sans editable">Travel Tips</span>
-                        <h3 class="font-serif text-3xl font-light text-brand-luxeDark mt-3 mb-3 group-hover:text-brand-luxeGold transition-colors editable">Vienna to Bratislava by Bike</h3>
-                        <p class="text-stone-500 font-light text-xs leading-relaxed mb-6 font-sans tracking-wide editable">Everything you need to know about riding paths, wind directions, gears, and best sightseeing stops along EuroVelo 6.</p>
-                    </div>
-                    <div>
-                        <button onclick="openArticleModal('viennatobratislava')" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-brand-luxeGold text-white text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-brand-luxeGoldDark transition-all duration-300 shadow-sm">
-                            <span>Read Article</span>
-                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"></i>
-                        </button>
-                    </div>
-                </article>
 
-                <!-- Article 4 -->
-                <article class="group flex flex-col justify-between scroll-reveal border border-brand-luxeGold/20 bg-white/50 backdrop-blur-sm p-4 shadow-sm hover:shadow-md hover:border-brand-luxeGold/40 transition-all" data-category="Bikepacking">
-                    <div>
-                        <div class="aspect-[4/3] md:aspect-[3/2] lg:aspect-[4/3] overflow-hidden mb-6">
-                            <img loading="lazy" decoding="async" src="<?php echo get_template_directory_uri(); ?>/assets/pictures/road-cyclist-climb.jpg" alt="Bikepacking mountains gravel path" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
-                        </div>
-                        <span class="text-[9px] font-bold tracking-[0.2em] text-brand-luxeGold uppercase font-sans editable">Bikepacking</span>
-                        <h3 class="font-serif text-3xl font-light text-brand-luxeDark mt-3 mb-3 group-hover:text-brand-luxeGold transition-colors editable">Peaks of Little Carpathians</h3>
-                        <p class="text-stone-500 font-light text-xs leading-relaxed mb-6 font-sans tracking-wide editable">A weekend bikepacking itinerary across forest paths, ancient castle ruins, and pitching camp under regional stars.</p>
-                    </div>
-                    <div>
-                        <button onclick="openArticleModal('littlecarpathians')" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-brand-luxeGold text-white text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-brand-luxeGoldDark transition-all duration-300 shadow-sm">
-                            <span>Read Article</span>
-                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"></i>
-                        </button>
-                    </div>
-                </article>
+    <!-- HERO SECTION -->
+    <section class="relative min-h-[75vh] flex items-center justify-center bg-brand-luxeDark text-white overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <!-- Scale-110 for parallax -->
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/pictures/cyclists-city.jpg" 
+                 alt="Bikepacking adventure cycling road" 
+                 class="w-full h-full object-cover object-center opacity-45 scale-110" id="hero-img" style="will-change: transform;">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-luxeDark via-brand-luxeDark/35 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center flex flex-col items-center">
+            <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-4 block opacity-0 fade-in-up editable">Stories From The Saddle</span>
+            <h1 class="font-serif text-5xl md:text-7xl font-light mb-6 opacity-0 fade-in-up animation-delay-200 editable">The Journal</h1>
+            <p class="text-stone-400 text-sm md:text-base font-light max-w-2xl mx-auto leading-relaxed tracking-wider opacity-0 fade-in-up animation-delay-400 editable">
+                Routes, travel inspiration, local tips and cycling stories from Bratislava and beyond.
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTION: ARTICLES & CATEGORY CHIPS -->
+    <section class="py-32 relative overflow-hidden border-b border-stone-200/40 bg-gradient-to-tl from-slate-50 via-purple-50 to-pink-50 parallax-section">
+        <div class="parallax-bg concrete"></div>
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
             
-                <!-- Article 3: Instagram Event 1 -->
-                <article class="group flex flex-col justify-start scroll-reveal border border-brand-luxeGold/20 bg-white/50 backdrop-blur-sm p-4 shadow-sm hover:shadow-md hover:border-brand-luxeGold/40 transition-all" data-category="Events">
-                    <span class="text-[9px] font-bold tracking-[0.2em] text-brand-luxeGold uppercase font-sans mb-4 block shrink-0 editable">Events</span>
-                    <div class="w-full h-[650px] md:h-[680px] rounded-sm bg-white overflow-hidden relative instagram-embed" data-embed-src="https://www.instagram.com/p/DWVrT90jdg_/embed">
-                        <!-- GDPR: the Instagram iframe (Meta cookies) is only created after this click -->
-                        <div class="ig-placeholder absolute inset-0 flex flex-col items-center justify-center text-center p-8 bg-gradient-to-br from-stone-50 via-rose-50/40 to-stone-100 border border-stone-200">
-                            <div class="w-14 h-14 border border-brand-luxeGold/40 text-brand-luxeGold flex items-center justify-center mb-6">
-                                <i data-lucide="instagram" class="w-6 h-6"></i>
-                            </div>
-                            <h4 class="font-serif text-xl font-light text-brand-luxeDark mb-3 editable">Instagram Post</h4>
-                            <p class="text-stone-500 font-light text-xs leading-relaxed max-w-xs mb-8 font-sans editable">
-                                This content is hosted by Instagram. By loading it you accept that Instagram (Meta)
-                                may set cookies and process your data.
-                            </p>
-                            <button type="button" onclick="loadInstagramEmbed(this)"
-                                class="px-7 py-3 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[10px] font-bold tracking-[0.2em] uppercase transition-colors duration-300 shadow-sm">
-                                Load Post
-                            </button>
-                            <a href="https://www.instagram.com/p/DWVrT90jdg_/" target="_blank" rel="noopener"
-                                class="mt-5 text-[10px] uppercase tracking-widest text-stone-400 hover:text-brand-luxeGold transition-colors">
-                                Open on Instagram instead
-                            </a>
-                        </div>
-                    </div>
-                    <div class="mt-6 text-stone-700 text-[11px] leading-relaxed font-sans tracking-wide border-t border-brand-luxeGold/40 pt-4 font-medium flex flex-col">
-                        <div id="desc-event-1" class="relative max-h-[150px] md:max-h-none overflow-hidden transition-all duration-500 ease-in-out">
-                            Join us for regular cycling rides 🚴‍♂️<br><br>
-                            📍 First ride 1.4.2026<br>
-                            📍 Every Wednesday at 17:00<br>
-                            📍 Start: VELOCITY, Lamačská cesta 8<br><br>
-                            All performance groups are welcome – the pace will be relaxed, no racing 🙂<br><br>
-                            👉 We will meet in front of the store<br>
-                            👉 Second meetpoint: under Lafranconi bridge (Petržalka side) approx. 17:20h<br><br>
-                            Route approx. 50 km, direction Austria 🇦🇹<br>
-                            Map will be published soon via Strava event<br><br>
-                            Suitable for road and gravel bikes<br><br>
-                            ❗️ Helmet is mandatory<br>
-                            🍌 Don't forget a small snack for the ride and enough water<br><br>
-                            We look forward to seeing you 😎<br><br>
-                            🔗 <a href="https://www.instagram.com/p/DWVrT90jdg_/" target="_blank" class="text-brand-luxeGold hover:underline font-bold transition-all">View original post on Instagram</a>
-                            
-                            <div id="desc-fade-1" class="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-white/90 to-transparent md:hidden pointer-events-none transition-opacity duration-300"></div>
-                        </div>
-                        <button onclick="
-                            const desc = document.getElementById('desc-event-1');
-                            const fade = document.getElementById('desc-fade-1');
-                            if(desc.classList.contains('max-h-[150px]')) {
-                                desc.classList.remove('max-h-[150px]');
-                                desc.classList.add('max-h-[1000px]');
-                                fade.classList.add('opacity-0');
-                                this.innerText = 'Read less ↑';
-                            } else {
-                                desc.classList.add('max-h-[150px]');
-                                desc.classList.remove('max-h-[1000px]');
-                                fade.classList.remove('opacity-0');
-                                this.innerText = 'Read more ↓';
-                            }
-                        " class="md:hidden mt-3 text-brand-luxeGold font-bold uppercase tracking-wider text-[9px] hover:text-brand-luxeGoldDark transition-colors text-left w-max">Read more ↓</button>
-                    </div>
-                </article>
-
-                <!-- Article 4: Instagram Event 2 -->
-                <article class="group flex flex-col justify-start scroll-reveal border border-brand-luxeGold/20 bg-white/50 backdrop-blur-sm p-4 shadow-sm hover:shadow-md hover:border-brand-luxeGold/40 transition-all" data-category="Events">
-                    <span class="text-[9px] font-bold tracking-[0.2em] text-brand-luxeGold uppercase font-sans mb-4 block shrink-0 editable">Events</span>
-                    <div class="w-full h-[650px] md:h-[680px] rounded-sm bg-white overflow-hidden relative instagram-embed" data-embed-src="https://www.instagram.com/p/DaFLMc6NhAU/embed">
-                        <!-- GDPR: the Instagram iframe (Meta cookies) is only created after this click -->
-                        <div class="ig-placeholder absolute inset-0 flex flex-col items-center justify-center text-center p-8 bg-gradient-to-br from-stone-50 via-rose-50/40 to-stone-100 border border-stone-200">
-                            <div class="w-14 h-14 border border-brand-luxeGold/40 text-brand-luxeGold flex items-center justify-center mb-6">
-                                <i data-lucide="instagram" class="w-6 h-6"></i>
-                            </div>
-                            <h4 class="font-serif text-xl font-light text-brand-luxeDark mb-3 editable">Instagram Post</h4>
-                            <p class="text-stone-500 font-light text-xs leading-relaxed max-w-xs mb-8 font-sans editable">
-                                This content is hosted by Instagram. By loading it you accept that Instagram (Meta)
-                                may set cookies and process your data.
-                            </p>
-                            <button type="button" onclick="loadInstagramEmbed(this)"
-                                class="px-7 py-3 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[10px] font-bold tracking-[0.2em] uppercase transition-colors duration-300 shadow-sm">
-                                Load Post
-                            </button>
-                            <a href="https://www.instagram.com/p/DaFLMc6NhAU/" target="_blank" rel="noopener"
-                                class="mt-5 text-[10px] uppercase tracking-widest text-stone-400 hover:text-brand-luxeGold transition-colors">
-                                Open on Instagram instead
-                            </a>
-                        </div>
-                    </div>
-                    <div class="mt-6 text-stone-700 text-[11px] leading-relaxed font-sans tracking-wide border-t border-brand-luxeGold/40 pt-4 font-medium flex flex-col">
-                        <div id="desc-event-2" class="relative max-h-[150px] md:max-h-none overflow-hidden transition-all duration-500 ease-in-out">
-                            Regular morning Tuesday social rides to Biely Kríž and back:<br>
-                            📍 every Tuesday 7.30<br>
-                            📍 start / finish Velocity Westend / Lamačská 3b / Westend plazza<br>
-                            🚲 30 km, relaxed pace adapted to the group<br><br>
-                            Route on tarmac to Biely Kríž and back. After the ride, there is a possibility for coffee at Café du Pavé in the Velocity Westend store. No drop, pace adapted to the group, we take it easy, we wait for each other. Ride for road / gravel bikes. Mandatory helmet.<br><br>
-                            We look forward to seeing you!<br><br>
-                            🔗 <a href="https://www.instagram.com/p/DaFLMc6NhAU/" target="_blank" class="text-brand-luxeGold hover:underline font-bold transition-all">View original post on Instagram</a>
-                            
-                            <div id="desc-fade-2" class="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-white/90 to-transparent md:hidden pointer-events-none transition-opacity duration-300"></div>
-                        </div>
-                        <button onclick="
-                            const desc = document.getElementById('desc-event-2');
-                            const fade = document.getElementById('desc-fade-2');
-                            if(desc.classList.contains('max-h-[150px]')) {
-                                desc.classList.remove('max-h-[150px]');
-                                desc.classList.add('max-h-[1000px]');
-                                fade.classList.add('opacity-0');
-                                this.innerText = 'Read less ↑';
-                            } else {
-                                desc.classList.add('max-h-[150px]');
-                                desc.classList.remove('max-h-[1000px]');
-                                fade.classList.remove('opacity-0');
-                                this.innerText = 'Read more ↓';
-                            }
-                        " class="md:hidden mt-3 text-brand-luxeGold font-bold uppercase tracking-wider text-[9px] hover:text-brand-luxeGoldDark transition-colors text-left w-max">Read more ↓</button>
-                    </div>
-                </article>
+            <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 mb-20 border-b border-stone-200 pb-8 font-sans scroll-reveal">
+                <button class="filter-btn text-[10px] font-bold uppercase tracking-wider text-brand-luxeDark border-b-2 border-brand-luxeGold pb-2 transition-all" data-category="all">All Stories</button>
+                <?php
+                foreach (get_categories(array('hide_empty' => true)) as $bb_cat) :
+                ?>
+                <button class="filter-btn text-[10px] font-bold uppercase tracking-wider text-stone-400 hover:text-brand-luxeDark border-b-2 border-transparent pb-2 transition-all"
+                    data-category="<?php echo esc_attr($bb_cat->name); ?>"><?php echo esc_html($bb_cat->name); ?></button>
+                <?php endforeach; ?>
             </div>
+
+            <!-- Articles Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 xl:gap-24">
+                <?php if (have_posts()) : while (have_posts()) : the_post();
+                    $bb_cats = get_the_category();
+                    $bb_primary = !empty($bb_cats) ? $bb_cats[0]->name : '';
+                    $bb_img = has_post_thumbnail()
+                        ? get_the_post_thumbnail_url(get_the_ID(), 'large')
+                        : get_template_directory_uri() . '/assets/pictures/cyclists-sunset.jpg';
+                ?>
+                <article class="group flex flex-col justify-between scroll-reveal border border-brand-luxeGold/20 bg-white/50 backdrop-blur-sm p-4 shadow-sm hover:shadow-md hover:border-brand-luxeGold/40 transition-all"
+                    data-category="<?php echo esc_attr($bb_primary); ?>">
+                    <div>
+                        <div class="aspect-[4/3] md:aspect-[3/2] lg:aspect-[4/3] overflow-hidden mb-6">
+                            <img loading="lazy" decoding="async" src="<?php echo esc_url($bb_img); ?>" alt="<?php the_title_attribute(); ?>"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                        </div>
+                        <span class="text-[9px] font-bold tracking-[0.2em] text-brand-luxeGold uppercase font-sans"><?php echo esc_html($bb_primary); ?></span>
+                        <h3 class="font-serif text-3xl font-light text-brand-luxeDark mt-3 mb-3 group-hover:text-brand-luxeGold transition-colors"><?php the_title(); ?></h3>
+                        <p class="text-stone-500 font-light text-xs leading-relaxed mb-6 font-sans tracking-wide"><?php echo esc_html(get_the_excerpt()); ?></p>
+                    </div>
+                    <div>
+                        <button onclick="openArticleModal('post-<?php echo get_the_ID(); ?>')"
+                            class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-brand-luxeGold text-white text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-brand-luxeGoldDark transition-all duration-300 shadow-sm">
+                            <span>Read Article</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"></i>
+                        </button>
+                    </div>
+                </article>
+                <?php endwhile; endif; ?>
+            </div>
+
+            <?php
+            // Пагінація — щоб сторінка не росла нескінченно, коли статей побільшає.
+            $bb_pag = paginate_links(array('type' => 'array', 'prev_text' => '←', 'next_text' => '→'));
+            if ($bb_pag) : ?>
+            <nav class="flex justify-center gap-3 mt-16">
+                <?php foreach ($bb_pag as $bb_link) : ?>
+                    <span class="text-xs font-sans tracking-wide [&_a]:text-stone-500 [&_a:hover]:text-brand-luxeGold [&_.current]:text-brand-luxeGold [&_.current]:font-bold"><?php echo wp_kses_post($bb_link); ?></span>
+                <?php endforeach; ?>
+            </nav>
+            <?php endif; ?>
 
             <!-- No Stories Found -->
             <div id="no-articles-message" class="hidden text-center py-20 font-sans">
@@ -242,4 +222,122 @@
         </div>
     </section>
 
-            <?php get_footer(); ?>
+            <!-- FOOTER -->
+    <script>
+                const filterButtons = document.querySelectorAll('.filter-btn');
+        const articles = document.querySelectorAll('article');
+        const noArticlesMsg = document.getElementById('no-articles-message');
+
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const selectedCategory = btn.getAttribute('data-category');
+
+                // Update active button styles
+                filterButtons.forEach(b => {
+                    b.classList.remove('text-brand-luxeDark', 'border-brand-luxeGold');
+                    b.classList.add('text-stone-400', 'border-transparent');
+                });
+                btn.classList.add('text-brand-luxeDark', 'border-brand-luxeGold');
+                btn.classList.remove('text-stone-400', 'border-transparent');
+
+                // Filter articles
+                let visibleCount = 0;
+                articles.forEach(article => {
+                    const articleCategory = article.getAttribute('data-category');
+                    if (selectedCategory === 'all' || articleCategory === selectedCategory) {
+                        article.classList.remove('hidden');
+                        visibleCount++;
+                    } else {
+                        article.classList.add('hidden');
+                    }
+                });
+
+                // Show/hide no articles message
+                if (visibleCount === 0) {
+                    noArticlesMsg.classList.remove('hidden');
+                } else {
+                    noArticlesMsg.classList.add('hidden');
+                }
+            });
+        });
+
+        // 6. Article Details Modal Logic
+        const articleModal = document.getElementById('article-modal');
+        const articleModalContent = document.getElementById('article-modal-content');
+
+        const articleData = <?php
+        $bb_posts = get_posts(array('post_type' => 'post', 'posts_per_page' => -1));
+        $bb_ad = array();
+        foreach ($bb_posts as $bb_p) {
+            $bb_pc = get_the_category($bb_p->ID);
+            $bb_ad['post-' . $bb_p->ID] = array(
+                'title'    => $bb_p->post_title,
+                'category' => !empty($bb_pc) ? $bb_pc[0]->name : '',
+                'img'      => has_post_thumbnail($bb_p->ID)
+                    ? get_the_post_thumbnail_url($bb_p->ID, 'large')
+                    : get_template_directory_uri() . '/assets/pictures/cyclists-sunset.jpg',
+                'date'     => 'Published ' . get_the_date('F j, Y', $bb_p),
+                'content'  => apply_filters('the_content', $bb_p->post_content),
+            );
+        }
+        echo wp_json_encode($bb_ad);
+        ?>
+
+        function openArticleModal(key) {
+            const data = articleData[key];
+            if (!data) return;
+
+            articleModalContent.innerHTML = `
+                <div class="relative w-full h-64 bg-stone-100 border-b border-brand-luxeGold/20">
+                    <img src="${data.img}" alt="${data.title}" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 text-white pr-6">
+                        <span class="text-[9px] uppercase font-bold tracking-[0.25em] text-brand-luxeGold border border-brand-luxeGold/30 px-3 py-1 bg-black/50 rounded-none editable">${data.category}</span>
+                        <h3 class="font-serif text-2xl md:text-3xl font-light mt-3 leading-tight text-white editable">${data.title}</h3>
+                        <p class="text-[9px] uppercase tracking-wider text-stone-300 mt-2 editable">${data.date}</p>
+                    </div>
+                </div>
+
+                <div class="p-8 space-y-6 text-stone-600 font-light text-sm leading-relaxed font-sans tracking-wide">
+                    ${data.content}
+                    
+                    <div class="pt-6 flex justify-between items-center border-t border-stone-200">
+                        <span class="text-xs text-stone-500">Interested in this region?</span>
+                        <a href="contact?ride=${encodeURIComponent(data.title)}" class="px-8 py-3.5 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[9px] font-semibold uppercase tracking-[0.2em] transition-colors duration-300 rounded-none border border-brand-luxeGold shadow-2xl">
+                            Plan A Ride
+                        </a>
+                    </div>
+                </div>
+            `;
+
+            articleModal.classList.remove('opacity-0', 'pointer-events-none');
+            lucide.createIcons();
+        }
+
+        function closeArticleModal() {
+            articleModal.classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        articleModal.addEventListener('click', (e) => {
+            if (e.target === articleModal) closeArticleModal();
+        });
+
+        // 7. Consent-gated Instagram embeds: the iframe is created only after the
+        // visitor clicks "Load Post" (no Meta cookies / requests before that).
+        function loadInstagramEmbed(btn) {
+            const wrap = btn.closest('.instagram-embed');
+            if (!wrap || wrap.querySelector('iframe')) return;
+            const iframe = document.createElement('iframe');
+            iframe.src = wrap.getAttribute('data-embed-src');
+            iframe.className = 'absolute top-0 left-0 w-full';
+            iframe.style.height = '780px';
+            iframe.setAttribute('frameborder', '0');
+            iframe.setAttribute('scrolling', 'no');
+            iframe.setAttribute('allowtransparency', 'true');
+            const placeholder = wrap.querySelector('.ig-placeholder');
+            if (placeholder) placeholder.remove();
+            wrap.appendChild(iframe);
+        }
+    </script>
+
+<?php get_footer(); ?>

@@ -30,40 +30,40 @@ function bb_register_acf_fields() {
      * ---------------------------------------------------------------- */
     acf_add_local_field_group(array(
         'key'    => 'group_tour_details',
-        'title'  => 'Деталі туру',
+        'title'  => 'Detaily túry',
         'fields' => array(
             array(
                 'key'          => 'field_tour_short_desc',
-                'label'        => 'Короткий опис (для картки)',
+                'label'        => 'Krátky popis (na kartu)',
                 'name'         => 'short_desc',
                 'type'         => 'textarea',
                 'rows'         => 2,
-                'instructions' => 'Один-два рядки. Якщо порожньо — візьметься початок основного тексту.',
+                'instructions' => 'Jeden až dva riadky. Ak zostane prázdne, použije sa začiatok hlavného textu.',
             ),
             array(
                 'key'         => 'field_tour_distance',
-                'label'       => 'Дистанція',
+                'label'       => 'Vzdialenosť',
                 'name'        => 'distance',
                 'type'        => 'text',
-                'placeholder' => 'напр. 15 km',
+                'placeholder' => 'napr. 15 km',
             ),
             array(
                 'key'         => 'field_tour_elevation',
-                'label'       => 'Набір висоти',
+                'label'       => 'Prevýšenie',
                 'name'        => 'elevation',
                 'type'        => 'text',
-                'placeholder' => 'напр. 50 m',
+                'placeholder' => 'napr. 50 m',
             ),
             array(
                 'key'         => 'field_tour_duration',
-                'label'       => 'Тривалість',
+                'label'       => 'Trvanie',
                 'name'        => 'duration',
                 'type'        => 'text',
-                'placeholder' => 'напр. 2.5 hours',
+                'placeholder' => 'napr. 2.5 hours',
             ),
             array(
                 'key'     => 'field_tour_difficulty',
-                'label'   => 'Складність',
+                'label'   => 'Náročnosť',
                 'name'    => 'difficulty',
                 'type'    => 'select',
                 'choices' => array(
@@ -77,26 +77,26 @@ function bb_register_acf_fields() {
             ),
             array(
                 'key'         => 'field_tour_bike',
-                'label'       => 'Тип велосипеда',
+                'label'       => 'Typ bicykla',
                 'name'        => 'bike_type',
                 'type'        => 'text',
-                'placeholder' => 'напр. City / Hybrid Bike',
+                'placeholder' => 'napr. City / Hybrid Bike',
             ),
             array(
                 'key'          => 'field_tour_keypoints',
-                'label'        => 'Хайлайти',
+                'label'        => 'Zaujímavosti trasy',
                 'name'         => 'keypoints',
                 'type'         => 'textarea',
                 'rows'         => 5,
-                'instructions' => 'По одному пункту на рядок. Показуються списком у вікні туру.',
+                'instructions' => 'Jedna položka na riadok. Zobrazia sa ako zoznam v okne túry.',
             ),
             array(
                 'key'          => 'field_tour_recommendation',
-                'label'        => 'Рекомендація гіда',
+                'label'        => 'Odporúčanie sprievodcu',
                 'name'         => 'recommendation',
                 'type'         => 'textarea',
                 'rows'         => 2,
-                'instructions' => 'напр. Perfect for travellers, couples, families and leisure riders.',
+                'instructions' => 'napr. Perfect for travellers, couples, families and leisure riders.',
             ),
         ),
         'location' => array(
@@ -110,7 +110,7 @@ function bb_register_acf_fields() {
         'label_placement'       => 'top',
         'instruction_placement' => 'label',
         'active'                => true,
-        'description'           => 'Фото туру задається блоком «Зображення запису» справа.',
+        'description'           => 'Fotku túry nastavíte vpravo v bloku «Náhľadový obrázok».',
     ));
 
     /* ------------------------------------------------------------------
@@ -118,44 +118,44 @@ function bb_register_acf_fields() {
      * ---------------------------------------------------------------- */
     acf_add_local_field_group(array(
         'key'    => 'group_guide_details',
-        'title'  => 'Деталі гіда',
+        'title'  => 'Detaily sprievodcu',
         'fields' => array(
             array(
                 'key'         => 'field_guide_role',
-                'label'       => 'Посада',
+                'label'       => 'Pozícia',
                 'name'        => 'role',
                 'type'        => 'text',
-                'placeholder' => 'напр. Co-founder & Chief Ride Leader',
+                'placeholder' => 'napr. Co-founder & Chief Ride Leader',
             ),
             array(
                 'key'         => 'field_guide_languages',
-                'label'       => 'Мови',
+                'label'       => 'Jazyky',
                 'name'        => 'languages',
                 'type'        => 'text',
-                'placeholder' => 'напр. English, German, Slovak',
+                'placeholder' => 'napr. English, German, Slovak',
             ),
             array(
                 'key'         => 'field_guide_years',
-                'label'       => 'Років у сідлі',
+                'label'       => 'Roky v sedle',
                 'name'        => 'years_riding',
                 'type'        => 'text',
-                'placeholder' => 'напр. 15+ Years',
+                'placeholder' => 'napr. 15+ Years',
             ),
             array(
                 'key'   => 'field_guide_route',
-                'label' => 'Улюблений маршрут',
+                'label' => 'Obľúbená trasa',
                 'name'  => 'favourite_route',
                 'type'  => 'text',
             ),
             array(
                 'key'   => 'field_guide_coffee',
-                'label' => 'Кавʼярня та улюблене місце',
+                'label' => 'Kaviareň a obľúbené miesto',
                 'name'  => 'coffee_stop',
                 'type'  => 'text',
             ),
             array(
                 'key'   => 'field_guide_quote',
-                'label' => 'Цитата',
+                'label' => 'Citát',
                 'name'  => 'quote',
                 'type'  => 'textarea',
                 'rows'  => 3,
@@ -167,7 +167,7 @@ function bb_register_acf_fields() {
             ),
         ),
         'active'      => true,
-        'description' => 'Фото гіда задається блоком «Зображення запису» справа.',
+        'description' => 'Fotku sprievodcu nastavíte vpravo v bloku «Náhľadový obrázok».',
     ));
 
     /* ------------------------------------------------------------------
@@ -175,25 +175,25 @@ function bb_register_acf_fields() {
      * ---------------------------------------------------------------- */
     acf_add_local_field_group(array(
         'key'    => 'group_home_hero',
-        'title'  => 'Головна сторінка — перший екран',
+        'title'  => 'Domovská stránka — úvodná obrazovka',
         'fields' => array(
             array(
                 'key'         => 'field_home_hero_title',
-                'label'       => 'Заголовок',
+                'label'       => 'Nadpis',
                 'name'        => 'hero_title',
                 'type'        => 'text',
                 'placeholder' => 'Discover Bratislava',
             ),
             array(
                 'key'         => 'field_home_hero_subtitle',
-                'label'       => 'Підзаголовок',
+                'label'       => 'Podnadpis',
                 'name'        => 'hero_subtitle',
                 'type'        => 'text',
                 'placeholder' => 'Explore The Heart of Central Europe',
             ),
             array(
                 'key'   => 'field_home_hero_text',
-                'label' => 'Опис під заголовком',
+                'label' => 'Popis pod nadpisom',
                 'name'  => 'hero_text',
                 'type'  => 'textarea',
                 'rows'  => 4,
@@ -205,6 +205,6 @@ function bb_register_acf_fields() {
             ),
         ),
         'active'      => true,
-        'description' => 'Показується на сторінці, призначеній головною в Налаштування → Читання.',
+        'description' => 'Zobrazuje sa na stránke nastavenej ako domovská v Nastavenia → Čítanie.',
     ));
 }
