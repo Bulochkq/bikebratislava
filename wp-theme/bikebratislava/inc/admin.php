@@ -258,6 +258,10 @@ function bb_dashboard_help() {
             sa túra objaví) a <em>Fotka túry</em>. Bez kategórie sa túra nezobrazí.</li>
         <li><strong>Poradie túr v sekcii:</strong> pole <em>Poradie</em> v bloku
             <em>Atribúty stránky</em>. Nižšie číslo = vyššie v zozname.</li>
+        <li><strong>Nová kategória túr:</strong> <em>Túry → Kategórie</em>. Vyplňte názov,
+            <em>Popis</em> (zobrazí sa v sekcii), <em>Krátky popis</em> (karta na domovskej stránke),
+            <em>Fotku sekcie</em> a <em>Poradie</em>. Nová sekcia sa sama objaví na stránke Tours,
+            v menu aj vo formulári.</li>
         <li><strong>Nový sprievodca:</strong> <em>Sprievodcovia → Pridať novú</em>.</li>
         <li><strong>Nový článok:</strong> <em>Žurnál → Pridať nový</em>. Vyberte rubriku —
             podľa nej sa článok zaradí do filtra na stránke Journal.</li>

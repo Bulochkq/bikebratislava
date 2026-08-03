@@ -294,211 +294,73 @@ get_header();
         </div>
     </section>
 
-    <!-- SECTION: CATEGORY 1 -->
-    <section id="cat1" data-cat-slug="e-bike-leisure-tours" class="py-20 lg:py-28 border-b border-stone-200 relative bg-stone-100 overflow-hidden">
+    <?php
+    /*
+     * Секції категорій. Раніше їх було три, вписані руками — через це нова
+     * категорія з адмінки ніде не з'являлась. Тепер секція будується для
+     * кожної категорії: назва й опис із самої категорії, фото з її поля,
+     * світлий і темний фон чергуються, якір прив'язаний до слага.
+     *
+     * Категорія «Custom Experiences» — особлива: замість карток турів там
+     * покроковий конструктор, тому її розмітка лишається окремо.
+     */
+    $bb_cats = bb_tour_categories();
+    $bb_i = 0;
+    foreach ($bb_cats as $bb_cat) :
+        $bb_i++;
+        $bb_anchor = bb_tour_category_anchor($bb_cat);
+        $bb_custom = bb_is_custom_category($bb_cat);
+        $bb_dark   = (!$bb_custom && $bb_i % 2 === 0);
+        $bb_img    = bb_tour_category_image($bb_cat);
+        $bb_tours  = $bb_custom ? array() : bb_tours_in_category($bb_cat->term_id);
+        $bb_count  = count($bb_tours);
+        $bb_label  = $bb_custom
+            ? 'Build Your Custom Ride'
+            : ($bb_count ? 'Explore the ' . $bb_count . ' tours' : 'Coming soon');
+        // Фон секції та бік, з якого стоїть фото, чергуються — так само,
+        // як це було зроблено вручну на статичному сайті.
+        $bb_bg = $bb_dark
+            ? get_template_directory_uri() . '/assets/pictures/bg-birdseye.jpeg'
+            : get_template_directory_uri() . '/assets/pictures/bg-minimal-topdown.jpeg';
+        $bb_photo_side = ($bb_i % 2 === 0) ? 'lg:order-2' : 'lg:order-1';
+        $bb_text_side  = ($bb_i % 2 === 0) ? 'lg:order-1' : 'lg:order-2';
+    ?>
+    <section id="<?php echo esc_attr($bb_anchor); ?>" data-cat-slug="<?php echo esc_attr($bb_cat->slug); ?>"
+        class="py-20 lg:py-28 relative overflow-hidden <?php echo $bb_dark ? 'bg-brand-luxeDark text-white' : 'border-b border-stone-200 bg-stone-100'; ?>">
         <div class="absolute inset-0 z-0 bg-cover bg-center"
-            style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/pictures/bg-minimal-topdown.jpeg'); opacity: 0.65;">
+            style="background-image: url('<?php echo esc_url($bb_bg); ?>'); opacity: <?php echo $bb_dark ? '0.2' : '0.65'; ?>;">
         </div>
         <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
             <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-stretch">
-                <div class="lg:order-1 scroll-reveal h-full flex">
-                    <div class="aspect-[4/3] w-full h-full overflow-hidden relative shadow-2xl border border-white/40">
-                        <img loading="lazy" decoding="async" src="<?php echo get_template_directory_uri(); ?>/assets/pictures/coffee-break.jpg"
-                            alt="E-Bike &amp; Leisure Tours" class="absolute inset-0 w-full h-full object-cover">
+                <div class="<?php echo esc_attr($bb_photo_side); ?> scroll-reveal h-full flex">
+                    <div class="aspect-[4/3] w-full h-full overflow-hidden relative shadow-2xl border <?php echo $bb_dark ? 'border-white/10' : 'border-white/40'; ?>">
+                        <img loading="lazy" decoding="async" src="<?php echo esc_url($bb_img); ?>"
+                            alt="<?php echo esc_attr($bb_cat->name); ?>" class="absolute inset-0 w-full h-full object-cover">
                     </div>
                 </div>
                 <div
-                    class="lg:order-2 scroll-reveal h-full flex flex-col justify-center bg-white/90 backdrop-blur-md border border-white/60 p-8 lg:p-12 shadow-2xl">
-                    <span
-                        class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-3 block editable">Category
-                        1</span>
-                    <h2 class="font-serif text-3xl md:text-5xl font-bold uppercase text-brand-luxeDark leading-tight editable">
-                        <?php $bb_t1 = get_term_by('slug', 'e-bike-leisure-tours', 'tour_category'); echo esc_html($bb_t1 ? $bb_t1->name : 'E-Bike & Leisure Tours'); ?></h2>
+                    class="<?php echo esc_attr($bb_text_side); ?> scroll-reveal h-full flex flex-col justify-center bg-white/90 backdrop-blur-md border border-white/60 p-8 lg:p-12 shadow-2xl">
+                    <span class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-3 block">Category
+                        <?php echo (int) $bb_i; ?></span>
+                    <h2 class="font-serif text-3xl md:text-5xl font-bold uppercase text-brand-luxeDark leading-tight">
+                        <?php echo esc_html($bb_cat->name); ?></h2>
+                    <?php if ($bb_cat->description) : ?>
                     <p
-                        class="text-stone-600 font-light text-sm md:text-base mt-5 leading-relaxed tracking-wide font-sans max-w-xl editable">
-                        Designed for visitors who want to explore Bratislava and its surroundings in a relaxed and
-                        enjoyable way. These guided rides combine culture, history, local stories and beautiful scenery,
-                        making them perfect for travellers, couples, families and leisure riders.</p>
-                    <button data-toggle="cat1" data-label="<?php $bb_t = get_term_by('slug', 'e-bike-leisure-tours', 'tour_category'); echo $bb_t && $bb_t->count ? 'Explore the ' . (int) $bb_t->count . ' tours' : 'Coming soon'; ?>" data-open-label="Hide"
-                        aria-expanded="false" onclick="toggleCat('cat1')"
-                        class="cat-toggle inline-flex items-center gap-3 mt-8 px-7 py-3.5 bg-brand-luxeGold text-white text-[11px] font-semibold tracking-[0.2em] uppercase hover:bg-brand-luxeGoldDark transition-colors duration-300">
-                        <span class="toggle-label"><?php
-                            $bb_cnt = 0;
-                            $bb_term = get_term_by('slug', 'e-bike-leisure-tours', 'tour_category');
-                            if ($bb_term) { $bb_cnt = (int) $bb_term->count; }
-                            echo $bb_cnt ? 'Explore the ' . $bb_cnt . ' tours' : 'Coming soon';
-                            ?></span>
-                        <i data-lucide="chevron-down" class="w-4 h-4 cat-chevron transition-transform duration-300"></i>
-                    </button>
-                </div>
-            </div>
-            <div id="cat1-panel" class="cat-panel">
-                <div class="cat-panel-inner">
-<?php
-                    $bb_q = new WP_Query(array(
-                        'post_type'      => 'tour',
-                        'posts_per_page' => -1,
-                        'orderby'        => 'menu_order date',
-                        'order'          => 'ASC',
-                        'tax_query'      => array(array(
-                            'taxonomy' => 'tour_category',
-                            'field'    => 'slug',
-                            'terms'    => 'e-bike-leisure-tours',
-                        )),
-                    ));
-                    if ($bb_q->have_posts()) :
-                        echo '<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8 pt-14">';
-                        while ($bb_q->have_posts()) : $bb_q->the_post();
-                            $bb_img = has_post_thumbnail()
-                                ? get_the_post_thumbnail_url(get_the_ID(), 'large')
-                                : get_template_directory_uri() . '/assets/pictures/coffee-break.jpg';
-                            $bb_short = get_field('short_desc');
-                            if (!$bb_short) { $bb_short = wp_trim_words(get_the_content(), 16); }
-                    ?>
-                        <article class="group flex flex-col bg-white/90 backdrop-blur-md border border-white/60 p-4 transition-all duration-500 hover:-translate-y-2">
-                            <div class="aspect-[4/5] overflow-hidden relative bg-stone-200">
-                                <img loading="lazy" decoding="async" src="<?php echo esc_url($bb_img); ?>"
-                                    alt="<?php the_title_attribute(); ?>"
-                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
-                            </div>
-                            <div class="pt-4 flex-1">
-                                <h3 class="font-serif text-lg font-medium text-brand-luxeDark mb-2 leading-snug"><?php the_title(); ?></h3>
-                                <p class="text-stone-600 font-light text-xs leading-relaxed font-sans"><?php echo esc_html($bb_short); ?></p>
-                            </div>
-                            <button onclick="openModal('tour-<?php echo get_the_ID(); ?>')"
-                                class="mt-4 px-5 py-2 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:scale-105 shadow-md self-start">View
-                                Details</button>
-                        </article>
-                    <?php
-                        endwhile;
-                        echo '</div>';
-                        wp_reset_postdata();
-                    endif;
-                    ?>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION: CATEGORY 2 -->
-    <section id="cat2" data-cat-slug="road-gravel-cycling-experiences" class="py-20 lg:py-28 bg-brand-luxeDark text-white relative overflow-hidden">
-        <div class="absolute inset-0 z-0 opacity-20 bg-cover bg-center"
-            style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/pictures/bg-birdseye.jpeg');"></div>
-        <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-stretch">
-                <div class="lg:order-2 scroll-reveal h-full flex">
-                    <div class="aspect-[4/3] w-full h-full overflow-hidden relative shadow-2xl border border-white/10">
-                        <img loading="lazy" decoding="async" src="<?php echo get_template_directory_uri(); ?>/assets/pictures/peloton.png" alt="Road &amp; Gravel Cycling Experiences"
-                            class="absolute inset-0 w-full h-full object-cover">
-                    </div>
-                </div>
-                <div
-                    class="lg:order-1 scroll-reveal h-full flex flex-col justify-center bg-black/60 backdrop-blur-md border border-white/10 p-8 lg:p-12 shadow-2xl">
-                    <span
-                        class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-3 block editable">Category
-                        2</span>
-                    <h2 class="font-serif text-3xl md:text-5xl font-bold uppercase text-white leading-tight editable"><?php $bb_t2 = get_term_by('slug', 'road-gravel-cycling-experiences', 'tour_category'); echo esc_html($bb_t2 ? $bb_t2->name : 'Road & Gravel Cycling Experiences'); ?></h2>
-                    <p
-                        class="text-stone-400 font-light text-sm md:text-base mt-5 leading-relaxed tracking-wide font-sans max-w-xl editable">
-                        Created for passionate cyclists looking for longer distances, more demanding routes and
-                        unforgettable scenery. Ride through vineyards, rolling countryside, quiet roads and cross-border
-                        routes in the heart of Central Europe.</p>
-                    <button data-toggle="cat2" data-label="<?php $bb_t = get_term_by('slug', 'e-bike-leisure-tours', 'tour_category'); echo $bb_t && $bb_t->count ? 'Explore the ' . (int) $bb_t->count . ' tours' : 'Coming soon'; ?>" data-open-label="Hide"
-                        aria-expanded="false" onclick="toggleCat('cat2')"
-                        class="cat-toggle inline-flex items-center gap-3 mt-8 px-7 py-3.5 bg-brand-luxeGold text-white text-[11px] font-semibold tracking-[0.2em] uppercase hover:bg-brand-luxeGoldDark transition-colors duration-300">
-                        <span class="toggle-label"><?php
-                            $bb_cnt = 0;
-                            $bb_term = get_term_by('slug', 'road-gravel-cycling-experiences', 'tour_category');
-                            if ($bb_term) { $bb_cnt = (int) $bb_term->count; }
-                            echo $bb_cnt ? 'Explore the ' . $bb_cnt . ' tours' : 'Coming soon';
-                            ?></span>
-                        <i data-lucide="chevron-down" class="w-4 h-4 cat-chevron transition-transform duration-300"></i>
-                    </button>
-                </div>
-            </div>
-            <div id="cat2-panel" class="cat-panel">
-                <div class="cat-panel-inner">
-<?php
-                    $bb_q = new WP_Query(array(
-                        'post_type'      => 'tour',
-                        'posts_per_page' => -1,
-                        'orderby'        => 'menu_order date',
-                        'order'          => 'ASC',
-                        'tax_query'      => array(array(
-                            'taxonomy' => 'tour_category',
-                            'field'    => 'slug',
-                            'terms'    => 'road-gravel-cycling-experiences',
-                        )),
-                    ));
-                    if ($bb_q->have_posts()) :
-                        echo '<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8 pt-14">';
-                        while ($bb_q->have_posts()) : $bb_q->the_post();
-                            $bb_img = has_post_thumbnail()
-                                ? get_the_post_thumbnail_url(get_the_ID(), 'large')
-                                : get_template_directory_uri() . '/assets/pictures/coffee-break.jpg';
-                            $bb_short = get_field('short_desc');
-                            if (!$bb_short) { $bb_short = wp_trim_words(get_the_content(), 16); }
-                    ?>
-                        <article class="group flex flex-col bg-black/60 backdrop-blur-md border border-white/10 p-4 transition-all duration-500 hover:-translate-y-2">
-                            <div class="aspect-[4/5] overflow-hidden relative bg-stone-200">
-                                <img loading="lazy" decoding="async" src="<?php echo esc_url($bb_img); ?>"
-                                    alt="<?php the_title_attribute(); ?>"
-                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
-                            </div>
-                            <div class="pt-4 flex-1">
-                                <h3 class="font-serif text-lg font-medium text-white mb-2 leading-snug"><?php the_title(); ?></h3>
-                                <p class="text-stone-400 font-light text-xs leading-relaxed font-sans"><?php echo esc_html($bb_short); ?></p>
-                            </div>
-                            <button onclick="openModal('tour-<?php echo get_the_ID(); ?>')"
-                                class="mt-4 px-5 py-2 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:scale-105 shadow-md self-start">View
-                                Details</button>
-                        </article>
-                    <?php
-                        endwhile;
-                        echo '</div>';
-                        wp_reset_postdata();
-                    endif;
-                    ?>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION: CATEGORY 3 (Custom — interactive constructor) -->
-    <section id="cat3" data-cat-slug="custom-experiences" class="py-20 lg:py-28 border-b border-stone-200 relative bg-stone-200 overflow-hidden">
-        <div class="absolute inset-0 z-0 bg-cover bg-center"
-            style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/pictures/texture-light.jpeg'); opacity: 0.35;">
-        </div>
-        <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-stretch">
-                <div class="lg:order-1 scroll-reveal h-full flex">
-                    <div class="aspect-[4/3] w-full h-full overflow-hidden relative shadow-2xl border border-white/20">
-                        <img loading="lazy" decoding="async" src="<?php echo get_template_directory_uri(); ?>/assets/pictures/corporate-group.jpg"
-                            alt="Built Around Your Ride" class="absolute inset-0 w-full h-full object-cover">
-                    </div>
-                </div>
-                <div
-                    class="lg:order-2 scroll-reveal h-full flex flex-col justify-center bg-white/90 backdrop-blur-md border border-white/60 p-8 lg:p-12 shadow-2xl">
-                    <span
-                        class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-3 block editable">Category
-                        3 &middot; Custom Experiences</span>
-                    <h2 class="font-serif text-3xl md:text-5xl font-bold uppercase text-brand-luxeDark leading-tight editable">Built
-                        Around Your Ride</h2>
-                    <p
-                        class="text-stone-700 font-light text-sm md:text-base mt-5 leading-relaxed tracking-wide font-sans max-w-xl editable">
-                        Looking for something unique? We create fully customised cycling experiences for individuals,
-                        groups, cycling clubs and corporate teams. From private city tours and wine experiences to
-                        multi-day cycling adventures, every detail can be tailored to your preferences.</p>
-                    <button data-toggle="cat3" data-label="Build Your Custom Ride" data-open-label="Hide builder"
-                        aria-expanded="false" onclick="toggleCat('cat3')"
+                        class="text-stone-600 font-light text-sm md:text-base mt-5 leading-relaxed tracking-wide font-sans max-w-xl">
+                        <?php echo esc_html($bb_cat->description); ?></p>
+                    <?php endif; ?>
+                    <button data-toggle="<?php echo esc_attr($bb_anchor); ?>" data-label="<?php echo esc_attr($bb_label); ?>"
+                        data-open-label="<?php echo $bb_custom ? 'Hide builder' : 'Hide'; ?>"
+                        aria-expanded="false" onclick="toggleCat('<?php echo esc_js($bb_anchor); ?>')"
                         class="cat-toggle inline-flex items-center gap-3 mt-8 px-7 py-3.5 bg-brand-luxeGold text-white text-[11px] font-semibold tracking-[0.2em] uppercase hover:bg-brand-luxeGoldDark transition-colors duration-300 shadow-lg">
-                        <span class="toggle-label">Build Your Custom Ride</span>
+                        <span class="toggle-label"><?php echo esc_html($bb_label); ?></span>
                         <i data-lucide="chevron-down" class="w-4 h-4 cat-chevron transition-transform duration-300"></i>
                     </button>
                 </div>
             </div>
-            <div id="cat3-panel" class="cat-panel">
+            <div id="<?php echo esc_attr($bb_anchor); ?>-panel" class="cat-panel">
                 <div class="cat-panel-inner">
+<?php if ($bb_custom) : ?>
                     <div class="mt-14 bg-white/90 backdrop-blur-md border border-white/60 p-8 lg:p-12 shadow-2xl">
                         <div class="grid lg:grid-cols-12 gap-10 lg:gap-12">
                             <div class="lg:col-span-7 xl:col-span-8 space-y-7">
@@ -614,10 +476,40 @@ get_header();
                             </div>
                         </div>
                     </div>
+<?php else : ?>
+                    <?php if ($bb_count) : ?>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8 pt-14">
+                        <?php foreach ($bb_tours as $bb_tour) :
+                            $bb_tour_img = has_post_thumbnail($bb_tour->ID)
+                                ? get_the_post_thumbnail_url($bb_tour->ID, 'large')
+                                : get_template_directory_uri() . '/assets/pictures/coffee-break.jpg';
+                        ?>
+                        <article class="group flex flex-col backdrop-blur-md border p-4 transition-all duration-500 hover:-translate-y-2 <?php echo $bb_dark ? 'bg-black/60 border-white/10' : 'bg-white/90 border-white/60'; ?>">
+                            <div class="aspect-[4/5] overflow-hidden relative bg-stone-200">
+                                <img loading="lazy" decoding="async" src="<?php echo esc_url($bb_tour_img); ?>"
+                                    alt="<?php echo esc_attr($bb_tour->post_title); ?>"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                            </div>
+                            <div class="pt-4 flex-1">
+                                <h3 class="font-serif text-lg font-medium mb-2 leading-snug <?php echo $bb_dark ? 'text-white' : 'text-brand-luxeDark'; ?>"><?php echo esc_html($bb_tour->post_title); ?></h3>
+                                <p class="font-light text-xs leading-relaxed font-sans <?php echo $bb_dark ? 'text-stone-400' : 'text-stone-600'; ?>"><?php echo esc_html(bb_tour_short_desc($bb_tour->ID)); ?></p>
+                            </div>
+                            <button onclick="openModal('tour-<?php echo (int) $bb_tour->ID; ?>')"
+                                class="mt-4 px-5 py-2 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:scale-105 shadow-md self-start">View
+                                Details</button>
+                        </article>
+                        <?php endforeach; ?>
+                    </div>
+                    <?php else : ?>
+                    <p class="pt-14 text-center font-light text-sm <?php echo $bb_dark ? 'text-stone-400' : 'text-stone-500'; ?>">
+                        New tours in this category are coming soon.</p>
+                    <?php endif; ?>
+<?php endif; ?>
                 </div>
             </div>
         </div>
     </section>
+    <?php endforeach; ?>
 
     <!-- TOUR DETAIL MODAL / POPUP -->
     <!-- Mobile Categories Modal -->
@@ -817,8 +709,14 @@ get_header();
         });
 
         // ===== Expandable categories =====
+        // Ідентифікатори секцій більше не вписані в код: їх стільки, скільки
+        // категорій заведено в адмінці. Беремо їх із самої розмітки.
+        function catIds() {
+            return Array.from(document.querySelectorAll('section[data-cat-slug]')).map(s => s.id);
+        }
+
         function closeAllCats() {
-            ['cat1', 'cat2', 'cat3'].forEach(id => setCat(id, false));
+            catIds().forEach(id => setCat(id, false));
             var closeBar = document.getElementById('mobile-cat-close-bar');
             if (closeBar) closeBar.classList.add('-translate-y-full');
             // smooth scroll back to the top of the categories if needed
@@ -953,7 +851,7 @@ get_header();
                 setCat(id, true);
             }
         }
-        function openFromHash() { var h = location.hash.replace('#', ''); if (['cat1', 'cat2', 'cat3'].indexOf(h) > -1) openCat(h); }
+        function openFromHash() { var h = location.hash.replace('#', ''); if (catIds().indexOf(h) > -1) openCat(h); }
         window.addEventListener('hashchange', openFromHash);
         window.addEventListener('load', openFromHash);
 

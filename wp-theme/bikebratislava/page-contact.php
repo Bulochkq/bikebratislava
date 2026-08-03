@@ -1,34 +1,493 @@
-<?php get_header(); ?>
+<?php
+/**
+ * Сторінка «Contact».
+ *
+ * Список турів у формі заявки будується з типу запису «tour» та категорій —
+ * тими самими функціями, що й сторінка Tours. Раніше цей список був
+ * продубльований у чотирьох місцях, через що в ньому лишались тури,
+ * прибрані з сайту.
+ */
+get_header();
+?>
+    <style>
+        html.lenis,
+        html.lenis body {
+            height: auto;
+        }
+
+        .lenis.lenis-smooth {
+            scroll-behavior: auto !important;
+        }
+
+        .lenis.lenis-smooth [data-lenis-prevent] {
+            overscroll-behavior: contain;
+        }
+
+        .lenis.lenis-stopped {
+            overflow: hidden;
+        }
+
+        .lenis.lenis-scrolling iframe {
+            pointer-events: none;
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animation-delay-200 {
+            animation-delay: 200ms;
+        }
+
+        .animation-delay-400 {
+            animation-delay: 400ms;
+        }
+
+        /* Smooth transitions for smart hidden header */
+        #main-header {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.4s ease, padding 0.4s ease;
+        }
+
+        /* Mobile menu overlay */
+        #mobile-menu {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.45s ease;
+        }
+
+        #mobile-menu.is-open {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        #mobile-menu .menu-nav-item {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
+        }
+
+        #mobile-menu.is-open .menu-nav-item:nth-child(1) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.08s;
+        }
+
+        #mobile-menu.is-open .menu-nav-item:nth-child(2) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.14s;
+        }
+
+        #mobile-menu.is-open .menu-nav-item:nth-child(3) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.20s;
+        }
+
+        #mobile-menu.is-open .menu-nav-item:nth-child(4) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.26s;
+        }
+
+        #mobile-menu.is-open .menu-nav-item:nth-child(5) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.32s;
+        }
+
+        #mobile-menu.is-open .menu-nav-item:nth-child(6) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.38s;
+        }
+
+        #mobile-menu.is-open .menu-nav-item:nth-child(7) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.44s;
+        }
+
+        #mobile-menu .menu-footer {
+            opacity: 0;
+            transform: translateY(14px);
+            transition: opacity 0.4s ease 0.5s, transform 0.4s ease 0.5s;
+        }
+
+        #mobile-menu.is-open .menu-footer {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Parallax texture backgrounds — uses inner wrapper with translateY */
+        .parallax-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .parallax-bg {
+            position: absolute;
+            inset: -20% 0;
+            background-size: cover;
+            background-position: center;
+            will-change: transform;
+            z-index: 0;
+        }
+
+        .parallax-section>*:not(.parallax-bg) {
+            position: relative;
+            z-index: 1;
+        }
+
+        .parallax-bg.concrete {
+            background-color: #fdfbfb;
+            background-image:
+                radial-gradient(at 40% 20%, hsla(28, 100%, 74%, 0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 0%, hsla(189, 100%, 56%, 0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 50%, hsla(355, 100%, 93%, 0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 50%, hsla(340, 100%, 76%, 0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, hsla(22, 100%, 77%, 0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 100%, hsla(242, 100%, 70%, 0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 0%, hsla(343, 100%, 76%, 0.15) 0px, transparent 50%);
+        }
+
+        .parallax-bg.asphalt {
+            background-color: #0A0A0A;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('<?php echo get_template_directory_uri(); ?>/assets/pictures/texture-asphalt.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .parallax-bg.dark-minimal {
+            background-color: #0A0A0A;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('<?php echo get_template_directory_uri(); ?>/assets/pictures/bg-minimal-1.jpeg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Legacy: concrete-bg as section bg for guides card row */
+        .concrete-bg-inline {
+            background-color: #fdfbfb;
+            background-image:
+                radial-gradient(at 40% 20%, hsla(28, 100%, 74%, 0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 0%, hsla(189, 100%, 56%, 0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 50%, hsla(355, 100%, 93%, 0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 50%, hsla(340, 100%, 76%, 0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, hsla(22, 100%, 77%, 0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 100%, hsla(242, 100%, 70%, 0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 0%, hsla(343, 100%, 76%, 0.15) 0px, transparent 50%);
+        }
+
+        /* Searchable dropdown lists (country of origin + phone code) */
+        .searchable-list .sl-item {
+            padding: 0.65rem 1.25rem;
+            font-size: 0.78rem;
+            font-weight: 300;
+            color: #57534e;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+            transition: background-color .2s ease, color .2s ease, padding-left .2s ease;
+        }
+
+        .searchable-list .sl-item:hover,
+        .searchable-list .sl-item.sl-active {
+            background-color: rgba(227, 28, 37, 0.06);
+            color: #E31C25;
+            padding-left: 1.6rem;
+        }
+
+        .searchable-list .sl-item .sl-dial {
+            color: #a8a29e;
+            font-weight: 500;
+            font-size: 0.72rem;
+        }
+
+        .searchable-list .sl-item .sl-flag {
+            margin-right: 0.55rem;
+            font-size: 1rem;
+            line-height: 1;
+        }
+
+        .searchable-list .sl-empty {
+            padding: 0.85rem 1.25rem;
+            font-size: 0.75rem;
+            font-weight: 300;
+            color: #a8a29e;
+        }
+
+        /* Ride type preview card */
+        #ride-preview .rp-card {
+            display: flex;
+            gap: 1rem;
+            background: #ffffff;
+            border: 1px solid #e7e5e4;
+            border-left: 3px solid #E31C25;
+            padding: 0.85rem;
+            box-shadow: 0 10px 30px -18px rgba(0, 0, 0, 0.25);
+            animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        #ride-preview .rp-img {
+            width: 110px;
+            height: 90px;
+            flex-shrink: 0;
+            object-fit: cover;
+            background: #e7e5e4;
+        }
+
+        @media (max-width: 480px) {
+            #ride-preview .rp-img {
+                width: 84px;
+                height: 84px;
+            }
+        }
+    </style>
 
 
     <!-- HERO SECTION -->
     <section
-        class="relative min-h-[75<select id="ride-type" name="ride-type" style="display: none !important;">
-                                    <option value="" disabled selected>Select type</option>
-                                    <option value="Not sure - help me choose">Not sure - help me choose</option>
-                                    <?php
-                                    $tours_query = new WP_Query(array('post_type' => 'tour', 'posts_per_page' => -1, 'order' => 'ASC'));
-                                    if ($tours_query->have_posts()) :
-                                        while ($tours_query->have_posts()) : $tours_query->the_post();
-                                    ?>
-                                    <option value="<?php echo esc_attr(get_the_title()); ?>"><?php the_title(); ?></option>
-                                    <?php
-                                        endwhile;
-                                        wp_reset_postdata();
-                                    endif;
-                                    ?>
-                                    <option value="Custom Experience">Custom Experience</option>
-                                </select><select id="ride-type" name="ride-type" style="display: none !important;">
+        class="relative min-h-[75vh] flex items-center justify-center bg-brand-luxeDark text-white overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <!-- Scale-110 for parallax -->
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/pictures/devin-sunset.png" alt="Contact us background slovakia devin castle cyclists"
+                class="w-full h-full object-cover object-center opacity-45 scale-110" id="hero-img"
+                style="will-change: transform;">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-luxeDark via-brand-luxeDark/35 to-transparent">
+            </div>
+        </div>
+
+        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center flex flex-col items-center">
+            <span
+                class="text-xs font-semibold tracking-[0.3em] text-brand-luxeGold uppercase mb-4 block opacity-0 fade-in-up editable">Get
+                In Touch</span>
+            <h1 class="font-serif text-5xl md:text-7xl font-light mb-6 opacity-0 fade-in-up animation-delay-200 editable">Let's
+                Plan Your Ride</h1>
+            <p
+                class="text-stone-400 text-sm md:text-base font-light max-w-2xl mx-auto leading-relaxed tracking-wider opacity-0 fade-in-up animation-delay-400 editable">
+                Tell us about your visit, cycling experience and interests. We'll help you choose the perfect route or
+                create a custom cycling experience.
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTION: CONTACT FORM (Concrete bg) -->
+    <section class="py-32 parallax-section border-b border-stone-200/40">
+        <div class="parallax-bg concrete"></div>
+        <div class="max-w-4xl mx-auto px-6 scroll-reveal">
+
+            <!-- Selected Tour Alert Banner -->
+            <div id="tour-selected-banner"
+                class="hidden mb-12 p-5 bg-white border border-brand-luxeGold/30 flex items-center justify-between font-sans">
+                <div
+                    class="flex items-center space-x-3 text-brand-luxeTextDark text-xs font-semibold uppercase tracking-wider">
+                    <i data-lucide="info" class="w-5 h-5 text-brand-luxeGold"></i>
+                    <span>Enquiring about: <strong id="selected-tour-name"
+                            class="text-brand-luxeGold">None</strong></span>
+                </div>
+                <button onclick="clearSelectedTour()"
+                    class="text-stone-400 hover:text-brand-luxeDark transition-colors focus:outline-none">
+                    <i data-lucide="x" class="w-4 h-4"></i>
+                </button>
+            </div>
+
+            <!-- Direct Contact Info -->
+            <div
+                class="mb-16 flex flex-col md:flex-row items-start md:items-center justify-between p-8 md:p-10 bg-white border border-brand-luxeGold/20 shadow-xl relative overflow-hidden">
+                <div class="absolute right-0 top-0 w-48 h-48 bg-brand-luxeGold/5 rounded-full -mr-16 -mt-16 blur-3xl">
+                </div>
+
+                <div class="mb-6 md:mb-0 relative z-10">
+                    <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-luxeGold block mb-2 editable">Direct
+                        Contact</span>
+                    <h3 class="font-serif text-3xl font-light text-brand-luxeDark editable">Mgr. Silvia Karais</h3>
+                </div>
+
+                <div class="flex flex-col space-y-4 relative z-10">
+                    <div class="flex items-center group/item">
+                        <a href="mailto:silvia@velocity.sk"
+                            class="flex items-center space-x-4 text-stone-600 hover:text-brand-luxeGold transition-colors group">
+                            <div
+                                class="w-10 h-10 rounded-none bg-gradient-to-br from-stone-50 via-rose-50/40 to-stone-100 flex items-center justify-center border border-stone-200 group-hover:border-brand-luxeGold/30 transition-colors">
+                                <i data-lucide="mail" class="w-4 h-4"></i>
+                            </div>
+                            <span class="text-sm font-light tracking-wide font-sans editable">silvia@velocity.sk</span>
+                        </a>
+                        <button onclick="copyToClipboard('silvia@velocity.sk', this)"
+                            class="opacity-0 group-hover/item:opacity-100 transition-opacity ml-4 text-stone-400 hover:text-brand-luxeGold focus:outline-none p-2 border border-stone-200 rounded-none bg-stone-50 hover:bg-white"
+                            title="Copy Email">
+                            <span class="copy-icon flex items-center justify-center"><i data-lucide="copy"
+                                    class="w-3.5 h-3.5"></i></span>
+                            <span class="check-icon hidden flex items-center justify-center text-green-600"><i
+                                    data-lucide="check" class="w-3.5 h-3.5"></i></span>
+                        </button>
+                    </div>
+                    <div class="flex items-center group/item">
+                        <a href="tel:+421903214013"
+                            class="flex items-center space-x-4 text-stone-600 hover:text-brand-luxeGold transition-colors group">
+                            <div
+                                class="w-10 h-10 rounded-none bg-gradient-to-br from-stone-50 via-rose-50/40 to-stone-100 flex items-center justify-center border border-stone-200 group-hover:border-brand-luxeGold/30 transition-colors">
+                                <i data-lucide="phone" class="w-4 h-4"></i>
+                            </div>
+                            <span class="text-sm font-light tracking-wide font-sans editable">+421 903 214 013</span>
+                        </a>
+                        <button onclick="copyToClipboard('+421903214013', this)"
+                            class="opacity-0 group-hover/item:opacity-100 transition-opacity ml-4 text-stone-400 hover:text-brand-luxeGold focus:outline-none p-2 border border-stone-200 rounded-none bg-stone-50 hover:bg-white"
+                            title="Copy Phone Number">
+                            <span class="copy-icon flex items-center justify-center"><i data-lucide="copy"
+                                    class="w-3.5 h-3.5"></i></span>
+                            <span class="check-icon hidden flex items-center justify-center text-green-600"><i
+                                    data-lucide="check" class="w-3.5 h-3.5"></i></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Container -->
+            <div class="bg-white p-8 md:p-12 relative overflow-hidden rounded-none border border-stone-200 shadow-2xl"
+                id="form-container">
+                <form id="contact-form" class="space-y-10">
+                    <!-- Source flag, set to "Ride Builder" when the visitor arrives from the Tours builder -->
+                    <input type="hidden" id="form-source" name="source" value="Manual form">
+                    <!-- Honeypot anti-spam field: hidden from humans, must stay empty. Bots that fill it are rejected. -->
+                    <div aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;">
+                        <label>Leave this field empty
+                            <input type="text" name="company_website" tabindex="-1" autocomplete="off">
+                        </label>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                        <!-- Name -->
+                        <div class="flex flex-col">
+                            <label for="name"
+                                class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-500 mb-2 pl-1">Name <span class="text-red-600">*</span></label>
+                            <input type="text" id="name" name="name" required placeholder="John Doe"
+                                class="bg-stone-50 border border-stone-200 focus:border-red-600 focus:bg-white focus:outline-none text-sm font-light text-brand-luxeTextDark tracking-wide p-3.5 shadow-sm transition-all duration-300">
+                        </div>
+                        <!-- Country of Origin (searchable) -->
+                        <div class="flex flex-col">
+                            <label for="country"
+                                class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-500 mb-2 pl-1">Country
+                                of Origin <span class="text-red-600">*</span></label>
+                            <div class="relative w-full" id="country-field">
+                                <input type="text" id="country" name="country" required autocomplete="off"
+                                    placeholder="Start typing your country…"
+                                    class="w-full bg-stone-50 border border-stone-200 focus:border-red-600 focus:bg-white focus:outline-none text-sm font-light text-brand-luxeTextDark tracking-wide p-3.5 shadow-sm transition-all duration-300">
+                                <div id="country-list"
+                                    class="searchable-list absolute left-0 right-0 mt-1.5 bg-white border border-brand-luxeGold/20 shadow-2xl z-40 max-h-60 overflow-y-auto hidden" data-lenis-prevent>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                        <!-- Email -->
+                        <div class="flex flex-col">
+                            <label for="email"
+                                class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-500 mb-2 pl-1">Email
+                                Address <span class="text-red-600">*</span></label>
+                            <input type="email" id="email" name="email" required placeholder="john@example.com"
+                                class="bg-stone-50 border border-stone-200 focus:border-red-600 focus:bg-white focus:outline-none text-sm font-light text-brand-luxeTextDark tracking-wide p-3.5 shadow-sm transition-all duration-300">
+                        </div>
+                        <!-- Phone (optional, with country dial code) -->
+                        <div class="flex flex-col">
+                            <label for="phone-number"
+                                class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-500 mb-2 pl-1">Phone
+                                <span
+                                    class="text-stone-400 font-medium normal-case tracking-normal editable">(optional)</span></label>
+                            <div class="relative w-full" id="phone-field">
+                                <div class="flex">
+                                    <div class="relative flex-shrink-0">
+                                        <input type="text" id="phone-code" name="phone-code" value="+421"
+                                            inputmode="tel" autocomplete="off" aria-label="Country dial code"
+                                            class="relative z-0 focus:z-10 w-[5.5rem] bg-stone-100 border border-stone-200 focus:border-red-600 focus:bg-white focus:outline-none text-sm font-medium text-brand-luxeTextDark p-3.5 shadow-sm transition-all duration-300">
+                                        <div id="phone-code-list"
+                                            class="searchable-list absolute left-0 top-full mt-1.5 w-72 max-w-[80vw] bg-white border border-brand-luxeGold/20 shadow-2xl z-40 max-h-60 overflow-y-auto hidden" data-lenis-prevent>
+                                        </div>
+                                    </div>
+                                    <input type="tel" id="phone-number" name="phone-number" autocomplete="tel"
+                                        placeholder="903 214 013"
+                                        class="relative z-0 focus:z-10 -ml-px flex-1 min-w-0 bg-stone-50 border border-stone-200 focus:border-red-600 focus:bg-white focus:outline-none text-sm font-light text-brand-luxeTextDark tracking-wide p-3.5 shadow-sm transition-all duration-300">
+                                </div>
+                                <span class="text-[10px] font-light text-stone-400 mt-1.5 pl-1 leading-relaxed">Type or
+                                    pick your country code, then your number.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Travel Dates -->
+                    <div class="flex flex-col">
+                        <label for="dates"
+                            class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-500 mb-2 pl-1">Travel
+                            Dates <span class="text-red-600">*</span></label>
+                        <input type="text" id="dates" name="dates" required placeholder="e.g., Late September 2026"
+                            class="bg-stone-50 border border-stone-200 focus:border-red-600 focus:bg-white focus:outline-none text-sm font-light text-brand-luxeTextDark tracking-wide p-3.5 shadow-sm transition-all duration-300">
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                        <!-- Group Size -->
+                        <div class="flex flex-col relative custom-select-container">
+                            <label
+                                class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-500 mb-2 pl-1">Group
+                                Size <span class="text-stone-400 font-medium normal-case tracking-normal editable">(optional)</span></label>
+                            <div class="relative w-full">
+                                <select id="group-size" name="group-size" style="display: none !important;">
+                                    <option value="" disabled selected>Select size</option>
+                                    <option value="Solo (1 person)">Solo (1 person)</option>
+                                    <option value="Couple (2 people)">Couple (2 people)</option>
+                                    <option value="Small group (3-6 people)">Small group (3-6 people)</option>
+                                    <option value="Corporate (7+ people)">Corporate (7+ people)</option>
+                                </select>
+                                <button type="button"
+                                    class="custom-select-trigger w-full text-left bg-stone-50 border border-stone-200 focus:border-red-600 focus:bg-white focus:outline-none text-sm font-light text-brand-luxeTextDark tracking-wide p-3.5 shadow-sm cursor-pointer flex justify-between items-center transition-all duration-300">
+                                    <span class="selected-text text-stone-400">Select size</span>
+                                    <i data-lucide="chevron-down"
+                                        class="w-4 h-4 text-brand-luxeGold transition-transform duration-300"></i>
+                                </button>
+                                                                <div
+                                    class="custom-select-options absolute left-0 right-0 mt-1.5 bg-white border border-brand-luxeGold/20 shadow-2xl opacity-0 pointer-events-none transition-all duration-300 z-30 flex flex-col py-1.5 rounded-none max-h-60 overflow-y-auto" data-lenis-prevent>
+                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300"
+                                        data-value="Solo (1 person)">Solo (1 person)</div>
+                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300"
+                                        data-value="Couple (2 people)">Couple (2 people)</div>
+                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300"
+                                        data-value="Small group (3-6 people)">Small group (3-6 people)</div>
+                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300"
+                                        data-value="Corporate (7+ people)">Corporate (7+ people)</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Preferred Ride Type (spanning 2 columns) -->
+                        <div class="flex flex-col relative custom-select-container md:col-span-2">
+                            <label for="ride-type"
+                                class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-500 mb-2 pl-1">Preferred
+                                Ride Type <span class="text-stone-400 font-medium normal-case tracking-normal editable">(optional)</span></label>
+                            <div class="relative w-full">
+                                <select id="ride-type" name="ride-type" style="display: none !important;">
                                     <option value="" disabled selected>Select type</option>
                                     <option value="Not sure — help me choose">Not sure — help me choose</option>
-                                    <option value="Bratislava Highlights Ride">Bratislava Highlights Ride</option>
-                                    <option value="Danube Discovery Tour">Danube Discovery Tour</option>
-                                    <option value="Wine & Villages Ride">Wine & Villages Ride</option>
-                                    <option value="Sunset Ride">Sunset Ride</option>
-                                    <option value="Cross Border Ride">Cross Border Ride</option>
-                                    <option value="Little Carpathians Road Ride">Little Carpathians Road Ride</option>
-                                    <option value="Gravel Through The Vineyards">Gravel Through The Vineyards</option>
-                                    <option value="Four Countries Challenge">Four Countries Challenge</option>
+                                    <?php foreach (bb_contact_ride_groups() as $bb_group) : ?>
+                                        <?php foreach ($bb_group['tours'] as $bb_ride) : ?>
+                                    <option value="<?php echo esc_attr($bb_ride->post_title); ?>"><?php echo esc_html($bb_ride->post_title); ?></option>
+                                        <?php endforeach; ?>
+                                    <?php endforeach; ?>
                                     <option value="Custom Experience">Custom Experience</option>
                                 </select>
                                 <button type="button"
@@ -40,40 +499,18 @@
                                 <div
                                     class="custom-select-options absolute left-0 right-0 mt-1.5 bg-white border border-brand-luxeGold/20 shadow-2xl opacity-0 pointer-events-none transition-all duration-300 z-30 flex flex-col py-1.5 rounded-none max-h-60 overflow-y-auto" data-lenis-prevent>
                                     <div class="custom-option ride-option-help px-5 py-2.5 text-xs font-semibold text-brand-luxeGold bg-brand-luxeGold/5 border-l-2 border-brand-luxeGold hover:bg-brand-luxeGold/10 hover:pl-7 cursor-pointer transition-all duration-300 flex items-center gap-2"
-                                        data-value="Not sure - help me choose"><i data-lucide="sparkles"
-                                            class="w-3.5 h-3.5"></i>Not sure - help me choose</div>
+                                        data-value="Not sure — help me choose"><i data-lucide="sparkles"
+                                            class="w-3.5 h-3.5"></i>Not sure — help me choose</div>
                                     
-                                    <?php
-                                    $categories = get_terms(array('taxonomy' => 'tour_category', 'hide_empty' => false));
-                                    foreach($categories as $cat):
-                                        $tours_in_cat = new WP_Query(array(
-                                            'post_type' => 'tour', 
-                                            'posts_per_page' => -1, 
-                                            'order' => 'ASC',
-                                            'tax_query' => array(
-                                                array(
-                                                    'taxonomy' => 'tour_category',
-                                                    'field'    => 'term_id',
-                                                    'terms'    => $cat->term_id,
-                                                ),
-                                            ),
-                                        ));
-                                        if ($tours_in_cat->have_posts()):
-                                    ?>
-                                    <div class="px-5 py-2 text-[9px] font-bold tracking-[0.2em] text-red-600 uppercase bg-stone-50/80 border-y border-stone-100 cursor-default pointer-events-none mt-1"><?php echo esc_html($cat->name); ?></div>
-                                    <?php
-                                            while ($tours_in_cat->have_posts()) : $tours_in_cat->the_post();
-                                    ?>
+                                    <?php foreach (bb_contact_ride_groups() as $bb_group) : ?>
+                                    <div class="px-5 py-2 text-[9px] font-bold tracking-[0.2em] text-red-600 uppercase bg-stone-50/80 border-y border-stone-100 cursor-default pointer-events-none mt-1"><?php echo esc_html($bb_group['name']); ?></div>
+                                        <?php foreach ($bb_group['tours'] as $bb_ride) : ?>
                                     <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300"
-                                        data-value="<?php echo esc_attr(get_the_title()); ?>"><?php the_title(); ?></div>
-                                    <?php
-                                            endwhile;
-                                            wp_reset_postdata();
-                                        endif;
-                                    endforeach;
-                                    ?>
-                                    <div class="px-5 py-2 text-[9px] font-bold tracking-[0.2em] text-red-600 uppercase bg-stone-50/80 border-y border-stone-100 cursor-default pointer-events-none mt-1">Other</div>
-                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300"
+                                        data-value="<?php echo esc_attr($bb_ride->post_title); ?>"><?php echo esc_html($bb_ride->post_title); ?></div>
+                                        <?php endforeach; ?>
+                                    <?php endforeach; ?>
+                                    <div class="px-5 py-2 text-[9px] font-bold tracking-[0.2em] text-red-600 uppercase bg-stone-50/80 border-y border-stone-100 cursor-default pointer-events-none mt-1">Custom</div>
+                                    <div class="custom-option px-5 py-2.5 text-xs font-light text-stone-600 hover:bg-brand-luxeGold/5 hover:text-brand-luxeGold hover:pl-7 cursor-pointer transition-all duration-300 mb-1"
                                         data-value="Custom Experience">Custom Experience</div>
                                 </div>
                             </div>
@@ -99,7 +536,7 @@
                                 class="w-4 h-4 border border-stone-300 rounded-none bg-stone-50 focus:ring-3 focus:ring-brand-luxeGold/30 accent-brand-luxeGold cursor-pointer transition-colors duration-300">
                         </div>
                         <label for="gdpr-consent" class="text-xs font-light text-stone-600 leading-relaxed font-sans cursor-pointer">
-                            I agree to the <a href="privacy" target="_blank" class="text-brand-luxeGold hover:underline font-medium">processing of my personal data</a> for the purpose of handling this inquiry, in accordance with European GDPR regulations. <span class="text-red-600">*</span>
+                            I agree to the <a href="<?php echo esc_url(home_url('/privacy/')); ?>" target="_blank" class="text-brand-luxeGold hover:underline font-medium">processing of my personal data</a> for the purpose of handling this inquiry, in accordance with European GDPR regulations. <span class="text-red-600">*</span>
                         </label>
                     </div>
 
@@ -166,4 +603,574 @@
         </div>
     </section>
 
-    <?php get_footer(); ?>
+    <!-- FOOTER -->
+    <script>
+        const BB_SEND_URL = <?php echo wp_json_encode(home_url('/send.php')); ?>;
+        const BB_CONTACT_URL = <?php echo wp_json_encode(home_url('/contact/')); ?>;
+
+        // URL Query parameter handling (?ride=TourName & ?guide=GuideName)
+        const rideSelect = document.getElementById('ride-type');
+        const banner = document.getElementById('tour-selected-banner');
+        const selectedTourText = document.getElementById('selected-tour-name');
+
+        // Custom select dropdowns logic
+        // Helper: get the arrow icon element (works both before and after Lucide replaces <i> with <svg>)
+        function getArrowEl(trigger) {
+            return trigger.querySelector('svg') || trigger.querySelector('i');
+        }
+
+        document.querySelectorAll('.custom-select-container').forEach(container => {
+            const trigger = container.querySelector('.custom-select-trigger');
+            const optionsList = container.querySelector('.custom-select-options');
+            const selectEl = container.querySelector('select');
+            const selectedText = container.querySelector('.selected-text');
+
+            trigger.addEventListener('click', (e) => {
+                e.stopPropagation();
+                // Close other custom dropdowns first
+                document.querySelectorAll('.custom-select-options').forEach(list => {
+                    if (list !== optionsList) {
+                        list.classList.add('opacity-0', 'pointer-events-none');
+                        const otherTrigger = list.parentElement.querySelector('.custom-select-trigger');
+                        if (otherTrigger) {
+                            const otherArrow = getArrowEl(otherTrigger);
+                            if (otherArrow) otherArrow.classList.remove('rotate-180');
+                        }
+                    }
+                });
+                // Toggle this dropdown
+                const arrow = getArrowEl(trigger);
+                const isClosed = optionsList.classList.contains('opacity-0');
+                if (isClosed) {
+                    optionsList.classList.remove('opacity-0', 'pointer-events-none');
+                    if (arrow) arrow.classList.add('rotate-180');
+                } else {
+                    optionsList.classList.add('opacity-0', 'pointer-events-none');
+                    if (arrow) arrow.classList.remove('rotate-180');
+                }
+            });
+
+            container.querySelectorAll('.custom-option').forEach(option => {
+                option.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const val = option.getAttribute('data-value');
+
+                    // Set select value
+                    selectEl.value = val;
+                    // Trigger change event
+                    selectEl.dispatchEvent(new Event('change'));
+
+                    // Clear error styling on option select
+                    container.classList.remove('border-red-500');
+                    container.classList.add('border-stone-300');
+
+                    // Update text
+                    selectedText.textContent = option.textContent;
+                    selectedText.classList.remove('text-stone-400');
+                    selectedText.classList.add('text-brand-luxeTextDark');
+
+                    const arrow = getArrowEl(trigger);
+                    optionsList.classList.add('opacity-0', 'pointer-events-none');
+                    if (arrow) arrow.classList.remove('rotate-180');
+                });
+            });
+
+            // Listen to native select change to sync custom UI
+            selectEl.addEventListener('change', () => {
+                const val = selectEl.value;
+                container.querySelectorAll('.custom-option').forEach(o => {
+                    if (o.getAttribute('data-value') === val) {
+                        o.classList.remove('text-stone-600');
+                        o.classList.add('bg-brand-luxeGold/10', 'text-brand-luxeGold', 'pl-7', 'border-l-2', 'border-brand-luxeGold');
+                    } else {
+                        o.classList.remove('bg-brand-luxeGold/10', 'text-brand-luxeGold', 'pl-7', 'border-l-2', 'border-brand-luxeGold');
+                        o.classList.add('text-stone-600');
+                    }
+                });
+
+                if (selectEl.value) {
+                    selectedText.textContent = selectEl.options[selectEl.selectedIndex].text;
+                    selectedText.classList.remove('text-stone-400');
+                    selectedText.classList.add('text-brand-luxeTextDark');
+                } else {
+                    selectedText.textContent = selectEl.options[0] ? selectEl.options[0].text : 'Select';
+                    selectedText.classList.add('text-stone-400');
+                }
+            });
+        });
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', () => {
+            document.querySelectorAll('.custom-select-options').forEach(list => {
+                list.classList.add('opacity-0', 'pointer-events-none');
+            });
+            document.querySelectorAll('.custom-select-container').forEach(container => {
+                const trigger = container.querySelector('.custom-select-trigger');
+                if (trigger) {
+                    const arrow = getArrowEl(trigger);
+                    if (arrow) arrow.classList.remove('rotate-180');
+                }
+            });
+        });
+
+        // ===== Searchable country / phone-code pickers + ride preview =====
+        (function setupContactExtras() {
+            const countries = [
+                { n: 'Afghanistan', c: 'AF', d: '+93' }, { n: 'Albania', c: 'AL', d: '+355' }, { n: 'Algeria', c: 'DZ', d: '+213' },
+                { n: 'Andorra', c: 'AD', d: '+376' }, { n: 'Angola', c: 'AO', d: '+244' }, { n: 'Argentina', c: 'AR', d: '+54' },
+                { n: 'Armenia', c: 'AM', d: '+374' }, { n: 'Australia', c: 'AU', d: '+61' }, { n: 'Austria', c: 'AT', d: '+43' },
+                { n: 'Azerbaijan', c: 'AZ', d: '+994' }, { n: 'Bahrain', c: 'BH', d: '+973' }, { n: 'Bangladesh', c: 'BD', d: '+880' },
+                { n: 'Belarus', c: 'BY', d: '+375' }, { n: 'Belgium', c: 'BE', d: '+32' }, { n: 'Bolivia', c: 'BO', d: '+591' },
+                { n: 'Bosnia and Herzegovina', c: 'BA', d: '+387' }, { n: 'Brazil', c: 'BR', d: '+55' }, { n: 'Bulgaria', c: 'BG', d: '+359' },
+                { n: 'Cambodia', c: 'KH', d: '+855' }, { n: 'Canada', c: 'CA', d: '+1' }, { n: 'Chile', c: 'CL', d: '+56' },
+                { n: 'China', c: 'CN', d: '+86' }, { n: 'Colombia', c: 'CO', d: '+57' }, { n: 'Costa Rica', c: 'CR', d: '+506' },
+                { n: 'Croatia', c: 'HR', d: '+385' }, { n: 'Cyprus', c: 'CY', d: '+357' }, { n: 'Czechia', c: 'CZ', d: '+420' },
+                { n: 'Denmark', c: 'DK', d: '+45' }, { n: 'Dominican Republic', c: 'DO', d: '+1' }, { n: 'Ecuador', c: 'EC', d: '+593' },
+                { n: 'Egypt', c: 'EG', d: '+20' }, { n: 'Estonia', c: 'EE', d: '+372' }, { n: 'Finland', c: 'FI', d: '+358' },
+                { n: 'France', c: 'FR', d: '+33' }, { n: 'Georgia', c: 'GE', d: '+995' }, { n: 'Germany', c: 'DE', d: '+49' },
+                { n: 'Greece', c: 'GR', d: '+30' }, { n: 'Hong Kong', c: 'HK', d: '+852' }, { n: 'Hungary', c: 'HU', d: '+36' },
+                { n: 'Iceland', c: 'IS', d: '+354' }, { n: 'India', c: 'IN', d: '+91' }, { n: 'Indonesia', c: 'ID', d: '+62' },
+                { n: 'Iran', c: 'IR', d: '+98' }, { n: 'Iraq', c: 'IQ', d: '+964' }, { n: 'Ireland', c: 'IE', d: '+353' },
+                { n: 'Israel', c: 'IL', d: '+972' }, { n: 'Italy', c: 'IT', d: '+39' }, { n: 'Japan', c: 'JP', d: '+81' },
+                { n: 'Jordan', c: 'JO', d: '+962' }, { n: 'Kazakhstan', c: 'KZ', d: '+7' }, { n: 'Kenya', c: 'KE', d: '+254' },
+                { n: 'Kuwait', c: 'KW', d: '+965' }, { n: 'Latvia', c: 'LV', d: '+371' }, { n: 'Lebanon', c: 'LB', d: '+961' },
+                { n: 'Liechtenstein', c: 'LI', d: '+423' }, { n: 'Lithuania', c: 'LT', d: '+370' }, { n: 'Luxembourg', c: 'LU', d: '+352' },
+                { n: 'Malaysia', c: 'MY', d: '+60' }, { n: 'Malta', c: 'MT', d: '+356' }, { n: 'Mexico', c: 'MX', d: '+52' },
+                { n: 'Moldova', c: 'MD', d: '+373' }, { n: 'Monaco', c: 'MC', d: '+377' }, { n: 'Montenegro', c: 'ME', d: '+382' },
+                { n: 'Morocco', c: 'MA', d: '+212' }, { n: 'Netherlands', c: 'NL', d: '+31' }, { n: 'New Zealand', c: 'NZ', d: '+64' },
+                { n: 'North Macedonia', c: 'MK', d: '+389' }, { n: 'Norway', c: 'NO', d: '+47' }, { n: 'Oman', c: 'OM', d: '+968' },
+                { n: 'Pakistan', c: 'PK', d: '+92' }, { n: 'Peru', c: 'PE', d: '+51' }, { n: 'Philippines', c: 'PH', d: '+63' },
+                { n: 'Poland', c: 'PL', d: '+48' }, { n: 'Portugal', c: 'PT', d: '+351' }, { n: 'Qatar', c: 'QA', d: '+974' },
+                { n: 'Romania', c: 'RO', d: '+40' }, { n: 'Russia', c: 'RU', d: '+7' }, { n: 'San Marino', c: 'SM', d: '+378' },
+                { n: 'Saudi Arabia', c: 'SA', d: '+966' }, { n: 'Serbia', c: 'RS', d: '+381' }, { n: 'Singapore', c: 'SG', d: '+65' },
+                { n: 'Slovakia', c: 'SK', d: '+421' }, { n: 'Slovenia', c: 'SI', d: '+386' }, { n: 'South Africa', c: 'ZA', d: '+27' },
+                { n: 'South Korea', c: 'KR', d: '+82' }, { n: 'Spain', c: 'ES', d: '+34' }, { n: 'Sri Lanka', c: 'LK', d: '+94' },
+                { n: 'Sweden', c: 'SE', d: '+46' }, { n: 'Switzerland', c: 'CH', d: '+41' }, { n: 'Taiwan', c: 'TW', d: '+886' },
+                { n: 'Thailand', c: 'TH', d: '+66' }, { n: 'Tunisia', c: 'TN', d: '+216' }, { n: 'Turkey', c: 'TR', d: '+90' },
+                { n: 'Ukraine', c: 'UA', d: '+380' }, { n: 'United Arab Emirates', c: 'AE', d: '+971' },
+                { n: 'United Kingdom', c: 'GB', d: '+44' }, { n: 'United States', c: 'US', d: '+1' }, { n: 'Uruguay', c: 'UY', d: '+598' },
+                { n: 'Uzbekistan', c: 'UZ', d: '+998' }, { n: 'Venezuela', c: 'VE', d: '+58' }, { n: 'Vietnam', c: 'VN', d: '+84' }
+            ];
+
+            function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+            function flag(iso) { return iso ? '<img src="https://flagcdn.com/w20/' + iso.toLowerCase() + '.png" srcset="https://flagcdn.com/w40/' + iso.toLowerCase() + '.png 2x" width="20" class="inline-block mr-2 shadow-sm border border-stone-200" alt="' + iso + '">' : ''; }
+
+            /* ---- Phone dial code: a typeable input that also opens a searchable, flagged list ---- */
+            const phoneField = document.getElementById('phone-field');
+            const phoneCode = document.getElementById('phone-code');   // typeable, name="phone-code"
+            const phoneList = document.getElementById('phone-code-list');
+            const phoneNumber = document.getElementById('phone-number');
+
+            function setPhoneCode(dial) { if (phoneCode) phoneCode.value = dial; }
+            window.resetPhoneCode = function () { setPhoneCode('+421'); };
+
+            function renderPhoneList(filter) {
+                const q = (filter || '').trim().toLowerCase();
+                const qd = q.replace(/\D/g, '');
+                const matches = countries.filter(c => !q || c.n.toLowerCase().indexOf(q) > -1 || (qd && c.d.replace(/\D/g, '').indexOf(qd) > -1));
+                phoneList.innerHTML = matches.length
+                    ? matches.map(c => '<div class="sl-item" data-dial="' + c.d + '"><span><span class="sl-flag">' + flag(c.c) + '</span><span class="text-stone-400 font-medium mr-2">' + c.c + '</span>' + esc(c.n) + '</span><span class="sl-dial">' + c.d + '</span></div>').join('')
+                    : '<div class="sl-empty">No match — you can type your code in.</div>';
+            }
+            if (phoneCode && phoneList) {
+                phoneCode.addEventListener('focus', () => { renderPhoneList(''); phoneList.classList.remove('hidden'); });
+                phoneCode.addEventListener('input', () => { renderPhoneList(phoneCode.value); phoneList.classList.remove('hidden'); });
+                phoneList.addEventListener('click', (e) => {
+                    const item = e.target.closest('.sl-item');
+                    if (!item) return;
+                    setPhoneCode(item.getAttribute('data-dial'));
+                    phoneList.classList.add('hidden');
+                    if (phoneNumber) phoneNumber.focus();
+                });
+            }
+
+            /* ---- Country of origin: names only, alphabetical, type to filter ---- */
+            const countryInput = document.getElementById('country');
+            const countryList = document.getElementById('country-list');
+            const countryField = document.getElementById('country-field');
+
+            function renderCountryList(filter) {
+                const q = (filter || '').trim().toLowerCase();
+                const matches = countries.filter(c => !q || c.n.toLowerCase().indexOf(q) > -1);
+                countryList.innerHTML = matches.length
+                    ? matches.slice(0, 100).map(c => '<div class="sl-item" data-name="' + esc(c.n) + '" data-dial="' + c.d + '"><span><span class="sl-flag">' + flag(c.c) + '</span><span class="text-stone-400 font-medium mr-2">' + c.c + '</span>' + esc(c.n) + '</span></div>').join('')
+                    : '<div class="sl-empty">No match — you can just type it in.</div>';
+            }
+            if (countryInput && countryList) {
+                countryInput.addEventListener('focus', () => { renderCountryList(countryInput.value); countryList.classList.remove('hidden'); });
+                countryInput.addEventListener('input', () => { renderCountryList(countryInput.value); countryList.classList.remove('hidden'); });
+                countryList.addEventListener('click', (e) => {
+                    const item = e.target.closest('.sl-item');
+                    if (!item) return;
+                    countryInput.value = item.getAttribute('data-name');
+                    const dial = item.getAttribute('data-dial');
+                    if (dial && (!phoneNumber || !phoneNumber.value)) setPhoneCode(dial);
+                    countryList.classList.add('hidden');
+                });
+            }
+
+            /* ---- Outside click closes both pickers ---- */
+            document.addEventListener('click', (e) => {
+                if (countryField && countryList && !countryField.contains(e.target)) countryList.classList.add('hidden');
+                if (phoneField && phoneList && !phoneList.classList.contains('hidden') && !phoneField.contains(e.target)) phoneList.classList.add('hidden');
+            });
+
+            /* ---- Preferred ride type: short preview card (all options) ---- */
+            const rideInfo = <?php echo wp_json_encode(bb_contact_ride_info()); ?>;
+
+            /* Повні дані турів для вікна «View more» — ті самі записи,
+               що й на сторінці Tours, тому дані не можуть розійтися. */
+            const rideDetails = <?php echo wp_json_encode(bb_contact_ride_details()); ?>;
+
+            const rideSel = document.getElementById('ride-type');
+            const preview = document.getElementById('ride-preview');
+            const HELP_VALUE = 'Not sure — help me choose';
+
+            function renderRidePreview() {
+                if (!rideSel || !preview) return;
+                const val = rideSel.value;
+                const cont = rideSel.closest('.custom-select-container');
+                const selText = cont ? cont.querySelector('.selected-text') : null;
+
+                if (val === HELP_VALUE) {
+                    if (selText) { selText.classList.remove('text-brand-luxeTextDark'); selText.classList.add('text-brand-luxeGold', 'font-semibold'); }
+                    preview.classList.remove('hidden');
+                    preview.innerHTML = '<div class="rp-card"><div class="rp-img flex items-center justify-center" style="background:rgba(227,28,37,0.08);"><i data-lucide="sparkles" class="w-7 h-7 text-brand-luxeGold"></i></div>' +
+                        '<div class="flex flex-col justify-center"><span class="text-[9px] font-bold uppercase tracking-[0.2em] text-brand-luxeGold mb-1 editable">We\'ve got you</span>' +
+                        '<h4 class="font-serif text-base font-medium text-brand-luxeDark leading-snug mb-1 editable">We\'ll pick the perfect ride for you</h4>' +
+                        '<p class="text-xs font-light text-stone-600 leading-relaxed editable">No cycling knowledge needed. Just tell us your dates, group and fitness in the message below — our local team will suggest the best route and bike.</p></div></div>';
+                    if (typeof lucide !== 'undefined') lucide.createIcons();
+                    return;
+                }
+
+                if (selText) selText.classList.remove('text-brand-luxeGold', 'font-semibold');
+                const info = rideInfo[val];
+                if (!val || !info) { preview.classList.add('hidden'); preview.innerHTML = ''; return; }
+                const moreBtn = rideDetails[val]
+                    ? '<button type="button" onclick="openRideModal(\'' + val.replace(/'/g, "\\'") + '\')" class="mt-3 self-start px-4 py-2 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[9px] font-bold uppercase tracking-[0.15em] transition-all duration-300 shadow-sm">View more</button>'
+                    : '';
+                preview.classList.remove('hidden');
+                preview.innerHTML = '<div class="rp-card"><img class="rp-img" src="' + info.img + '" alt="' + esc(val) + '">' +
+                    '<div class="flex flex-col justify-center"><span class="text-[9px] font-bold uppercase tracking-[0.2em] text-brand-luxeGold mb-1 editable">Your selection</span>' +
+                    '<h4 class="font-serif text-base font-medium text-brand-luxeDark leading-snug mb-1 editable">' + esc(val) + '</h4>' +
+                    '<p class="text-xs font-light text-stone-600 leading-relaxed editable">' + info.desc + '</p>' + moreBtn + '</div></div>';
+                if (typeof lucide !== 'undefined') lucide.createIcons();
+            }
+            if (rideSel) rideSel.addEventListener('change', renderRidePreview);
+            window.renderRidePreview = renderRidePreview;
+
+            /* ---- Full tour detail modal ---- */
+            const rideModal = document.getElementById('ride-modal');
+            const rideModalContent = document.getElementById('ride-modal-content');
+            window.openRideModal = function (val) {
+                const d = rideDetails[val];
+                if (!d || !rideModal) return;
+                let kp = '';
+                d.keypoints.forEach(k => {
+                    kp += '<li class="flex items-center space-x-3 text-stone-700 text-xs font-sans"><i data-lucide="check" class="w-4 h-4 text-brand-luxeGold"></i><span>' + esc(k) + '</span></li>';
+                });
+                rideModalContent.innerHTML = '' +
+                    '<div class="relative w-full h-56 sm:h-64 border-b border-stone-200"><img src="' + d.img + '" alt="' + esc(d.title) + '" class="w-full h-full object-cover"></div>' +
+                    '<div class="p-6 sm:p-8 pb-4"><span class="text-[9px] uppercase font-bold tracking-[0.25em] text-brand-luxeGold border border-brand-luxeGold/30 px-3 py-1 bg-brand-luxeGold/10 mb-4 inline-block editable">' + esc(d.diff) + '</span>' +
+                    '<h3 class="font-serif text-2xl sm:text-3xl md:text-4xl font-bold leading-tight text-brand-luxeDark editable">' + esc(d.title) + '</h3></div>' +
+                    '<div class="px-6 sm:px-8 space-y-8 pb-8">' +
+                    '<p class="text-stone-600 font-light text-xs md:text-sm leading-relaxed font-sans tracking-wide editable">' + esc(d.desc) + '</p>' +
+                    '<div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-4 border-y border-stone-200 text-xs font-sans">' +
+                    '<div><span class="text-[9px] uppercase font-bold text-stone-500 block mb-1 tracking-wider editable">Distance</span><span class="font-semibold text-brand-luxeDark text-sm">' + esc(d.dist) + '</span></div>' +
+                    '<div><span class="text-[9px] uppercase font-bold text-stone-500 block mb-1 tracking-wider editable">Elevation</span><span class="font-semibold text-brand-luxeDark text-sm">' + esc(d.elev) + '</span></div>' +
+                    '<div><span class="text-[9px] uppercase font-bold text-stone-500 block mb-1 tracking-wider editable">Duration</span><span class="font-semibold text-brand-luxeDark text-sm">' + esc(d.dur) + '</span></div>' +
+                    '<div><span class="text-[9px] uppercase font-bold text-stone-500 block mb-1 tracking-wider editable">Bike Type</span><span class="font-semibold text-brand-luxeDark text-[11px] block">' + esc(d.bike) + '</span></div></div>' +
+                    '<div><h4 class="text-[10px] uppercase font-bold text-stone-500 tracking-widest mb-4 editable">Highlights</h4><ul class="grid grid-cols-1 md:grid-cols-2 gap-3">' + kp + '</ul></div>' +
+                    '<div class="bg-stone-50 p-6 border-l-2 border-brand-luxeGold"><h4 class="text-[10px] uppercase font-bold text-brand-luxeGold tracking-widest mb-2 editable">Guide Recommendation</h4><p class="text-xs text-stone-600 font-light leading-relaxed tracking-wide font-sans editable">' + esc(d.recom) + '</p></div>' +
+                    '<div class="pt-2 flex justify-end"><button type="button" onclick="closeRideModal()" class="px-10 py-4 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[10px] font-bold uppercase tracking-[0.2em] transition-all duration-300 shadow-xl">Sounds good</button></div>' +
+                    '</div>';
+                rideModal.classList.remove('opacity-0', 'pointer-events-none');
+                if (typeof lucide !== 'undefined') lucide.createIcons();
+            };
+            window.closeRideModal = function () { if (rideModal) rideModal.classList.add('opacity-0', 'pointer-events-none'); };
+            if (rideModal) rideModal.addEventListener('click', (e) => { if (e.target === rideModal) window.closeRideModal(); });
+        })();
+
+        function checkQueryParam() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const selectedRide = urlParams.get('ride');
+            const selectedGuide = urlParams.get('guide');
+
+            if (selectedRide) {
+                let foundMatch = false;
+                
+                // First pass: Exact match or special 'custom' keyword
+                if (selectedRide.toLowerCase() === 'custom') {
+                    for (let option of rideSelect.options) {
+                        if (option.value === 'Custom Experience') {
+                            option.selected = true;
+                            selectedTourText.innerText = "Custom Experience";
+                            banner.classList.remove('hidden');
+                            rideSelect.dispatchEvent(new Event('change'));
+                            foundMatch = true;
+                            break;
+                        }
+                    }
+                } else {
+                    // Exact match
+                    for (let option of rideSelect.options) {
+                        if (option.value.toLowerCase() === selectedRide.toLowerCase()) {
+                            option.selected = true;
+                            foundMatch = true;
+                            selectedTourText.innerText = option.value;
+                            banner.classList.remove('hidden');
+                            rideSelect.dispatchEvent(new Event('change'));
+                            break;
+                        }
+                    }
+                    
+                    // Partial match (fallback)
+                    if (!foundMatch) {
+                        for (let option of rideSelect.options) {
+                            if (option.value.toLowerCase().includes(selectedRide.toLowerCase())) {
+                                option.selected = true;
+                                foundMatch = true;
+                                selectedTourText.innerText = option.value;
+                                banner.classList.remove('hidden');
+                                rideSelect.dispatchEvent(new Event('change'));
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+
+            if (selectedGuide) {
+                const messageArea = document.getElementById('message');
+                if (messageArea) {
+                    messageArea.value = `I would like to request ${selectedGuide} as our local guide.`;
+                }
+            }
+
+            // ===== Custom-ride builder params (from Tours "Build Your Custom Ride") =====
+            const cType = urlParams.get('type');
+            const cDuration = urlParams.get('duration');
+            const cGroup = urlParams.get('group');
+            const cLevel = urlParams.get('level');
+
+            function setSelectValue(id, value) {
+                const sel = document.getElementById(id);
+                if (!sel || !value) return;
+                for (let o of sel.options) {
+                    if (o.value === value) { sel.value = value; sel.dispatchEvent(new Event('change')); return; }
+                }
+            }
+
+            const groupMap = {
+                'Solo': 'Solo (1 person)',
+                'Couple': 'Couple (2 people)',
+                'Small group': 'Small group (3-6 people)',
+                'Corporate': 'Corporate (7+ people)'
+            };
+            if (cGroup && groupMap[cGroup]) setSelectValue('group-size', groupMap[cGroup]);
+
+            if (cType || cDuration || cGroup || cLevel) {
+                const sourceInput = document.getElementById('form-source');
+                if (sourceInput) sourceInput.value = 'Ride Builder';
+
+                // Write the choices back into the message so the visitor can SEE
+                // what they picked in the builder (and can still edit/add to it).
+                const messageArea = document.getElementById('message');
+                if (messageArea && !messageArea.value) {
+                    const lines = ['— My ride builder choices —'];
+                    if (cType) lines.push('Ride type: ' + cType);
+                    if (cDuration) lines.push('Duration: ' + cDuration);
+                    if (cGroup) lines.push('Group: ' + cGroup);
+                    if (cLevel) lines.push('Difficulty: ' + cLevel);
+                    lines.push('', 'Anything else we should know?');
+                    messageArea.value = lines.join('\n');
+                }
+                if (banner) {
+                    selectedTourText.innerText = 'Custom Experience';
+                    banner.classList.remove('hidden');
+                }
+            }
+        }
+
+        function clearSelectedTour() {
+            banner.classList.add('hidden');
+            rideSelect.selectedIndex = 0;
+            rideSelect.dispatchEvent(new Event('change'));
+            window.history.pushState({}, document.title, window.location.pathname);
+        }
+
+        window.addEventListener('DOMContentLoaded', checkQueryParam);
+
+        // Contact form submit logic
+        const form = document.getElementById('contact-form');
+        const successMessage = document.getElementById('success-message');
+        const resetBtn = document.getElementById('success-reset-btn');
+        const errorMessage = document.getElementById('error-message');
+        const errorMessageText = document.getElementById('error-message-text');
+        const errorRetryBtn = document.getElementById('error-retry-btn');
+
+        const ERROR_TEXTS = {
+            generic: "We couldn't send your inquiry right now. Please try again in a moment — your details are still in the form.",
+            rate_limited: "You've sent several messages in a short time. Please wait a minute and try again — your details are still in the form.",
+            invalid_input: "Some required information seems to be missing or invalid. Please check your name, email and travel dates, then try again.",
+            network: "We couldn't reach the server. Please check your internet connection and try again — your details are still in the form."
+        };
+
+        function showFormError(kind) {
+            if (errorMessageText) errorMessageText.textContent = ERROR_TEXTS[kind] || ERROR_TEXTS.generic;
+            errorMessage.classList.remove('pointer-events-none', 'opacity-0');
+            errorMessage.classList.add('opacity-100');
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+        }
+
+        function hideFormError() {
+            errorMessage.classList.add('pointer-events-none', 'opacity-0');
+            errorMessage.classList.remove('opacity-100');
+        }
+
+        function showFormSuccess() {
+            successMessage.classList.remove('pointer-events-none', 'opacity-0');
+            successMessage.classList.add('opacity-100');
+        }
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Required fields (Name, Email, Country, Travel Dates, consent) are
+            // enforced by native HTML5 validation before this runs.
+            // Group Size and Ride Type are optional; if no ride type was chosen,
+            // default it to "Not sure — help me choose" so the inquiry still carries one.
+            const rideTypeSelect = document.getElementById('ride-type');
+            if (rideTypeSelect && !rideTypeSelect.value) {
+                rideTypeSelect.value = 'Not sure — help me choose';
+                const rideContainer = rideTypeSelect.closest('.custom-select-container');
+                const rideText = rideContainer ? rideContainer.querySelector('.selected-text') : null;
+                if (rideText) {
+                    rideText.textContent = 'Not sure — help me choose';
+                    rideText.classList.remove('text-stone-400');
+                    rideText.classList.add('text-brand-luxeTextDark');
+                }
+            }
+
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const submitBtnText = document.getElementById('submit-btn-text');
+            submitBtn.disabled = true;
+            if (submitBtnText) {
+                submitBtnText.innerHTML = '<span class="inline-block animate-pulse">Sending Inquiry...</span>';
+            }
+
+            // Send AJAX request to send.php
+            const formData = new FormData(form);
+            formData.append('ajax', '1');
+
+            fetch(BB_SEND_URL, {
+                method: 'POST',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+                body: formData
+            })
+                .then(response => response.text().then(text => ({ ok: response.ok, text: text.trim() })))
+                .then(({ ok, text }) => {
+                    if (ok && text === 'success') {
+                        // Show success screen overlay
+                        showFormSuccess();
+
+                        form.reset();
+                        // Reset visual styling for custom trigger text placeholders
+                        document.querySelectorAll('.custom-select-container').forEach(container => {
+                            const selectedText = container.querySelector('.selected-text');
+                            const selectEl = container.querySelector('select');
+                            if (selectEl.id === 'group-size') {
+                                selectedText.textContent = 'Select size';
+                            } else if (selectEl.id === 'ride-type') {
+                                selectedText.textContent = 'Select type';
+                            }
+                            selectedText.classList.add('text-stone-400');
+                            selectedText.classList.remove('text-brand-luxeTextDark', 'text-brand-luxeGold', 'font-semibold');
+                        });
+                        banner.classList.add('hidden');
+                        if (typeof window.renderRidePreview === 'function') window.renderRidePreview();
+                        if (typeof window.resetPhoneCode === 'function') window.resetPhoneCode();
+                    } else if (text === 'error_rate_limited') {
+                        showFormError('rate_limited');
+                    } else if (text === 'error_invalid_input') {
+                        showFormError('invalid_input');
+                    } else {
+                        showFormError('generic');
+                    }
+                })
+                .catch(() => {
+                    showFormError('network');
+                })
+                .finally(() => {
+                    // Re-enable submit button
+                    submitBtn.disabled = false;
+                    if (submitBtnText) {
+                        submitBtnText.innerHTML = '<span>Submit Inquiry</span>';
+                    }
+                });
+        });
+
+        resetBtn.addEventListener('click', () => {
+            successMessage.classList.add('pointer-events-none');
+            successMessage.classList.remove('opacity-100');
+            successMessage.classList.add('opacity-0');
+        });
+
+        errorRetryBtn.addEventListener('click', hideFormError);
+
+        // Non-AJAX fallback: send.php redirects to contact/?status=success|error
+        // when JS was unavailable during submit — reflect that outcome here.
+        (function handleStatusParam() {
+            const status = new URLSearchParams(window.location.search).get('status');
+            if (!status) return;
+            if (status === 'success') showFormSuccess();
+            else showFormError('generic');
+            window.history.replaceState({}, document.title, window.location.pathname);
+        })();
+
+        // Parallax scroll effect for backgrounds
+        window.addEventListener('scroll', () => {
+            const scroll = window.scrollY;
+            if (window.innerWidth > 768) {
+                // Hero image
+                const heroBg = document.getElementById('hero-img');
+                if (heroBg) {
+                    heroBg.style.transform = `translateY(${scroll * 0.3}px) scale(1.1)`;
+                }
+
+                // Inner parallax background wrappers (overflow-hidden on parent clips edges)
+                document.querySelectorAll('.parallax-bg').forEach(bg => {
+                    const section = bg.closest('.parallax-section');
+                    if (!section) return;
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top < window.innerHeight && rect.bottom > 0) {
+                        const scrollProgress = (window.innerHeight - rect.top) / (window.innerHeight + section.offsetHeight);
+                        const percentOffset = (scrollProgress - 0.5) * -15; // range: -7.5% to +7.5% (safely within -20% inset)
+                        bg.style.transform = `translateY(${percentOffset}%)`;
+                    }
+                });
+            }
+        });
+
+        // Copy to clipboard function
+        function copyToClipboard(text, btn) {
+            navigator.clipboard.writeText(text).then(function () {
+                var copyIcon = btn.querySelector('.copy-icon');
+                var checkIcon = btn.querySelector('.check-icon');
+                if (copyIcon && checkIcon) {
+                    copyIcon.classList.add('hidden');
+                    checkIcon.classList.remove('hidden');
+                    setTimeout(function () {
+                        copyIcon.classList.remove('hidden');
+                        checkIcon.classList.add('hidden');
+                    }, 2000);
+                }
+            }).catch(function (err) {
+                console.error('Could not copy text: ', err);
+            });
+        }
+    </script>
+
+<?php get_footer(); ?>

@@ -65,23 +65,6 @@ tailwind.config = {
 JS;
 }
 
-/**
- * Секції на сторінці Tours мають фіксовані якорі (#cat1..#cat3) — на них
- * зав'язаний скрипт, що розгортає потрібну панель. Щоб меню й головна не
- * розходились із шаблоном, посилання будуємо через цю відповідність.
- *
- * Нова категорія, створена в адмінці, тут не з'явиться свідомо: під неї ще
- * немає секції з дизайном, і посилання вело б у порожнечу.
- */
-function bb_tour_category_anchor($slug) {
-    $map = array(
-        'e-bike-leisure-tours'            => 'cat1',
-        'road-gravel-cycling-experiences' => 'cat2',
-        'custom-experiences'              => 'cat3',
-    );
-    return isset($map[$slug]) ? $map[$slug] : '';
-}
-
 function bb_theme_setup() {
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
@@ -111,6 +94,9 @@ add_action('init', 'bb_clean_head');
 
 // Типи записів: тури й гіди.
 require_once get_template_directory() . '/inc/cpt.php';
+
+// Спільні функції для категорій турів — щоб сторінки не розходились між собою.
+require_once get_template_directory() . '/inc/helpers.php';
 
 // Поля для адмінки. Один файл — щоб назви полів не розходились із шаблонами.
 require_once get_template_directory() . '/inc/acf-fields.php';

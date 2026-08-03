@@ -1,4 +1,4 @@
-﻿    <!-- FOOTER -->
+    <!-- FOOTER -->
     <footer class="bg-brand-luxeDark text-stone-500 py-24 border-t border-stone-900">
         <div class="max-w-7xl mx-auto px-6 lg:px-12 font-sans tracking-wide">
             <div class="grid grid-cols-1 md:grid-cols-5 gap-16 mb-20">

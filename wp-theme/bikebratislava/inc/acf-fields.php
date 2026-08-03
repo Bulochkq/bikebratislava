@@ -114,6 +114,56 @@ function bb_register_acf_fields() {
     ));
 
     /* ------------------------------------------------------------------
+     * КАТЕГОРІЯ ТУРІВ
+     *
+     * Кожна категорія — це окрема секція на сторінці Tours. Щоб нова
+     * категорія не тягла чуже фото й не лізла в кінець списку, у неї є
+     * власне зображення та порядок.
+     * ---------------------------------------------------------------- */
+    acf_add_local_field_group(array(
+        'key'    => 'group_tour_category',
+        'title'  => 'Sekcia na stránke Tours',
+        'fields' => array(
+            array(
+                'key'           => 'field_cat_image',
+                'label'         => 'Fotka sekcie',
+                'name'          => 'cat_image',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'medium',
+                'library'       => 'all',
+                'instructions'  => 'Veľká fotka vedľa popisu sekcie a na karte na domovskej stránke. '
+                                 . 'Ak zostane prázdna, použije sa fotka prvej túry v kategórii.',
+            ),
+            array(
+                'key'          => 'field_cat_short_desc',
+                'label'        => 'Krátky popis (na domovskú stránku)',
+                'name'         => 'cat_short_desc',
+                'type'         => 'textarea',
+                'rows'         => 2,
+                'instructions' => 'Jedna veta na kartu kategórie na domovskej stránke. '
+                                . 'Ak zostane prázdne, použije sa popis vyššie.',
+            ),
+            array(
+                'key'          => 'field_cat_order',
+                'label'        => 'Poradie sekcie',
+                'name'         => 'cat_order',
+                'type'         => 'number',
+                'instructions' => 'Nižšie číslo = vyššie na stránke. Prázdne pole = 50.',
+                'placeholder'  => '50',
+                'step'         => 10,
+            ),
+        ),
+        'location' => array(
+            array(
+                array('param' => 'taxonomy', 'operator' => '==', 'value' => 'tour_category'),
+            ),
+        ),
+        'active'      => true,
+        'description' => 'Názov a popis sekcie sa berú z polí «Názov» a «Popis» vyššie.',
+    ));
+
+    /* ------------------------------------------------------------------
      * ГІДИ
      * ---------------------------------------------------------------- */
     acf_add_local_field_group(array(
@@ -168,6 +218,35 @@ function bb_register_acf_fields() {
         ),
         'active'      => true,
         'description' => 'Fotku sprievodcu nastavíte vpravo v bloku «Náhľadový obrázok».',
+    ));
+
+    /* ------------------------------------------------------------------
+     * СТАТТІ ЖУРНАЛУ
+     *
+     * Дві картки в журналі — це вбудовані пости з Instagram. Вони теж
+     * звичайні записи, тільки замість фото показують вбудову, яка
+     * вантажиться після згоди відвідувача (вимога GDPR).
+     * ---------------------------------------------------------------- */
+    acf_add_local_field_group(array(
+        'key'    => 'group_post_instagram',
+        'title'  => 'Instagram',
+        'fields' => array(
+            array(
+                'key'          => 'field_post_instagram_url',
+                'label'        => 'Odkaz na príspevok na Instagrame',
+                'name'         => 'instagram_url',
+                'type'         => 'url',
+                'instructions' => 'Ak vyplníte, namiesto fotky sa v žurnáli zobrazí vložený príspevok z Instagramu. '
+                                . 'Text článku sa zobrazí pod ním. Nechajte prázdne pre bežný článok s fotkou.',
+                'placeholder'  => 'https://www.instagram.com/p/XXXXXXXXX/',
+            ),
+        ),
+        'location' => array(
+            array(
+                array('param' => 'post_type', 'operator' => '==', 'value' => 'post'),
+            ),
+        ),
+        'active' => true,
     ));
 
     /* ------------------------------------------------------------------

@@ -165,6 +165,18 @@
                 radial-gradient(at 55% 8%, rgba(150,150,160,.10) 0, transparent 55%),
                 linear-gradient(160deg, #1f1f1f 0%, #0d0d0d 100%);
         }
+
+        /* Плавні плями на фоні сторінки Discover. Правило загубилось при
+           перенесенні сторінки в тему — блоки лишались нерухомими. */
+        @keyframes blob {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33%      { transform: translate(30px, -40px) scale(1.08); }
+            66%      { transform: translate(-25px, 25px) scale(0.95); }
+        }
+        .animate-blob { animation: blob 18s ease-in-out infinite; }
+        @media (prefers-reduced-motion: reduce) {
+            .animate-blob { animation: none; }
+        }
     </style>
 </head>
 <body class="bg-gradient-to-br from-stone-50 via-rose-50/40 to-stone-100 text-brand-luxeTextDark font-sans antialiased selection:bg-brand-luxeGold selection:text-brand-luxeDark overflow-x-hidden">
@@ -211,23 +223,8 @@
                         <div
                             class="bg-brand-luxeDark/95 backdrop-blur-md border border-white/10 shadow-2xl min-w-[240px] py-2">
                             
-                            <?php
-                            $categories = get_terms(array(
-                                'taxonomy' => 'tour_category',
-                                'hide_empty' => false,
-                            ));
-                            if (is_wp_error($categories)) {
-                                $categories = array();
-                            }
-                            foreach ($categories as $category):
-                                // Пропускаємо категорії, для яких на сторінці Tours
-                                // ще немає своєї секції — інакше посилання нікуди не веде.
-                                $anchor = bb_tour_category_anchor($category->slug);
-                                if (!$anchor) {
-                                    continue;
-                                }
-                            ?>
-                            <a href="<?php echo home_url('/tours'); ?>#<?php echo esc_attr($anchor); ?>"
+                            <?php foreach (bb_tour_categories() as $category) : ?>
+                            <a href="<?php echo home_url('/tours'); ?>#<?php echo esc_attr(bb_tour_category_anchor($category)); ?>"
                                 class="block px-5 py-2.5 text-[10px] tracking-[0.18em] uppercase text-stone-300 hover:text-brand-luxeGold hover:bg-white/5 transition-colors duration-200"><?php echo esc_html($category->name); ?></a>
                             <?php endforeach; ?>
                         </div>

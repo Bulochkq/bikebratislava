@@ -177,7 +177,50 @@ get_header();
                     $bb_img = has_post_thumbnail()
                         ? get_the_post_thumbnail_url(get_the_ID(), 'large')
                         : get_template_directory_uri() . '/assets/pictures/cyclists-sunset.jpg';
+                    // Запис із посиланням на Instagram показується інакше:
+                    // замість фото й кнопки «Read Article» — сама вбудова,
+                    // яка вантажиться лише після згоди відвідувача.
+                    $bb_ig = get_field('instagram_url');
+                    if ($bb_ig) :
+                        $bb_ig = untrailingslashit($bb_ig);
+                        $bb_id = get_the_ID();
                 ?>
+                <article class="group flex flex-col justify-start scroll-reveal border border-brand-luxeGold/20 bg-white/50 backdrop-blur-sm p-4 shadow-sm hover:shadow-md hover:border-brand-luxeGold/40 transition-all"
+                    data-category="<?php echo esc_attr($bb_primary); ?>">
+                    <span class="text-[9px] font-bold tracking-[0.2em] text-brand-luxeGold uppercase font-sans mb-4 block shrink-0"><?php echo esc_html($bb_primary); ?></span>
+                    <div class="w-full h-[650px] md:h-[680px] rounded-sm bg-white overflow-hidden relative instagram-embed"
+                        data-embed-src="<?php echo esc_url($bb_ig . '/embed'); ?>">
+                        <!-- GDPR: iframe Instagram (куки Meta) створюється лише після цього кліку -->
+                        <div class="ig-placeholder absolute inset-0 flex flex-col items-center justify-center text-center p-8 bg-gradient-to-br from-stone-50 via-rose-50/40 to-stone-100 border border-stone-200">
+                            <div class="w-14 h-14 border border-brand-luxeGold/40 text-brand-luxeGold flex items-center justify-center mb-6">
+                                <i data-lucide="instagram" class="w-6 h-6"></i>
+                            </div>
+                            <h4 class="font-serif text-xl font-light text-brand-luxeDark mb-3">Instagram Post</h4>
+                            <p class="text-stone-500 font-light text-xs leading-relaxed max-w-xs mb-8 font-sans">
+                                This content is hosted by Instagram. By loading it you accept that Instagram (Meta)
+                                may set cookies and process your data.
+                            </p>
+                            <button type="button" onclick="loadInstagramEmbed(this)"
+                                class="px-7 py-3 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[10px] font-bold tracking-[0.2em] uppercase transition-colors duration-300 shadow-sm">
+                                Load Post
+                            </button>
+                            <a href="<?php echo esc_url($bb_ig); ?>" target="_blank" rel="noopener"
+                                class="mt-5 text-[10px] uppercase tracking-widest text-stone-400 hover:text-brand-luxeGold transition-colors">
+                                Open on Instagram instead
+                            </a>
+                        </div>
+                    </div>
+                    <div class="mt-6 text-stone-700 text-[11px] leading-relaxed font-sans tracking-wide border-t border-brand-luxeGold/40 pt-4 font-medium flex flex-col">
+                        <div id="desc-event-<?php echo $bb_id; ?>" class="relative max-h-[150px] md:max-h-none overflow-hidden transition-all duration-500 ease-in-out">
+                            <?php echo wp_kses_post(get_the_content()); ?>
+                            <div id="desc-fade-<?php echo $bb_id; ?>" class="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-white/90 to-transparent md:hidden pointer-events-none transition-opacity duration-300"></div>
+                        </div>
+                        <button type="button" onclick="toggleEventDesc(<?php echo $bb_id; ?>, this)"
+                            class="md:hidden mt-3 text-brand-luxeGold font-bold uppercase tracking-wider text-[9px] hover:text-brand-luxeGoldDark transition-colors text-left w-max">Read
+                            more ↓</button>
+                    </div>
+                </article>
+                <?php else : ?>
                 <article class="group flex flex-col justify-between scroll-reveal border border-brand-luxeGold/20 bg-white/50 backdrop-blur-sm p-4 shadow-sm hover:shadow-md hover:border-brand-luxeGold/40 transition-all"
                     data-category="<?php echo esc_attr($bb_primary); ?>">
                     <div>
@@ -197,6 +240,7 @@ get_header();
                         </button>
                     </div>
                 </article>
+                <?php endif; ?>
                 <?php endwhile; endif; ?>
             </div>
 
@@ -337,6 +381,19 @@ get_header();
             const placeholder = wrap.querySelector('.ig-placeholder');
             if (placeholder) placeholder.remove();
             wrap.appendChild(iframe);
+        }
+
+        // 8. «Read more» під вбудовою Instagram на телефоні. Раніше цей код
+        // був вписаний в атрибут кожної картки; тепер один на всі.
+        function toggleEventDesc(id, btn) {
+            const desc = document.getElementById('desc-event-' + id);
+            const fade = document.getElementById('desc-fade-' + id);
+            if (!desc) return;
+            const collapsed = desc.classList.contains('max-h-[150px]');
+            desc.classList.toggle('max-h-[150px]', !collapsed);
+            desc.classList.toggle('max-h-[1000px]', collapsed);
+            if (fade) fade.classList.toggle('opacity-0', collapsed);
+            btn.innerText = collapsed ? 'Read less ↑' : 'Read more ↓';
         }
     </script>
 

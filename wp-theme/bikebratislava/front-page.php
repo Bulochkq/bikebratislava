@@ -142,11 +142,8 @@
             </div>
 
             <?php
-            $bb_categories = get_terms(array(
-                'taxonomy'   => 'tour_category',
-                'hide_empty' => false,
-            ));
-            if (!is_wp_error($bb_categories) && $bb_categories) :
+            $bb_categories = bb_tour_categories();
+            if ($bb_categories) :
                 // Колонки підлаштовуються під кількість категорій, щоб
                 // четверта не з'їжджала в окремий рядок сама.
                 $bb_cols = (count($bb_categories) % 4 === 0) ? 'lg:grid-cols-4' : 'lg:grid-cols-3';
@@ -156,26 +153,7 @@
                 $bb_n = 0;
                 foreach ($bb_categories as $bb_cat) :
                     $bb_n++;
-                    // Фото картки — зображення першого туру в категорії.
-                    $bb_img = get_template_directory_uri() . '/assets/pictures/coffee-break.jpg';
-                    $bb_first = new WP_Query(array(
-                        'post_type'      => 'tour',
-                        'posts_per_page' => 1,
-                        'orderby'        => 'menu_order date',
-                        'order'          => 'ASC',
-                        'tax_query'      => array(array(
-                            'taxonomy' => 'tour_category',
-                            'field'    => 'term_id',
-                            'terms'    => $bb_cat->term_id,
-                        )),
-                    ));
-                    if ($bb_first->have_posts()) {
-                        $bb_first->the_post();
-                        if (has_post_thumbnail()) {
-                            $bb_img = get_the_post_thumbnail_url(get_the_ID(), 'large');
-                        }
-                    }
-                    wp_reset_postdata();
+                    $bb_img = bb_tour_category_image($bb_cat);
                 ?>
                 <div class="group bg-white flex flex-col justify-between transition-all duration-500 rounded-none scroll-reveal border border-red-600/30 hover:border-red-600/70 hover:shadow-2xl">
                     <div>
@@ -188,13 +166,12 @@
                         <div class="pt-6 pb-2 px-5 lg:px-6">
                             <h3 class="font-serif text-2xl font-light text-brand-luxeDark mb-4"><?php echo esc_html($bb_cat->name); ?></h3>
                             <p class="text-stone-600 font-light text-xs leading-relaxed font-sans tracking-wide">
-                                <?php echo esc_html($bb_cat->description); ?>
+                                <?php echo esc_html(bb_tour_category_short_desc($bb_cat)); ?>
                             </p>
                         </div>
                     </div>
                     <div class="pb-6 pt-0 px-5 lg:px-6">
-                        <?php // Секції на сторінці турів мають id cat1/cat2/cat3 — до них прив'язана логіка розкриття панелей. ?>
-                        <a href="<?php echo esc_url(home_url('/tours/#cat' . $bb_n)); ?>" class="inline-flex items-center justify-center bg-red-600 text-white px-8 py-3.5 text-[10px] font-bold tracking-[0.25em] uppercase hover:bg-stone-900 transition-colors duration-300 rounded-none w-max">Learn More</a>
+                        <a href="<?php echo esc_url(home_url('/tours/#' . bb_tour_category_anchor($bb_cat))); ?>" class="inline-flex items-center justify-center bg-red-600 text-white px-8 py-3.5 text-[10px] font-bold tracking-[0.25em] uppercase hover:bg-stone-900 transition-colors duration-300 rounded-none w-max">Learn More</a>
                     </div>
                 </div>
                 <?php endforeach; ?>
