@@ -26,6 +26,12 @@ function bb_register_post_types() {
             'all_items'     => 'Všetky túry',
             'search_items'  => 'Hľadať túry',
             'not_found'     => 'Žiadne túry sa nenašli.',
+            // Замість незрозумілого «Odporúčaný obrázok» — пряма назва.
+            // Саме це фото йде на картку туру й у вікно з деталями.
+            'featured_image'        => 'Fotka túry',
+            'set_featured_image'    => 'Nastaviť fotku túry',
+            'remove_featured_image' => 'Odstrániť fotku',
+            'use_featured_image'    => 'Použiť ako fotku túry',
         ),
         'public'             => true,
         'publicly_queryable' => true,
@@ -78,6 +84,10 @@ function bb_register_post_types() {
             'all_items'     => 'Všetci sprievodcovia',
             'search_items'  => 'Hľadať sprievodcov',
             'not_found'     => 'Žiadni sprievodcovia sa nenašli.',
+            'featured_image'        => 'Fotka sprievodcu',
+            'set_featured_image'    => 'Nastaviť fotku sprievodcu',
+            'remove_featured_image' => 'Odstrániť fotku',
+            'use_featured_image'    => 'Použiť ako fotku sprievodcu',
         ),
         'public'             => true,
         'publicly_queryable' => true,

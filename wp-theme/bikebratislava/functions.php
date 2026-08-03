@@ -65,12 +65,29 @@ tailwind.config = {
 JS;
 }
 
+/**
+ * Секції на сторінці Tours мають фіксовані якорі (#cat1..#cat3) — на них
+ * зав'язаний скрипт, що розгортає потрібну панель. Щоб меню й головна не
+ * розходились із шаблоном, посилання будуємо через цю відповідність.
+ *
+ * Нова категорія, створена в адмінці, тут не з'явиться свідомо: під неї ще
+ * немає секції з дизайном, і посилання вело б у порожнечу.
+ */
+function bb_tour_category_anchor($slug) {
+    $map = array(
+        'e-bike-leisure-tours'            => 'cat1',
+        'road-gravel-cycling-experiences' => 'cat2',
+        'custom-experiences'              => 'cat3',
+    );
+    return isset($map[$slug]) ? $map[$slug] : '';
+}
+
 function bb_theme_setup() {
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
     add_theme_support('html5', array('style', 'script'));
     register_nav_menus(array(
-        'primary' => 'Головне меню',
+        'primary' => 'Hlavné menu',
     ));
 }
 add_action('after_setup_theme', 'bb_theme_setup');
@@ -97,6 +114,9 @@ require_once get_template_directory() . '/inc/cpt.php';
 
 // Поля для адмінки. Один файл — щоб назви полів не розходились із шаблонами.
 require_once get_template_directory() . '/inc/acf-fields.php';
+
+// Спрощення самої адмінки: меню, підказки, попередження.
+require_once get_template_directory() . '/inc/admin.php';
 
 /*
  * Одноразові скрипти імпорту (import-tours, import-guides, create-pages,

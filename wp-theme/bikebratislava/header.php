@@ -216,9 +216,18 @@
                                 'taxonomy' => 'tour_category',
                                 'hide_empty' => false,
                             ));
-                            foreach($categories as $category):
+                            if (is_wp_error($categories)) {
+                                $categories = array();
+                            }
+                            foreach ($categories as $category):
+                                // Пропускаємо категорії, для яких на сторінці Tours
+                                // ще немає своєї секції — інакше посилання нікуди не веде.
+                                $anchor = bb_tour_category_anchor($category->slug);
+                                if (!$anchor) {
+                                    continue;
+                                }
                             ?>
-                            <a href="<?php echo home_url('/tours'); ?>#cat-<?php echo esc_attr($category->slug); ?>"
+                            <a href="<?php echo home_url('/tours'); ?>#<?php echo esc_attr($anchor); ?>"
                                 class="block px-5 py-2.5 text-[10px] tracking-[0.18em] uppercase text-stone-300 hover:text-brand-luxeGold hover:bg-white/5 transition-colors duration-200"><?php echo esc_html($category->name); ?></a>
                             <?php endforeach; ?>
                         </div>
