@@ -232,6 +232,50 @@ function bb_register_acf_fields() {
     ));
 
     /* ------------------------------------------------------------------
+     * БЛОКИ СТОРІНКИ DISCOVER
+     * ---------------------------------------------------------------- */
+    acf_add_local_field_group(array(
+        'key'    => 'group_discover_block',
+        'title'  => 'Obsah bloku',
+        'fields' => array(
+            array(
+                'key'          => 'field_db_eyebrow',
+                'label'        => 'Nadradený text',
+                'name'         => 'eyebrow',
+                'type'         => 'text',
+                'instructions' => 'Malý červený text nad nadpisom.',
+                'placeholder'  => 'napr. Cross-Border Adventures',
+            ),
+            array(
+                'key'          => 'field_db_subtitle',
+                'label'        => 'Druhý riadok nadpisu',
+                'name'         => 'subtitle',
+                'type'         => 'text',
+                'instructions' => 'Zvýraznený riadok pod hlavným nadpisom. Môže zostať prázdny.',
+                'placeholder'  => 'napr. One Cycling Destination',
+            ),
+            array(
+                'key'           => 'field_db_video',
+                'label'         => 'Video',
+                'name'          => 'video',
+                'type'          => 'file',
+                'return_format' => 'id',
+                'mime_types'    => 'mp4,webm',
+                'instructions'  => 'Ak vyplníte, namiesto fotky sa v bloku prehrá video. '
+                                 . 'Fotka sa použije ako náhľad, kým sa video načíta.',
+            ),
+        ),
+        'location' => array(
+            array(
+                array('param' => 'post_type', 'operator' => '==', 'value' => 'discover_block'),
+            ),
+        ),
+        'active'      => true,
+        'description' => 'Text bloku píšte do hlavného editora. Strana (vľavo/vpravo) sa strieda automaticky '
+                       . 'podľa poľa «Poradie».',
+    ));
+
+    /* ------------------------------------------------------------------
      * СТАТТІ ЖУРНАЛУ
      *
      * Дві картки в журналі — це вбудовані пости з Instagram. Вони теж

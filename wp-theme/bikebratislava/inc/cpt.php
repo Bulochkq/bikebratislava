@@ -103,5 +103,41 @@ function bb_register_post_types() {
         'supports'           => array('title', 'editor', 'thumbnail', 'page-attributes'),
         'show_in_rest'       => true,
     ));
+
+    /* --------------------------------------- Блоки сторінки Discover */
+    // Кожен запис — один блок «текст + медіа». Сторона (ліворуч/праворуч)
+    // чергується автоматично, тому блоки можна додавати й прибирати
+    // без правок у коді.
+    register_post_type('discover_block', array(
+        'labels' => array(
+            'name'          => 'Discover',
+            'singular_name' => 'Blok',
+            'menu_name'     => 'Discover',
+            'add_new'       => 'Pridať nový',
+            'add_new_item'  => 'Pridať nový blok',
+            'new_item'      => 'Nový blok',
+            'edit_item'     => 'Upraviť blok',
+            'view_item'     => 'Zobraziť blok',
+            'all_items'     => 'Všetky bloky',
+            'search_items'  => 'Hľadať bloky',
+            'not_found'     => 'Žiadne bloky sa nenašli.',
+            'featured_image'        => 'Fotka bloku',
+            'set_featured_image'    => 'Nastaviť fotku bloku',
+            'remove_featured_image' => 'Odstrániť fotku',
+            'use_featured_image'    => 'Použiť ako fotku bloku',
+        ),
+        'public'             => false,
+        'publicly_queryable' => false,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'exclude_from_search' => true,
+        'capability_type'    => 'post',
+        'has_archive'        => false,
+        'hierarchical'       => false,
+        'menu_position'      => 7,
+        'menu_icon'          => 'dashicons-images-alt2',
+        'supports'           => array('title', 'editor', 'thumbnail', 'page-attributes'),
+        'show_in_rest'       => true,
+    ));
 }
 add_action('init', 'bb_register_post_types');

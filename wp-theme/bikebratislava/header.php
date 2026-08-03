@@ -166,6 +166,43 @@
                 linear-gradient(160deg, #1f1f1f 0%, #0d0d0d 100%);
         }
 
+        /* ------------------------------------------------------------------
+           Універсальний фон для сторінок, які ростуть із контентом
+           (Discover, Guides). Побудований лише на градієнтах: нічого не
+           вантажиться, а коли сторінка стає довшою, малюнок просто
+           продовжується вниз.
+
+           Шари мають різну висоту (900/1300/1100/1700 px), тому візерунок
+           повторюється не раніше ніж через кілька тисяч пікселів — око
+           стику не помічає. .bb-soft-bg-dim — приглушений варіант під
+           світлими картками. ------------------------------------------- */
+        .bb-soft-bg {
+            background-color: #fdfbfa;
+            background-image:
+                radial-gradient(at 18% 12%, rgba(215, 25, 32, .07) 0, transparent 42%),
+                radial-gradient(at 82% 30%, rgba(255, 170, 110, .10) 0, transparent 45%),
+                radial-gradient(at 35% 72%, rgba(215, 25, 32, .05) 0, transparent 40%),
+                radial-gradient(at 92% 88%, rgba(255, 205, 165, .10) 0, transparent 45%);
+            background-size: 100% 900px, 100% 1300px, 100% 1100px, 100% 1700px;
+            background-position: 0 0, 0 120px, 0 320px, 0 60px;
+            background-repeat: repeat-y;
+        }
+        .bb-soft-bg-cool {
+            background-color: #fbfcfd;
+            background-image:
+                radial-gradient(at 22% 15%, rgba(56, 130, 160, .07) 0, transparent 42%),
+                radial-gradient(at 78% 34%, rgba(120, 190, 190, .09) 0, transparent 45%),
+                radial-gradient(at 40% 74%, rgba(90, 140, 200, .05) 0, transparent 40%),
+                radial-gradient(at 88% 90%, rgba(170, 215, 205, .10) 0, transparent 45%);
+            background-size: 100% 1000px, 100% 1400px, 100% 1200px, 100% 1800px;
+            background-position: 0 0, 0 160px, 0 380px, 0 40px;
+            background-repeat: repeat-y;
+        }
+        /* Тонка лінія між блоками — як розділювачі на головній. */
+        .bb-block + .bb-block {
+            border-top: 1px solid rgba(120, 113, 108, .14);
+        }
+
         /* Плавні плями на фоні сторінки Discover. Правило загубилось при
            перенесенні сторінки в тему — блоки лишались нерухомими. */
         @keyframes blob {

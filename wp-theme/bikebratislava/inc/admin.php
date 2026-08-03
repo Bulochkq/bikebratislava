@@ -176,9 +176,10 @@ add_filter('menu_order', 'bb_admin_menu_order');
 function bb_admin_menu_order($menu) {
     return array(
         'index.php',                  // Nástenka
-        'edit.php?post_type=tour',    // Túry
-        'edit.php?post_type=guide',   // Sprievodcovia
-        'edit.php',                   // Žurnál
+        'edit.php?post_type=tour',           // Túry
+        'edit.php?post_type=guide',          // Sprievodcovia
+        'edit.php',                          // Žurnál
+        'edit.php?post_type=discover_block', // Discover
         'edit.php?post_type=page',    // Stránky
         'upload.php',                 // Médiá
     );
@@ -265,6 +266,9 @@ function bb_dashboard_help() {
         <li><strong>Nový sprievodca:</strong> <em>Sprievodcovia → Pridať novú</em>.</li>
         <li><strong>Nový článok:</strong> <em>Žurnál → Pridať nový</em>. Vyberte rubriku —
             podľa nej sa článok zaradí do filtra na stránke Journal.</li>
+        <li><strong>Stránka Discover:</strong> <em>Discover → Pridať nový</em>. Nadpis, text,
+            <em>Fotka bloku</em> alebo <em>Video</em>. Strana (vľavo/vpravo) sa strieda sama,
+            pozadie je spoločné — pridávajte alebo uberajte bloky bez obáv.</li>
         <li><strong>Fotky:</strong> vždy cez blok <em>Fotka …</em> v pravom stĺpci.
             Obrázok vložený priamo do textu sa na kartu nedostane.</li>
     </ul>
