@@ -34,6 +34,14 @@ function bb_enqueue_assets() {
     // Плавний скрол + логіка сайту — у кінці <body>.
     wp_enqueue_script('bb-lenis', 'https://unpkg.com/lenis@1.1.13/dist/lenis.min.js', array(), '1.1.13', true);
     wp_enqueue_script('bb-app', $uri . '/assets/js/app.js', array('bb-lenis', 'bb-lucide'), BB_THEME_VERSION, true);
+
+    // Адреси, які скрипту потрібні як абсолютні: відносні посилання
+    // ламались на внутрішніх сторінках через слеш у кінці адреси.
+    $privacy = get_option('wp_page_for_privacy_policy');
+    wp_localize_script('bb-app', 'BB', array(
+        'home'    => home_url('/'),
+        'privacy' => $privacy ? get_permalink($privacy) : home_url('/privacy/'),
+    ));
 }
 add_action('wp_enqueue_scripts', 'bb_enqueue_assets');
 

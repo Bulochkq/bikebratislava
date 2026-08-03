@@ -603,7 +603,23 @@ get_header();
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- RIDE DETAIL MODAL — повна інформація про тур, відкривається
+         з картки попереднього перегляду під вибором туру. У статичній
+         версії стояло після підвалу, тому при перенесенні загубилось. -->
+    <div id="ride-modal"
+        class="fixed inset-0 bg-stone-950/80 backdrop-blur-sm z-[70] flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-500">
+        <div
+            class="bg-white max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative rounded-none text-brand-luxeDark"
+            data-lenis-prevent>
+            <button onclick="closeRideModal()"
+                class="absolute top-4 right-4 text-white hover:text-brand-luxeGold transition-all z-10 bg-black/30 hover:bg-black/60 p-2 rounded-full backdrop-blur-md"
+                aria-label="Close details">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <div id="ride-modal-content"></div>
+        </div>
+    </div>
+
     <script>
         const BB_SEND_URL = <?php echo wp_json_encode(home_url('/send.php')); ?>;
         const BB_CONTACT_URL = <?php echo wp_json_encode(home_url('/contact/')); ?>;

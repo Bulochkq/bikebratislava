@@ -291,8 +291,10 @@ window.addEventListener('scroll', () => {
 (function cookieConsent() {
     const GA_MEASUREMENT_ID = ''; // <-- put your GA4 ID here, e.g. 'G-ABC123XYZ'
     const STORAGE_KEY = 'bb-cookie-consent';
-    const POLICY_COOKIES = 'privacy#cookies';
-    const POLICY_PRIVACY = 'privacy';
+    // Адреса політики приходить із теми (BB.privacy). Відносне 'privacy'
+    // працювало лише на головній: з /journal/ воно вело на /journal/privacy.
+    const POLICY_PRIVACY = (window.BB && window.BB.privacy) || '/privacy/';
+    const POLICY_COOKIES = POLICY_PRIVACY + '#cookies';
 
     // --- Google Consent Mode v2 defaults (must run before GA loads) ---
     window.dataLayer = window.dataLayer || [];
@@ -430,7 +432,7 @@ window.addEventListener('scroll', () => {
             bar.className = 'flex items-center gap-4 mt-2 text-[10px] tracking-widest uppercase text-stone-500';
 
             const privacy = document.createElement('a');
-            privacy.href = 'privacy';
+            privacy.href = POLICY_PRIVACY;
             privacy.textContent = 'Privacy Policy';
             privacy.className = 'hover:text-[#E31C25] transition-colors';
 

@@ -93,6 +93,23 @@ function bb_tour_category_image($term, $size = 'large') {
 }
 
 /**
+ * Фон секції категорії. Якщо своє зображення не задане — беремо
+ * стандартний фон теми, світлий або темний за виглядом секції.
+ */
+function bb_tour_category_bg($term, $dark = false) {
+    $id = function_exists('get_field') ? get_field('cat_bg_image', 'tour_category_' . $term->term_id) : 0;
+    if ($id) {
+        $url = wp_get_attachment_image_url((int) $id, 'full');
+        if ($url) {
+            return $url;
+        }
+    }
+    return get_template_directory_uri() . ($dark
+        ? '/assets/pictures/bg-birdseye.jpeg'
+        : '/assets/pictures/bg-minimal-topdown.jpeg');
+}
+
+/**
  * Короткий опис категорії для картки на головній. Повний опис категорії
  * задовгий для картки, тому для неї є окреме поле; якщо воно порожнє —
  * показуємо повний опис.

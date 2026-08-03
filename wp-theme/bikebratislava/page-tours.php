@@ -317,11 +317,10 @@ get_header();
         $bb_label  = $bb_custom
             ? 'Build Your Custom Ride'
             : ($bb_count ? 'Explore the ' . $bb_count . ' tours' : 'Coming soon');
-        // Фон секції та бік, з якого стоїть фото, чергуються — так само,
-        // як це було зроблено вручну на статичному сайті.
-        $bb_bg = $bb_dark
-            ? get_template_directory_uri() . '/assets/pictures/bg-birdseye.jpeg'
-            : get_template_directory_uri() . '/assets/pictures/bg-minimal-topdown.jpeg';
+        // Фон секції: власний із поля категорії, інакше стандартний фон теми.
+        // Бік, з якого стоїть фото, чергується — так само, як це було
+        // зроблено вручну на статичному сайті.
+        $bb_bg = bb_tour_category_bg($bb_cat, $bb_dark);
         $bb_photo_side = ($bb_i % 2 === 0) ? 'lg:order-2' : 'lg:order-1';
         $bb_text_side  = ($bb_i % 2 === 0) ? 'lg:order-1' : 'lg:order-2';
     ?>
@@ -677,7 +676,7 @@ get_header();
                     </div>
 
                     <div class="pt-2 flex justify-end">
-                        <a href="contact?ride=${encodeURIComponent(data.title)}" class="px-10 py-4.5 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[10px] font-bold uppercase tracking-[0.2em] transition-all duration-300 rounded-none shadow-xl hover:shadow-2xl hover:-translate-y-1">
+                        <a href="${BB_CONTACT_URL}?ride=${encodeURIComponent(data.title)}" class="px-10 py-4.5 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[10px] font-bold uppercase tracking-[0.2em] transition-all duration-300 rounded-none shadow-xl hover:shadow-2xl hover:-translate-y-1">
                             Book / Enquire
                         </a>
                     </div>

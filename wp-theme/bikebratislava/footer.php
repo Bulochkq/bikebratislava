@@ -48,7 +48,7 @@
             </div>
 
             <div class="border-t border-stone-900/60 pt-8 flex flex-col lg:flex-row items-center justify-between text-[10px] font-light gap-6">
-                <p class="editable">&copy; 2026 Bike Bratislava. All rights reserved.<span class="block mt-1.5 text-stone-600">Operated by NEW VELO s. r. o. &middot; MedveÄŹovej 1/A, 851 04 Bratislava &middot; IÄŚO: 48141291 &middot; IÄŚ DPH: SK2120069501</span></p>
+                <p class="editable">&copy; 2026 Bike Bratislava. All rights reserved.<span class="block mt-1.5 text-stone-600">Operated by NEW VELO s. r. o. &middot; Medveďovej 1/A, 851 04 Bratislava &middot; IČO: 48141291 &middot; IČ DPH: SK2120069501</span></p>
                 <div class="flex items-center space-x-6 md:space-x-8">
                     <a href="https://www.velocity.sk/" target="_blank" class="flex items-center space-x-3 opacity-70 hover:opacity-100 transition-opacity">
                         <span class="uppercase tracking-widest text-stone-400 hover:text-white transition-colors editable">velocity.sk</span>

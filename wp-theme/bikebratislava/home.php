@@ -266,8 +266,26 @@ get_header();
         </div>
     </section>
 
-            <!-- FOOTER -->
+    <!-- ARTICLE DETAIL MODAL / POPUP -->
+    <!-- Одне вікно на всі статті: вміст підставляється при кліку. У статичній
+         версії воно стояло після підвалу, тому при перенесенні в тему
+         загубилось — кнопка «Read Article» нічого не робила. -->
+    <div id="article-modal"
+        class="fixed inset-0 bg-stone-950/90 backdrop-blur-md z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-500">
+        <div class="bg-white/95 backdrop-blur-md max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative border border-brand-luxeGold/20 text-brand-luxeDark"
+            data-lenis-prevent>
+            <button onclick="closeArticleModal()"
+                class="absolute top-4 right-4 text-stone-400 hover:text-brand-luxeDark transition-colors z-10 bg-white/50 backdrop-blur-sm rounded-full p-1"
+                aria-label="Close article">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <div id="article-modal-content"></div>
+        </div>
+    </div>
+
     <script>
+        const BB_CONTACT_URL = <?php echo wp_json_encode(home_url('/contact/')); ?>;
+
                 const filterButtons = document.querySelectorAll('.filter-btn');
         const articles = document.querySelectorAll('article');
         const noArticlesMsg = document.getElementById('no-articles-message');
@@ -347,7 +365,7 @@ get_header();
                     
                     <div class="pt-6 flex justify-between items-center border-t border-stone-200">
                         <span class="text-xs text-stone-500">Interested in this region?</span>
-                        <a href="contact?ride=${encodeURIComponent(data.title)}" class="px-8 py-3.5 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[9px] font-semibold uppercase tracking-[0.2em] transition-colors duration-300 rounded-none border border-brand-luxeGold shadow-2xl">
+                        <a href="${BB_CONTACT_URL}?ride=${encodeURIComponent(data.title)}" class="px-8 py-3.5 bg-brand-luxeGold hover:bg-brand-luxeGoldDark text-white text-[9px] font-semibold uppercase tracking-[0.2em] transition-colors duration-300 rounded-none border border-brand-luxeGold shadow-2xl">
                             Plan A Ride
                         </a>
                     </div>

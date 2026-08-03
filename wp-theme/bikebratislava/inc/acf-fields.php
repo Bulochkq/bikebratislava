@@ -136,6 +136,17 @@ function bb_register_acf_fields() {
                                  . 'Ak zostane prázdna, použije sa fotka prvej túry v kategórii.',
             ),
             array(
+                'key'           => 'field_cat_bg_image',
+                'label'         => 'Pozadie sekcie',
+                'name'          => 'cat_bg_image',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'medium',
+                'library'       => 'all',
+                'instructions'  => 'Obrázok za celou sekciou, zobrazuje sa zosvetlený. '
+                                 . 'Ak zostane prázdny, použije sa štandardné pozadie témy.',
+            ),
+            array(
                 'key'          => 'field_cat_short_desc',
                 'label'        => 'Krátky popis (na domovskú stránku)',
                 'name'         => 'cat_short_desc',
