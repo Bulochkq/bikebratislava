@@ -166,42 +166,90 @@
                 linear-gradient(160deg, #1f1f1f 0%, #0d0d0d 100%);
         }
 
-        /* ------------------------------------------------------------------
-           Універсальний фон для сторінок, які ростуть із контентом
-           (Discover, Guides). Побудований лише на градієнтах: нічого не
-           вантажиться, а коли сторінка стає довшою, малюнок просто
-           продовжується вниз.
+        /* ==================================================================
+           ФОНИ БЛОКІВ
 
-           Шари мають різну висоту (900/1300/1100/1700 px), тому візерунок
-           повторюється не раніше ніж через кілька тисяч пікселів — око
-           стику не помічає. .bb-soft-bg-dim — приглушений варіант під
-           світлими картками. ------------------------------------------- */
-        .bb-soft-bg {
-            background-color: #fdfbfa;
+           Побудовані так само, як фон секції «One City. Four Countries» на
+           головній: кілька дуже прозорих радіальних плям, розтягнутих на
+           весь блок. Розтягнутих — а не повторюваних, тому стиків усередині
+           блоку немає в принципі, скільки б тексту там не було.
+
+           Фон обирається для кожного блоку окремо зі списку в адмінці.
+           Нічого не вантажиться — це чистий код.
+           ================================================================ */
+        .bb-bg { background-color: #fdfbfb; }
+
+        .bb-bg-pastel {
             background-image:
-                radial-gradient(at 18% 12%, rgba(215, 25, 32, .07) 0, transparent 42%),
-                radial-gradient(at 82% 30%, rgba(255, 170, 110, .10) 0, transparent 45%),
-                radial-gradient(at 35% 72%, rgba(215, 25, 32, .05) 0, transparent 40%),
-                radial-gradient(at 92% 88%, rgba(255, 205, 165, .10) 0, transparent 45%);
-            background-size: 100% 900px, 100% 1300px, 100% 1100px, 100% 1700px;
-            background-position: 0 0, 0 120px, 0 320px, 0 60px;
-            background-repeat: repeat-y;
+                radial-gradient(at 40% 20%, hsla(28,100%,74%,.15) 0, transparent 50%),
+                radial-gradient(at 80% 0%,  hsla(189,100%,56%,.15) 0, transparent 50%),
+                radial-gradient(at 0% 50%,  hsla(355,100%,93%,.15) 0, transparent 50%),
+                radial-gradient(at 80% 50%, hsla(340,100%,76%,.15) 0, transparent 50%),
+                radial-gradient(at 0% 100%, hsla(22,100%,77%,.15) 0, transparent 50%),
+                radial-gradient(at 80% 100%,hsla(242,100%,70%,.15) 0, transparent 50%),
+                radial-gradient(at 0% 0%,   hsla(343,100%,76%,.15) 0, transparent 50%);
         }
-        .bb-soft-bg-cool {
-            background-color: #fbfcfd;
+        .bb-bg-rose {
+            background-color: #fff8f7;
             background-image:
-                radial-gradient(at 22% 15%, rgba(56, 130, 160, .07) 0, transparent 42%),
-                radial-gradient(at 78% 34%, rgba(120, 190, 190, .09) 0, transparent 45%),
-                radial-gradient(at 40% 74%, rgba(90, 140, 200, .05) 0, transparent 40%),
-                radial-gradient(at 88% 90%, rgba(170, 215, 205, .10) 0, transparent 45%);
-            background-size: 100% 1000px, 100% 1400px, 100% 1200px, 100% 1800px;
-            background-position: 0 0, 0 160px, 0 380px, 0 40px;
-            background-repeat: repeat-y;
+                radial-gradient(at 25% 18%, hsla(355,100%,88%,.30) 0, transparent 52%),
+                radial-gradient(at 82% 12%, hsla(18,100%,82%,.22) 0, transparent 50%),
+                radial-gradient(at 62% 82%, hsla(340,100%,86%,.25) 0, transparent 55%),
+                radial-gradient(at 8% 88%,  hsla(30,100%,86%,.22) 0, transparent 50%);
         }
-        /* Тонка лінія між блоками — як розділювачі на головній. */
-        .bb-block + .bb-block {
-            border-top: 1px solid rgba(120, 113, 108, .14);
+        .bb-bg-mint {
+            background-color: #f7fdfb;
+            background-image:
+                radial-gradient(at 22% 20%, hsla(162,70%,82%,.30) 0, transparent 52%),
+                radial-gradient(at 85% 18%, hsla(186,80%,84%,.24) 0, transparent 50%),
+                radial-gradient(at 58% 85%, hsla(150,65%,84%,.24) 0, transparent 55%),
+                radial-gradient(at 6% 82%,  hsla(196,80%,88%,.22) 0, transparent 50%);
         }
+        .bb-bg-sky {
+            background-color: #f7fafd;
+            background-image:
+                radial-gradient(at 20% 16%, hsla(205,90%,84%,.28) 0, transparent 52%),
+                radial-gradient(at 88% 24%, hsla(225,85%,88%,.24) 0, transparent 50%),
+                radial-gradient(at 55% 88%, hsla(195,90%,86%,.24) 0, transparent 55%),
+                radial-gradient(at 4% 90%,  hsla(250,80%,90%,.20) 0, transparent 50%);
+        }
+        .bb-bg-amber {
+            background-color: #fffcf6;
+            background-image:
+                radial-gradient(at 24% 14%, hsla(38,100%,82%,.30) 0, transparent 52%),
+                radial-gradient(at 84% 22%, hsla(20,100%,84%,.24) 0, transparent 50%),
+                radial-gradient(at 60% 86%, hsla(45,100%,84%,.26) 0, transparent 55%),
+                radial-gradient(at 6% 84%,  hsla(12,100%,88%,.20) 0, transparent 50%);
+        }
+        .bb-bg-lilac {
+            background-color: #fbf9fd;
+            background-image:
+                radial-gradient(at 22% 18%, hsla(275,80%,88%,.30) 0, transparent 52%),
+                radial-gradient(at 86% 16%, hsla(320,85%,90%,.24) 0, transparent 50%),
+                radial-gradient(at 56% 86%, hsla(255,80%,88%,.24) 0, transparent 55%),
+                radial-gradient(at 5% 86%,  hsla(300,80%,92%,.20) 0, transparent 50%);
+        }
+        /* Той самий фон, що під «Ride With Locals» — з повільним рухом. */
+        .bb-bg-aurora {
+            background-color: #fff7f6;
+            background-image:
+                radial-gradient(at 27% 37%, rgba(215,25,32,.13) 0, transparent 45%),
+                radial-gradient(at 75% 25%, rgba(255,160,90,.18) 0, transparent 45%),
+                radial-gradient(at 50% 80%, rgba(215,25,32,.10) 0, transparent 45%),
+                radial-gradient(at 85% 70%, rgba(255,210,170,.20) 0, transparent 45%);
+            background-size: 180% 180%;
+            animation: auroraMove 16s ease-in-out infinite alternate;
+        }
+        @media (prefers-reduced-motion: reduce) { .bb-bg-aurora { animation: none; } }
+
+        .bb-bg-dark {
+            background-color: #0A0A0A;
+            background-image:
+                radial-gradient(at 20% 22%, rgba(255,255,255,.06) 0, transparent 46%),
+                radial-gradient(at 85% 72%, rgba(227,28,37,.10) 0, transparent 50%),
+                radial-gradient(at 55% 8%,  rgba(150,150,160,.08) 0, transparent 55%);
+        }
+        .bb-bg-plain { background-color: #fdfbfb; background-image: none; }
 
         /* Плавні плями на фоні сторінки Discover. Правило загубилось при
            перенесенні сторінки в тему — блоки лишались нерухомими. */

@@ -232,47 +232,119 @@ function bb_register_acf_fields() {
     ));
 
     /* ------------------------------------------------------------------
-     * БЛОКИ СТОРІНКИ DISCOVER
+     * БЛОКИ СТОРІНОК
+     *
+     * Один запис = один видимий блок. Поле «Vzhľad» визначає, як блок
+     * виглядає, і від нього залежить, які інші поля показуються — щоб
+     * редактор не бачив зайвого.
      * ---------------------------------------------------------------- */
     acf_add_local_field_group(array(
-        'key'    => 'group_discover_block',
-        'title'  => 'Obsah bloku',
+        'key'    => 'group_block',
+        'title'  => 'Vzhľad a obsah bloku',
         'fields' => array(
             array(
-                'key'          => 'field_db_eyebrow',
+                'key'           => 'field_block_layout',
+                'label'         => 'Vzhľad bloku',
+                'name'          => 'layout',
+                'type'          => 'select',
+                'choices'       => array(
+                    'media' => 'Text a fotka/video vedľa seba',
+                    'text'  => 'Široký text na stred',
+                    'cards' => 'Nadpis a kartičky pod ním',
+                    'card'  => 'Kartička (patrí do bloku s kartičkami)',
+                ),
+                'default_value' => 'media',
+                'return_format' => 'value',
+                'instructions'  => 'Pri type «Text a fotka» sa strana fotky strieda automaticky. '
+                                 . 'Kartičky vytvoríte tak, že v bloku «Atribúty stránky → Nadradený» '
+                                 . 'vyberiete blok s kartičkami.',
+            ),
+            array(
+                'key'           => 'field_block_bg',
+                'label'         => 'Pozadie bloku',
+                'name'          => 'background',
+                'type'          => 'select',
+                'choices'       => array(
+                    'pastel' => 'Pastelové (viacfarebné)',
+                    'aurora' => 'Aurora (jemný pohyb)',
+                    'rose'   => 'Ružové',
+                    'amber'  => 'Jantárové',
+                    'mint'   => 'Mätové',
+                    'sky'    => 'Nebeské',
+                    'lilac'  => 'Orgovánové',
+                    'plain'  => 'Bez pozadia (biele)',
+                    'dark'   => 'Tmavé',
+                ),
+                'default_value' => 'pastel',
+                'return_format' => 'value',
+                'instructions'  => 'Pozadie je kreslené kódom, nič sa nesťahuje. '
+                                 . 'Striedajte odtiene, aby po sebe nešli dva rovnaké bloky.',
+                'conditional_logic' => array(array(
+                    array('field' => 'field_block_layout', 'operator' => '!=', 'value' => 'card'),
+                )),
+            ),
+            array(
+                'key'          => 'field_block_eyebrow',
                 'label'        => 'Nadradený text',
                 'name'         => 'eyebrow',
                 'type'         => 'text',
                 'instructions' => 'Malý červený text nad nadpisom.',
                 'placeholder'  => 'napr. Cross-Border Adventures',
+                'conditional_logic' => array(array(
+                    array('field' => 'field_block_layout', 'operator' => '!=', 'value' => 'card'),
+                )),
             ),
             array(
-                'key'          => 'field_db_subtitle',
+                'key'          => 'field_block_subtitle',
                 'label'        => 'Druhý riadok nadpisu',
                 'name'         => 'subtitle',
                 'type'         => 'text',
                 'instructions' => 'Zvýraznený riadok pod hlavným nadpisom. Môže zostať prázdny.',
                 'placeholder'  => 'napr. One Cycling Destination',
+                'conditional_logic' => array(array(
+                    array('field' => 'field_block_layout', 'operator' => '==', 'value' => 'media'),
+                ), array(
+                    array('field' => 'field_block_layout', 'operator' => '==', 'value' => 'text'),
+                )),
             ),
             array(
-                'key'           => 'field_db_video',
+                'key'          => 'field_block_highlight',
+                'label'        => 'Zvýraznená veta',
+                'name'         => 'highlight',
+                'type'         => 'textarea',
+                'rows'         => 2,
+                'instructions' => 'Zobrazí sa pod textom, zlatým písmom s čiarou vľavo. Môže zostať prázdna.',
+                'conditional_logic' => array(array(
+                    array('field' => 'field_block_layout', 'operator' => '==', 'value' => 'media'),
+                ), array(
+                    array('field' => 'field_block_layout', 'operator' => '==', 'value' => 'text'),
+                )),
+            ),
+            array(
+                'key'           => 'field_block_video',
                 'label'         => 'Video',
                 'name'          => 'video',
                 'type'          => 'file',
                 'return_format' => 'id',
                 'mime_types'    => 'mp4,webm',
-                'instructions'  => 'Ak vyplníte, namiesto fotky sa v bloku prehrá video. '
-                                 . 'Fotka sa použije ako náhľad, kým sa video načíta.',
+                'instructions'  => 'Ak vyplníte, namiesto fotky sa prehrá video. '
+                                 . 'Fotka bloku sa použije ako náhľad, kým sa video načíta.',
+                'conditional_logic' => array(array(
+                    array('field' => 'field_block_layout', 'operator' => '==', 'value' => 'media'),
+                )),
             ),
         ),
         'location' => array(
             array(
-                array('param' => 'post_type', 'operator' => '==', 'value' => 'discover_block'),
+                array('param' => 'post_type', 'operator' => '==', 'value' => 'bb_block'),
             ),
         ),
-        'active'      => true,
-        'description' => 'Text bloku píšte do hlavného editora. Strana (vľavo/vpravo) sa strieda automaticky '
-                       . 'podľa poľa «Poradie».',
+        'menu_order'            => 0,
+        'position'              => 'normal',
+        'instruction_placement' => 'label',
+        'active'                => true,
+        'description'           => 'Hlavný text bloku píšte do editora nižšie. Poradie blokov riadi pole '
+                                 . '«Poradie» v bloku «Atribúty stránky».',
     ));
 
     /* ------------------------------------------------------------------
@@ -305,12 +377,24 @@ function bb_register_acf_fields() {
     ));
 
     /* ------------------------------------------------------------------
-     * ГОЛОВНА СТОРІНКА — тексти першого екрана
+     * ПЕРШИЙ ЕКРАН СТОРІНКИ
+     *
+     * Один набір полів на всі сторінки — і головну, і About, і Discover.
+     * Порожнє поле означає «лишити те, що в шаблоні», тому нічого не
+     * зникне, поки редактор не почне міняти тексти свідомо.
      * ---------------------------------------------------------------- */
     acf_add_local_field_group(array(
-        'key'    => 'group_home_hero',
-        'title'  => 'Domovská stránka — úvodná obrazovka',
+        'key'    => 'group_page_hero',
+        'title'  => 'Úvodná obrazovka',
         'fields' => array(
+            array(
+                'key'          => 'field_page_hero_eyebrow',
+                'label'        => 'Nadradený text',
+                'name'         => 'hero_eyebrow',
+                'type'         => 'text',
+                'instructions' => 'Malý červený text nad hlavným nadpisom.',
+                'placeholder'  => 'napr. Bratislava Cycling',
+            ),
             array(
                 'key'         => 'field_home_hero_title',
                 'label'       => 'Nadpis',
@@ -326,19 +410,29 @@ function bb_register_acf_fields() {
                 'placeholder' => 'Explore The Heart of Central Europe',
             ),
             array(
-                'key'   => 'field_home_hero_text',
-                'label' => 'Popis pod nadpisom',
-                'name'  => 'hero_text',
-                'type'  => 'textarea',
-                'rows'  => 4,
+                'key'          => 'field_home_hero_text',
+                'label'        => 'Popis pod nadpisom',
+                'name'         => 'hero_text',
+                'type'         => 'textarea',
+                'rows'         => 4,
+                'instructions' => 'Používa sa len na stránkach, kde je pod nadpisom odsek textu.',
+            ),
+            array(
+                'key'           => 'field_page_hero_image',
+                'label'         => 'Fotka na pozadí',
+                'name'          => 'hero_image',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'medium',
+                'instructions'  => 'Ak zostane prázdna, použije sa fotka nastavená v šablóne.',
             ),
         ),
         'location' => array(
             array(
-                array('param' => 'page_type', 'operator' => '==', 'value' => 'front_page'),
+                array('param' => 'post_type', 'operator' => '==', 'value' => 'page'),
             ),
         ),
         'active'      => true,
-        'description' => 'Zobrazuje sa na stránke nastavenej ako domovská v Nastavenia → Čítanie.',
+        'description' => 'Prázdne pole = zostane pôvodný text zo šablóny.',
     ));
 }

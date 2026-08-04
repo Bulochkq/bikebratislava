@@ -176,6 +176,116 @@ function bb_tour_keypoints($post_id) {
 }
 
 /* ====================================================================
+ * БЛОКИ СТОРІНОК
+ *
+ * Один запис типу bb_block = один видимий блок. Блоки верхнього рівня
+ * складають сторінку, блоки-діти — картки всередині свого батька.
+ * ================================================================== */
+
+/**
+ * Фото першого екрана: задане в полі сторінки, інакше те, що в шаблоні.
+ *
+ * @param string $fallback ім'я файлу в assets/pictures
+ */
+function bb_hero_image($fallback) {
+    $id = function_exists('get_field') ? get_field('hero_image') : 0;
+    if ($id) {
+        $url = wp_get_attachment_image_url((int) $id, 'full');
+        if ($url) {
+            return $url;
+        }
+    }
+    return get_template_directory_uri() . '/assets/pictures/' . $fallback;
+}
+
+/**
+ * Блоки верхнього рівня для сторінки, у заданому порядку.
+ *
+ * @param string $page слаг сторінки в таксономії block_page ('about', 'discover')
+ * @return WP_Post[]
+ */
+function bb_blocks_for($page) {
+    return get_posts(array(
+        'post_type'      => 'bb_block',
+        'posts_per_page' => -1,
+        'post_parent'    => 0,
+        'orderby'        => 'menu_order date',
+        'order'          => 'ASC',
+        'tax_query'      => array(array(
+            'taxonomy' => 'block_page',
+            'field'    => 'slug',
+            'terms'    => $page,
+        )),
+    ));
+}
+
+/**
+ * Картки всередині блоку.
+ *
+ * @return WP_Post[]
+ */
+function bb_block_children($parent_id) {
+    return get_posts(array(
+        'post_type'      => 'bb_block',
+        'posts_per_page' => -1,
+        'post_parent'    => $parent_id,
+        'orderby'        => 'menu_order date',
+        'order'          => 'ASC',
+    ));
+}
+
+/**
+ * Клас фону блоку. Фони намальовані градієнтами в header.php і
+ * розтягуються на весь блок, тому стиків усередині блоку не буває.
+ */
+function bb_block_bg_class($post_id) {
+    $bg = get_field('background', $post_id);
+    $allowed = array('pastel', 'aurora', 'rose', 'amber', 'mint', 'sky', 'lilac', 'plain', 'dark');
+    if (!in_array($bg, $allowed, true)) {
+        $bg = 'pastel';
+    }
+    return 'bb-bg bb-bg-' . $bg;
+}
+
+/**
+ * Чи темний фон у блоку — від цього залежить колір тексту.
+ */
+function bb_block_is_dark($post_id) {
+    return get_field('background', $post_id) === 'dark';
+}
+
+/**
+ * Вигляд блоку з запасним значенням.
+ */
+function bb_block_layout($post_id) {
+    $layout = get_field('layout', $post_id);
+    return in_array($layout, array('media', 'text', 'cards', 'card'), true) ? $layout : 'media';
+}
+
+/**
+ * Виводить усі блоки сторінки. Один виклик у шаблоні — і сторінка
+ * повністю збирається з того, що заведено в адмінці.
+ */
+function bb_render_blocks($page) {
+    $blocks = bb_blocks_for($page);
+    if (!$blocks) {
+        return;
+    }
+    // Сторона фото чергується лише серед блоків «текст і фото», щоб
+    // текстові блоки між ними не збивали чергування.
+    $media_index = 0;
+    foreach ($blocks as $block) {
+        $layout = bb_block_layout($block->ID);
+        if ($layout === 'media') {
+            $media_index++;
+        }
+        set_query_var('bb_block', $block);
+        set_query_var('bb_block_flip', $layout === 'media' && $media_index % 2 === 0);
+        get_template_part('template-parts/block', $layout);
+    }
+}
+
+/* ====================================================================
  * ФОРМА ЗАЯВКИ
  *
  * Раніше список турів у формі був вписаний руками окремо від сторінки

@@ -101,6 +101,68 @@ function bb_tour_admin_column_value($column, $post_id) {
 }
 
 /* ====================================================================
+ * БЛОК БЕЗ СТОРІНКИ
+ *
+ * Та сама пастка, що й тур без категорії: блок є, а на жодній сторінці
+ * не виводиться, бо не сказано, куди він належить.
+ * ================================================================== */
+
+add_action('admin_notices', 'bb_block_page_notice');
+function bb_block_page_notice() {
+    $screen = get_current_screen();
+    if (!$screen || $screen->post_type !== 'bb_block' || $screen->base !== 'post') {
+        return;
+    }
+    $post_id = isset($_GET['post']) ? (int) $_GET['post'] : 0;
+    if ($post_id) {
+        $terms = wp_get_object_terms($post_id, 'block_page', array('fields' => 'ids'));
+        if (!is_wp_error($terms) && !empty($terms)) {
+            return;
+        }
+    }
+    echo '<div class="notice notice-warning"><p><strong>Tento blok sa zatiaľ nikde nezobrazí.</strong> '
+       . 'V pravom stĺpci vyberte <em>Stránky</em> — určuje, na ktorej stránke sa blok objaví.</p></div>';
+}
+
+add_filter('manage_bb_block_posts_columns', 'bb_block_admin_columns');
+function bb_block_admin_columns($columns) {
+    $out = array();
+    foreach ($columns as $key => $label) {
+        $out[$key] = $label;
+        if ($key === 'title') {
+            $out['bb_layout'] = 'Vzhľad';
+            $out['bb_bg']     = 'Pozadie';
+        }
+    }
+    return $out;
+}
+
+add_action('manage_bb_block_posts_custom_column', 'bb_block_admin_column_value', 10, 2);
+function bb_block_admin_column_value($column, $post_id) {
+    $layouts = array(
+        'media' => 'Text a fotka',
+        'text'  => 'Široký text',
+        'cards' => 'Kartičky',
+        'card'  => 'Kartička',
+    );
+    if ($column === 'bb_layout') {
+        $l = bb_block_layout($post_id);
+        echo esc_html(isset($layouts[$l]) ? $layouts[$l] : $l);
+        if (wp_get_post_parent_id($post_id)) {
+            echo '<br><span style="color:#777;">v bloku „' . esc_html(get_the_title(wp_get_post_parent_id($post_id))) . '”</span>';
+        }
+        return;
+    }
+    if ($column === 'bb_bg') {
+        if (bb_block_layout($post_id) === 'card') {
+            echo '<span style="color:#777;">—</span>';
+            return;
+        }
+        echo esc_html((string) get_field('background', $post_id));
+    }
+}
+
+/* ====================================================================
  * 2. ЗАПИСИ = ЖУРНАЛ
  *
  * Стандартні «Записи» WordPress — це і є статті журналу. Назва
@@ -176,10 +238,10 @@ add_filter('menu_order', 'bb_admin_menu_order');
 function bb_admin_menu_order($menu) {
     return array(
         'index.php',                  // Nástenka
-        'edit.php?post_type=tour',           // Túry
-        'edit.php?post_type=guide',          // Sprievodcovia
-        'edit.php',                          // Žurnál
-        'edit.php?post_type=discover_block', // Discover
+        'edit.php?post_type=tour',       // Túry
+        'edit.php?post_type=guide',      // Sprievodcovia
+        'edit.php',                      // Žurnál
+        'edit.php?post_type=bb_block',   // Bloky stránok
         'edit.php?post_type=page',    // Stránky
         'upload.php',                 // Médiá
     );
@@ -266,9 +328,14 @@ function bb_dashboard_help() {
         <li><strong>Nový sprievodca:</strong> <em>Sprievodcovia → Pridať novú</em>.</li>
         <li><strong>Nový článok:</strong> <em>Žurnál → Pridať nový</em>. Vyberte rubriku —
             podľa nej sa článok zaradí do filtra na stránke Journal.</li>
-        <li><strong>Stránka Discover:</strong> <em>Discover → Pridať nový</em>. Nadpis, text,
-            <em>Fotka bloku</em> alebo <em>Video</em>. Strana (vľavo/vpravo) sa strieda sama,
-            pozadie je spoločné — pridávajte alebo uberajte bloky bez obáv.</li>
+        <li><strong>Stránky About a Discover</strong> sú poskladané z blokov:
+            <em>Bloky stránok → Pridať nový</em>. Vyberte <em>Stránku</em> (kam blok patrí),
+            <em>Vzhľad</em> a <em>Pozadie</em>. Pri type «Text a fotka» sa strana fotky
+            strieda automaticky, takže stačí pridať blok a je hotovo.</li>
+        <li><strong>Kartičky</strong> (napr. «Why Ride With Us»): vytvorte blok s kartičkami,
+            potom každú kartičku ako samostatný blok s vzhľadom <em>Kartička</em> a v
+            <em>Atribúty stránky → Nadradený</em> vyberte blok s kartičkami. Čísla 01, 02…
+            sa doplnia samy.</li>
         <li><strong>Fotky:</strong> vždy cez blok <em>Fotka …</em> v pravom stĺpci.
             Obrázok vložený priamo do textu sa na kartu nedostane.</li>
     </ul>

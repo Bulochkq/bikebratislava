@@ -104,15 +104,22 @@ function bb_register_post_types() {
         'show_in_rest'       => true,
     ));
 
-    /* --------------------------------------- Блоки сторінки Discover */
-    // Кожен запис — один блок «текст + медіа». Сторона (ліворуч/праворуч)
-    // чергується автоматично, тому блоки можна додавати й прибирати
-    // без правок у коді.
-    register_post_type('discover_block', array(
+    /* ------------------------------------------------- Блоки сторінок
+     *
+     * Один запис = один видимий блок на сторінці. Так само, як гід — це
+     * один запис, а тур — один запис. Блоки можна додавати, прибирати й
+     * переставляти без правок у коді.
+     *
+     * Тип запису ієрархічний свідомо: секція з картками (наприклад
+     * «Why Ride With Us») — це блок-батько, а самі картки — блоки-діти.
+     * У списку адмінки вони показуються з відступом, тож видно, що до
+     * чого належить.
+     */
+    register_post_type('bb_block', array(
         'labels' => array(
-            'name'          => 'Discover',
+            'name'          => 'Bloky stránok',
             'singular_name' => 'Blok',
-            'menu_name'     => 'Discover',
+            'menu_name'     => 'Bloky stránok',
             'add_new'       => 'Pridať nový',
             'add_new_item'  => 'Pridať nový blok',
             'new_item'      => 'Nový blok',
@@ -121,23 +128,45 @@ function bb_register_post_types() {
             'all_items'     => 'Všetky bloky',
             'search_items'  => 'Hľadať bloky',
             'not_found'     => 'Žiadne bloky sa nenašli.',
+            'parent_item_colon'     => 'Patrí do bloku:',
             'featured_image'        => 'Fotka bloku',
             'set_featured_image'    => 'Nastaviť fotku bloku',
             'remove_featured_image' => 'Odstrániť fotku',
             'use_featured_image'    => 'Použiť ako fotku bloku',
         ),
-        'public'             => false,
-        'publicly_queryable' => false,
-        'show_ui'            => true,
-        'show_in_menu'       => true,
+        'public'              => false,
+        'publicly_queryable'  => false,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
         'exclude_from_search' => true,
-        'capability_type'    => 'post',
-        'has_archive'        => false,
-        'hierarchical'       => false,
-        'menu_position'      => 7,
-        'menu_icon'          => 'dashicons-images-alt2',
-        'supports'           => array('title', 'editor', 'thumbnail', 'page-attributes'),
-        'show_in_rest'       => true,
+        'capability_type'     => 'post',
+        'has_archive'         => false,
+        'hierarchical'        => true,
+        'menu_position'       => 7,
+        'menu_icon'           => 'dashicons-layout',
+        'supports'            => array('title', 'editor', 'thumbnail', 'page-attributes'),
+        'show_in_rest'        => false,
+    ));
+
+    // До якої сторінки належить блок. Зроблено таксономією, а не полем,
+    // щоб у списку блоків був стовпчик і фільтр за сторінкою.
+    register_taxonomy('block_page', array('bb_block'), array(
+        'labels' => array(
+            'name'          => 'Stránky',
+            'singular_name' => 'Stránka',
+            'all_items'     => 'Všetky stránky',
+            'edit_item'     => 'Upraviť stránku',
+            'add_new_item'  => 'Pridať stránku',
+            'new_item_name' => 'Názov novej stránky',
+            'menu_name'     => 'Stránky',
+        ),
+        'hierarchical'      => true,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => false,
+        'rewrite'           => false,
+        'public'            => false,
+        'show_in_rest'      => false,
     ));
 }
 add_action('init', 'bb_register_post_types');

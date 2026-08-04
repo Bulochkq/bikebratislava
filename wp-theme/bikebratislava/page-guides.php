@@ -19,9 +19,9 @@
             </p>
         </div>
     </section>    <!-- SECTION: GUIDES PROFILE CARDS -->
-    <?php // Фон намальований градієнтами й повторюється вниз, тому сторінка
-          // лишається такою самою на вигляд, скільки б гідів не додалося. ?>
-    <section class="relative overflow-hidden bb-soft-bg-cool">
+    <?php // Фон намальований градієнтами й розтягується на всю секцію,
+          // тому лишається рівним, скільки б гідів не додалося. ?>
+    <section class="relative overflow-hidden bb-bg bb-bg-mint">
         <div class="max-w-7xl mx-auto py-32 px-6 lg:px-12 relative z-10">
             <div class="space-y-32">
                 
